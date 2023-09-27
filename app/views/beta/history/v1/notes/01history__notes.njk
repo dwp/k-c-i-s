@@ -1,0 +1,50 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<hr>
+<br>
+<h3 class="govuk-heading-s govuk-!-font-weight-regular">NOT PART OF DESIGN: Demo only</h3>
+<h4 class="govuk-heading-s">Versions</h3>
+{% include "beta/history/_versions/01history__versions.njk" %}
+
+<h4 class="govuk-heading-s">States</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li><a href="01history">History</a></li>
+	</ul>
+<h4 class="govuk-heading-s">v1 Design notes</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li>UCD ideation</li>
+		<li>What are the events that should be included?</li>
+		<li>Do we need to display the reference number - is this useful?</li>
+		<li>Are the details enough to identify and build the overall picture</li>
+		<li>Do we need a context of an incident</li>
+		<li>All events linked to event display pages. </li>
+		<li>Review date shown only if active measures exist</li>
+		<li>Key details banner red with "Active measures" text if active Measures exist</li>
+	</ul>
+<h4 class="govuk-heading-s">Hypotheses and insights</h3>
+<li><a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/28025033742/Safeguarding+UR+Alpha?preview=/28025033742/132169597276/Agent%20Safeguarding%20Service%20Alpha%20research%20summary.pptx">Alpha research - Decision Maker: Having a view of the customer history minimises having to check multiple systems</a></li>
+<li><a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/28025033742/Safeguarding+UR+Alpha?preview=/28025033742/132169597276/Agent%20Safeguarding%20Service%20Alpha%20research%20summary.pptx">Alpha research - Decision Maker: Type of incident helps to determine severity of incident</a></li>
+<li><a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/28025033742/Safeguarding+UR+Alpha?preview=/28025033742/132169597276/Agent%20Safeguarding%20Service%20Alpha%20research%20summary.pptx">Alpha research - Decision Maker: Date incident reported could be useful as it is not always the same as the date of the incident</a></li>
+	<ul class="govuk-list govuk-list--bullet">
+		<li><a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132775346323/Agents+Safeguarding+-+User+Role+Model#decision_maker">Decision maker user canvas</a></li>
+		<ul class="govuk-list govuk-list--bullet">
+			<li>Need: Work on multiple cases</li>
+			<li>Pain: Inefficient processes and missing SLAs</li>
+			<li>Pain: The number of reviews needing doing</li>
+		</ul>
+		<li><a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132775346323/Agents+Safeguarding+-+User+Role+Model#business_support">Business support user canvas</a></li>
+		<ul class="govuk-list govuk-list--bullet">
+			<li>Need: Work on multiple cases</li>
+			<li>Pain relievers: Single source of truth</li>
+		</ul>
+	</ul>
+{% set journeyNotesHTML %}
+	{% include "beta/history/notes/v1__notes.njk" %}
+{% endset %}
+{{ govukDetails({
+	summaryText: "v1 Journey level design notes",
+	html: journeyNotesHTML
+}) }}		

@@ -1,0 +1,35 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<hr>
+<br>
+<h3 class="govuk-heading-s govuk-!-font-weight-regular">NOT PART OF DESIGN: Demo only</h3>
+<h4 class="govuk-heading-s">Versions</h3>
+{% include "beta/witness/_versions/04confirm__versions.njk" %}
+
+<h4 class="govuk-heading-s">States</h3>
+<ul class="govuk-list govuk-list--bullet">
+<a href="04confirm-you">1. Confirm - you</a><br>
+<a href="04confirm-youdidnot">2. Confirm - you did not</a><br>
+<a href="04confirm-youonbehalf">3. Confirm - You on behalf of</a><br>
+<a href="04confirm-youonbehalfdidnot">4. Confirm - You on behalf of did not</a><br>
+</ul>
+<h4 class="govuk-heading-s">v4 Design notes</h3>
+	<ul class="govuk-list govuk-list--bullet">
+	</ul>
+<h4 class="govuk-heading-s">Hypotheses</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li><a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132775346323/Agents+Safeguarding+-+User+Role+Model#witness">Witness user canvas</a></li>
+		<ul class="govuk-list govuk-list--bullet">
+			<li>Need: Reactively submit witness report</li>
+		</ul>
+	</ul>
+{% set journeyNotesHTML %}
+	{% include "beta/witness/notes/v4__notes.njk" %}
+{% endset %}
+{{ govukDetails({
+	summaryText: "v4 Journey level design notes",
+	html: journeyNotesHTML
+}) }}	

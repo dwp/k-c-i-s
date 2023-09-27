@@ -1,0 +1,91 @@
+{% extends "layout_ur.html" %}
+
+{% block pageTitle %}
+  Decision - Keep Customer Interactions Safe
+{% endblock %}
+
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+      text: "beta"
+    },
+      html: 'This is a new service – your <a class="govuk-link" href="08discrimination_error">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "../templates/key_details_robert_blue.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
+  </section>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <style>
+        h1 {
+            margin-block-start: 0em;
+        }
+      </style>
+      <h1 class="govuk-heading-xl">Decision</h1>
+      {{ govukSummaryList({
+            rows: [
+              {
+                key: {
+                  text: "Date"
+                },
+                value: {
+                  text: "7 July 2023"
+                }
+              },
+              {
+                key: {
+                  text: "From"
+                },
+                value: {
+                  text: "Sadiq Assam"
+                }
+              },
+              {
+                key: {
+                  text: "Message"
+                },
+                value: {
+                  text: "I have sent you the appropriate letter to be sent to the customer. Please personalise to yourself and your office and send. Can you record the date you sent it and the expected delivery date. Also, could you interview the customer following their receipt and let me know how they respond. Both these actions should be available from your 'My reports' page in KCIS  "
+                }
+              }
+            ]
+          }) }}
+
+    <p class="govuk-body">You can refer to <a href="04incident_best_simple_info">the original report</a> if you need to.</p>
+      <h2 class="govuk-heading-l">Measures applied</h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>None</li>
+      </ul>
+      <p class="govuk-body">No other KCIS reports held and nothing of this nature in the UC journal. Clmt’s language was of a racist nature and colleague was intimidated in the exchange. Warning letter issued (site to post). No evidence as yet to suggest clmt presents a risk to staff of ethnic background/heritage so I have not set staff safety measures at this stage.  </p>
+      <h2 class="govuk-heading-l">Actions now due</h2>
+      <h3 class="govuk-heading-m">Actions for you </h3>
+      <p class="govuk-body">These actions are all listed on your Home page. When you go back to the Home page, click each action and enter the required information.</p>
+      <ol class="govuk-list govuk-list--number">
+        <li>Send letter<br>
+        Please send the first warning letter, template T01</li>
+        <li>Interview by a manager</li>
+      </ol>
+      <h3 class="govuk-heading-m">Actions for other people</h3>
+      <p class="govuk-body">These actions will be carried out by the person who made this decision.</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>Request solicitor to send a letter</li>
+      </ul>
+
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Back to Home page",
+          href: "06landingpage2_manager_decision"
+        }) }}
+      </div>
+    </div>
+  </div>
+{% endblock %}

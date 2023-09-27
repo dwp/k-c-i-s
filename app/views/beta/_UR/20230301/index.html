@@ -1,0 +1,60 @@
+{% extends "layout_ur.html" %}
+{% block pageTitle %}
+    Start of journey
+{% endblock %}
+{% block beforeContent %}{% endblock %}
+{% block content %}
+    <h1 class="govuk-heading-xl">Research</h1>
+    <p class="govuk-body">1 March 2023</p>
+    <div class="govuk-!-padding-bottom-7">
+        <form class="form" action="/beta/_UR/20230301/" method="post">
+            {{ govukInput({
+              id: "your-first-name",
+              name: "your-first-name",
+              classes: "govuk-!-width-two-thirds",
+              value: data['your-first-name'],
+              label: {
+                text: "Your first name"
+              }
+            }) }}
+            {{ govukInput({
+              id: "your-last-name",
+              name: "your-last-name",
+              classes: "govuk-!-width-two-thirds",
+              value: data['your-last-name'],
+              label: {
+                text: "Your last name"
+              }
+            }) }}
+            {{ govukInput({
+              id: "your-email",
+              name: "your-email",
+              type: "email",
+              autocomplete: "email",
+              value: data['your-email'],
+              spellcheck: false,
+              label: {
+                text: "Your email address"
+              },
+              hint: {
+                text: "Enter their email address as it appears on the Global Address List"
+              }
+            }) }}
+            <div>
+                {{ govukButton({
+                text: "Store"
+                }) }}
+            </div>            
+        </form>    
+        <ul class="govuk-list govuk-list--bullet govuk-!-padding-top-9">
+            <li>
+                <p>
+                    <a href="/beta/_UR/20230301/reportv10/01report">Proceed to scenario 1</a>
+                </p>
+
+                <p>Note: based on v10 Report</p>
+            </li>
+        </ul>        
+    </div>
+
+</p>{% endblock %}

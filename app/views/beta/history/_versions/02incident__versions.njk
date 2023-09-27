@@ -1,0 +1,34 @@
+{% set versions = [ 
+  "../v3/00incident",
+  "../v4/02incident_best",
+  "../v5/02incident_best",
+  "../v6/02incident_best"
+] %}
+
+
+{{ govukPagination({
+  items: [
+    {
+      number: 3,
+      href: versions[0]
+    },
+    {
+      number: 4,
+      href: versions[0]
+    },
+    {
+      number: 5,
+      href: versions[0]
+    },
+    {
+      number: 6,
+      href: versions[1]
+    }
+  ]
+}) }}
+
+
+{% block pageScripts %}
+  <script src="/public/javascripts/versions_1-0.js"></script>
+{% endblock %}
+

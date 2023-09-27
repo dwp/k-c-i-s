@@ -1,0 +1,21 @@
+{% set versions = [ 
+  "../reportv12/00timeout_warning"
+] %}
+
+
+
+{{ govukPagination({
+
+  items: [
+    {
+      number: 1,
+      href: versions[0]
+    }
+  ]
+}) }}
+
+
+{% block pageScripts %}
+  <script src="/public/javascripts/versions_1-0.js"></script>
+{% endblock %}
+

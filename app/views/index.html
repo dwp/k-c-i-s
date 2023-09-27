@@ -1,0 +1,1126 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Prototype index - Keep Customer Interactions Safe
+{% endblock %}
+
+
+
+{% block content %}
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+		<h1 class="govuk-heading-xl">Prototype index<span class="govuk-caption-m">Prototype kit {{releaseVersion}}</span></h1>
+		<ul class="govuk-list govuk-list--bullet">
+			<li><a href="#interaction">Prepare for interaction</a></li>
+			<li><a href="#incident">Report incident or concern</a></li>
+			<li><a href="#manager">Manager report</a></li>
+			<li><a href="#witness">Witness report</a></li>
+			<li><a href="#common">Common reporting</a></li>
+			<li><a href="#decision">Make Decision journey</a></li>
+			<li><a href="#admin">Private Beta admin</a></li>
+			<li><a href="#email">Notification emails</a></li>
+			<li><a href="#research">User Research and Presentations</a></li>
+			<li><a href="#displaymode">Display mode</a></li>
+		</ul>
+		<hr>
+
+
+		<div class="govuk-!-padding-bottom-7 govuk-!-padding-top-7">
+			<h2 class="govuk-heading-l" id="interaction">Prepare for interaction</h2>
+			<h3 class="govuk-heading-s"><strong class="govuk-tag govuk-tag--blue">UCD - In progress</strong></h3>
+			<ul class="govuk-list govuk-list--bullet">
+				<li><a href="/beta/interaction/v2/01interaction">Prepare for interaction v2</a><br><br>
+				{{ govukDetails({
+					summaryText: "Page index",
+					html: '
+								<ul class="govuk-list">
+									<li><a href="/beta/interaction/v2/01interaction">01interaction - Prepare for interaction</a></li>
+								</ul>'
+				}) }}
+				{% set journeyNotesHTMLinteract_v2 %}
+					{% include "./beta/interaction/notes/v2__notes.njk" %}
+				{% endset %}
+				{{ govukDetails({
+					summaryText: "v2 Interaction journey-level notes",
+					html: journeyNotesHTMLinteract_v2
+				}) }}
+				</li>
+			</ul>
+			<h3 class="govuk-heading-s"><strong class="govuk-tag govuk-tag--green">Development</strong></h3>
+			<ul class="govuk-list govuk-list--bullet">
+				<li><a href="/beta/interaction/v1/01interaction">Prepare for interaction v1</a><br><br>
+				{{ govukDetails({
+					summaryText: "Page index",
+					html: '
+								<ul class="govuk-list">
+									<li><a href="/beta/interaction/v1/01interaction">01interaction - Prepare for interaction link to SPL</a></li>
+								</ul>'
+				}) }}
+				{% set journeyNotesHTMLinteract_v1 %}
+					{% include "./beta/interaction/notes/v1__notes.njk" %}
+				{% endset %}
+				{{ govukDetails({
+					summaryText: "v1 Interaction journey-level notes",
+					html: journeyNotesHTMLinteract_v1
+				}) }}
+				</li>
+			</ul>
+			<hr>
+
+			<h3 class="govuk-heading-s">Archive</h3>
+			{% set oldjourneysHTML %}
+				<ul class="govuk-list govuk-list--bullet">
+					<li>None</li>
+				</ul>
+			{% endset %}
+			{{ govukDetails({
+			summaryText: "Old journeys",
+			html: oldjourneysHTML
+			}) }}
+
+
+			{% set oldpagesHTML %}
+				<ul class="govuk-list govuk-list--bullet">
+					<li>None</li>
+				</ul>
+			{% endset %}
+			{{ govukDetails({
+			summaryText: "Old pages",
+			html: oldpagesHTML
+			}) }}
+
+						<hr>
+		</div>
+
+
+
+
+		<div class="govuk-!-padding-bottom-7 govuk-!-padding-top-7">
+			<h2 class="govuk-heading-l" id="incident">Report incident or concern</h2>
+			<hr>
+			<h3 class="govuk-heading-s">Jira dashboards</h3>
+			<ul class="govuk-list govuk-list--bullet">
+				<li><a href="https://dwpdigital.atlassian.net/jira/dashboards/24321">Common reporting (Establish report type, Upload Digital Files)</a></li>
+				<li><a href="https://dwpdigital.atlassian.net/jira/dashboards/24258">Report incident</a></li>
+				<li><a href="https://dwpdigital.atlassian.net/jira/dashboards/24259">Report agent safety concern</a></li>
+			</ul>
+			<hr>
+			<h3 class="govuk-heading-s"><strong class="govuk-tag govuk-tag--blue">UCD - In progress</strong></h3>
+			<ul class="govuk-list govuk-list--bullet">
+				<li><a href="/beta/report_incident/reportv12/01report">Report incident or concern v12</a><br><br>
+				{{ govukDetails({
+					summaryText: "Page index",
+					html: '
+								<ul class="govuk-list">
+									<li><a href="/beta/report_incident/reportv12/00timeout_warning">Timeout - warning</a></li>
+									<li><a href="/beta/report_incident/reportv12/01report">01report - establish report type</a></li>
+								</ul>
+								<p class="govuk-body">Incident</p>
+								<ul class="govuk-list">
+									<li><a href="/beta/report_incident/reportv12/02behalf">02behalf</a></li>
+									<li><a href="/beta/report_incident/reportv12/03acting_manager">03acting_manager</a></li>
+									<li><a href="/beta/report_incident/reportv12/04interaction">04interaction</a></li>
+									<li><a href="/beta/report_incident/reportv12/05when-date">05when-date</a></li>
+									<li><a href="/beta/report_incident/reportv12/06when-time">06when-time</a></li>
+									<li><a href="/beta/report_incident/reportv12/07where">07where</a></li>
+									<li><a href="/beta/report_incident/reportv12/08discrimination">08discrimination</a></li>
+									<li><a href="/beta/report_incident/reportv12/09describe">09describe</a></li>
+									<li><a href="/beta/report_incident/reportv12/10add">10add</a></li>
+									<li><a href="/beta/report_incident/reportv12/11a_upload">11a_upload</a></li>
+									<li><a href="/beta/report_incident/reportv12/12check">12check</a></li>
+									<li><a href="/beta/report_incident/reportv12/13confirm">13confirm</a></li>
+								</ul>
+								<p class="govuk-body">Concern</p>
+								<ul class="govuk-list">
+									<li><a href="/beta/report_incident/reportv12/c00agentsource">c00agentsource</a></li>
+									<li><a href="/beta/report_incident/reportv12/c01comments">c01 comments</a></li>
+									<li><a href="/beta/report_incident/reportv12/c02fileuploadcheck">c02 fileuploadcheck</a></li>
+									<li><a href="/beta/report_incident/reportv12/c03check">c03 check</a></li>
+									<li><a href="/beta/report_incident/reportv12/c04confirm">c04 confirm</a></li>
+								</ul>
+								<p class="govuk-body">Concern - not used</p>
+								<ul class="govuk-list">
+									<li><a href="/beta/report_incident/reportv12/cxxwhen-date">cxx date</a></li>
+								</ul>
+								
+								'
+				}) }}
+				{% set journeyNotesHTMLreport_v12%}
+					{% include "./beta/report_incident/notes/v12__notes.njk" %}
+				{% endset %}
+				{{ govukDetails({
+					summaryText: "v12 Report journey-level notes",
+					html: journeyNotesHTMLreport_v12
+				}) }}
+				</li>
+			</ul>
+			<h3 class="govuk-heading-s"><strong class="govuk-tag govuk-tag--green">Development</strong></h3>
+			<ul class="govuk-list govuk-list--bullet">
+				<li><a href="/beta/report_incident/reportv11/01report">Report incident or concern v11</a><br><br>
+				{{ govukDetails({
+					summaryText: "Page index",
+					html: '
+								<ul class="govuk-list">
+									<li><a href="/beta/report_incident/reportv11/01report">01report - establish report type</a></li>
+								</ul>
+								<p class="govuk-body">Incident</p>
+								<ul class="govuk-list">
+									<li><a href="/beta/report_incident/reportv11/02behalf">02behalf</a></li>
+									<li><a href="/beta/report_incident/reportv11/03acting_manager">03acting_manager</a></li>
+									<li><a href="/beta/report_incident/reportv11/04interaction">04interaction</a></li>
+									<li><a href="/beta/report_incident/reportv11/05when-date">05when-date</a></li>
+									<li><a href="/beta/report_incident/reportv11/06when-time">06when-time</a></li>
+									<li><a href="/beta/report_incident/reportv11/07where">07where</a></li>
+									<li><a href="/beta/report_incident/reportv11/08discrimination">08discrimination</a></li>
+									<li><a href="/beta/report_incident/reportv11/09describe">09describe</a></li>
+									<li><a href="/beta/report_incident/reportv11/10add">10add</a></li>
+									<li><a href="/beta/report_incident/reportv11/11a_upload">11a_upload</a></li>
+									<li><a href="/beta/report_incident/reportv11/12check">12check</a></li>
+									<li><a href="/beta/report_incident/reportv11/13confirm">13confirm</a></li>
+								</ul>
+								<p class="govuk-body">Concern</p>
+								<ul class="govuk-list">
+									<li><a href="/beta/report_incident/reportv11/concern/00agentsource">00agentsource</a></li>
+									<li><a href="/beta/report_incident/reportv11/concern/01comments">01comments</a></li>
+									<li><a href="/beta/report_incident/reportv11/concern/02fileuploadcheck">02fileuploadcheck</a></li>
+									<li><a href="/beta/report_incident/reportv11/concern/03check">03check</a></li>
+									<li><a href="/beta/report_incident/reportv11/concern/04confirm">04confirm</a></li>
+								</ul>'
+				}) }}
+				{% set journeyNotesHTMLreport_v11%}
+					{% include "./beta/report_incident/notes/v11__notes.njk" %}
+				{% endset %}
+				{{ govukDetails({
+					summaryText: "v11 Report journey-level notes",
+					html: journeyNotesHTMLreport_v11
+				}) }}
+				</li>
+			</ul>
+			<hr>
+
+			<h3 class="govuk-heading-s">Archive</h3>
+			{% set oldjourneysHTML %}
+			<ul class="govuk-list govuk-list--bullet">
+								<li><a href="/beta/report_incident/reportv10/01report">Report incident or concern v10</a><br><br>
+				{{ govukDetails({
+					summaryText: "Page index",
+					html: '
+								<ul class="govuk-list">
+									<li><a href="/beta/report_incident/reportv10/01report">01report - establish report type</a></li>
+								</ul>
+								<p class="govuk-body">Incident</p>
+								<ul class="govuk-list">
+									<li><a href="/beta/report_incident/reportv10/02behalf">02behalf</a></li>
+									<li><a href="/beta/report_incident/reportv10/03line_manager">03line_manager</a></li>
+									<li><a href="/beta/report_incident/reportv10/04acting_manager">04acting_manager</a></li>
+									<li><a href="/beta/report_incident/reportv10/05interaction">05interaction</a></li>
+									<li><a href="/beta/report_incident/reportv10/06when">06when</a></li>
+									<li><a href="/beta/report_incident/reportv10/07where">07where</a></li>
+									<li><a href="/beta/report_incident/reportv10/08discrimination">08discrimination</a></li>
+									<li><a href="/beta/report_incident/reportv10/09describe">09describe</a></li>
+									<li><a href="/beta/report_incident/reportv10/10add">10add</a></li>
+									<li><a href="/beta/report_incident/reportv10/11a_upload">11a_upload</a></li>
+									<li><a href="/beta/report_incident/reportv10/12check">12check</a></li>
+									<li><a href="/beta/report_incident/reportv10/13confirm">13confirm</a></li>
+								</ul>
+								<p class="govuk-body">Concern</p>
+								<ul class="govuk-list">
+									<li><a href="/beta/report_incident/reportv10/concern/00agentsource">00agentsource</a></li>
+									<li><a href="/beta/report_incident/reportv10/concern/01comments">01comments</a></li>
+									<li><a href="/beta/report_incident/reportv10/concern/02fileuploadcheck">02fileuploadcheck</a></li>
+									<li><a href="/beta/report_incident/reportv10/concern/03check">03check</a></li>
+									<li><a href="/beta/report_incident/reportv10/concern/04confirm">04confirm</a></li>
+								</ul>'
+				}) }}
+				{% set journeyNotesHTMLreport_v10 %}
+					{% include "./beta/report_incident/notes/v10__notes.njk" %}
+				{% endset %}
+				{{ govukDetails({
+					summaryText: "v10 Report journey-level notes",
+					html: journeyNotesHTMLreport_v10
+				}) }}
+				</li>
+				<li><a href="/beta/report_incident/reportv9/00reporter">Report incident or concern v9</a></li>
+				{% set journeyNotesHTMLreport_v9 %}
+					{% include "./beta/report_incident/notes/v9__notes.njk" %}
+				{% endset %}
+				{{ govukDetails({
+					summaryText: "v9 Report journey-level notes",
+					html: journeyNotesHTMLreport_v9
+				}) }}
+				<li><a href="/beta/report_incident/reportv8/00report">Report incident or concern v8</a></li>
+				{% set journeyNotesHTMLreport_v8 %}
+					{% include "./beta/report_incident/notes/v8__notes.njk" %}
+				{% endset %}
+				{{ govukDetails({
+					summaryText: "v8 Report journey-level notes",
+					html: journeyNotesHTMLreport_v8
+				}) }}
+				<li><a href="/beta/report_incident/reportv7/00report">Report incident or concern v7</a></li>
+				{% set journeyNotesHTMLreport_v7 %}
+					{% include "./beta/report_incident/notes/v7__notes.njk" %}
+				{% endset %}
+				{{ govukDetails({
+					summaryText: "v7 Report journey-level notes",
+					html: journeyNotesHTMLreport_v7
+				}) }}
+				<li><a href="/beta/report_incident/reportv6/00report">Report incident or concern v6</a></li>
+				{% set journeyNotesHTMLreport_v6 %}
+					{% include "./beta/report_incident/notes/v6__notes.njk" %}
+				{% endset %}
+				{{ govukDetails({
+					summaryText: "v6 Report journey-level notes",
+					html: journeyNotesHTMLreport_v6
+				}) }}
+				<li><a href="/beta/report_incident/reportv5/00report">Report incident or concern v5</a></li>
+				{% set journeyNotesHTMLreport_v5 %}
+					{% include "./beta/report_incident/notes/v5__notes.njk" %}
+				{% endset %}
+				{{ govukDetails({
+					summaryText: "v5 Report journey-level notes",
+					html: journeyNotesHTMLreport_v5
+				}) }}
+				<li><a href="/beta/report_incident/reportv4/00report">Report incident or concern v4</a></li>
+				{% set journeyNotesHTMLreport_v4 %}
+					{% include "./beta/report_incident/notes/v4__notes.njk" %}
+				{% endset %}
+				{{ govukDetails({
+					summaryText: "v4 Report journey-level notes",
+					html: journeyNotesHTMLreport_v4
+				}) }}
+				<li><a href="/beta/report_incident/reportv3/00report">Report incident or concern v3</a></li>
+				{% set journeyNotesHTMLreport_v3 %}
+					{% include "./beta/report_incident/notes/v3__notes.njk" %}
+				{% endset %}
+				{{ govukDetails({
+					summaryText: "v3 Report journey-level notes",
+					html: journeyNotesHTMLreport_v3
+				}) }}
+				<li><a href="/beta/report_incident/reportv2/00report">Report incident or concern v2</a></li>
+				{% set journeyNotesHTMLreport_v2 %}
+					{% include "./beta/report_incident/notes/v2__notes.njk" %}
+				{% endset %}
+				{{ govukDetails({
+					summaryText: "v2 Report journey-level notes",
+					html: journeyNotesHTMLreport_v2
+				}) }}
+				<li><a href="/beta/report_incident/reportv1/00report">Report incident or concern v1</a></li>
+				{% set journeyNotesHTMLreport_v1 %}
+					{% include "./beta/report_incident/notes/v1__notes.njk" %}
+				{% endset %}
+				{{ govukDetails({
+					summaryText: "v1 Report journey-level notes",
+					html: journeyNotesHTMLreport_v1
+				}) }}
+			</ul>
+			{% endset %}
+			{{ govukDetails({
+			summaryText: "Old journeys",
+			html: oldjourneysHTML
+			}) }}
+			{% set oldpagesHTML %}
+			<ul class="govuk-list govuk-list--bullet">
+				<li><a href="/beta/emails/reporter/v1/01incident-confirmation">Reporter - incident confirmation email v1</a></li>
+				<li><a href="/beta/emails/reporter/v1/02concern-confirmation">Reporter - concern confirmation email v1</a></li>
+				<li><a href="/beta/breakdown/breakdown">Breakdown v1</a></li>
+				<li><a href="/beta/breakdown/breakdownv2">Breakdown v2</a></li>
+				<li><a href="/beta/breakdown/breakdownv3">Breakdown v3</a></li>
+				<li><a href="/beta/breakdown/breakdownv4">Breakdown v4</a></li>
+				<li><a href="/beta/breakdown/breakdownv5">Breakdown v5</a></li>
+				<li><a href="/beta/breakdown/breakdownv6">Breakdown v6</a></li>
+				<li><a href="/beta/breakdown/breakdownv7">Breakdown v7</a></li>
+			</ul>
+			{% endset %}
+			{{ govukDetails({
+			summaryText: "Old pages",
+			html: oldpagesHTML
+			}) }}
+			<hr>
+		</div>
+
+		<div class="govuk-!-padding-bottom-7 govuk-!-padding-top-7">
+			<h2 class="govuk-heading-l" id="manager">Manager report</h2>
+			<hr>
+			<h3 class="govuk-heading-s">Jira dashboards</h3>
+			<ul class="govuk-list govuk-list--bullet">
+				<li><a href="https://dwpdigital.atlassian.net/jira/dashboards/24321">Common reporting (View and select)</a></li>
+				<li><a href="https://dwpdigital.atlassian.net/jira/dashboards/24358">Submit incident manager report</a></li>
+				<li><a href="https://dwpdigital.atlassian.net/jira/dashboards/24368">Manage witnesses</a></li>
+			</ul>
+			<hr>
+			<h3 class="govuk-heading-s"><strong class="govuk-tag govuk-tag--blue">UCD - In progress</strong></<h3></h3>
+			<ul class="govuk-list govuk-list--bullet">
+				<li><a href="/beta/incident_manager_journey/v4/00searchlight">Manager journeys v4</a><br><br>
+				{{ govukDetails({
+					summaryText: "Page index",
+					html: '
+								<ul class="govuk-list">
+									<li><a href="/beta/incident_manager_journey/v4/00searchlight">00 Searchlight menu</a></li>
+									<li><a href="/beta/incident_manager_journey/v4/01landingpage2_manager">01 home page</a></li>
+									<li><a href="/beta/incident_manager_journey/v4/02incident_simple">02 Incident</a></li>
+									<li><a href="/beta/incident_manager_journey/v4/03witnessdisplay-1nowitnesses">03 witness list</a></li>
+									<li><a href="/beta/incident_manager_journey/v4/wit01add_witness">WIT01 Add witness</a></li>
+									<li><a href="/beta/incident_manager_journey/v4/wit02comments">WIT02 Comment witness</a></li>
+									<li><a href="/beta/incident_manager_journey/v4/04add_witness">04 Add witness</a></li>
+									<li><a href="/beta/incident_manager_journey/v4/05confirm_witness_onbehalf">05 confirm witness on behalf</a></li>
+									<li><a href="/beta/incident_manager_journey/v4/06sent-1colleague">06 sent</a></li>
+									<li><a href="/beta/incident_manager_journey/v4/07witness_report_simple">07 witness report</a></li>
+									<li><a href="/beta/incident_manager_journey/v4/08deletewitness">08 delete witness</a></li>
+									<li><a href="/beta/incident_manager_journey/v4/09police">09 police</a></li>
+									<li><a href="/beta/incident_manager_journey/v4/10action">10 police action</a></li>
+									<li><a href="/beta/incident_manager_journey/v4/11comments">11 comments</a></li>
+									<li><a href="/beta/incident_manager_journey/v4/12check">12 check</a></li>
+									<li><a href="/beta/incident_manager_journey/v4/13confirmation">13 confirmation</a></li>
+								</ul>
+								<p class="govuk-body">Further information request</p>
+								<ul class="govuk-list">
+									<li><a href="/beta/incident_manager_journey/v4/01landingpage2_manager">01 home page</a></li>
+									<li><a href="/beta/incident_manager_journey/v4/i02moreinfo">i02 moreinfo</a></li>
+									<li><a href="/beta/incident_manager_journey/v4/i03incident_best_simple_info">i03 Original incident report</a></li>
+								</ul>
+								<p class="govuk-body">Deliver decision</p>
+								<ul class="govuk-list">
+									<li><a href="/beta/incident_manager_journey/v4/01landingpage2_manager">01 home page</a></li>
+									<li><a href="/beta/incident_manager_journey/v4/d02decision">d02 view decison</a></li>
+									<li><a href="/beta/incident_manager_journey/v4/d03incident_best_simple_info">d03 Original incident report</a></li>
+								</ul>
+								<p class="govuk-body">Take action</p>
+								<ul class="govuk-list">
+									<li><a href="/beta/incident_manager_journey/v4/01landingpage2_manager">01 home page</a></li>
+									<li><a href="/beta/incident_manager_journey/v4/a02action_letter">a02 record action (letter)</a></li>
+								</ul>'
+				}) }}
+				{% set journeyNotesHTMLDecision %}
+					{% include "beta/incident_manager_journey/notes/v4__notes.njk" %}
+				{% endset %}
+				{{ govukDetails({
+					summaryText: "v4 Journey level design notes",
+					html: journeyNotesHTMLDecision
+				}) }}		</li>
+			</ul>
+			<h3 class="govuk-heading-s"><strong class="govuk-tag govuk-tag--green">Development</strong></h3>
+			<ul class="govuk-list govuk-list--bullet">
+				<li><a href="/beta/incident_manager_journey/v3/02incident_simple">Incident manager report v3</a><br><br>
+				{{ govukDetails({
+					summaryText: "Page index",
+					html: '
+								<ul class="govuk-list">
+									<li><a href="/beta/incident_manager_journey/v3/02incident_simple">02 Incident</a></li>
+									<li><a href="/beta/incident_manager_journey/v3/03witnessdisplay-1nowitnesses">03 witness list</a></li>
+									<li><a href="/beta/incident_manager_journey/v3/04add_witness">04 Add witness</a></li>
+									<li><a href="/beta/incident_manager_journey/v3/05confirm_witness_onbehalf">05 confirm witness on behalf</a></li>
+									<li><a href="/beta/incident_manager_journey/v3/06sent-1colleague">06 sent</a></li>
+									<li><a href="/beta/incident_manager_journey/v3/07witness_report_simple">07 witness report</a></li>
+									<li><a href="/beta/incident_manager_journey/v3/08deletewitness">08 delete witness</a></li>
+									<li><a href="/beta/incident_manager_journey/v3/09police">09 police</a></li>
+									<li><a href="/beta/incident_manager_journey/v3/10action">10 police action</a></li>
+									<li><a href="/beta/incident_manager_journey/v3/11comments">11 comments</a></li>
+									<li><a href="/beta/incident_manager_journey/v3/12check">12 check</a></li>
+									<li><a href="/beta/incident_manager_journey/v3/13confirmation">13 confirmation</a></li>
+								</ul>'
+				}) }}
+				{% set journeyNotesHTMLDecision %}
+					{% include "beta/incident_manager_journey/notes/v3__notes.njk" %}
+				{% endset %}
+				{{ govukDetails({
+					summaryText: "v3 Journey level design notes",
+					html: journeyNotesHTMLDecision
+				}) }}
+				</li>
+			</ul>
+			<hr>
+
+			<h3 class="govuk-heading-s">Archive</h3>
+			{% set oldjourneysHTML %}
+			<ul class="govuk-list govuk-list--bullet">
+				<li><a href="/beta/incident_manager_journey/v2/02incident">Manager report v2</a></li>
+					<ul class="govuk-list">
+									<li><a href="/beta/incident_manager_journey/v2/02incident">02 Incident</a></li>
+									<li><a href="/beta/incident_manager_journey/v2/03witnessdisplay">03 witness list</a></li>
+									<li><a href="/beta/incident_manager_journey/v2/04add_witness">04 Who witnessed</a></li>
+									<li><a href="/beta/incident_manager_journey/v2/05confirm_witness2">05 Who reports</a></li>
+									<li><a href="/beta/incident_manager_journey/v2/06sent">06 email sent</a></li>
+									<li><a href="/beta/incident_manager_journey/v2/07witness_report">07 witness report</a></li>
+									<li><a href="/beta/incident_manager_journey/v2/08deletewitness">08 delete witness</a></li>
+									<li><a href="/beta/incident_manager_journey/v2/09police">09 police</a></li>
+									<li><a href="/beta/incident_manager_journey/v2/10action">10 police action</a></li>
+									<li><a href="/beta/incident_manager_journey/v2/11comments">11 comments</a></li>
+									<li><a href="/beta/incident_manager_journey/v2/12check">12 check</a></li>
+									<li><a href="/beta/incident_manager_journey/v2/13confirmation">13 confirmation</a></li>
+					</ul>
+				<li><a href="/beta/incident_manager_journey/v1/00incident">Manager report v1</a>
+					<ul class="govuk-list">
+						<li><a href="/beta/incident_manager_journey/v1/00_start">00 Start</a></li>
+						<li><a href="/beta/incident_manager_journey/v1/00incident">00 Incident</a></li>
+						<li><a href="/beta/incident_manager_journey/v1/01witnessquestion">01 did anyone witness </a></li>
+						<li><a href="/beta/incident_manager_journey/v1/02add_witness">02 add witness </a></li>
+						<li><a href="/beta/incident_manager_journey/v1/03list_witness3_no_witnesses">03 witness list</a></li>
+						<li><a href="/beta/incident_manager_journey/v1/04witness_delete">04 delete witness</a></li>
+						<li><a href="/beta/incident_manager_journey/v1/05list_witness_confirm">05 check witness list</a></li>
+						<li><a href="/beta/incident_manager_journey/v1/06confirmation_witness">06 email sent confirmation</a></li>
+						<li><a href="/beta/incident_manager_journey/v1/07police">07 Police question</a></li>
+						<li><a href="/beta/incident_manager_journey/v1/08action">08 Police action</a></li>
+						<li><a href="/beta/incident_manager_journey/v1/09comments">09 Comments</a></li>
+						<li><a href="/beta/incident_manager_journey/v1/10check">10 Check</a></li>
+						<li><a href="/beta/incident_manager_journey/v1/11confirmation">11 Confirmation</a></li>
+					</ul>
+				</li>
+				<li><a href="/beta/incident_manager/01police">Manager</a></li>
+			</ul>
+			{% endset %}
+			{{ govukDetails({
+			summaryText: "Old journeys",
+			html: oldjourneysHTML
+			}) }}
+			{% set oldpagesHTML %}
+			<ul class="govuk-list govuk-list--bullet">
+				<li><a href="/beta/emails/incidentmanager/v1/01request.html">Incident manager email: initial request v1</a></li>
+				<li><a href="/beta/emails/incidentmanager/v1/02confirmation.html">Incident manager email: confirmation v1</a></li>
+				<li><a href="/beta/emails/linemanager/v1/01instruction.html">Line manager email: instructions v1</a></li>
+				<li><a href="/beta/incident_manager/01police">Incident manager</a></li>
+			</ul>
+			{% endset %}
+			{{ govukDetails({
+			summaryText: "Old pages",
+			html: oldpagesHTML
+			}) }}
+			<hr>
+		</div>
+
+
+
+
+		<div class="govuk-!-padding-bottom-7 govuk-!-padding-top-7">
+			<h2 class="govuk-heading-l" id="witness">Witness report</h2>
+			<hr>
+			<h3 class="govuk-heading-s">Jira dashboards</h3>
+			<ul class="govuk-list govuk-list--bullet">
+				<li><a href="https://dwpdigital.atlassian.net/jira/dashboards/24321">Common reporting (View and select)</a></li>
+				<li><a href="https://dwpdigital.atlassian.net/jira/dashboards/24358">Witness report</a></li>
+			</ul>
+			<hr>
+			<h3 class="govuk-heading-s"><strong class="govuk-tag govuk-tag--blue">UCD - In progress</strong></h3>
+			<ul class="govuk-list govuk-list--bullet">
+				<li><a href="/beta/witness/witnessv4/01details_simple">Witness report v4</a><br><br>
+				{{ govukDetails({
+					summaryText: "Page index",
+					html: '
+								<ul class="govuk-list">
+									<li><a href="/beta/witness/witnessv4/01details_simple">01 Confirm witnessed incident</a></li>
+									<li><a href="/beta/witness/witnessv4/02comments-simple">02 Comments</a></li>
+									<li><a href="/beta/witness/witnessv4/03check">03 Check</a></li>
+									<li><a href="/beta/witness/witnessv4/04confirm-you">04 Confirmation</a></li>
+								</ul>'
+				}) }}
+				{% set journeyNotesHTMLDecision %}
+					{% include "beta/witness/notes/v4__notes.njk" %}
+				{% endset %}
+				{{ govukDetails({
+					summaryText: "v4 Journey level design notes",
+					html: journeyNotesHTMLDecision
+				}) }}
+				</li>
+			</ul>
+			<h3 class="govuk-heading-s"><strong class="govuk-tag govuk-tag--green">Development</strong></h3>
+			<ul class="govuk-list govuk-list--bullet">
+				<li><a href="/beta/witness/witnessv3a/01details">Witness report v3</a><br><br>
+				{{ govukDetails({
+					summaryText: "Page index",
+					html: '
+								<ul class="govuk-list">
+									<li><a href="/beta/witness/witnessv3a/01details">01 Confirm witnessed incident</a></li>
+									<li><a href="/beta/witness/witnessv3a/03comments">03 Comments</a></li>
+									<li><a href="/beta/witness/witnessv3a/04check">04 Check</a></li>
+									<li><a href="/beta/witness/witnessv3a/05confirm-you">05 Confirmation</a></li>
+								</ul>'
+				}) }}
+				{% set journeyNotesHTMLDecision %}
+					{% include "beta/witness/notes/v3__notes.njk" %}
+				{% endset %}
+				{{ govukDetails({
+					summaryText: "v3 Journey level design notes",
+					html: journeyNotesHTMLDecision
+				}) }}
+				</li>
+			</ul>
+			<hr>
+
+			<h3 class="govuk-heading-s">Archive</h3>
+			{% set oldjourneysHTML %}
+			<ul class="govuk-list govuk-list--bullet">
+				<li><a href="/beta/witness/witnessv1/00report">Witness report v1</a></li>
+				<li><a href="/beta/witness/witnessv2/00email">Witness report v2</a></li>
+			</ul>
+			{% endset %}
+			{{ govukDetails({
+			summaryText: "Old journeys",
+			html: oldjourneysHTML
+			}) }}
+			{% set oldpagesHTML %}
+			<ul class="govuk-list govuk-list--bullet">
+				<li><a href="/beta/emails/witness/v1/01initial-request.html">Witness email: initial request v1</a></li>
+				<li><a href="/beta/emails/witness/v1/02delete-witness.html">Witness email: witness deleted v1</a></li>
+				<li><a href="/beta/emails/witness/v1/03reminder.html">Witness email: reminder v1</a></li>
+				<li><a href="/beta/emails/witness/v1/04confirmation.html">Witness email: confirmation email v1</a></li>
+			</ul>
+			{% endset %}
+			{{ govukDetails({
+			summaryText: "Old pages",
+			html: oldpagesHTML
+			}) }}
+			<hr>
+		</div>
+
+
+
+		<div class="govuk-!-padding-bottom-7 govuk-!-padding-top-7">
+			<h2 class="govuk-heading-l" id="common">Common reporting</h3>
+			<p>Only pages that do not appear on the prototype as part of another journey will appear here.</p>
+			<p class="govuk-body-s">("Establish report type" and "Upload digital files" are in the Incident/Concern journey)</p>
+			<hr>
+			<h3 class="govuk-heading-s">Jira dashboards</h3>
+			<ul class="govuk-list govuk-list--bullet">
+				<li><a href="https://dwpdigital.atlassian.net/jira/dashboards/24321">Common reporting (View and select)</a></li>
+			</ul>
+			<hr>
+			<h3 class="govuk-heading-s"><strong class="govuk-tag govuk-tag--blue">UCD - In progress</strong></h4>
+			<ul class="govuk-list govuk-list--bullet">
+				<li><a href="/beta/common/footer/v1/00footer">Accessibility statement footer v1</a></li>
+				<li><a href="/beta/common/cya/v1/00check_manager">Check your answers v1</a></li>
+				<li><a href="/beta/common/landing/v3/00searchlight">Reporter/manager/witness Landing page v3</a></li>
+				<li><a href="/beta/common/user_sat/v1/00usersat_contactlater">User satisfaction - contact later v1</a></li>
+				<li><a href="/beta/common/leaver/v1/00check">Leaver v1</a></li>
+				<li><a href="/beta/common/fragment/v1/00searchlight">Searchlight HTML fragment v1</a></li>
+				<li><a href="/beta/common/searchlight_restricted/v1/00searchlight">Searchlight restricted view v1</a></li>
+				<li><a href="/beta/common/view_incident">View incident collection</a></li>
+				<li><a href="/beta/common/home_collection">Home page collection</a></li>
+			</ul>
+			<h3 class="govuk-heading-s"><strong class="govuk-tag govuk-tag--green">Development</strong></h4>
+			<ul class="govuk-list govuk-list--bullet">
+				<li><a href="/beta/common/landing/v2/00searchlight">Reporter/manager/witness Landing page v2</a></li>
+			</ul>
+			<hr>
+
+			<h3 class="govuk-heading-s">Archive</h3>
+			{% set oldjourneysHTML %}
+			<ul class="govuk-list govuk-list--bullet">
+				<li><a href="#">None</a></li>
+			</ul>
+			{% endset %}
+			{{ govukDetails({
+			summaryText: "Old journeys",
+			html: oldjourneysHTML
+			}) }}
+			{% set oldpagesHTML %}
+			<ul class="govuk-list govuk-list--bullet">
+				<li><a href="/beta/common/landing/v1/00searchlight">Reporter/manager/witness Landing page v1</a></li>
+			</ul>
+			{% endset %}
+			{{ govukDetails({
+			summaryText: "Old pages",
+			html: oldpagesHTML
+			}) }}
+			<hr>
+		</div>
+
+
+
+		<div class="govuk-!-padding-bottom-7 govuk-!-padding-top-7">
+			<h2 class="govuk-heading-l" id="decision">Make Decision Journey</h3>
+			<hr>
+			<h3 class="govuk-heading-s">Jira dashboards</h3>
+			<ul class="govuk-list govuk-list--bullet">
+				<li><a href="https://dwpdigital.atlassian.net/jira/dashboards/24450">View history</a></li>
+			</ul>
+			<hr>
+			<h3 class="govuk-heading-s"><strong class="govuk-tag govuk-tag--blue">UCD - In progress</strong></h4>
+			<ul class="govuk-list govuk-list--bullet">
+				<li><a href="/beta/decision/v6/00searchlight">Make decision v6</a><br><br>
+				{{ govukDetails({
+					summaryText: "Page index",
+					html: '
+								<p class="govuk-body">Decision maker</p>
+								<ul class="govuk-list">
+									<li><a href="/beta/decision/v6/00searchlight">00 Searchlight</a></li>
+									<li><a href="/beta/decision/v6/01landingpage1_blank">01 landing page</a></li>
+									<li><a href="/beta/decision/v6/13reassign">13 reassign</a></li>
+									<li><a href="/beta/decision/v6/02history_complex">02 history</a></li>
+									<li><a href="/beta/decision/v6/03type">03 type</a></li>
+									<li><a href="/beta/decision/v6/04trigger">04 trigger</a></li>
+									<li><a href="/beta/decision/v6/05actions">05 actions</a></li>
+									<li><a href="/beta/decision/v6/06measure">06 measures</a></li>
+									<li><a href="/beta/decision/v6/07measureaccount">07 account for measures</a></li>
+									<li><a href="/beta/decision/v6/08reviewdate">08 review date</a></li>
+									<li><a href="/beta/decision/v6/09prepare_single_man">09 finalise decision</a></li>
+									<li><a href="/beta/decision/v6/10incident_best_simple_info">10 original incident report</a></li>
+									<li><a href="/beta/decision/v6/11check">11 check</a></li>
+									<li><a href="/beta/decision/v6/12confirmation">12 confirmation</a></li>
+
+
+								</ul>
+								<p class="govuk-body">Business support</p>
+								<ul class="govuk-list">
+									<li><a href="/beta/decision/v6/01landingpage1_btsready">01 landing page - Business Support</a></li>
+									<li><a href="/beta/decision/v6/14reassign_bst">14 re-assign bst</a></li>
+									<li><a href="/beta/decision/v6/15history_bst">15 history BST</a></li>
+									<li><a href="/beta/decision/v6/16fast">16 fast track incident BST</a></li>
+									<li><a href="/beta/decision/v6/17note_bst">17 note BST</a></li>
+									<li><a href="/beta/decision/v6/18prepared_bst">18 prepared BST</a></li>
+								</ul>
+								<p class="govuk-body">Events accessed from customer history</p>
+								<ul class="govuk-list">
+									<li><a href="/beta/decision/v6/h_02incident_best_simple">h_02 incident from history</a></li>
+									<li><a href="/beta/decision/v6/h_03concern_best">h_03 concern from history</a></li>
+									<li><a href="/beta/decision/v6/h_04measures">h_04 measures from history</a></li>
+									<li><a href="/beta/decision/v6/h_05action">h_05 Action request/Action  from history</a></li>
+									<li><a href="/beta/decision/v6/h_06infomessage">h_06 add a note</a></li>
+									<li><a href="/beta/decision/v6/h_07infoconfirm">h_07 add a note - confirmation</a></li>
+									<li><a href="/beta/decision/v6/h_08note">h_08 note - from history</a></li>
+									<li><a href="/beta/decision/v6/h_09infomessage">h_09 request further information regarding live incident</a></li>
+								</ul>
+								<p class="govuk-body">Multiple incidents pages - not used</p>
+								<ul class="govuk-list">
+									<li><a href="/beta/decision/v6/xxactions_assign">xx Assign actions to manager</a></li>
+									<li><a href="/beta/decision/v6/xxmultipleincident">xx multiple incidents list</a></li>
+									<li><a href="/beta/decision/v6/xxprepare">xx Prepare cover note</a></li>
+
+								</ul>'
+				}) }}
+				{% set journeyNotesHTMLDecision_v6 %}
+					{% include "beta/decision/notes/v6__notes.njk" %}
+				{% endset %}
+				{{ govukDetails({
+					summaryText: "v6 Journey level design notes",
+					html: journeyNotesHTMLDecision_v6
+				}) }}
+			</li>
+				<li><a href="/beta/decision/v5/00searchlight">Make decision v5</a><br><br>
+				{{ govukDetails({
+					summaryText: "Page index",
+					html: '
+								<p class="govuk-body">Decision maker</p>
+								<ul class="govuk-list">
+									<li><a href="/beta/decision/v5/01landingpage1_blank">01 landing page</a></li>
+									<li><a href="/beta/decision/v5/02history_complex">02 history</a></li>
+									<li><a href="/beta/decision/v5/03type">03 type</a></li>
+									<li><a href="/beta/decision/v5/04trigger">04 trigger</a></li>
+									<li><a href="/beta/decision/v5/05actions">05 actions</a></li>
+									<li><a href="/beta/decision/v5/06measure">06 measures</a></li>
+									<li><a href="/beta/decision/v5/07measureaccount">07 account for measures</a></li>
+									<li><a href="/beta/decision/v5/08reviewdate">08 review date</a></li>
+									<li><a href="/beta/decision/v5/09check">09 check</a></li>
+									<li><a href="/beta/decision/v5/10confirmation">10 confirmation</a></li>
+									<li><a href="/beta/decision/v5/11reassign">11 re-assign</a></li>
+									<li><a href="/beta/decision/v5/17infotype">17 note information type</a></li>
+									<li><a href="/beta/decision/v5/18infowho">18 recipient</a></li>
+									<li><a href="/beta/decision/v5/19infomessage">19 Note message</a></li>
+									<li><a href="/beta/decision/v5/20infoconfirm">20 confirmation</a></li>
+								</ul>
+								<p class="govuk-body">Business support</p>
+								<ul class="govuk-list">
+									<li><a href="/beta/decision/v5/01landingpage1_btsready">01 landing page</a></li>
+									<li><a href="/beta/decision/v5/12history_bst">12 History</a></li>
+									<li><a href="/beta/decision/v5/13fast">13 Fast track</a></li>
+									<li><a href="/beta/decision/v5/14note_bst">14 note</a></li>
+									<li><a href="/beta/decision/v5/15prepared_bst">15 prepared</a></li>
+									<li><a href="/beta/decision/v5/16reassign_bst">16 re-assign</a></li>
+									<li><a href="/beta/decision/v5/h_02incident_best_simple">h_02 incident from history</a></li>
+									<li><a href="/beta/decision/v5/h_03concern_best">h_03 concern from history</a></li>
+									<li><a href="/beta/decision/v5/h_04measures">h_04 measures from history</a></li>
+									<li><a href="/beta/decision/v5/h_05action">h_05 Action from history</a></li>
+								</ul>'
+				}) }}
+				{% set journeyNotesHTMLDecision_v5 %}
+					{% include "beta/decision/notes/v5__notes.njk" %}
+				{% endset %}
+				{{ govukDetails({
+					summaryText: "v5 Journey level design notes",
+					html: journeyNotesHTMLDecision_v5
+				}) }}
+			</li>
+			</ul>
+
+
+			<h3 class="govuk-heading-s"><strong class="govuk-tag govuk-tag--green">Development</strong></h4>
+			<ul class="govuk-list govuk-list--bullet">
+
+				<li><a href="/beta/decision/v4/00searchlight">Make decision v4</a><br><br>
+				{{ govukDetails({
+					summaryText: "Page index",
+					html: '
+								<p class="govuk-body">Decision maker</p>
+								<ul class="govuk-list">
+									<li><a href="/beta/decision/v4/01landingpage1_blank">01 landing page</a></li>
+									<li><a href="/beta/decision/v4/02history_complex">02 history</a></li>
+									<li><a href="/beta/decision/v4/03type">03 type</a></li>
+									<li><a href="/beta/decision/v4/04trigger">04 trigger</a></li>
+									<li><a href="/beta/decision/v4/05actions">05 actions</a></li>
+									<li><a href="/beta/decision/v4/06measure">06 measures</a></li>
+									<li><a href="/beta/decision/v4/07measureaccount">07 account for measures</a></li>
+									<li><a href="/beta/decision/v4/08reviewdate">08 review date</a></li>
+									<li><a href="/beta/decision/v4/09check">09 check</a></li>
+									<li><a href="/beta/decision/v4/10confirmation">10 confirmation</a></li>
+									<li><a href="/beta/decision/v4/11reassign">11 re-assign</a></li>
+									<li><a href="/beta/decision/v4/19infomessage">19 Note message</a></li>
+									<li><a href="/beta/decision/v4/20infoconfirm">20 Note confirmation</a></li>
+								</ul>
+								<p class="govuk-body">Business support</p>
+								<ul class="govuk-list">
+									<li><a href="/beta/decision/v4/01landingpage1_btsready">01 landing page</a></li>
+									<li><a href="/beta/decision/v4/12history_bst">12 History</a></li>
+									<li><a href="/beta/decision/v4/13fast">13 Fast track</a></li>
+									<li><a href="/beta/decision/v4/14note_bst">14 note</a></li>
+									<li><a href="/beta/decision/v4/15prepared_bst">15 prepared</a></li>
+									<li><a href="/beta/decision/v4/16reassign_bst">16 re-assign</a></li>
+									<li><a href="/beta/decision/v4/h_02incident_best_simple">h_02 incident from history</a></li>
+									<li><a href="/beta/decision/v4/h_03concern_best">h_03 concern from history</a></li>
+									<li><a href="/beta/decision/v4/h_04measures">h_04 measures from history</a></li>
+									<li><a href="/beta/decision/v4/h_05action">h_05 Action from history</a></li>
+								</ul>'
+				}) }}
+				{% set journeyNotesHTMLDecision_v4 %}
+					{% include "beta/decision/notes/v4__notes.njk" %}
+				{% endset %}
+				{{ govukDetails({
+					summaryText: "v4 Journey level design notes",
+					html: journeyNotesHTMLDecision_v4
+				}) }}
+			</li>
+			</ul>
+			</ul>
+			<hr>
+
+			<h3 class="govuk-heading-s">Archive</h3>
+			{% set oldjourneysHTML %}
+			<ul class="govuk-list govuk-list--bullet">
+
+				<li><a href="/beta/decision/v3/00searchlight">Make decision v3</a><br><br>
+				{{ govukDetails({
+					summaryText: "Page index",
+					html: '
+								<p class="govuk-body">Decision maker</p>
+								<ul class="govuk-list">
+									<li><a href="/beta/decision/v3/01landingpage1_blank">01 landing page</a></li>
+									<li><a href="/beta/decision/v3/02history_complex">02 history</a></li>
+									<li><a href="/beta/decision/v3/03actions">03 actions</a></li>
+									<li><a href="/beta/decision/v3/04measure">04 measures</a></li>
+									<li><a href="/beta/decision/v3/05measureaccount">05 account for measures</a></li>
+									<li><a href="/beta/decision/v3/06reviewdate">06 review date</a></li>
+									<li><a href="/beta/decision/v3/07check">07 check</a></li>
+									<li><a href="/beta/decision/v3/08confirmation">08 confirmation</a></li>
+									<li><a href="/beta/decision/v3/09reassign">09 re-assign</a></li>
+								</ul>
+								<p class="govuk-body">Business support</p>
+								<ul class="govuk-list">
+									<li><a href="/beta/decision/v3/01landingpage1_btsready">01 landing page</a></li>
+									<li><a href="/beta/decision/v3/10history_bst">10 History</a></li>
+									<li><a href="/beta/decision/v3/11note_bst">11 note</a></li>
+									<li><a href="/beta/decision/v3/12prepared_bst">12 prepared</a></li>
+									<li><a href="/beta/decision/v3/13reassign_bst">13 re-assign</a></li>
+									<li><a href="/beta/decision/v3/h_02incident_best_simple">h_02 incident from history</a></li>
+									<li><a href="/beta/decision/v3/h_03concern_best">h_03 concern from history</a></li>
+									<li><a href="/beta/decision/v3/h_04measures">h_04 measures from history</a></li>
+									<li><a href="/beta/decision/v3/h_05action">h_05 Action from history</a></li>
+								</ul>'
+				}) }}
+				{% set journeyNotesHTMLDecision_v3 %}
+					{% include "beta/decision/notes/v3__notes.njk" %}
+				{% endset %}
+				{{ govukDetails({
+					summaryText: "v3 Journey level design notes",
+					html: journeyNotesHTMLDecision_v3
+				}) }}
+			</li>
+
+				<li><a href="/beta/decision/v2/00searchlight">Make decision v2</a><br><br>
+					{{ govukDetails({
+						summaryText: "Page index",
+						html: '
+									<p class="govuk-body">Decision maker</p>
+									<ul class="govuk-list">
+										<li><a href="/beta/decision/v2/01landingpage1_blank">01 landing page</a></li>
+										<li><a href="/beta/decision/v2/02history_complex">02 history</a></li>
+										<li><a href="/beta/decision/v2/03actions">03 actions</a></li>
+										<li><a href="/beta/decision/v2/04measure">04 measures</a></li>
+										<li><a href="/beta/decision/v2/05measureaccount">05 account for measures</a></li>
+										<li><a href="/beta/decision/v2/06reviewdate">06 review date</a></li>
+										<li><a href="/beta/decision/v2/07check">07 check</a></li>
+										<li><a href="/beta/decision/v2/08confirmation">08 confirmation</a></li>
+										<li><a href="/beta/decision/v2/09reassign">09 re-assign</a></li>
+									</ul>
+									<p class="govuk-body">Business support</p>
+									<ul class="govuk-list">
+										<li><a href="/beta/decision/v2/01landingpage1_btsready">01 landing page</a></li>
+										<li><a href="/beta/decision/v2/10history_bst">10 History</a></li>
+										<li><a href="/beta/decision/v2/11note_bst">11 note</a></li>
+										<li><a href="/beta/decision/v2/12prepared_bst">12 prepared</a></li>
+										<li><a href="/beta/decision/v2/13reassign_bst">13 re-assign</a></li>
+										<li><a href="/beta/decision/v2/h_02incident_best_simple">h_02 incident from history</a></li>
+										<li><a href="/beta/decision/v2/h_03concern_best">h_03 concern from history</a></li>
+										<li><a href="/beta/decision/v2/h_04measures">h_04 measures from history</a></li>
+										<li><a href="/beta/decision/v2/h_05action">h_05 Action from history</a></li>
+									</ul>'
+					}) }}
+					{% set journeyNotesHTMLDecision_v2 %}
+						{% include "beta/decision/notes/v2__notes.njk" %}
+					{% endset %}
+					{{ govukDetails({
+						summaryText: "v2 Journey level design notes",
+						html: journeyNotesHTMLDecision_v2
+					}) }}
+				</li>
+				<li><a href="/beta/decision/v1/01landingpage1_ready">Make decision v1</a></li><br>
+				<li><a href="/beta/decision/v1_demo/bts/00searchlight.html">Architect demo - Make decision - BTS v1</a></li>
+				<li><a href="/beta/decision/v1_demo/nm/00searchlight.html">Architect demo - Make decision - NMs v1</a><br><br>
+				{% set journeyNotesHTMLDecision_v1 %}
+					{% include "beta/decision/notes/v1__notes.njk" %}
+				{% endset %}
+				{{ govukDetails({
+					summaryText: "v1 Journey level design notes",
+					html: journeyNotesHTMLDecision_v1
+				}) }}
+				</li>
+
+			</ul>
+			{% endset %}
+			{{ govukDetails({
+			summaryText: "Old journeys",
+			html: oldjourneysHTML
+			}) }}
+			{% set oldpagesHTML %}
+			<ul class="govuk-list govuk-list--bullet">
+				<li><a href="/beta/history/v6/01history_complex">Customer history v6</a></li>
+				<p>Group actions and contingencies together<br>
+				Built for release</p>
+				<li><a href="/beta/history/v6/scenarioa/01history_complex">Customer history v6 - 2 actions separate</a></li>
+				<li><a href="/beta/history/v6/scenariob/01history_complex">Customer history v6 - 2 actions together</a></li>
+				<li><a href="/beta/history/v5/01history_good">Customer history v5</a></li>
+				Add actions
+				<li><a href="/beta/history/v4/04history">Customer history v4</a></li>
+				During Dev sprint, remove back button and proposal to simplify the witnesses navigation.
+				<li><a href="/beta/history/v3/03history">Customer history v3</a></li>
+				During Dev sprint, decided that the context of the incident is not required.
+				<li><a href="/beta/history/v2/02history">Customer history v2</a></li>
+				This version delivers simply on the story, and contains only Incidents and Concerns
+				<li><b>Customer history v1</b><br>
+				<ul>
+					<li><a href="/beta/history/old/01histore">01histore</a></li>
+					<li><a href="/beta/history/old/01history">01history</a></li>
+					<li><a href="/beta/history/old/01historyb">01historyb</a></li>
+					<li><a href="/beta/history/old/01historyc-old">01historyc-old</a></li>
+					<li><a href="/beta/history/old/01historyc">01historyc</a></li>
+					<li><a href="/beta/history/old/01historyd">01historyd</a></li>
+					<li><a href="/beta/history/old/01historyf">01historyf</a></li>
+					<li><a href="/beta/history/old/02history-copy">02history-copy</a></li>
+				</ul>
+				<p>This version shows a view of what this history may look like in the future. However, it has too many dependencies on unknowns, so to deliver simply on the story, we will first develop a cut down version containing only Incidents and Concerns</p>
+				</li>
+								<li><a href="/beta/examine/v7/00incident.html">Case reviewer - Examine incident v7</a></li>
+				<li><a href="/beta/examine/v6/00concern.html">Case reviewer - Examine concern v6</a></li>
+				<li><a href="/beta/examine/v6/00incident.html">Case reviewer - Examine incident v6</a></li>
+				<li><a href="/beta/examine/v5/00incident.html">Case reviewer - Examine incident v5</a></li>
+				<li><a href="/beta/examine/v4/00incident.html">Case reviewer - Examine incident v4</a></li>
+				<li><a href="/beta/examine/v3/00incident.html">Case reviewer - Examine incident v3</a></li>
+				<li><a href="/beta/examine/v3/00concern.html">Case reviewer - Examine concern v3</a></li>
+				<li><a href="/beta/examine/v2/00overview.html">Case reviewer - Examine incident v2</a></li>
+				<li><a href="/beta/examine/v2/c00overview.html">Case reviewer - Examine concern v2</a></li>
+				<li><a href="/beta/examine/v1/00overview.html">Case reviewer - Examine incident v1</a></li>
+				<li><a href="/beta/nominatedmanager/done/00overview.html">Nominated manager</a></li>
+
+			</ul>
+			{% endset %}
+			{{ govukDetails({
+				summaryText: "Old pages",
+				html: oldpagesHTML
+			}) }}
+			<hr>
+		</div>
+
+
+
+
+
+
+
+
+		<div class="govuk-!-padding-bottom-7 govuk-!-padding-top-7">
+			<h2 class="govuk-heading-l" id="admin">Private Beta admin</h3>
+
+			<hr>
+			<h3 class="govuk-heading-s"><strong class="govuk-tag govuk-tag--blue">UCD - In progress</strong></h4>
+			<ul class="govuk-list govuk-list--bullet">
+				<li><a href="/beta/private_admin/v6/00list.html">Private Beta Admin journey - v6</a></li>
+			</ul>
+			<p class='govuk-body'>Add in uploaded files page (awaiting story)</p>
+			<h3 class="govuk-heading-s"><strong class="govuk-tag govuk-tag--green">Development</strong></h4>
+			<ul class="govuk-list govuk-list--bullet">
+				<li><a href="/beta/private_admin/v5/00list.html">Private Beta Admin journey - v5</a></li>
+			</ul>
+			<hr>
+
+			<h3 class="govuk-heading-s">Archive</h3>
+			{% set oldjourneysHTML %}
+			<ul class="govuk-list govuk-list--bullet">
+				<li><a href="/beta/private_admin/v4/01list.html">Private Beta Admin journey - v4</a></li>
+			</ul>
+			{% endset %}
+			{{ govukDetails({
+			summaryText: "Old journeys",
+			html: oldjourneysHTML
+			}) }}
+			{% set oldpagesHTML %}
+			<ul class="govuk-list govuk-list--bullet">
+				<li><a href="#">Title</a></li>
+			</ul>
+			{% endset %}
+			{{ govukDetails({
+			summaryText: "Old pages",
+			html: oldpagesHTML
+			}) }}
+			<hr>
+		</div>
+
+
+
+
+
+
+		<div class="govuk-!-padding-bottom-7 govuk-!-padding-top-7">
+			<h2 class="govuk-heading-l" id="email">Notification emails</h3>
+			<p>Version control for emails</p>
+			<p>Each email has a <a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/133269849267/Emails">letter code for reference</a></p>
+			<ul class="govuk-list govuk-list--bullet govuk-list--bullet govuk-list--spaced">
+				<h3 class="govuk-heading-m">Reporter</h3>
+				<ul class="govuk-list govuk-list--bullet  govuk-list--spaced">
+					<li>K - Concern - confirmation that you’ve submitted a report v1 (this currently has no letter prefix in Notify)<br>
+					<a href="/beta/emails/01_reporter/k1" class="govuk-body-s">Ref: d1502e65-dc3f-4606-84b6-0eba2745e492</a></li>
+					<li>L - Concern - confirmation that you’ve submitted a report (on behalf of) v1<br>
+					<a href="/beta/emails/01_reporter/l1" class="govuk-body-s">Ref: e80f2fa0-867e-4b54-9868-8ca6f90446a7</a></li>
+					<li>M - Incident - confirmation that you’ve submitted a report (this currently has no letter prefix in Notify)<br>
+					<a href="/beta/emails/01_reporter/m1" class="govuk-body-s">Ref: fcc4f6c6-13c6-48a6-99ab-b88b850d39ac</a></li>
+					<li>N - Incident - confirmation that you’ve submitted a report (on behalf of)<br>
+					<a href="/beta/emails/01_reporter/n1" class="govuk-body-s">Ref: ec7d0c80-884d-438d-b62a-7140e62458d3</a></li>
+				</ul>
+
+				<h3>Witness</h3>
+				<ul class="govuk-list govuk-list--bullet  govuk-list--spaced">
+					<li>B - Initial request<br>
+					<a href="/beta/emails/02_witness/b1" class="govuk-body-s">Ref: 1bf49b33-29ad-489a-bfa8-0ac54de836bf</a></li>
+					<li>C - Initial request - (on behalf of)<br>
+					<a href="/beta/emails/02_witness/c1" class="govuk-body-s">Ref: b84b5785-9314-4b56-8a7a-ee456476eacf</a></li>
+					<li>E - Witness - confirmation that you’ve submitted a report<br>
+					<a href="/beta/emails/02_witness/e1" class="govuk-body-s">Ref: 754d2c9b-adfe-46bc-a451-881291eacecf</a></li>
+					<li>F - Witness - confirmation that you’ve submitted a report (on behalf of)<br>
+					<a href="/beta/emails/02_witness/f1" class="govuk-body-s">Ref: 3c1b1f77-fcbe-480f-bd13-c58afe700400</a></li>
+					<li>H - Reminder to complete a report<br>
+					<a href="/beta/emails/02_witness/h1" class="govuk-body-s">Ref: 2bd2cb59-fe83-4710-a953-44ba358bc24d</a></li>
+					<li>V - Reminder to complete a report (on behalf of)<br>
+					<a href="/beta/emails/02_witness/v1" class="govuk-body-s">Ref: 2f26da13-9495-4cf0-afe3-9799d448c253</a></li>
+					<li>J - Removed - as a witness from the incident (this currently has no letter prefix in Notify)<br>
+					<a href="/beta/emails/02_witness/j1" class="govuk-body-s">Ref: 01d415dd-9fe9-427d-bf83-f79109ea854b</a></li>
+				</ul>
+
+				<h3>Line manager <span class="govuk-!-font-weight-regular govuk-body-s">(where Incident Manager and Line Manager are NOT the same person)</span>
+</h3>
+
+				<ul class="govuk-list govuk-list--bullet  govuk-list--spaced">
+					<li>G - Instructions (about duty of care to team member)<br>
+					<a href="/beta/emails/03_linemanager/g1" class="govuk-body-s">Ref: fe904158-6af5-4635-9117-02f201af6a19</a></li>
+				</ul>
+
+				<h3>
+					Incident manager <span class="govuk-!-font-weight-regular govuk-body-s">(where Incident Manager and Line Manager are NOT the same person)</span>
+				</h3>
+				<ul class="govuk-list govuk-list--bullet  govuk-list--spaced">
+					<li>A - Request to review and add comments<br>
+					<a href="/beta/emails/04_incidentmanager/a1" class="govuk-body-s">Ref: 17e64ecf-7ca9-4553-adb6-3701d8057c12</a></li>
+					<li>D - Confirmation that you’ve submitted a review and comments<br>
+					<a href="/beta/emails/04_incidentmanager/d1" class="govuk-body-s">Ref: 9107b9fe-e307-45af-8a5f-541a8432d840</a></li>
+					<li>R - Reminder to review and add comments<br>
+					<a href="/beta/emails/04_incidentmanager/r1" class="govuk-body-s">Ref: d6f3260f-7415-49e8-adb8-3ffb4dc391fe</a></li>
+					<li>S - Request for more information about incident<br>
+					<a href="/beta/emails/04_incidentmanager/s1" class="govuk-body-s">Ref: 103811d6-241e-48bb-9418-1dda9d3cd2e5</a></li>
+					<li>T - View confirmation of decision plus take (possible) action<br>
+					<a href="/beta/emails/04_incidentmanager/t1" class="govuk-body-s">Ref: 8b283168-a010-499e-a5e4-f812cf5e3811</a></li>
+				</ul>
+
+				<h3>
+					Incident manager <span class="govuk-!-font-weight-regular govuk-body-s">(where Incident Manager and Line Manager ARE the same person)</span>
+				</h3>
+				<ul class="govuk-list govuk-list--bullet  govuk-list--spaced">
+					<li>P - Line and incident manager (Instructions about duty of care to team member AND request to review and add comments)<br>
+					<a href="/beta/emails/04_incidentmanager/p1" class="govuk-body-s">Ref: 082696aa-bb8a-4ba7-a6ba-597464f64ee3</a></li>
+				</ul>
+		</div>
+
+
+
+		<div class="govuk-!-padding-bottom-7 govuk-!-padding-top-7">
+			<h2 class="govuk-heading-l" id="research">User Research and Presentations</h3>
+
+			<ul class="govuk-list govuk-list--bullet">
+				<li><a href="/beta/_UR/20230707">UR Friday 7 July 2023</a> Manager additional info</li>
+				<li><a href="/beta/_UR/20230406">UR Wednesday 19 April 2023</a> Reporter triage</li>
+				<li><a href="/beta/_UR/20230323">UR Thursday 23 March 2023</a> Reporter triage</li>
+				<li><a href="/beta/_UR/20230303">UR Friday 3 March 2023</a> Decision Maker</li>
+				<li><a href="/beta/_UR/20230302">UR Thursday 2 March 2023</a> Reviewing manager</li>
+				<li><a href="/beta/_UR/20230301">UR Wednesday 1 March 2023</a> Report Incident</li>
+				<li><a href="/beta/_UR/20230223">UR Thursday 23 February 2023</a> Make decision </li>
+				<li><a href="/beta/_UR/20230209">UR Thursday 9 February 2023</a> Make decision </li>
+				<li><a href="/beta/_UR/20221201">UR Thursday 1 December 2022</a> </li>
+				<li><a href="/beta/_UR/20221020">UR Thursday 20 October 2022</a> </li>
+				<li><a href="/beta/_UR/20221006">UR Thursday 6 October 2022</a> </li>
+				<li><a href="/beta/_UR/20220908">UR Thursday 8 September 2022</a> | <a href="/beta/_UR/20220908/journal/journal-abuse">Journal</a></li>
+				<li><a href="/beta/_UR/20220714">UR Thursday 14 July 2022</a></li>
+				<li><a href="index2.html">Presentation 02 Feb 2022</a></li>
+				<li><a href="index3.html">UR Tue 15 Feb 2022 / Wed 16 Feb 2022</a></li>
+				<li><a href="_old/index4.html">Content Design presentation 21 March 2022</a></li>
+			</ul>
+			<hr>
+
+		</div>
+
+		<form class="form" action="index" method="post">
+        {{ govukRadios({
+          idPrefix: "displaymode",
+          name: "displaymode",
+          fieldset: {
+            legend: {
+              html: "Which display mode do you want to use?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "presentation",
+              text: "Presentation",
+              hint: {
+                text: "For presenting to staheolders - hides design notes. Typically happy path"
+              },
+              checked: checked("displaymode", "presentation")
+            },
+            {
+              value: "design",
+              text: "Design",
+              hint: {
+                text: "Showing design notes"
+              },
+              checked: checked("displaymode", "design")
+            }
+          ],
+          hint: {
+            html: currentMode
+          }
+        }) }}
+        <div>
+          {{ govukButton({
+            text: "Apply now"
+          }) }}
+        </div>
+      </form>
+	</div>
+</div>
+{% endblock %}

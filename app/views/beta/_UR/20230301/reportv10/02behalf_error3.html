@@ -1,0 +1,123 @@
+{% extends "layout_ur.html" %}
+
+{% block pageTitle %}
+  Error: Were you involved in this incident? - Keep Customer Interactions Safe
+{% endblock %}
+
+{% block beforeContent %}
+<section aria-label="Phase banner" role="region">
+  {{ govukPhaseBanner({
+    tag: {
+      text: "beta"
+    },
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+  }) }}
+</section>
+{% include "templates/v2/header_searchlight.njk" %}
+<section aria-label="Back" role="region">
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+</section>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="03line_manager" method="post">
+        {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: [
+          {
+            text: "Enter first name",
+            href: "#first-name"
+          },
+          {
+            text: "Enter their last name",
+            href: "#last-name"
+          },
+          {
+            text: "Enter their email address",
+            href: "#email"
+          }
+        ]
+        }) }}
+        {% set emailHtml %}
+        {{ govukInput({
+          id: "first-name-behalf",
+          name: "first-name-behalf",
+          value: data['first-name-behalf'],
+          classes: "govuk-!-width-two-thirds",
+          label: {
+            text: "Their first name"
+          },
+          errorMessage: {
+            text: "Enter their first name"
+          }
+        }) }}
+        {{ govukInput({
+          id: "last-name-behalf",
+          name: "last-name-behalf",
+          value: data['last-name-behalf'],
+          classes: "govuk-!-width-two-thirds",
+          label: {
+            text: "Their last name"
+          },
+          errorMessage: {
+            text: "Enter their last name"
+          }
+        }) }}
+        {{ govukInput({
+          id: "email-behalf",
+          name: "email-behalf",
+          type: "email",
+          autocomplete: "email",
+          value: data['email-behalf'],
+          spellcheck: false,
+          label: {
+            text: "Their email address"
+          },
+          errorMessage: {
+            text: "Enter their email address"
+          }
+        }) }}
+        {% endset -%}
+        {{ govukRadios({
+          idPrefix: "on-behalf",
+          name: "on-behalf",
+          fieldset: {
+            legend: {
+              text: "Were you involved in this incident?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes"
+            },
+            {
+              value: "no",
+              text: "No, I am reporting this on behalf of someone else",
+              checked: true,
+              conditional: {
+                html: emailHtml
+              }
+            }
+          ],
+          hint: {
+            text: "Select one option."
+          }
+        }) }}
+        <div>
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+        </div>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

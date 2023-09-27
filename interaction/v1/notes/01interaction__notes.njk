@@ -1,0 +1,37 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<hr>
+<br>
+<h3 class="govuk-heading-s govuk-!-font-weight-regular">NOT PART OF DESIGN: Demo only</h3>
+<h4 class="govuk-heading-s">Versions</h3>
+{% include "../../_versions/01interaction__versions.njk" %}
+
+<h4 class="govuk-heading-s">States</h3>
+<ul class="govuk-list govuk-list--bullet">
+		<li><a href="01interaction">1. Prepare for interaction - Good - Placeholder</a></li>
+		<li><a href="01interaction_spl">2. Prepare for interaction - Better - Access Staff Protection List</a></li>
+		<li><a href="01interaction_nino">3. Prepare for interaction - Best - copy NINo to clipboard for pasting into SPL</a></li>
+</ul>
+<h4 class="govuk-heading-s">v1 Design notes</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li>Story <a href="https://dwpdigital.atlassian.net/browse/CITI-12699">Prepare for Safe Interaction</a></li>
+		<li>Interim solution - The link is to Staff Protection List. Ideally passing the NINo in order to look up correct customer</li>
+		<li>Allows Google Analytics on who is preparing for interaction according to policy</li>
+		<li>V2 to explore displaying measures natively</li>
+	</ul>
+<h4 class="govuk-heading-s">Hypotheses</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li><a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132775346323/Agents+Safeguarding+-+User+Role+Model#reporter">Reporter canvas</a></li>
+		<ul class="govuk-list govuk-list--bullet">
+		</ul>
+	</ul>
+{% set journeyNotesHTMLinteract_v1 %}
+	{% include "beta/interaction/notes/v1__notes.njk" %}
+{% endset %}
+{{ govukDetails({
+	summaryText: "v1 Journey level design notes",
+	html: journeyNotesHTMLinteract_v1
+}) }}	

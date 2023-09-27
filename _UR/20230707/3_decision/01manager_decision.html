@@ -1,0 +1,96 @@
+{% extends "layout_ur.html" %}
+{% block pageTitle %}
+  Email
+{% endblock %}
+{% block beforeContent %}
+  {{ govukBackLink({
+		text: "Back",
+		href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+{% block content %}
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+    table td,
+    table th {
+      padding: 10px;
+    }
+    table tbody td,
+    table tbody th {
+      color: #636363;
+      border: 1px solid #dddfe1;
+    }
+  </style>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+			<div class="govuk-!-padding-bottom-7">
+				<table>
+					<tbody>
+						<tr>
+							<th scope="row" class="govuk-hint">From</th>
+							<td class="govuk-body">
+								Keep Customer Interactions Safe
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="govuk-hint">
+								To
+							</th>
+							<td>
+								<span class="govuk-body">
+									{{ data['your-first-name'] }}
+									{{ data['your-last-name'] }}
+								</span>
+							</td>
+						</tr>
+						<tr class="email-message-meta">
+							<th scope="row" class="govuk-hint">
+								Subject
+							</th>
+							<td class="govuk-body">
+								URGENT: View decision made following incident on 7 July 2023 at 9:20am
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="email-message-body">
+				<p class="govuk-body">Dear
+					{{ data['your-first-name'] }}
+					{{ data['your-last-name'] }},</p>
+				<p class="govuk-body">A decision has been made about the customer who was involved in the incident you reported:</p>
+
+				<ul class="govuk-list govuk-list--bullet">
+					<li>Date of incident: 7 July 2023
+					</li>
+					<li>Time of incident: 9:20am
+					</li>
+					<li>Incident reference number: INC-123-456-789
+					</li>
+				</ul>
+				<p class="govuk-body">For security reasons, we cannot provide any more information about the incident in this email.</p>
+				<blockquote style="Margin: 0 0 20px 0; border-left: 10px solid #B1B4B6;padding: 15px 0 0.1px 15px; font-size: 19px; line-height: 25px;">
+					<p class="">You must view the decision and complete any relevant actions as soon as possible.</p>
+				</blockquote>
+				<h2 class="govuk-heading-m">What to do now</h2>
+				<p class="">View the decision and any required actions in the ‘Keep Customer Interactions Safe’ service. To do this:</p>
+				<ol class="govuk-list govuk-list--number">
+					<li>Log in to Searchlight.</li>
+					<li>Select ‘Menu’ in the top right corner.</li>
+					<li>Select ‘Keep Customer Interactions Safe’.</li>
+          		<li>Find the relevant decision in your To do list.</li>
+              		<li>Click the link to view details of the safety measures put in place, and any required actions.</li>
+				</ol>
+					<p class="">Thank you,</p>
+				<p class="">On behalf of Keep Customer Interactions Safe.</p>
+				<p class="">E_M_A_I_L_B_L_O_C_K</p>
+			</div>
+			<hr><br><br><br>
+			<p> When you have read this email,
+				<a href="/beta/_UR/20230707/3_decision/02searchlight">log in to Searchlight</a>.
+			</p>
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,43 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<hr>
+<br>
+<h3 class="govuk-heading-s govuk-!-font-weight-regular">NOT PART OF DESIGN: Demo only</h3>
+<h4 class="govuk-heading-s">Versions</h3>
+{% include "beta/report_incident/_versions/c01when__versions.njk" %}
+
+<h4 class="govuk-heading-s">States</h3>
+<ul class="govuk-list govuk-list--bullet">
+	<a href="cxxwhen-date">1. When - date?</a><br>
+	<a href="cxxwhen-date_error">2. Error: Multiple</a><br>
+</ul>
+<h4 class="govuk-heading-s">v12 Design notes</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li>Story: <a href="https://dwpdigital.atlassian.net/browse/CITI-21336">Reporter: Concern Date </a></li>
+		<li>This page was not used because not all concern involve a specific event but a pattern of behaviour. The date the concern is reported to DWP is more consistent and available</li>
+		<li>Hypothesis: Time is not required (The narrative is the important thing. Time is used to sort events in customer history if two events the same day)</li>
+
+		<li>Design pattern uses '[Date] must be a real date' in <a href="https://design-system.service.gov.uk/components/date-input/#error-messages">the date error messages</a>. We've chosen to use 'Enter a valid date' instead, which gives a clear instruction. User will believe they've already entered a 'real' date, whereas 'valid' implies the date is wrong / incorrect which is what we want them to double-check.</li>
+		<li>The decision about which date to enter is more complex for concerns than incidents. There's potentially several dates this could be: e.g. the date of a GP appt where the GP spotted a concern, the date the GP logged this concern on a medical form, the date the form reached DWP, and the date this concern was logged in KCIS. We decided to include additional text to clarify which date we need. I initially used hint text, but there was too much content, then decided to use the details component to keep the screen content minimal unless needed.</li>
+
+			</ul>
+		</ul>
+<h4 class="govuk-heading-s">Hypotheses</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li>Time is not required (The narrative is the important thing. Time is used to sort events in customer history if two events the same day)</li>
+		<li><a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/133292492011">UR: The concern journey needs a date</a></li>
+		<li><a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132775346323/Agents+Safeguarding+-+User+Role+Model#reporter">Reporter user canvas</a></li>
+		<ul class="govuk-list govuk-list--bullet">
+			<li>Need: Report Concern</li>
+		</ul>
+	</ul>
+{% set journeyNotesHTMLincidentreport %}
+	{% include "beta/report_incident/notes/v12__notes.njk" %}
+{% endset %}
+{{ govukDetails({
+	summaryText: "v12 Journey level design notes",
+	html: journeyNotesHTMLincidentreport
+}) }}

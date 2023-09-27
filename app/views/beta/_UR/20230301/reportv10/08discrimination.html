@@ -1,0 +1,108 @@
+{% extends "layout_ur.html" %}
+
+{% block pageTitle %}
+  Discrimination - Keep Customer Interactions Safe
+{% endblock %}
+
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+      text: "beta"
+    },
+      html: 'This is a new service – your <a class="govuk-link" href="08discrimination_error">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "templates/v2/header_searchlight.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
+  </section>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="09comments" method="post">
+        {{ govukCheckboxes({
+          idPrefix: "discrimination",
+          name: "discrimination",
+          fieldset: {
+            legend: {
+              text: "Do you feel the customer's behaviour was motivated by any of the following types of discrimination?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "Select all that apply."
+          },
+          items: [
+            {
+              value: "Age",
+              text: "Age",
+              checked: data['discrimination'].includes("Age")
+            },
+            {
+              value: "Being married or in a civil partnership",
+              text: "Being married or in a civil partnership",
+              checked: data['discrimination'].includes("Being married or in a civil partnership")
+            },
+            {
+              value: "Pregnancy or maternity",
+              text: "Pregnancy or maternity",
+              checked: data['discrimination'].includes("Pregnancy or maternity")
+            },
+            {
+              value: "Disability",
+              text: "Disability",
+              checked: data['discrimination'].includes("Disability")
+            },
+            {
+              value: "Gender reassignment",
+              text: "Gender reassignment",
+              checked: data['discrimination'].includes("Gender reassignment")
+            },
+            {
+              value: "Race including colour, nationality, ethnic or national origin",
+              text: "Race including colour, nationality, ethnic or national origin",
+              checked: data['discrimination'].includes("Race including colour, nationality, ethnic or national origin")
+            },
+            {
+              value: "Religion or belief",
+              text: "Religion or belief",
+              checked: data['discrimination'].includes("Religion or belief")
+            },
+            {
+              value: "Sex",
+              text: "Sex",
+              checked: data['discrimination'].includes("Sex")
+            },
+            {
+              value: "Sexual orientation",
+              text: "Sexual orientation",
+              checked: data['discrimination'].includes("Sexual orientation")
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "None of the above",
+              text: "None of the above",
+              behaviour: "exclusive",
+              checked: data['discrimination'].includes("None of the above")
+            }
+          ]
+        }) }}
+        <div>
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+        </div>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

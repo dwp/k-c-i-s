@@ -1,0 +1,103 @@
+{% extends "layout.html" %}
+<!-- Set active submenu item -->
+{% set menuItemOne = " aria-current=page" %}
+{% set subMenuItemOne = " app-subnav__section-item--current" %}
+
+{% block pageTitle %}
+Have you reported this as a Fast Track Incident? - Agent Safeguarding
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "beta"
+  },
+  html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+}) }}
+{% include "templates/v2/header_searchlight.njk" %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-form-group">
+  <form action="">
+    <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+      {% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
+      {{ govukErrorSummary({
+      titleText: "There is a problem",
+      errorList: [
+        {
+          text: "Tell us if you have reported this as a Fast Track Incident",
+          href: "#prn"
+        }
+      ]
+    }) }}
+    {% include "templates/v3/govuk-caption-l.njk" %}
+
+      {% set incidentHTML %}
+      A <a href="https://intranet.dwp.gov.uk/page/fast-track-serious-incident-reporting">Fast Track Incident (FTI)</a> is a serious incident which affects the health and safety of DWP or third-party staff. Because of the serious nature or sensitivity of FTIs, you must immediately notify senior management.
+      {% endset -%}
+
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+      {% set textPRN %}
+      {{ govukInput({
+        id: "prn",
+        name: "prn",
+        classes: "govuk-!-width-one-third",
+        label: {
+          text: "Police Reference Number"
+        }
+      }) }}
+      {% endset -%}
+      {{ govukRadios({
+        idPrefix: "prnQuestion",
+        name: "prnQuestion",
+        fieldset: {
+          legend: {
+            text: "Have you reported this as a Fast Track Incident in SOARS?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+          html: incidentHTML
+        },
+        items: [
+        {
+          value: "yes",
+          text: "Yes"
+        },
+        {
+          value: "maybe",
+          text: "Not yet, but I intend to"
+        },
+      {
+            value: "no",
+            text: "No"
+          }
+        ],
+        errorMessage: {
+          text: "Tell us if you have reported this as a Fast Track Incident"
+        }
+      }) }}
+      <div class="govuk-button-group">
+      {% from "govuk/components/button/macro.njk" import govukButton %}
+      {{ govukButton({
+        text: "Continue",
+        href: "end"
+      }) }}
+      {% endblock %}
+      </div>
+    </fieldset>
+  </form>
+
+</div>

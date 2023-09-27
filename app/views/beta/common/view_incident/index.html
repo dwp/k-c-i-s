@@ -1,0 +1,260 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+View incident - Keep Customer Interactions Safe
+{% endblock %}
+
+
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+		<h1 class="govuk-heading-xl">View incident</h1>
+		{{ govukTable({
+			firstCellIsHeader: true,
+			head: [
+				{
+					text: ""
+				},
+				{
+					html: '<a href="/beta/incident_manager_journey/v4/02incident_simple_inperson">v4 Manager - review and comment </a> '
+				},
+				{
+					html: '<a href="/beta/incident_manager_journey/v4/i03incident_best_simple_info">v4 Manager - further information request v4</a'
+				},
+				{
+					html: '<a href="/beta/incident_manager_journey/v4/d03incident_best_simple_info">v4 Manager - view decision </a>'
+				},
+				{
+					html: '<a href="/beta/decision/v6/h_02incident_best_simple_existing">v6 Case reviewer (decision - timeline)</a>'
+				},
+				{
+					html: '<a href="/beta/decision/v6/10incident_best_simple_info">v6 Decision maker (decision - complete decision) </a> '
+				}
+			],
+			rows: [
+				[
+					{
+						text: ""
+					},
+					{
+						html: '<a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132775346323/Agents+Safeguarding+-+User+Role+Model#manager">Managers</a> first sight of report in order to add their comments'
+					},
+					{
+						html: '<a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132775346323/Agents+Safeguarding+-+User+Role+Model#manager">Manager</a> asked for more information'
+					},
+					{
+						html: '<a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132775346323/Agents+Safeguarding+-+User+Role+Model#manager">Manager</a> views decision '
+					},
+					{
+						html: '<a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132775346323/Agents+Safeguarding+-+User+Role+Model#case_reviewer">Case reviewer</a> from timeline'
+					},
+					{
+						html: '<a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132775346323/Agents+Safeguarding+-+User+Role+Model#decision_maker">Decision maker</a> when completing decision (cover note)'
+					}
+				],
+				[
+					{
+						text: "Witness section"
+					},
+					{
+						text: "N"
+					},
+					{
+						text: "Y"
+					},
+					{
+						text: "Y"
+					},
+					{
+						text: "Y"
+					},
+					{
+						text: "Y"
+					}
+				],
+				[
+					{
+						text: "Police section"
+					},
+					{
+						text: "N"
+					},
+					{
+						text: "Y"
+					},
+					{
+						text: "Y"
+					},
+					{
+						text: "Y"
+					},
+					{
+						text: "Y"
+					}
+				],
+				[
+					{
+						text: "Manager report"
+					},
+					{
+						text: "N"
+					},
+					{
+						text: "Y"
+					},
+					{
+						text: "Y"
+					},
+					{
+						text: "Y"
+					},
+					{
+						text: "Y"
+					}
+				],
+				[
+					{
+						text: "Correspondence - witness and manager"
+					},
+					{
+						text: "N"
+					},
+					{
+						text: "Y"
+					},
+					{
+						text: "Y"
+					},
+					{
+						text: "Y"
+					},
+					{
+						text: "Y"
+					}
+				],
+				[
+					{
+						text: "Business support handover"
+					},
+					{
+						text: "N"
+					},
+					{
+						text: "N"
+					},
+					{
+						text: "N"
+					},
+					{
+						text: "Y"
+					},
+					{
+						text: "Y"
+					}
+				],
+				[
+					{
+						text: "Reporter/manager contact details"
+					},
+					{
+						text: "Y"
+					},
+					{
+						text: "Y"
+					},
+					{
+						text: "Y"
+					},
+					{
+						text: "Y"
+					},
+					{
+						text: "Y"
+					}
+				],
+				[
+					{
+						text: "Business support contact details (not yet implemented)"
+					},
+					{
+						text: "N"
+					},
+					{
+						text: "N"
+					},
+					{
+						text: "N"
+					},
+					{
+						text: "Y"
+					},
+					{
+						text: "Y"
+					}
+				],
+				[
+					{
+						text: "Witness/manager resend email button (when applicable)"
+					},
+					{
+						text: "N"
+					},
+					{
+						text: "N"
+					},
+					{
+						text: "N"
+					},
+					{
+						text: "Y"
+					},
+					{
+						text: "Y"
+					}
+				],
+				[
+					{
+						text: "Request info button (when applicable)"
+					},
+					{
+						text: "N"
+					},
+					{
+						text: "N"
+					},
+					{
+						text: "N"
+					},
+					{
+						text: "Y"
+					},
+					{
+						text: "Y"
+					}
+				],
+				[
+					{
+						text: "Continue button label"
+					},
+					{
+						text: "Continue"
+					},
+					{
+						text: "Back to Add information"
+					},
+					{
+						text: "Back to decision"
+					},
+					{
+						text: "Back to customer history"
+					},
+					{
+						text: "Back to Complete decision"
+					}
+				]
+			]
+		}) }}
+	</div>
+</div>
+{% endblock %}

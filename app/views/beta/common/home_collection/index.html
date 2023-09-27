@@ -1,0 +1,242 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Home page collection - Keep Customer Interactions Safe
+{% endblock %}
+
+
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+		<h1 class="govuk-heading-xl">Home page collection</h1>
+		<p>We refer to this in several plaves as the KCIS "Home page" (aka: Your reports, KCIS list). </p>
+		<p>It is similar in visual design between the three versions, and there is some commonality. All will only show the items that are assigned to you, so your role will determine what you will be able to see. </p>
+		<p>Links in the table show which section of the prototype they are designed in (and where else they appear)</p>
+		{{ govukTable({
+			firstCellIsHeader: true,
+			head: [
+				{
+					text: ""
+				},
+				{
+					html: '
+					<a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132775346323/Agents+Safeguarding+-+User+Role+Model#reporter">Reporter</a>,<br>
+					<a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132775346323/Agents+Safeguarding+-+User+Role+Model#manager">Manager</a>,<br>
+					<a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132775346323/Agents+Safeguarding+-+User+Role+Model#witness">Witness</a> <br>home
+					'
+				},
+				{
+					html: '
+					<a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132775346323/Agents+Safeguarding+-+User+Role+Model#business_support">Business Support</a> <br>home
+					'
+				},
+				{
+					html: '
+					<a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132775346323/Agents+Safeguarding+-+User+Role+Model#decision_maker">Decision maker</a> <br>home
+					'
+				}
+			],
+			rows: [
+				[
+					{
+					html: '
+					Empty list <br><span class="govuk-body-s">(default text)</span>
+					 '
+					},
+					{
+						html: '<a href="/beta/common/landing/v3/01landingpage2_empty">v3 Common</a>'
+					},
+					{
+						html: '
+						<a href="/beta/decision/v6/01landingpage1_btsready">v6 Decision</a><br>
+						'
+					},
+					{
+						html: '
+						<a href="/beta/decision/v6/01landingpage1_blank">v6 Decision</a>
+						'
+					}
+				],
+				[
+					{
+					html: '
+					Save and resume
+					 '
+					},
+					{
+						html: '<a href="/beta/common/landing/v3/01landingpage1_manager_complex">v3 Common</a>'
+					},
+					{
+						html: 'N'
+					},
+					{
+						html: 'N'
+					}
+				],
+				[
+					{
+					html: '
+					Incident manager report
+					 '
+					},
+					{
+						html: '<a href="/beta/common/landing/v3/01landingpage1_manager_complex">v3 Common</a>'
+					},
+					{
+						html: 'N'
+					},
+					{
+						html: 'N'
+					}
+				],
+				[
+					{
+					html: '
+					Witness report
+					 '
+					},
+					{
+						html: '<a href="/beta/common/landing/v3/01landingpage1_manager_complex">v3 Common</a>'
+					},
+					{
+						html: 'N'
+					},
+					{
+						html: 'N'
+					}
+				],
+				[
+					{
+					html: '
+					Request for information
+					 '
+					},
+					{
+						html: '<a href="/beta/common/landing/v3/01landingpage1_manager_complex">v3 Common</a>'
+					},
+					{
+						html: 'N'
+					},
+					{
+						html: 'N'
+					}
+				],
+				[
+					{
+					html: '
+					View decision
+					 '
+					},
+					{
+						html: '<a href="/beta/common/landing/v3/01landingpage1_manager_complex">v3 Common</a>'
+					},
+					{
+						html: 'N'
+					},
+					{
+						html: 'N'
+					}
+				],
+				[
+					{
+						html: '
+							Action request
+						'
+					},
+					{
+						html: '
+							<a href="/beta/common/landing/v3/01landingpage1_manager_complex">v3 Common</a><br>
+							<a href="/beta/incident_manager_journey/v4/01landingpage2_manager">(v4 Manager)</a>						
+						'
+					},
+					{
+						html: 'N'
+					},
+					{
+						html: '
+						Decision<br>
+ 						<span class="govuk-body-s">- not yet designed/developed</span>'
+					}
+				],
+				[
+					{
+					html: '
+					Unassigned reports count <br><span class="govuk-body-s">(JS fallback, timeout and Task service error</span>
+					 '
+					},
+					{
+						html: 'N'
+					},
+					{
+						html: '
+						<a href="/beta/decision/v6/01landingpage1_btsready">v6 Decision</a><br>
+						'
+					},
+					{
+						html: '
+						<a href="/beta/decision/v6/01landingpage1_btsready">v6 Decision</a><br>
+						'
+					}
+				],
+				[
+					{
+					html: '
+					Case actions <br><span class="govuk-body-s">(Open | Reassign)</span>
+					 '
+					},
+					{
+						html: 'N'
+					},
+					{
+						html: '
+						<a href="/beta/decision/v6/01landingpage1_btsready">v6 Decision </a><br>
+						'
+					},
+					{
+						html: '
+						<a href="/beta/decision/v6/01landingpage1_blank">v6 Decision </a><br>
+						'
+					}
+				],
+				[
+					{
+					html: '
+					Get next button 
+					 '
+					},
+					{
+						html: 'N'
+					},
+					{
+						html: '
+						<a href="/beta/decision/v6/01landingpage1_btsready">v6 Decision</a>
+						'
+					},
+					{
+						html: '
+						<a href="/beta/decision/v6/01landingpage1_blank">v6 Decision</a>
+						'
+					}
+				],
+				[
+					{
+					html: '
+					Multiple incidents
+					 '
+					},
+					{
+						html: 'N'
+					},
+					{
+						html: 'N?'
+					},
+					{
+						html: '<a href="/beta/decision/v6/01landingpage1_multiple">v6 Decision</a> <br><span class="govuk-body-s">- not yet developed</span>'
+					}
+				]
+			]
+		}) }}
+	</div>
+</div>
+{% endblock %}

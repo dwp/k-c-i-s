@@ -1,0 +1,36 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<hr>
+<br>
+<h3 class="govuk-heading-s govuk-!-font-weight-regular">NOT PART OF DESIGN: Demo only</h3>
+<h4 class="govuk-heading-s">Versions</h3>
+{% include "beta/incident_manager_journey/_versions/03witnessdisplay__versions.njk" %}
+
+<h4 class="govuk-heading-s">States</h3>
+<ul class="govuk-list govuk-list--bullet">
+<a href="03witnessdisplay-1nowitnesses">1. No Witnesses indicated by reporter, no witness requests made</a><br>
+<a href="03witnessdisplay-2yeswitnesses">2. Witnesses indicated by reporter, no witness requests made</a><br>
+<a href="03witnessdisplay-3list">3. Witness requests made</a><br>
+</ul>
+<h4 class="govuk-heading-s">v2 Design notes</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li>UCD Story: <a href="https://dwpdigital.atlassian.net/browse/CITI-19452">Discover: Improve Manage Report on Behalf of Witness</a></li>
+	</ul>
+<h4 class="govuk-heading-s">Hypotheses and insights</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li>Insight: <a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/133169119473/Incident+managers+navigate+long+pages+with+ease">Incident managers navigate long pages with ease</a></li>
+		<li><a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132775346323/Agents+Safeguarding+-+User+Role+Model#manager">Manager user canvas</a></li>
+		<ul class="govuk-list govuk-list--bullet">
+			<li>Need: Submit Incident Manager Report</li>
+		</ul>
+	</ul>
+{% set journeyNotesHTMLincidentreport %}
+	{% include "beta/incident_manager_journey/notes/v2__notes.njk" %}
+{% endset %}
+{{ govukDetails({
+	summaryText: "v2 Journey level design notes",
+	html: journeyNotesHTMLincidentreport
+}) }}	

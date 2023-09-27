@@ -1,0 +1,46 @@
+{% set versions = [ 
+  "/beta/decision/v1/h_03concern_best",
+  "/beta/decision/v2/h_03concern_best",
+  "/beta/decision/v3/h_03concern_best",
+  "/beta/decision/v4/h_03concern_best",
+  "/beta/decision/v5/h_03concern_best",
+  "/beta/decision/v6/h_03concern_best"
+] %}
+
+
+
+{{ govukPagination({
+
+  items: [
+    {
+      number: 1,
+      href: versions[0]
+    },
+    {
+      number: 2,
+      href: versions[1]
+    },
+    {
+      number: 3,
+      href: versions[2]
+    },
+    {
+      number: 4,
+      href: versions[3]
+    },
+    {
+      number: 5,
+      href: versions[4]
+    },
+    {
+      number: 6,
+      href: versions[5]
+    }
+  ]
+}) }}
+
+
+{% block pageScripts %}
+  <script src="/public/javascripts/versions_1-0.js"></script>
+{% endblock %}
+

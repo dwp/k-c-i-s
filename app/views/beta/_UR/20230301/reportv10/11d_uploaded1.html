@@ -1,0 +1,82 @@
+{% extends "layout_ur.html" %}
+{% block pageTitle %}
+  Add files - Keep Customer Interactions Safe
+{% endblock %}
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+        text: "beta"
+      },
+        html: 'This is a new service – your <a class="govuk-link" href="11g_upload_error">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "templates/v2/header_searchlight.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
+  </section>
+{% endblock %}
+{% block content %}
+  {% include "templates/incident_refactorv10/file_upload_styling.html" %}
+  {{ govukNotificationBanner({
+    html: '<p class="govuk-notification-banner__heading">Added 1 file</p>',
+    type: 'success'
+  }) }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Add files</h1>
+      {{ govukDetails({
+        summaryText: "Files must be smaller than 1MB",
+        html: "<p class='govuk-body'>If each file is smaller than 1MB, add files one at a time. </p>
+              <p class='govuk-body'>To add a file that is bigger than 1MB, select Continue on this screen and complete your report. You can email the files to the email address shown in the final screen, after you submit your report.</p>"
+      }) }}
+    </div>
+  </div>
+  <div class="moj-multi-file-upload">
+    <div class="moj-multi-file__uploaded-files ">
+      <div class="moj-multi-file-upload">
+        <div class="moj-multi-file__uploaded-files ">
+          <h2 class="govuk-heading-m">Files added</h2>
+          <div class="govuk-summary-list moj-multi-file-upload__list">
+            <div class="govuk-summary-list__row moj-multi-file-upload__row">
+              <div class="govuk-summary-list__value moj-multi-file-upload__message">
+                <svg class='moj-banner__icon filter-green' fill='currentColor' role='presentation' focusable='false' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 25 25' height='25' width='25'>
+                  <path d='M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z'></path>
+                </svg>
+                <span class='govuk-success-colour'>evidence.jpg</span>
+              </div>
+              <div class="govuk-summary-list__actions moj-multi-file-upload__actions" style="">
+                <a href="#" class="moj-multi-file-upload__delete govuk-link--no-visited-state" id="ffab9aef-c282-4972-a960-66428a0f3acf"> Delete <span class="govuk-visually-hidden">evidence.jpg</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="moj-multi-file-upload__upload" id="moj-multi-file-upload__upload">
+    <div style="width:fit-content">
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--m" for="documents">
+          Choose files
+        </label>
+        <div class="moj-multi-file-upload__dropzone"  style="padding-right: 30px">
+          <input class="govuk-file-upload moj-multi-file-upload__input moj-hidden" id="documents" name="documents" type="file" multiple="" accept="" limit="1048576" limitmb="1">
+          <p class="govuk-body">Drag and drop files here or</p>
+          <label for="documents" id="choose-files" class="govuk-button govuk-button--secondary govuk-file-upload_input_label" tabindex="0">Choose files</label>
+            <div aria-live="polite" role="status" class="govuk-visually-hidden">
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    {{ govukButton({
+      text: "Continue",
+      href: "12check_simple"
+    }) }}
+  </div>
+{% endblock %}

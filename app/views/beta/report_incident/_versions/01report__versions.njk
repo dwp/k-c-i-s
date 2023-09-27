@@ -1,0 +1,52 @@
+{# Type of report - incident or concern #}
+{% set versions = [ 
+  "../reportv6/01report",
+  "../reportv7/01report",
+  "../reportv8/01report",
+  "../reportv9/01report",
+  "../reportv10/01report",
+  "../reportv11/01report",
+  "../reportv12/01report"
+] %}
+
+
+
+{{ govukPagination({
+
+  items: [
+    {
+      number: 6,
+      href: versions[0]
+    },
+    {
+      number: 7,
+      href: versions[1]
+    },
+    {
+      number: 8,
+      href: versions[2]
+    },
+    {
+      number: 9,
+      href: versions[3]
+    },
+    {
+      number: 10,
+      href: versions[4]
+    },
+    {
+      number: 11,
+      href: versions[5]
+    },
+    {
+      number: 12,
+      href: versions[6]
+    }
+  ]
+}) }}
+
+
+{% block pageScripts %}
+  <script src="/public/javascripts/versions_1-0.js"></script>
+{% endblock %}
+

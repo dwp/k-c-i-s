@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+{% block pageTitle %}
+  Error: Incident trigger - Keep Customer Interactions Safe
+{% endblock %}
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+        text: "beta"
+      },
+      html: 'This is a new service – your <a class="govuk-link" href="04trigger">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "templates/v7/key_details_red.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "02history_complex"
+    }) }}
+  </section>
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: [
+          {
+            text: "Tell us what caused this incident",
+            href: "#incident-type"
+          }
+        ]
+      }) }}
+      {% include "templates/v7/govuk-caption-m.njk" %}
+        {{ govukRadios({
+        idPrefix: "incident-type",
+        name: "incident-type",
+        fieldset: {
+          legend: {
+            text: "Incident trigger",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--xl"
+          }
+        },
+        items: [
+          {
+            value: "type1",
+            text: "Type 1"
+          },
+          {
+            value: "type2",
+            text: "Type 2"
+          }
+        ],
+        errorMessage: {
+          text: "Tell us what caused this incident"
+        }
+      }) }}
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Continue",
+          href: "05actions"
+        }) }}
+      </div>
+    </div>
+  </div>
+  {% if not (checked("displaymode", "presentation") == "checked") %}
+		{% include "./notes/04trigger__notes.njk" %}
+	{% endif %}
+{% endblock %}

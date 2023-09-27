@@ -1,0 +1,36 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<hr>
+<br>
+<h3 class="govuk-heading-s govuk-!-font-weight-regular">NOT PART OF DESIGN: Demo only</h3>
+<h4 class="govuk-heading-s">Versions</h3>
+{% include "../../_versions/09reassign__versions.njk" %}
+
+<h4 class="govuk-heading-s">States</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li><a href="09reassign">Reassign to colleague</a> - decision maker only</li>
+		<li><a href="09reassign_error">Reassign to colleague</a> - x3 Errors</li>
+	</ul>
+<h4 class="govuk-heading-s">v2 Design notes</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li>Development story <a href="https://dwpdigital.atlassian.net/browse/CITI-18258">CITI-18258 - Build: Manage Decision Maker Cases</a></li>
+		<li>Validation - Email must be a decision maker (or business support) </li>
+		<li>Validation - Ideally will only allow other decision makers. However, the validation group will also contain Business Support. This will be mitigated because business support will need to establish who to send to before sending it on.</li>
+		<li>No confirmation page after this - goes straight back to start page?</li>
+	</ul>
+<h4 class="govuk-heading-s">Hypotheses</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li><a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132775346323/Agents+Safeguarding+-+User+Role+Model#decision_maker">Decision maker user canvas</a></li>
+		<ul class="govuk-list govuk-list--bullet">
+		</ul>
+	</ul>
+{% set journeyNotesHTMLDecision_v2 %}
+	{% include "beta/decision/notes/v2__notes.njk" %}
+{% endset %}
+{{ govukDetails({
+	summaryText: "v2 Journey level design notes",
+	html: journeyNotesHTMLDecision_v2
+}) }}	

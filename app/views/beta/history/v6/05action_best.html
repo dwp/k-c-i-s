@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+{% block pageTitle %}
+  Action - Keep Customer Interactions Safe
+{% endblock %}
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+        text: "beta"
+      },
+      html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "templates/v7/key_details_red.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
+  </section>
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row govuk-!-padding-bottom-3">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">Actions</h1>
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Actions",
+              classes: "govuk-!-width-one-half"
+            },
+            value: {
+              text: "Interview, Verbal warning",
+              classes: "govuk-!-width-one-half"
+            }
+          },
+          {
+            key: {
+              text: "Date applied",
+              classes: "govuk-!-width-one-half"
+            },
+            value: {
+              text: "21 March 2022",
+              classes: "govuk-!-width-one-half"
+            }
+          },
+          {
+            key: {
+              text: "Requested by"
+            },
+            value: {
+              html: "Sarah Sencha"
+            }
+          }
+        ]
+      }) }}
+      <p>Interviewed by conference call with one colleague listening in. </p>
+      <p class="govuk-!-padding-bottom-7">The customer was calm and reasonable throughout the call and seemed genuinely sorry for the offense they caused. The seemed to understand why their actions were unacceptabe and I delivered a verbal warning and explained what the next steps would be.</p>
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Back to customer history",
+          href: "01history_complex"
+        }) }}
+      </div>
+    </div>
+  </div>
+	{% if not (checked("displaymode", "presentation") == "checked") %}
+		{% include "./notes/05action__notes.njk" %}
+	{% endif %}
+{% endblock %}

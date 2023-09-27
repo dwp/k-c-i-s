@@ -1,0 +1,45 @@
+		<div class="govuk-width-container ">
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<hr>
+			<br>
+			<h3 class="govuk-heading-s govuk-!-font-weight-regular">NOT PART OF DESIGN: Demo only</h3>
+			<h4 class="govuk-heading-s">Versions</h3>
+			{% from "govuk/components/pagination/macro.njk" import govukPagination %}
+			{% include "../../_versions/00searchlight__versions.njk" %}			
+			<h4 class="govuk-heading-s">States</h3>
+			<ul class="govuk-list govuk-list--bullet">
+					<li><a href="00searchlight">1. Searchlight KCIS fragment - All users - no measures</a></li>
+					<li><a href="00searchlight_measures">2. Searchlight KCIS fragment - All users - Measures</a></li>
+					<li><a href="00searchlight_nm">3. Searchlight KCIS fragment - Case reviewers  - no measures</a></li>
+					<li><a href="00searchlight_measures_nm">4. Searchlight KCIS fragment - Case reviewers  - measures</a></li>
+					<li><a href="00searchlight_menu">5. Searchlight KCIS fragment - All users - menu</a></li>
+					<li><a href="00searchlight_menu_nm">6. Searchlight KCIS fragment - Case reviewers - menu</a></li>
+			</ul>
+			<h4 class="govuk-heading-s">v1 Design notes</h3>
+				<ul class="govuk-list govuk-list--bullet">
+					<li>Story: <a href="https://dwpdigital.atlassian.net/browse/CITI-19179">Access Safeguarding History Via Customer Profile</a></li>
+					<li>DM to access full journey to allow ad-hoc reviews (and adding/removal of measures)</li>
+					<li>Link always available to Case Reviewers as may need to add actions</li>
+					<li>Fragment expanded to include prepare link</li>
+					<li>Fragment design assumption: Single line</li>
+					<li>Does KCIS title look like a subheading - does it work in the flow?</li>
+				</ul>
+			<h4 class="govuk-heading-s">Hypotheses</h3>
+			<ul class="govuk-list govuk-list--bullet">
+				<li><a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132775346323/Agents+Safeguarding+-+User+Role+Model#reporter">Reporter canvas</a></li>
+			</ul>
+			{% set journeyNotesHTML %}
+				{% include "beta/common/fragment/notes/v1__notes.njk" %}
+			{% endset %}
+			{% from "govuk/components/details/macro.njk" import govukDetails %}
+			{{ govukDetails({
+				summaryText: "v1 Journey level design notes",
+				html: journeyNotesHTML
+			}) }}						
+
+		</div>
+

@@ -1,0 +1,62 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<hr>
+<br>
+<h3 class="govuk-heading-s govuk-!-font-weight-regular">NOT PART OF DESIGN: Demo only</h3>
+<h4 class="govuk-heading-s">Versions</h3>
+{% include "beta/report_incident/_versions/09describe__versions.njk" %}
+
+<h4 class="govuk-heading-s">States</h3>
+<ul class="govuk-list govuk-list--bullet">
+	<li><a href="09describe">1. Describe in-person</a></li>
+	<li><a href="09describe_social">2. Describe social</a></li>
+	<li><a href="09describe_telephone">3. Describe telephone</a></li>
+	<li><a href="09describe_written">4. Describe written</a></li>
+	<li><a href="09describe_video">5. Describe video</a></li>
+	<li><a href="09describe_error">6. Error:Describe in-person x7 </a></li>
+</ul>
+<h4 class="govuk-heading-s">v10 Design notes</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li>New versions of this page created for each interaction type. The original design with 7 text fields is approriate on for potentially complex in-person interactions. Other interaction types may use a simpler interface to drive down time/cost by reducing journey time. This is currently the page that takes the most time to complete. </li>
+		<ul class="govuk-list govuk-list--bullet">		
+			<li><strong>Telephone</strong> - agreed in UCD team that witnesses question wasn't relevant for telephone interactions. Merged other questions into 5 checkboxes, removed full stops (not complete sentences) and reworded lead-in in bold to clarify action<br>
+			Dev story: <a href="https://dwpdigital.atlassian.net/browse/CITI-18735">Discover: Add Description - Custom Telephone</a></li>
+			<li><strong>Written</strong> - agreed in UCD team that witnesses question wasn't relevant for telephone interactions. Merged other questions into 5 checkboxes, added clarification to checkboxes about starting and ending, removed full stops (not complete sentences) and reworded lead-in in bold to clarify action<br>
+			Dev story: <a href="https://dwpdigital.atlassian.net/browse/CITI-19013">Discover: Add Description - Custom Written</a></li>
+			<li><strong>Video</strong> - agreed in UCD team that all questions are relevant for video interactions. Merged questions into 6 checkboxes, removed full stops (not complete sentences) and reworded lead-in in bold to clarify action<br>
+			Dev story: <a href="https://dwpdigital.atlassian.net/browse/CITI-19015">Discover: Add Description - Custom Video</a></li>
+			<li><strong>Social media</strong> - agreed in UCD team that only three questions were relevant for social media interactions (in part because this is generally passively-consumed not active discussion). Questions -> 3 checkboxes, removed full stops (not complete sentences) and reworded lead-in in bold to clarify action. Needs discussion with DWP social media team<br>
+			Dev story: <a href="https://dwpdigital.atlassian.net/browse/CITI-19014">Discover: Add Description - Custom Social Media</a></li>
+			<li><strong>Error page</strong> for all checkbox versions (all versions except in-person) - errors need to be generic enough to cover any wording around checkboxes</li>
+			<li><strong>In person</strong> (not built). The version was designed for in-person, however not built because there is evidence to suggest this<br>
+			UCD story: <a href="https://dwpdigital.atlassian.net/browse/CITI-19248">Discover: Add Description - Custom In person</a></li>
+		</ul>
+	</ul>
+<h4 class="govuk-heading-s">Hypotheses and insights</h3>
+<li>Survey results: Users found questions repetitive for certain interaction types</li>
+	<ul class="govuk-list govuk-list--bullet">
+		<li>Usability testing: <a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/133191305062">Reporters describe telephone incidents faster with a simpler interface.</a></li>
+		<li>Usability testing: <a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/133190944760">Reporters include enough details using checkboxes</a></li>
+		<li>Usability testing: <a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/133193596983">Reporters include enough detail for managers using a simpler interface</a></li>
+		<li>Usability testing: <a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/133191731054">Reporters include enough detail using a simpler interface</a></li>
+		<li><a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132775346323/Agents+Safeguarding+-+User+Role+Model#reporter">Reporter user canvas</a></li>
+		<ul class="govuk-list govuk-list--bullet">
+			<li>Need: Report Incident</li>
+			<li>Pain: Dont know what to write in reports</li>
+			<li>Pain: Entering offensive language</li>
+			<li>Pain reliever: Remove jargon and signpost</li>
+			<li>Pain reliever: Provide guidance each step of the way</li>
+			<li>Pain: Journeys too complex</li>
+			<li>Pain reliever: Keep journeys as short as possible</li>
+		</ul>
+	</ul>
+{% set journeyNotesHTMLincidentreport %}
+	{% include "beta/report_incident/notes/v10__notes.njk" %}
+{% endset %}
+{{ govukDetails({
+	summaryText: "v10 Journey level design notes",
+	html: journeyNotesHTMLincidentreport
+}) }}

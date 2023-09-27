@@ -1,0 +1,43 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<hr>
+<br>
+<h3 class="govuk-heading-s govuk-!-font-weight-regular">NOT PART OF DESIGN: Demo only</h3>
+<h4 class="govuk-heading-s">Versions</h3>
+{% include "../../_versions/02history__versions.njk" %}
+
+<h4 class="govuk-heading-s">States</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li><a href="02history_complex">History</a> - Decision maker </li>
+		<li><a href="02history_nomeasures">History</a> - Decision maker - no history</li>
+	</ul>
+	<p>Related page from decision maker journey</p>
+	<ul class="govuk-list govuk-list--bullet">
+		<li><a href="10history_bst">History</a> - Business support </li>
+	</ul>
+<h4 class="govuk-heading-s">v3 Design notes</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li>Add measures = "none" because the measures explanation is needed to be linked</li>
+	</ul>
+<h4 class="govuk-heading-s">Hypotheses and insights</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li>Insight: <a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/133179082061/Decision+makers+can+navigate+customer+history+timeline">Decision makers can navigate customer history timeline</a></li>
+		<li>Insight (to be enacted): <a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/133180227671/Decision+makers+want+details+of+historical+actions">Decision makers want details of historical actions</a>		</li>
+		<li><a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132775346323/Agents+Safeguarding+-+User+Role+Model#decision_maker">Decision maker user canvas</a></li>
+		<ul class="govuk-list govuk-list--bullet">
+			<li>Need: Work on multiple cases</li>
+			<li>Pain: Inefficient processes and missing SLAs</li>
+			<li>Pain: The number of reviews needing doing</li>
+		</ul>
+	</ul>
+{% set journeyNotesHTMLDecision_v3 %}
+	{% include "beta/decision/notes/v3__notes.njk" %}
+{% endset %}
+{{ govukDetails({
+	summaryText: "v3 Journey level design notes",
+	html: journeyNotesHTMLDecision_v3
+}) }}	
+

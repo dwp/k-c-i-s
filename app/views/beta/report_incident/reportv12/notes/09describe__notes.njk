@@ -1,0 +1,44 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<hr>
+<br>
+<h3 class="govuk-heading-s govuk-!-font-weight-regular">NOT PART OF DESIGN: Demo only</h3>
+<h4 class="govuk-heading-s">Versions</h3>
+{% include "beta/report_incident/_versions/09describe__versions.njk" %}
+
+<h4 class="govuk-heading-s">States</h3>
+<ul class="govuk-list govuk-list--bullet">
+	<li><a href="09describe">1. Describe in-person</a></li>
+	<li><a href="09describe_social">2. Describe social</a></li>
+	<li><a href="09describe_telephone">3. Describe telephone</a></li>
+	<li><a href="09describe_written">4. Describe written</a></li>
+	<li><a href="09describe_video">5. Describe video</a></li>
+	<li><a href="09describe_error">6. Error:Describe in-person x7 </a></li>
+</ul>
+<h4 class="govuk-heading-s">v12 Design notes</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li>No change</li>
+	</ul>
+<h4 class="govuk-heading-s">Hypotheses</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li><a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132775346323/Agents+Safeguarding+-+User+Role+Model#reporter">Reporter user canvas</a></li>
+		<ul class="govuk-list govuk-list--bullet">
+			<li>Need: Report Incident</li>
+			<li>Pain: Dont know what to write in reports</li>
+			<li>Pain: Entering offensive language</li>
+			<li>Pain reliever: Remove jargon and signpost</li>
+			<li>Pain reliever: Provide guidance each step of the way</li>
+			<li>Pain: Journeys too complex</li>
+			<li>Pain reliever: Keep journeys as short as possible</li>
+		</ul>
+	</ul>
+{% set journeyNotesHTMLincidentreport %}
+	{% include "beta/report_incident/notes/v12__notes.njk" %}
+{% endset %}
+{{ govukDetails({
+	summaryText: "v12 Journey level design notes",
+	html: journeyNotesHTMLincidentreport
+}) }}	

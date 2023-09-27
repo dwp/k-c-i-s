@@ -1,0 +1,171 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Error: What date did the incident happen? - Keep Customer Interactions Safe
+{% endblock %}
+
+{% block beforeContent %}
+<section aria-label="Phase banner" role="region">
+  {{ govukPhaseBanner({
+    tag: {
+    text: "beta"
+  },
+    html: 'This is a new service – your <a class="govuk-link" href="06when_error">feedback</a> will help us to improve it.'
+  }) }}
+</section>
+{% include "templates/v2/header_searchlight.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
+  </section>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: [
+          {
+            text: "Select the date that the incident happened",
+            href: "#date"
+          },
+          {
+            text: "Date of incident must be today or in the past",
+            href: "#incident-date-past"
+          },
+          {
+            text: "Date of incident must be one year ago or less",
+            href: "#incident-date-limit"
+          },
+          {
+            text: "Enter the date of the incident",
+            href: "#incident-date-enter"
+          },
+          {
+            text: "Enter a valid day for the incident",
+            href: "#incident-date-day"
+          },
+          {
+            text: "Enter a valid month for the incident",
+            href: "#incident-date-month"
+          },
+
+          {
+            text: "Date of incident must include a day",
+            href: "#incident-date-must-day"
+          },
+          {
+            text: "Date of incident must include a month",
+            href: "#incident-date-must-month"
+          },
+          {
+            text: "Date of incident must include a year",
+            href: "#incident-date-must-year"
+          },
+          {
+            text: "Date of incident must include a day and a month",
+            href: "#incident-date-must-daymonth"
+          },
+          {
+            text: "Date of incident must include a day and a year",
+            href: "#incident-date-must-dayyear"
+          },
+          {
+            text: "Date of incident must include a month and a year",
+            href: "#incident-date-must-monthyear"
+          },
+          {
+            text: "Year must include 4 numbers: for example, 2023",
+            href: "#incident-date-year4numbers"
+          }
+        ]
+      }) }}
+      {% set dateHtml %}
+        {{ govukDateInput({
+          id: "incident-date",
+          namePrefix: "incident-date",
+          hint: {
+            text: "For example, 30 03 2023"
+          },
+          items: [
+            {
+              classes: "govuk-input--width-2 govuk-input--error",
+              name: "day"
+            },
+            {
+              classes: "govuk-input--width-2 govuk-input--error",
+              name: "month"
+            },
+            {
+              classes: "govuk-input--width-2 govuk-input--error",
+              name: "year"
+            }
+          ],
+          errorMessage: {
+            text: "Enter the date of the incident"
+          }
+        }) }}
+      {% endset %}
+      {{ govukRadios({
+        idPrefix: "date",
+        name: "date",
+        items: [
+          {
+            value: "today",
+            text: "Today"
+          },
+          {
+            value: "yesterday",
+            text: "Yesterday"
+          },
+          {
+            value: "other",
+            text: "Another date",
+            conditional: {
+              html: dateHtml
+            },
+            checked: true
+          }
+        ],
+        fieldset: {
+          legend: {
+            text: "What date did the incident happen?",
+            classes: "govuk-fieldset__legend--l",
+            isPageHeading: true
+          }
+        },
+        errorMessage: {
+          text: "Select the date that the incident happened"
+        }
+      }) }}
+      <style>
+        .govuk-date-input__item {
+          font-size:20px !important;
+        }
+        #incident-time .govuk-date-input__item:first-child {
+          margin:0px;
+        }
+        #incident-time .govuk-date-input__item:last-child {
+          margin-left:10px;
+        }
+        #incident-time .govuk-date-input__item:first-child .govuk-form-group::after {
+          content: ":";
+          display: inline-block;
+          padding-left: 5px;
+        }
+      </style>
+      <div>
+        {{ govukButton({
+          text: "Continue",
+          href: "06when-time"
+        }) }}
+      </div>
+    </div>
+  </div>
+	{% if not (checked("displaymode", "presentation") == "checked") %}
+		{% include "./notes/06when__notes.njk" %}
+	{% endif %}
+{% endblock %}

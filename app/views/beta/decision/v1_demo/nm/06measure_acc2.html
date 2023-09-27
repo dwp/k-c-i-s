@@ -1,0 +1,545 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Measures applied - Keep Customer Interactions Safe
+{% endblock %}
+
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+      text: "beta"
+    },
+      html: 'This is a new service – your <a class="govuk-link" href="08discrimination_error">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "templates/v7/key_details.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "03actions"
+    }) }}
+  </section>
+{% endblock %}
+
+{% block content %}
+  <h1 class="govuk-fieldset__legend--xl">{% include "templates/v7/govuk-caption-m.njk" %}Select measures to apply</h1>
+<p class="govuk-hint">Select all that apply.</p>
+
+
+{% from "govuk/components/accordion/macro.njk" import govukAccordion %}
+{{ govukAccordion({
+  id: "accordion-default",
+  items: [
+    {
+      heading: {
+        text: "Location"
+      },
+      content: {
+        html: '<fieldset class="govuk-fieldset">
+  
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+  
+    
+  
+  </legend>
+  
+
+  <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+    
+      
+          
+        
+          
+          
+          
+          
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="applymeasures1" name="applymeasures1" type="checkbox" value="accompaniedvisits">
+            <label class="govuk-label govuk-checkboxes__label" for="applymeasures1">
+        Accompanied visits only
+      </label>
+            
+          </div>
+          
+        
+      
+    
+      
+        
+          
+          
+          
+          
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="applymeasures1-2" name="applymeasures1" type="checkbox" value="accompaniedinterviews">
+            <label class="govuk-label govuk-checkboxes__label" for="applymeasures1-2">
+        Accompanied interviews
+      </label>
+            
+          </div>
+          
+        
+      
+    
+      
+        
+          
+          
+          
+          
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="applymeasures1-3" name="applymeasures1" type="checkbox" value="banned-dwp">
+            <label class="govuk-label govuk-checkboxes__label" for="applymeasures1-3">
+        Banned from office (by DWP)
+      </label>
+            
+          </div>
+          
+        
+      
+    
+      
+        
+          
+          
+          
+          
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="applymeasures1-4" name="applymeasures1" type="checkbox" value="banned-gld">
+            <label class="govuk-label govuk-checkboxes__label" for="applymeasures1-4">
+        Banned from office (by GLD)
+      </label>
+            
+          </div>
+          
+        
+      
+    
+      
+        
+          
+          
+          
+          
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="applymeasures1-5" name="applymeasures1" type="checkbox" value="screened">
+            <label class="govuk-label govuk-checkboxes__label" for="applymeasures1-5">
+        Must be dealt with in a screened environment
+      </label>
+            
+          </div>
+          
+        
+      
+    
+      
+        
+          
+          
+          
+          
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="applymeasures1-6" name="applymeasures1" type="checkbox" value="nohomevisits">
+            <label class="govuk-label govuk-checkboxes__label" for="applymeasures1-6">
+        No home visits
+      </label>
+            
+          </div>
+          
+        
+      
+    
+      
+        
+          
+          
+          
+          
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="applymeasures1-7" name="applymeasures1" type="checkbox" value="injunction">
+            <label class="govuk-label govuk-checkboxes__label" for="applymeasures1-7">
+        Prohibitory Injunction or Interdict in place
+      </label>
+            
+          </div>
+          
+        
+      
+    
+  </div>
+  
+
+</fieldset>'
+      }
+    },
+    {
+      heading: {
+        text: "Communications and equipment"
+      },
+      content: {
+        html: '<fieldset class="govuk-fieldset">
+  
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+  
+
+  
+  </legend>
+  
+
+  <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+    
+      
+          
+        
+          
+          
+          
+          
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="applymeasures2" name="applymeasures2" type="checkbox" value="1">
+            <label class="govuk-label govuk-checkboxes__label" for="applymeasures2">
+        Banned from using UCFS Journal
+      </label>
+            
+          </div>
+          
+        
+      
+    
+      
+        
+          
+          
+          
+          
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="applymeasures2-2" name="applymeasures2" type="checkbox" value="2">
+            <label class="govuk-label govuk-checkboxes__label" for="applymeasures2-2">
+        Customer not permitted to use DWP computers
+      </label>
+            
+          </div>
+          
+        
+      
+    
+      
+        
+          
+          
+          
+          
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="applymeasures2-3" name="applymeasures2" type="checkbox" value="3">
+            <label class="govuk-label govuk-checkboxes__label" for="applymeasures2-3">
+        Must be dealt with by post
+      </label>
+            
+          </div>
+          
+        
+      
+    
+      
+        
+          
+          
+          
+          
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="applymeasures2-4" name="applymeasures2" type="checkbox" value="4">
+            <label class="govuk-label govuk-checkboxes__label" for="applymeasures2-4">
+        Postal signing
+      </label>
+            
+          </div>
+          
+        
+      
+    
+      
+        
+          
+          
+          
+          
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="applymeasures2-5" name="applymeasures2" type="checkbox" value="5">
+            <label class="govuk-label govuk-checkboxes__label" for="applymeasures2-5">
+        Must be dealt with by digital
+      </label>
+            
+          </div>
+          
+        
+      
+    
+  </div>
+  
+
+</fieldset>'
+      }
+    },
+    {
+      heading: {
+        text: "Personnel"
+      },
+      content: {
+        html: '<fieldset class="govuk-fieldset">
+  
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+  
+    
+  
+  </legend>
+  
+
+  <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+    
+      
+          
+        
+          
+          
+          
+          
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="applymeasures3" name="applymeasures3" type="checkbox" value="1">
+            <label class="govuk-label govuk-checkboxes__label" for="applymeasures3">
+        Dealt with by member of other race
+      </label>
+            
+          </div>
+          
+        
+      
+    
+      
+        
+          
+          
+          
+          
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="applymeasures3-2" name="applymeasures3" type="checkbox" value="2">
+            <label class="govuk-label govuk-checkboxes__label" for="applymeasures3-2">
+        Deal with by member of other sex
+      </label>
+            
+          </div>
+          
+        
+      
+    
+      
+        
+          
+          
+          
+          
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="applymeasures3-3" name="applymeasures3" type="checkbox" value="3">
+            <label class="govuk-label govuk-checkboxes__label" for="applymeasures3-3">
+        Dealt with by member of other race / sex
+      </label>
+            
+          </div>
+          
+        
+      
+    
+      
+        
+          
+          
+          
+          
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="applymeasures3-4" name="applymeasures3" type="checkbox" value="4">
+            <label class="govuk-label govuk-checkboxes__label" for="applymeasures3-4">
+        Dealt with by member of same race
+      </label>
+            
+          </div>
+          
+        
+      
+    
+      
+        
+          
+          
+          
+          
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="applymeasures3-5" name="applymeasures3" type="checkbox" value="5">
+            <label class="govuk-label govuk-checkboxes__label" for="applymeasures3-5">
+        Dealt with by member of same sex
+      </label>
+            
+          </div>
+          
+        
+      
+    
+      
+        
+          
+          
+          
+          
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="applymeasures3-6" name="applymeasures3" type="checkbox" value="6">
+            <label class="govuk-label govuk-checkboxes__label" for="applymeasures3-6">
+        Dealt with by member of same race / sex
+      </label>
+            
+          </div>
+          
+        
+      
+    
+      
+        
+          
+          
+          
+          
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="applymeasures3-7" name="applymeasures3" type="checkbox" value="7">
+            <label class="govuk-label govuk-checkboxes__label" for="applymeasures3-7">
+        Not to be seen by lone females
+      </label>
+            
+          </div>
+          
+        
+      
+    
+      
+        
+          
+          
+          
+          
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="applymeasures3-8" name="applymeasures3" type="checkbox" value="8">
+            <label class="govuk-label govuk-checkboxes__label" for="applymeasures3-8">
+        Not to be seen by lone males
+      </label>
+            
+          </div>
+          
+        
+      
+    
+      
+        
+          
+          
+          
+          
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="applymeasures3-9" name="applymeasures3" type="checkbox" value="9">
+            <label class="govuk-label govuk-checkboxes__label" for="applymeasures3-9">
+        Contact named officer only
+      </label>
+            
+          </div>
+          
+        
+      
+    
+      
+        
+          
+          
+          
+          
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="applymeasures3-10" name="applymeasures3" type="checkbox" value="10">
+            <label class="govuk-label govuk-checkboxes__label" for="applymeasures3-10">
+        No contact with named officer
+      </label>
+            
+          </div>
+          
+        
+      
+    
+      
+        
+          
+          
+          
+          
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="applymeasures3-11" name="applymeasures3" type="checkbox" value="11">
+            <label class="govuk-label govuk-checkboxes__label" for="applymeasures3-11">
+        To be dealt with by a named officer
+      </label>
+            
+          </div>
+          
+        
+      
+    
+  </div>
+  
+
+</fieldset>'
+      }
+    },
+    {
+      heading: {
+        text: "Monitor behaviour"
+      },
+      content: {
+        html: '<fieldset class="govuk-fieldset">
+  
+
+  
+
+  <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+    
+      
+          
+        
+          
+          
+          
+          
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="applymeasures4" name="applymeasures4" type="checkbox" value="1">
+            <label class="govuk-label govuk-checkboxes__label" for="applymeasures4">
+        Monitor behaviour
+      </label>
+            
+          </div>
+          
+        
+      
+    
+  </div>
+  
+
+</fieldset>'
+      }
+    }
+  ]
+}) }}
+   
+
+    
+
+   
+
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Continue",
+      href: "08measureaccount"
+    }) }}
+  </div>
+{% endblock %}

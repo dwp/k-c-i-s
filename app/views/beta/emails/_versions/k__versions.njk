@@ -1,0 +1,21 @@
+{% set versions = [ 
+  "../01_reporter/k1"
+] %}
+
+
+
+{{ govukPagination({
+
+  items: [
+    {
+      number: 1,
+      href: versions[0]
+    }
+  ]
+}) }}
+
+
+{% block pageScripts %}
+  <script src="/public/javascripts/versions_1-0.js"></script>
+{% endblock %}
+

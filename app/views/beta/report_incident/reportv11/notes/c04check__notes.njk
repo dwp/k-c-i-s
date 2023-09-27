@@ -1,0 +1,34 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<hr>
+<br>
+<h3 class="govuk-heading-s govuk-!-font-weight-regular">NOT PART OF DESIGN: Demo only</h3>
+<h4 class="govuk-heading-s">Versions</h3>
+{% include "beta/report_incident/_versions/c04check__versions.njk" %}
+
+<h4 class="govuk-heading-s">States</h3>
+<ul class="govuk-list govuk-list--bullet">
+	<li><a href="03check">1. Check your answers</a><br></li>
+	<li><a href="03check_other">2. Check your answers - other</a><br></li>
+</ul>
+<h4 class="govuk-heading-s">v11 Design notes</h3>
+	<ul class="govuk-list govuk-list--bullet">
+	</ul>
+
+<h4 class="govuk-heading-s">Hypotheses</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li><a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132775346323/Agents+Safeguarding+-+User+Role+Model#reporter">Reporter user canvas</a></li>
+		<ul class="govuk-list govuk-list--bullet">
+			<li>Need: Report Concern</li>
+		</ul>
+	</ul>
+{% set journeyNotesHTMLincidentreport %}
+	{% include "beta/report_incident/notes/v11__notes.njk" %}
+{% endset %}
+{{ govukDetails({
+	summaryText: "v11 Journey level design notes",
+	html: journeyNotesHTMLincidentreport
+}) }}

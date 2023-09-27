@@ -1,0 +1,97 @@
+{% extends "layout.html" %}
+{% block pageTitle %}
+  Actions - Keep Customer Interactions Safe
+{% endblock %}
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+      text: "beta"
+    },
+      html: 'This is a new service – your <a class="govuk-link" href="08discrimination_error">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "templates/v7/key_details.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "02history_complex"
+    }) }}
+  </section>
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {% include "templates/v7/govuk-caption-m.njk" %}
+      <form class="form" action="route_cont" method="post">
+        {% set letterHtml %}
+          {{ govukTextarea({
+            name: "more-detail",
+            id: "more-detail",
+            label: {
+              text: "What type of letter have you sent?",
+              classes: "govuk-label--s",
+              isPageHeading: true
+            },
+            hint: {
+              text: "For example: First warning letter about written abuse in journal."
+            }
+          }) }}
+        {% endset -%}
+        {{ govukCheckboxes({
+          idPrefix: "actions",
+          name: "Actions",
+          fieldset: {
+            legend: {
+              text: "Which safeguarding actions have you taken?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          hint: {
+            text: "Select all that apply."
+          },
+          items: [
+            {
+              value: "verbalwarning",
+              text: "Issue verbal warning"
+            },
+            {
+              value: "writtenwarning",
+              text: "Send letter",
+              conditional: {
+                html: letterHtml
+              }
+            },
+            {
+              value: "interviewed",
+              text: "Manager to interview"
+            },
+            {
+              value: "requestforsolicitortowrite",
+              text: "Request solicitor to send letter"
+            },
+            {
+              value: "requesttosolicitorforbanningorder",
+              text: "Request banning order"
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "none",
+              text: "None of the above",
+              behaviour: "exclusive"
+            }
+          ]
+        }) }}
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Continue",
+            href: "06measure"
+          }) }}
+        </div>
+      </form>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+{% block pageTitle %}
+  Who is the most appropriate manager to review this report? - Keep Customer Interactions Safe
+{% endblock %}
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+    tag: {
+      text: "beta"
+    },
+      html: 'This is a new service – your <a class="govuk-link" href="04acting_manager_error">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "templates/v7/key_details_ann.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
+  </section>
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {% include "templates/v7/govuk-caption-m-simple_assign.njk" %}
+      <h1 class="govuk-heading-xl">Someone is already working on this report</h1>
+      <p class="govuk-body">
+        In most cases, you should allow your colleague to finish working on this report, and return to your list of reports.  
+      </p>
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Return to reports",
+          href: "01landingpage1_ready"
+        }) }}
+        {{ govukButton({
+          text: "Override",
+          href: "13assigncomment",
+          classes: "govuk-button--warning"
+        }) }}
+      </div>
+    </div>
+  </div>
+
+
+{% include "beta/decision/v1/menus/12conflict__menu.html" %}
+{% endblock %}

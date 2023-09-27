@@ -1,0 +1,34 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<hr>
+<br>
+<h3 class="govuk-heading-s govuk-!-font-weight-regular">NOT PART OF DESIGN: Demo only</h3>
+<h4 class="govuk-heading-s">Versions</h3>
+{% include "../../_versions/20infoconfirmation__versions.njk" %}
+
+<h4 class="govuk-heading-s">States</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li><a href="20infoconfirm">Confirmation</a></li>
+	</ul>
+<h4 class="govuk-heading-s">v4 Design notes</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li><a href="https://dwpdigital.atlassian.net/browse/CITI-20261">Add activity to customer history</a></li>
+		<li>Alternative versions for note/request</li>
+	</ul>
+<h4 class="govuk-heading-s">Hypotheses</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li><a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132775346323/Agents+Safeguarding+-+User+Role+Model#business_support">Business support user canvas</a></li>
+	</ul>
+	
+{% set journeyNotesHTMLDecision_v4 %}
+	{% include "beta/decision/notes/v4__notes.njk" %}
+{% endset %}
+{{ govukDetails({
+	summaryText: "v4 Journey level design notes",
+	html: journeyNotesHTMLDecision_v4
+}) }}	
+
+

@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Actions taken - Keep Customer Interactions Safe
+{% endblock %}
+
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+      text: "beta"
+    },
+      html: 'This is a new service – your <a class="govuk-link" href="08discrimination_error">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "templates/v7/key_details_red.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
+  </section>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {% include "templates/v7/govuk-caption-m.njk" %}
+      <form class="form" action="route_cont" method="post">
+        {{ govukCheckboxes({
+          idPrefix: "actions",
+          name: "Actions",
+          fieldset: {
+            legend: {
+              text: "Actions taken",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          hint: {
+            text: "Select all that apply."
+          },
+          items: [
+            {
+              value: "verbalwarning",
+              text: "Verbal warning"
+            },
+            {
+              value: "writtenwarning",
+              text: "Written warning"
+            },
+            {
+              value: "requestforsolicitortowrite",
+              text: "Request for solicitor to write"
+            },
+            {
+              value: "requesttosolicitorforbanningorder",
+              text: "Request to solicitor for banning order"
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "none",
+              text: "None of the above",
+              behaviour: "exclusive"
+            }
+          ]
+        }) }}
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Continue",
+            href: "05actionaccount_better"
+          }) }}
+        </div>
+      </form>
+    </div>
+  </div>
+	{% if not (checked("displaymode", "presentation") == "checked") %}
+		{% include "./notes/03actions__notes.njk" %}
+	{% endif %}	
+{% endblock %}

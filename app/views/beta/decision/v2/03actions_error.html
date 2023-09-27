@@ -1,0 +1,104 @@
+{% extends "layout.html" %}
+{% block pageTitle %}
+  Which safeguarding actions have you taken? - Keep Customer Interactions Safe
+{% endblock %}
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+      text: "beta"
+    },
+      html: 'This is a new service – your <a class="govuk-link" href="08discrimination_error">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "templates/v7/key_details_red.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "02history_complex"
+    }) }}
+  </section>
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">  
+            {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: [
+          {
+            text: "Tell us what type of letter you have sent",
+            href: "#more-detail"
+          }
+        ]
+      }) }}
+      {% include "templates/v7/govuk-caption-m.njk" %}
+      <form class="form" action="route_cont" method="post">
+        {% set letterHtml %}
+          {{ govukTextarea({
+            name: "more-detail",
+            id: "more-detail",
+            label: {
+              text: "What type of letter have you sent?",
+              classes: "govuk-label--s"
+            },
+            hint: {
+              text: "For example: First warning letter about written abuse in journal."
+            },
+            errorMessage: {
+              text: "Tell us what type of letter you have sent"
+            }
+          }) }}        
+        {% endset -%}
+        {{ govukCheckboxes({
+          idPrefix: "actions",
+          name: "Actions",
+          fieldset: {
+            legend: {
+              text: "Which safeguarding actions have you taken?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          hint: {
+            text: "Select all that apply."
+          },
+          items: [
+            {
+              value: "writtenwarning",
+              text: "Sent letter",
+              conditional: {
+                html: letterHtml
+              },
+              checked: true
+            },
+            {
+              value: "verbalwarning",
+              text: "Issued verbal warning"
+            },
+            {
+              value: "interviewed",
+              text: "Interviewed by manager"
+            },
+            {
+              value: "requestforsolicitortowrite",
+              text: "Requested solicitor to send letter"
+            },
+            {
+              value: "requesttosolicitorforbanningorder",
+              text: "Requested banning order"
+            }
+          ]
+        }) }}
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Continue",
+            href: "04measure"
+          }) }}
+        </div>
+      </form>
+    </div>
+  </div>
+	{% if not (checked("displaymode", "presentation") == "checked") %}
+		{% include "./notes/03actions__notes.njk" %}
+	{% endif %}	
+{% endblock %}

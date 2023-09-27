@@ -1,0 +1,76 @@
+{% set versions = [ 
+  "../reportv1/05report",
+  "../reportv2/05report",
+  "../reportv3/04report",
+  "../reportv4/04report",
+  "../reportv5/04report",
+  "../reportv6/09report",
+  "../reportv7/09report",
+  "../reportv8/09report",
+  "../reportv9/13confirm",
+  "../reportv10/13confirm",
+  "../reportv11/13confirm",
+  "../reportv12/13confirm"
+] %}
+
+
+
+{{ govukPagination({
+
+  items: [
+    {
+      number: 1,
+      href: versions[0]
+    },
+    {
+      number: 2,
+      href: versions[1]
+    },
+    {
+      number: 3,
+      href: versions[2]
+    },
+    {
+      number: 4,
+      href: versions[3]
+    },
+    {
+      number: 5,
+      href: versions[4]
+    },
+    {
+      number: 6,
+      href: versions[5]
+    },
+    {
+      number: 7,
+      href: versions[6]
+    },
+    {
+      number: 8,
+      href: versions[7]
+    },
+    {
+      number: 9,
+      href: versions[8]
+    },
+    {
+      number: 10,
+      href: versions[9]
+    },
+    {
+      number: 11,
+      href: versions[10]
+    },
+    {
+      number: 12,
+      href: versions[11]
+    }
+  ]
+}) }}
+
+
+{% block pageScripts %}
+  <script src="/public/javascripts/versions_1-0.js"></script>
+{% endblock %}
+

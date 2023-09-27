@@ -1,0 +1,38 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<hr>
+<br>
+<h3 class="govuk-heading-s govuk-!-font-weight-regular">NOT PART OF DESIGN: Demo only</h3>
+<h4 class="govuk-heading-s">Versions</h3>
+{% include "../../_versions/04measures__versions.njk" %}
+
+<h4 class="govuk-heading-s">States</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li><a href="04measure">Measures</a></li>
+		<li><a href="04measure_error">Measures error</a></li>
+	</ul>
+<h4 class="govuk-heading-s">v2 Design notes</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li>Development story <a href="https://dwpdigital.atlassian.net/browse/CITI-18281">CITI-18281 - Build: Add Measures</a></li>
+		<li>Remove "None of the above" to be consistent with actions because we believe the Decision Maker will consider this</li>		
+		<li>Expanded list of measures after decision maker UR workshop</li>
+		<li>List of measures grouped for readability</li>
+		<li>Made title more descriptive</li>
+	</ul>
+<h4 class="govuk-heading-s">Hypotheses</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li><a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132775346323/Agents+Safeguarding+-+User+Role+Model#decision_maker">Decision maker user canvas</a></li>
+		<ul class="govuk-list govuk-list--bullet">
+			<li>Need: Make evidence-based decisions</li>
+		</ul>
+	</ul>
+{% set journeyNotesHTMLDecision_v2 %}
+	{% include "beta/decision/notes/v2__notes.njk" %}
+{% endset %}
+{{ govukDetails({
+	summaryText: "v2 Journey level design notes",
+	html: journeyNotesHTMLDecision_v2
+}) }}	

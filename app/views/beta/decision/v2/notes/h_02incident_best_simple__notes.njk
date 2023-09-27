@@ -1,0 +1,54 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<hr>
+<br>
+<h3 class="govuk-heading-s govuk-!-font-weight-regular">NOT PART OF DESIGN: Demo only</h3>
+<h4 class="govuk-heading-s">Versions</h3>
+{% include "../../_versions/h_02incident_best_simple__notes__versions.njk" %}
+
+<h4 class="govuk-heading-s">States</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li><a href="h_02incident_best_simple">View incident - simplified	</a></li>
+		<li><a href="h_02incident_best_simple_existing">View incident incident</a></li>
+	</ul>
+<h4 class="govuk-heading-s">v2 Design notes</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li>To be used on both Business Support and Decision Maker for all interaction types except "In person"</li>
+		<li>Business support details added to contact details but not yet developed</li>
+		<li>All other functions remain of the page remain</li>
+		<li>UCD storys (reporting journey): <br>
+			<a href="https://dwpdigital.atlassian.net/browse/CITI-19248">Discover: Add Description - Custom In person (not built)</a><br>
+			<a href="https://dwpdigital.atlassian.net/browse/CITI-18735">Discover: Add Description - Custom Telephone</a><br>
+			<a href="https://dwpdigital.atlassian.net/browse/CITI-19013">Discover: Add Description - Custom Written</a><br>
+			<a href="https://dwpdigital.atlassian.net/browse/CITI-19015">Discover: Add Description - Custom Video</a><br>
+			<a href="https://dwpdigital.atlassian.net/browse/CITI-19014">Discover: Add Description - Custom Social Media</a>
+		</li>
+	</ul>
+<h4 class="govuk-heading-s">Hypotheses and insights</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li><a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132775346323/Agents+Safeguarding+-+User+Role+Model#decision_maker">Decision maker user canvas</a></li>
+			<ul class="govuk-list govuk-list--bullet">
+				<li class="govuk-body-s">Need: Make evidence based decisions</li>
+				<li class="govuk-body-s">Pain relievers: Full timeline history</li>
+			</ul>
+		<li><a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132775346323/Agents+Safeguarding+-+User+Role+Model#business_support">Business support user canvas</a></li>
+			<ul class="govuk-list govuk-list--bullet">
+				<li class="govuk-body-s">Pain: Chasing incident manager reports</li>
+				<li class="govuk-body-s">Pain: Chasing witness reports</li>
+			</ul>	
+		<li><a href="https://dwpdigital.atlassian.net/browse/CITI-16844">Insight: Can navigate page</a><br>
+		<p class="govuk-body-s">Insight from Incident Managers research evidences aptitude for reading long reports. Page does not require additional navigational aids. Hypothesise incident managers are similar users.</p></li>	
+	</ul>
+	
+{% set journeyNotesHTMLDecision_v2 %}
+	{% include "beta/decision/notes/v2__notes.njk" %}
+{% endset %}
+{{ govukDetails({
+	summaryText: "v2 Journey level design notes",
+	html: journeyNotesHTMLDecision_v2
+}) }}	
+
+

@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+{% block pageTitle %}
+  Why have you applied these measures? - Keep Customer Interactions Safe
+{% endblock %}
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+      text: "beta"
+    },
+      html: 'This is a new service – your <a class="govuk-link" href="10actionerror">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "./templates/key_details.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
+  </section>
+{% endblock %}
+{% block content %}
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        {% include "./templates/govuk-caption-m-ur.njk" %}
+        {% set bulletList %}
+          <ul class="govuk-list govuk-list--bullet">
+            {% for item in data['applymeasures1'] %}
+                  <li>{{ item }}</li>
+            {% endfor %}
+            {% for item in data['applymeasures2'] %}
+                  <li>{{ item }}</li>
+            {% endfor %}
+            {% for item in data['applymeasures3'] %}
+                  <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+        {% endset %}
+        <form class="form" action="06reviewdate" method="post">
+          {{ govukCharacterCount({
+            name: "measureaccounts",
+            id: "measureaccounts",
+            maxlength: 3000,
+            label: {
+              text: "Why have you applied these measures?",
+              isPageHeading: true,
+              classes: "govuk-label--xl"
+            },
+              hint: {
+              html: bulletList
+            }
+          }) }}
+          
+          <div class="govuk-button-group">
+            {{ govukButton({
+              text: "Continue"
+            }) }}
+          </div>
+        </form>
+    </div>
+  </div>
+
+
+{% endblock %}
+
+
+
+
+
+
+

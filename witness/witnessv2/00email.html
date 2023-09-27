@@ -1,0 +1,72 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+{% block header %}
+<header class="govuk-header " role="banner" data-module="govuk-header">
+  <div class="govuk-header__container govuk-width-container">
+    <div class="govuk-header__logo">
+      <a href="#" class="govuk-header__link govuk-header__link--homepage">
+        <span class="govuk-header__logotype">
+          <span class="govuk-header__logotype-text">
+          </span>
+        </span>
+      </a>
+    </div>
+    <div class="govuk-header__content">
+      <a href="../../../index.html" class="govuk-header__link govuk-header__link--service-name">
+        Agent Safeguarding
+      </a>
+    </div>
+  </div>
+</header>
+{% endblock %}
+
+
+{% block beforeContent %}
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      beta
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service – your <a class="govuk-link" href="00reportError">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper govuk-main-wrapper--l" id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">Agent Safeguarding: Urgent Action Required</h1>
+  <p class="govuk-body">Dear Sartaq Matcha,</p><br>
+  <p class="govuk-body">We believe you recently saw and / or heard an incident between one of your colleagues and a customer.</p>
+  <p class="govuk-body">For security reasons, we cannot provide any information about the incident in this email.</p><br>
+<h3 class="govuk-heading-m">What to do next</h3>
+  <p class="govuk-body">Log into Agent Safeguarding as soon as possible to tell us what happened. To do this, [explain how to log into Safeguarding from Searchlight, and how to create a report]. </p><br>
+
+
+  <p class="govuk-body">Please submit a report about this incident before 14.03 on 4 February 2022.</p>
+
+  <p class="govuk-body">If you didn’t witness this incident, you must still log into Agent Safeguarding to let us know.</p><br>
+  <br>
+  <p class="govuk-body">Thank you,</p>
+    <p class="govuk-body">Agent Safeguarding.</p><br>
+
+    </div>
+  </main>
+</div>
+
+<a href="01details.html" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button">
+  Continue
+  </a>
+
+	{% if not (checked("displaymode", "presentation") == "checked") %}
+		{% include "./notes/00email__notes.njk" %}
+	{% endif %} 
+{% endblock %}

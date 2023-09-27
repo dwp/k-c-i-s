@@ -1,0 +1,26 @@
+{% set versions = [ 
+  "../witnessv3a/04check",
+  "../witnessv4/03check-simple"
+] %}
+
+
+
+{{ govukPagination({
+
+  items: [
+    {
+      number: 3,
+      href: versions[0]
+    },
+    {
+      number: 4,
+      href: versions[1]
+    }
+  ]
+}) }}
+
+
+{% block pageScripts %}
+  <script src="/public/javascripts/versions_1-0.js"></script>
+{% endblock %}
+

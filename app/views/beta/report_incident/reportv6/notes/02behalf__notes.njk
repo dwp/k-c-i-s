@@ -1,0 +1,37 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<hr>
+<br>
+<h3 class="govuk-heading-s govuk-!-font-weight-regular">NOT PART OF DESIGN: Demo only</h3>
+<h4 class="govuk-heading-s">Versions</h3>
+{% include "beta/report_incident/_versions/02behalf__versions.njk" %}
+
+<h4 class="govuk-heading-s">States</h3>
+<ul class="govuk-list govuk-list--bullet">
+		<a href="02report">1. Were you?</a><br>
+		<a href="02error">2. Error: Were you?</a><br>
+</ul>
+<h4 class="govuk-heading-s">v6 Design notes</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li>Initial Beta design to facilitate reporting on behalf of someone else.</li>
+		<li>Email / first name / last name (rather than full name) to facilitate searching when we can link to staff lookup (in backlog). In the interim, these values stored and used as is without checking they are DWP staff.</li>
+	</ul>
+<h4 class="govuk-heading-s">Hypotheses and insights</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li>Business need: <a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132764238449/Iteration+Report+on+behalf+of+someone+else#business">Reports must be submitted within the SLA - even if it means someone else has to report it.</a></li>
+		<li>Usability testing: <a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132552622611/Report+for+Colleague#beta_insight">Users found this straightforward</a> ("Straightforward and happy")</li>
+		<li><a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132775346323/Agents+Safeguarding+-+User+Role+Model#reporter">Reporter user canvas</a></li>
+		<ul class="govuk-list govuk-list--bullet">
+			<li>Need: Report Incident</li>
+		</ul>
+	</ul>
+{% set journeyNotesHTMLincidentreport %}
+	{% include "beta/report_incident/notes/v6__notes.njk" %}
+{% endset %}
+{{ govukDetails({
+	summaryText: "v6 Journey level design notes",
+	html: journeyNotesHTMLincidentreport
+}) }}	

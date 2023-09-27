@@ -1,0 +1,80 @@
+{% extends "layout_ur.html" %}
+{% block pageTitle %}
+  Measure - Keep Customer Interactions Safe
+{% endblock %}
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+        text: "beta"
+      },
+      html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "./templates/key_details.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "02history_complex"
+    }) }}
+  </section>
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row govuk-!-padding-bottom-3">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">Measures</h1>
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              html: 'Measures (Not active)',
+              classes: "govuk-!-width-one-half"
+            },
+            value: {
+              html: '<ul class="govuk-list govuk-list--bullet">
+                <li>Must be interviewed by two members of staff</li>
+                <li>Must be seen in a screened area</li>
+                <li>No home visits</li>
+              </ul>',
+              classes: "govuk-!-width-one-half"
+            }
+          },
+          {
+            key: {
+              text: "Date applied",
+              classes: "govuk-!-width-one-half"
+            },
+            value: {
+              text: "27 May 2022",
+              classes: "govuk-!-width-one-half"
+            }
+          },
+          {
+            key: {
+              text: "Applied by"
+            },
+            value: {
+              html: "Emma Black"
+            }
+          },
+          {
+            key: {
+              text: "Review date"
+            },
+            value: {
+              html: "27 May 2023"
+            }
+          }
+        ]
+      }) }}
+      <p class="govuk-!-padding-bottom-7">While being examined by CHDA, the customer made credible threats of violence towards colleagues. Manager interviewed and is comfortable with contnuing in person contact but a security guard must be present at all interviews.  </p>
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Back to customer history",
+          href: "02history_complex"
+        }) }}
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

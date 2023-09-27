@@ -1,0 +1,137 @@
+{% extends "layout_ur.html" %}
+{% block pageTitle %}
+  Record action 1 - Keep Customer Interactions Safe
+{% endblock %}
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+      text: "beta"
+    },
+      html: 'This is a new service – your <a class="govuk-link" href="10actionerror">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "../templates/key_details_robert_blue.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
+  </section>
+{% endblock %}
+{% block content %}
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <form class="form" action="/beta/_UR/20230707/3_decision/09landingpage2_manager_decision2" method="post">
+          <h1 class="govuk-heading-xl">Record action 1</h1>
+          <p class="govuk-body">Record the date you did this, and the outcome. </p>
+          {{ govukSummaryList({
+            rows: [
+              {
+                key: {
+                  text: "Date"
+                },
+                value: {
+                  text: "7 July 2023"
+                }
+              },
+              {
+                key: {
+                  text: "From"
+                },
+                value: {
+                  text: "Sadiq Assam"
+                }
+              },
+              {
+                key: {
+                  text: "Action requested"
+                },
+                value: {
+                  html: '
+                        <ul class="govuk-list govuk-list--bullet">
+                          <li>Send letter<br>
+                          Please send the first warning letter, template T01</li>
+                        </ul>  '
+                }
+              }
+            ]
+          }) }}
+      {% set dateHtml %}
+        {{ govukDateInput({
+          id: "action-date-letter",
+          namePrefix: "action-date-letter",
+          hint: {
+            text: "For example, 30 11 2021"
+          },
+          items: [
+            {
+              classes: "govuk-input--width-2",
+              name: "day",
+              value: data['action-date-letter-day']
+            },
+            {
+              classes: "govuk-input--width-2",
+              name: "month",
+              value: data['action-date-letter-month']
+            },
+            {
+              classes: "govuk-input--width-4",
+              name: "year",
+              value: data['action-date-letter-year']
+            }
+          ]
+        }) }}
+      {% endset %}
+      {{ govukRadios({
+        idPrefix: "otherdate",
+        name: "otherdate",
+        items: [
+          {
+            value: "Today",
+            text: "Today",
+            checked: data['otherdate'].includes("Today")
+          },
+          {
+            value: "Yesterday",
+            text: "Yesterday",
+            checked: data['otherdate'].includes("Yesterday")
+          },
+          {
+            value: "Another date",
+            text: "Another date",
+            checked: data['otherdate'].includes("Another date"),
+            conditional: {
+              html: dateHtml
+            }
+          }
+        ],
+          fieldset: {
+            legend: {
+              text: "When did you do this?",
+              classes: "govuk-fieldset__legend--m"
+            }
+          }
+      }) }}
+          {{ govukTextarea({
+            name: "action-record-letter",
+            id: "action-record-letter",
+            value: data['action-record-letter'],
+            hint: {
+                        text: "Did you speak to the customer and if so, what was their reaction? If you didn’t speak to the customer (for example, if you sent them a letter), tell us when you expect the letter to arrive."
+                      },
+            label: {
+              text: "Outcome",
+              classes: "govuk-label--m"
+            }
+          }) }}
+          <div class="govuk-button-group">
+            {{ govukButton({
+              text: "Send"
+            }) }}
+          </div>
+        </form>
+    </div>
+  </div>
+
+{% endblock %}

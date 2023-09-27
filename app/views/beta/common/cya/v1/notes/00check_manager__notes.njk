@@ -1,0 +1,33 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<hr>
+<br>
+<h3 class="govuk-heading-s govuk-!-font-weight-regular">NOT PART OF DESIGN: Demo only</h3>
+<h4 class="govuk-heading-s">Versions</h3>
+{% include "../../_versions/00check_manager__versions.njk" %}
+
+<h4 class="govuk-heading-s">States</h3>
+<ul class="govuk-list govuk-list--bullet">
+		<li><a href="00check_manager">Check your answers - Incident manager</a></li>
+</ul>
+<h4 class="govuk-heading-s">v1 Design notes</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li>Hidden elemnents for accessibility</li>
+		<li>Shim: hidden div used to line up text baselines</li>
+		<li>UCD story: <a href="https://dwpdigital.atlassian.net/browse/CITI-19178">Check Your Answers Change Pattern</a></li>
+		<li>UCD story: <a href="https://dwpdigital.atlassian.net/browse/CITI-19158">Manager Report - Check Answers Change Pattern</a></li>
+		<li>UCD story: <a href="https://dwpdigital.atlassian.net/browse/CITI-19157">Reporter - Check Answers Change Pattern</a></li>
+	</ul>
+<h4 class="govuk-heading-s">Hypotheses</h3>
+	<ul class="govuk-list govuk-list--bullet">
+	</ul>
+{% set journeyNotesHTMLDecision %}
+	{% include "beta/common/cya/notes/v1__notes.njk" %}
+{% endset %}
+{{ govukDetails({
+	summaryText: "v1 Journey level design notes",
+	html: journeyNotesHTMLDecision
+}) }}	

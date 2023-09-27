@@ -1,0 +1,24 @@
+{% set versions = [ 
+  "../v5/03concern_best",
+  "../v6/03concern_best"
+] %}
+
+
+{{ govukPagination({
+  items: [
+    {
+      number: 5,
+      href: versions[0]
+    },
+    {
+      number: 6,
+      href: versions[1]
+    }
+  ]
+}) }}
+
+
+{% block pageScripts %}
+  <script src="/public/javascripts/versions_1-0.js"></script>
+{% endblock %}
+

@@ -1,0 +1,17 @@
+{% extends "govuk-prototype-kit/layouts/govuk-branded.html" %}
+
+{% block pageTitle %}
+{% endblock %}
+
+{% block header %}
+    <link href="/public/stylesheets/application.css" rel="stylesheet" type="text/css" />
+
+{% endblock %}
+
+{% set mainClasses = mainClasses | default("govuk-main-wrapper--auto-spacing") %}
+{% if useAutoStoreData %}
+  {% block footer %}
+
+
+  {% endblock %}
+{% endif %}

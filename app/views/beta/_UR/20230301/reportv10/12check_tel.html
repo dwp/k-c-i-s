@@ -1,0 +1,166 @@
+{% extends "layout_ur.html" %}
+
+{% block pageTitle %}
+  Check your answers - Keep Customer Interactions Safe
+{% endblock %}
+
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+        text: "beta"
+      },
+      html: 'This is a new service – your <a class="govuk-link" href="11g_upload_error">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "templates/v2/header_searchlight.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
+  </section>
+{% endblock %}
+
+{% block content %}
+  <h1 class="govuk-heading-l" id="page-title">
+    Check your answers
+  </h1>
+  <div class="govuk-!-padding-bottom-9">
+    <h2 class="govuk-heading-m">
+      Overview {{ data['your-first-name'] }}
+    </h2>
+    {% set detailsHTML %}
+      <span class='govuk-visually-hidden'>Original reporter: </span> {{ data['your-first-name'] }} {{ data['your-last-name'] }} <span class='govuk-body-s' style='color:#505a5f'>({{ data['your-email'] }})</span>
+    {% endset %}
+    {% set managerHTML %}
+      {{ data['first-name-man'] }} {{ data['last-name-man'] }} <span class='govuk-body-s' style='color:#505a5f'>({{ data['email-man'] }})</span>
+    {% endset %}
+    {% set reviewerHTML %}
+      {% if (data['review-manager'].includes("linemanager")) %}
+        My line manager
+      {% else %}
+        {{ data['first-name-review'] }} {{ data['last-name-review'] }} <span class='govuk-body-s' style='color:#505a5f'>({{ data['email-review'] }})</span>
+      {% endif %}
+    {% endset %}
+    {% set dateHTML %}
+    {{data['incident-date-day']}}
+    {{ data['incident-date-readable-month'] }}
+    {{ data['incident-date-year']}}
+      at {{ data['incident-time-Hours'] }}:{{ data['incident-time-Minutes'] }}
+    {% endset %}
+    {% set locationHTML %}
+      {% if (data['location'] == "Somewhere else") %}
+        {{ data['somewhereelse-text'] }}
+      {% else %}
+        {{ data['location'] }}
+      {% endif %}
+    {% endset %}
+
+    {% set discriminationHTML %}
+      <p class='govuk-body'>I feel the customer's behaviour was motivated by the following types of discrimination:</p><ul class='govuk-list govuk-list--bullet'>
+      {% if (data['discrimination'] == "None of the above") %}
+        <li>None</li>
+      {% else %}  
+        {% for item in data['discrimination'] %}
+          <li>{{ item }}</li>
+        {% endfor %}
+      {% endif %}
+
+      </ul>
+    {% endset %}
+    {{ govukSummaryList({
+      rows: [
+        {
+          key: {
+            text: "Reporter details",
+            classes: "govuk-!-width-one-third"
+          },
+          value: {
+            html: detailsHTML
+          }
+        },
+        {
+          key: {
+            text: "Who is your line manager?"
+          },
+          value: {
+            html: managerHTML
+          }
+        },
+        {
+          key: {
+            text: "Who is the most appropriate manager to review this report?"
+          },
+          value: {
+            html: reviewerHTML
+          }
+        },
+        {
+          key: {
+            text: "What type of interaction was it?"
+          },
+          value: {
+            html: data['interaction']
+          }
+        },
+        {
+          key: {
+            text: "When did the incident happen?"
+          },
+          value: {
+            html: dateHTML
+          }
+        },
+        {
+          key: {
+            text: "Where were you during the incident?"
+          },
+          value: {
+            html: locationHTML
+          }
+        },
+        {
+          key: {
+            text: "Do you feel the customer's behaviour was motivated by any type of discrimination?"
+          },
+          value: {
+            html: discriminationHTML
+          }
+        },
+        {
+          key: {
+            text: "Tell us about the incident"
+          },
+          value: {
+            html: data['Description']
+          }
+        }
+      ]
+    }) }}
+  </div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds govuk-!-padding-bottom-9">
+      <h2 class="govuk-heading-m">
+        There are no files attached to this incident report
+      </h2>
+    </div>
+  </div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h2 class="govuk-heading-m">Are you ready to submit your report?</h2>
+      <p class="govuk-body">If you need to change anything in your report, use the back link near the top of this page.</p>
+      <p class="govuk-body">When you click Submit, we will send your report to the appropriate manager to review.</p>
+      <p class="govuk-body govuk-!-font-weight-bold">You will not be able to change anything in your report after you click Submit.</p>
+    </div>
+  </div>
+  <div>
+    {{ govukButton(
+      {
+        text: "Submit",
+        href: "13confirm"
+      }
+    ) }}
+  </div>
+
+{% endblock %}

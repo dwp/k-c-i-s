@@ -1,0 +1,75 @@
+{% extends "layout_ur.html" %}
+
+{% block pageTitle %}
+  Did this incident compromise the health and safety of any staff, or our ability to use any of our premises safely? - Keep Customer Interactions Safe
+{% endblock %}
+
+{% block beforeContent %}
+<section aria-label="Phase banner" role="region">
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "beta"
+  },
+    html: 'This is a new service – your <a class="govuk-link" href="01report_error">feedback</a> will help us to improve it.'
+}) }}
+</section>
+{% include "templates/v2/header_searchlight.njk" %}
+<section aria-label="Back" role="region">
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:history.back()"
+}) }}
+</section>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" action="#" method="post">
+      {{ govukCheckboxes({
+        name: "fti",
+        fieldset: {
+          legend: {
+            text: "Did this incident compromise the health and safety of any staff, or our ability to use any of our premises safely?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+          text: "Select all that apply"
+        },
+        items: [
+          {
+            value: "me-dwp",
+            html: "Yes, my health and safety or that of a DWP colleague "
+          },
+          {
+            value: "colleague",
+            text: "Yes, the health and safety of one or more other people "
+          },
+          {
+            value: "other",
+            html: "Yes, our ability to use our premises safely "
+          },
+          {
+            divider: "or"
+          },
+          {
+            value: "no",
+            text: "No",
+            behaviour: "exclusive"
+          }
+        ]
+      }) }}
+      <div>
+        {{ govukButton({
+          text: "Continue",
+          href: "../../"
+        }) }}
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,47 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<hr>
+<br>
+<h3 class="govuk-heading-s govuk-!-font-weight-regular">NOT PART OF DESIGN: Demo only</h3>
+<h4 class="govuk-heading-s">Versions</h3>
+{% include "beta/report_incident/_versions/09describe__versions.njk" %}
+
+<h4 class="govuk-heading-s">States</h3>
+<ul class="govuk-list govuk-list--bullet">
+	<li><a href="04report">1. Describe?</a></li>
+	<li><a href="04reportError">2. Error: x7 </a></li>
+</ul>
+<h4 class="govuk-heading-s">v1 Design notes</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li>Although it is not "One thing" per page, it is "One theme" using the same component. It proved effective in usability testing</li>
+		<li>Numbered questions to allow orientation on long scrolling page</li>
+	</ul>
+<h4 class="govuk-heading-s">Hypotheses and insights</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li>Alpha UR Insight: <a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/131839460903/Round+5+-+Nominated+manager">The need to use exact words, doing so would result in the appropriate decision made.</a></li>
+		<li>Beta Usability Testing: <a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132492919547/Sprint+22+-+User+research+results#insights">All users were about to create a good report by using the structured questions.</a></li>
+		<li>Beta Usability Testing: <a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132492919547/Sprint+22+-+User+research+results#insights">All participants used exact words used by the customer</a></li>
+		<li>Beta Usability Testing: <a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132492919547/Sprint+22+-+User+research+results#insights">The questions prompted the users to reflect and include necessary information</a></li>
+		<li>Beta Usability Testing: <a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132492919547/Sprint+22+-+User+research+results#insights">The breakdown page aided the flow of the narratives better and less repetition of information provided to the end user. </a></li>
+		<li>Beta Usability Testing: <a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132492919547/Sprint+22+-+User+research+results#insights">The important information is not read by most users before they start completing the report form</a></li>
+		<li><a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132775346323/Agents+Safeguarding+-+User+Role+Model#reporter">Reporter user canvas</a></li>
+		<ul class="govuk-list govuk-list--bullet">
+			<li>Need: Report Incident</li>
+			<li>Pain: Dont know what to write in reports</li>
+			<li>Pain: Entering offensive language</li>
+			<li>Pain reliever: Remove jargon and signpost</li>
+			<li>Pain reliever: Provide guidance each step of the way</li>
+			<li>Pain: Journeys too complex</li>
+			<li>Pain reliever: Keep journeys as short as possible</li>
+		</ul>
+	</ul>
+{% set journeyNotesHTMLincidentreport %}
+	{% include "beta/report_incident/notes/v1__notes.njk" %}
+{% endset %}
+{{ govukDetails({
+	summaryText: "v1 Journey level design notes",
+	html: journeyNotesHTMLincidentreport
+}) }}	

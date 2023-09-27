@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+{% block pageTitle %}
+  What do you think of KCIS? - Keep Customer Interactions Safe
+{% endblock %}
+
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+      text: "beta"
+    },
+      html: 'This is a new service – your <a class="govuk-link" href="09policeerror">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "templates/v2/header_searchlight.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
+  </section>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="route_police" method="post">
+        {{ govukRadios({
+          idPrefix: "userSatisfaction",
+          name: "userSatisfaction",
+          fieldset: {
+            legend: {
+              text: "What do you think of the Keep Customer Interactions Safe (KCIS) service?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          hint: {
+            text: "Before you submit your report, tell us what you think of KCIS. The score you give us here is anonymous and cannot be tracked to you."
+          },
+          items: [
+            {
+              value: "1",
+              text: "1 - Extremely dissatisfied"
+            },
+            {
+              value: "2",
+              text: "2"
+            },
+            {
+              value: "3",
+              text: "3"
+            },
+            {
+              value: "4",
+              text: "4"
+            },
+            {
+              value: "5",
+              text: "5 - Extremely satisfied"
+            }
+          ]
+        }) }}
+        {{ govukWarningText({
+          text: "You must click the Submit button to send us your report.",
+          iconFallbackText: "Warning"
+        }) }}
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Submit",
+            href:"00usersat_contactlater"
+          }) }}
+        </div>
+    </div>
+  </div>
+  {% if not (checked("displaymode", "presentation") == "checked") %}
+		{% include "./notes/00usersat__notes.njk" %}
+	{% endif %}
+{% endblock %}

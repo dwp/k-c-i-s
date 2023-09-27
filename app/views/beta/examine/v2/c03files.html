@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+<!-- Set active submenu item -->
+{% set menuItemThree = " aria-current=page" %}
+
+{% block pageTitle %}
+Attached files - Agent Safeguarding
+{% endblock %}
+
+{% block beforeContent %}
+{% include "templates/v2concern/header_newservice.html" %}
+{% include "templates/v2concern/header_searchlight.njk" %}
+{% include "templates/v2concern/header_incident.html" %}
+{% include "templates/v2concern/header_examine_menu.njk" %}
+{% include "templates/v2concern/header_back.html" %}
+{% endblock %}
+
+{% block content %}
+<style>
+  .marginbottomzero {
+    margin-bottom: 0px;
+  }
+  /* I shouldnt have to do this fix - need to look at layout */
+  .govuk-grid-row {
+    margin:0px;
+  }
+</style>
+<h1 class="govuk-heading-l">Files attached to safety concern report</h1>
+
+<table class="govuk-table">
+
+<thead class="govuk-table__head">
+  <tr class="govuk-table__row">
+    <th scope="col" class="govuk-table__header">File name</th>
+    <th scope="col" class="govuk-table__header">Date attached to report</th><br>
+      <th scope="col" class="govuk-table__header">Action</th>
+  </tr>
+</thead>
+<tbody class="govuk-table__body">
+  <tr class="govuk-table__row">
+    <th scope="row" class="govuk-table__header">emailtome.msg</th>
+    <td class="govuk-table__cell">10 January 2022</td>
+    <td class="govuk-table__cell">
+      <button class="govuk-button govuk-button--secondary marginbottomzero" data-module="govuk-button">
+        Download file
+      </button>
+    </td>
+  </tr>
+  <tr class="govuk-table__row">
+    <th scope="row" class="govuk-table__header">screen_shot.png</th>
+    <td class="govuk-table__cell">9 January 2022</td>
+    <td class="govuk-table__cell">
+      <button class="govuk-button govuk-button--secondary marginbottomzero" data-module="govuk-button">
+        Download file
+      </button>
+    </td>
+  </tr>  <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">letter_l.pdf</th>
+      <td class="govuk-table__cell">8 January 2022</td>
+      <td class="govuk-table__cell">
+        <button class="govuk-button govuk-button--secondary marginbottomzero" data-module="govuk-button">
+          Download file
+        </button>
+      </td>
+    </tr>
+</tbody>
+</table>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "layout_ur.html" %}
+{% block pageTitle %}
+    Start of journey
+{% endblock %}
+{% block beforeContent %}{% endblock %}
+{% block content %}
+    <h1 class="govuk-heading-xl">Research</h1>
+    <p class="govuk-body">23 March 2023</p>
+    <div class="govuk-!-padding-bottom-7">
+      {{ govukButton({
+        text: "Journey 1",
+        href: "/beta/_UR/20230323/v11/1/01report"
+      }) }}
+      {{ govukButton({
+        text: "Journey 2",
+        href: "/beta/_UR/20230323/v11/2/01report"
+      }) }}
+      {{ govukButton({
+        text: "Journey 3",
+        href: "/beta/_UR/20230323/v11/3/01report"
+      }) }}
+      {{ govukButton({
+        text: "Journey 4",
+        href: "/beta/_UR/20230323/v11/4/01report"
+      }) }}
+    <p>Note: based on v11 Report</p>
+   
+    </div>
+
+</p>{% endblock %}

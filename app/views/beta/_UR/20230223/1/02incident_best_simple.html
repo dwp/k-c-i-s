@@ -1,0 +1,242 @@
+{% extends "layout_ur.html" %}
+{% block pageTitle %}
+  Original incident report - Keep Customer Interactions Safe
+{% endblock %}
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+      text: "beta"
+    },
+      html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "./templates/key_details.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "02history_complex"
+    }) }}
+  </section>
+{% endblock %}
+{% block content %}
+  {% include "./templates/govuk-caption-m-ur.njk" %}
+  <h1 class="govuk-heading-xl">Original incident report</h1>
+  <section aria-label="Incident overview" role="region">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-!-padding-bottom-9">
+          <h2 class="govuk-heading-l" id="h2-overview"><span class="govuk-warning-text__assistive">Incident </span>Overview</h2>
+          {{ govukSummaryList({
+            rows: [
+              {
+                key: {
+                  html: "<span class='govuk-visually-hidden'>Incident </span>Occurred",
+                  classes: "govuk-!-width-one-half"
+                },
+                value: {
+                  text: "23 February 2023 at 8:06am",
+                  classes: "govuk-!-width-one-half"
+                }
+              },
+              {
+                key: {
+                  html: "<span class='govuk-visually-hidden'>Incident </span>Reported"
+                },
+                value: {
+                  text: "23 February 2023 at 9:04am"
+                }
+              },
+              {
+                key: {
+                  html: "<span class='govuk-visually-hidden'>Incident </span>Interaction type"
+                },
+                value: {
+                  html: "Written"
+                }
+              },
+              {
+                key: {
+                  text: "Incident location"
+                },
+                value: {
+                  html: "The office you're based at"
+                }
+              },
+              {
+                key: {
+                  html: "<span class='govuk-visually-hidden'>Incident </span>Report reference"
+                },
+                value: {
+                  html: "<span aria-hidden='true'>INC-</span>123-456-789"
+                }
+              }
+            ]
+          }) }}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-label="Incident details" role="region">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-!-padding-bottom-9">
+          <h2 class="govuk-heading-l"><span class="govuk-warning-text__assistive">Incident</span> Details</h2>
+          <p class="govuk-hint">The content in these sections is exactly as the original reporter wrote it.</p>
+
+          <h3 class="govuk-heading-s">1. Why was the customer in contact with us?</h3>
+          <p class="govuk-body">To provide an update in the UC journal about the efforts at finding suitable work
+          </p>
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" aria-hidden="true">
+          <h3 class="govuk-heading-s">2. How did the incident start? Was there a specific trigger?</h3>
+          <p class="govuk-body">I left a message in the UC asking about how the claimant was getting on with finding work and to provide an update. He gets upset when asked about finding work stating no one wants to employ him. 
+          </p>
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" aria-hidden="true">
+          <h3 class="govuk-heading-s">3. What were the issues with the customer's behaviour?</h3>
+          <p class="govuk-body">He responded by swearing – “ go and fuck yourself stupid cow”, “ I will come round there and bomb you lot to bits”. I find his comments sexist and unnecessary; the threat is something to be taken seriously.
+          </p>
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" aria-hidden="true">
+          <h3 class="govuk-heading-s">4. Tell us what happened next. How did you try to resolve the situation, and how did the customer react?</h3>
+          <p class="govuk-body">
+            I decided to report the comment as I find it unacceptable and do not feel comfortable communicating with the claimant. I informed my team leader I feel uncomfortable with the message and the threat needs to be addressed
+          </p>
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" aria-hidden="true">
+          <h3 class="govuk-heading-s">5. Did any of your colleagues see or hear what happened?</h3>
+          <p class="govuk-body">No</p>
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" aria-hidden="true">
+          <h3 class="govuk-heading-s">6. How did your interaction with the customer end?</h3>
+          <p class="govuk-body">The interaction was via the journal, I did not respond to the claimant comments.
+          </p>
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" aria-hidden="true">
+          <h3 class="govuk-heading-s">7. How did you feel during the incident?</h3>
+          <p class="govuk-body">I was uncomfortable reading the message and concerned about the threat being made. 
+          </p>
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" aria-hidden="true">
+        </div>
+      </div>
+    </div>
+  </section>
+  <section aria-label="Files attached to incident report" role="region">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-!-padding-bottom-9">
+          <h2 class="govuk-heading-m" id="attached">There are no files attached to this incident report</h2>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section aria-label="Witnesses" role="region">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-!-padding-bottom-9">
+          <h2 class="govuk-heading-l">Witnesses</h2>
+          <p>There are currently no witnesses to this incident</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section aria-label="Police action" role="region">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-!-padding-bottom-9">
+          <h2 class="govuk-heading-l">Police action</h2>
+          <p class="govuk-body">This is the first time the customer has threatened to carry out a dangerous act. As a result the police were informed there was a threat of bomb by the customer. Police ref – 12345/06022023, police to speak to customer</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section aria-label="Reviewing manager comments" role="region">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-!-padding-bottom-9">
+          <h2 class="govuk-heading-l">Reviewing manager comments and recommendations</h2>
+          <p class="govuk-body">This customer is in the habit of swearing using abusive language in the UC journal. Member of staff uncomfortable reading the message. Sometime was given to the staff to complete the report and process what had occurred. She was reassured that the necessary actions will be followed. This is the first time the customer has threatened to carry out a dangerous act. As a result the police were informed there was a threat of bomb by the customer. Police ref – 12345/06022023, police to speak to customer
+        </p>
+          <p class="govuk-body">I have reviewed the report and would recommend the customer be sent a written letter and also a visit by the police to not make dangerous threats.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section aria-label="Business support comments" role="region">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-!-padding-bottom-9">
+          <h2 class="govuk-heading-l">Business support comments</h2>
+          <p class="govuk-body">Good report. Ready for decision. </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section aria-label="Contact details" role="region">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-!-padding-bottom-9">
+          <h2 class="govuk-heading-l">Contact details</h2>
+          {{ govukSummaryList({
+            rows: [
+              {
+                key: {
+                  text: "Original reporter",
+                  classes: "govuk-!-width-one-half"
+                },
+                value: {
+                  html: "<span class='govuk-visually-hidden'>Original reporter: </span>Whitney&nbsp;Earl<br>",
+                  classes: "govuk-!-width-one-half"
+                }
+              },
+              {
+                key: {
+                  text: "Reporter's email address"
+                },
+                value: {
+                  text: "whitney.earl@dwp.gov.uk"
+                }
+              },
+              {
+                key: {
+                  text: "Line manager"
+                },
+                value: {
+                  html: "Sarah Sencha"
+                }
+              },
+              {
+                key: {
+                  text: "Line manager's email address"
+                },
+                value: {
+                  html: "sarah@dwp.gov.uk"
+                }
+              },
+              {
+                key: {
+                  text: "Business support"
+                },
+                value: {
+                  html: "Ted Assam"
+                }
+              },
+              {
+                key: {
+                  text: "Business support's email address"
+                },
+                value: {
+                  html: "ted@dwp.gov.uk"
+                }
+              }
+            ]
+          }) }}
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Back to customer history",
+      href: "02history_complex"
+    }) }}
+  </div>
+
+
+{% endblock %}

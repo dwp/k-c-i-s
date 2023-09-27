@@ -1,0 +1,18 @@
+
+{% block content %}
+   <link href="/public/stylesheets/application.css" rel="stylesheet" type="text/css" />
+   <style>
+      #background {
+         background-size: contain;
+         background-repeat: no-repeat;
+         background-image: url('/public/images/common/restricted/v1/20230801_searchlight_cutdown_measures.jpg');
+         width: 1100px !important;
+         min-width: 100% !important;
+         min-height: 60% !important;
+      }
+   </style>
+   <div id="background"></div>
+   {% if not (checked("displaymode", "presentation") == "checked") %}
+      {% include "./notes/00searchlight__notes.njk" %}
+   {% endif %}
+{% endblock %}

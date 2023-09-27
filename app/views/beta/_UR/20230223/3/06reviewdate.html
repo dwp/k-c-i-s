@@ -1,0 +1,123 @@
+{% extends "layout_ur.html" %}
+{% block pageTitle %}
+  When should these measures be reviewed? - Keep Customer Interactions Safe
+{% endblock %}
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+      text: "beta"
+    },
+      html: 'This is a new service – your <a class="govuk-link" href="06when_error">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "./templates/key_details.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "05measureaccount"
+    }) }}
+  </section>
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="07check" method="post">
+        {% set dateHtml %}
+          {{ govukDateInput({
+            id: "incident-date3",
+            namePrefix: "incident-date3",
+            name: "incident-date3",
+            fieldset: {
+              legend: {
+                classes: "govuk-fieldset__legend--xl"
+              }
+            },
+            hint: {
+              text: "For example, 30 11 2021"
+            },
+            items: [
+              {
+                classes: "govuk-input--width-2",
+                name: "day",
+                type: "number",
+                value: data['incident-date3-day'],
+                pattern: "[0-9]?[0-9]?"
+              },
+              {
+                classes: "govuk-input--width-2",
+                name: "month",
+                type: "number",
+                value: data['incident-date3-month'],
+                pattern: "[0-9]?[0-9]?"
+              },
+              {
+                classes: "govuk-input--width-4",
+                name: "year",
+                type: "number",
+                value: data['incident-date3-year'],
+                pattern: "[0-9]{4}"
+              }
+            ]
+          }) }}
+        {% endset -%}
+        {% include "./templates/govuk-caption-m-ur.njk" %}
+          {{ govukRadios({
+          idPrefix: "reviewdate3",
+          name: "reviewdate3",
+          fieldset: {
+            legend: {
+              text: "When should these measures be reviewed?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          items: [
+            {
+              value: "In 12 months",
+              text: "In 12 months",
+              checked: data['reviewdate3'] == "In 12 months"
+            },
+            {
+              value: "In 6 months",
+              text: "In 6 months",
+              checked: data['reviewdate3'] == "In 6 months"
+            },
+            {
+              value: "In 3 months",
+              text: "In 3 months",
+              checked: data['reviewdate3'] == "In 3 months"
+            },
+            {
+              value: "In 2 months",
+              text: "In 2 months",
+              checked: data['reviewdate3'] == "In 2 months"
+            },
+            {
+              value: "In 1 month",
+              text: "In 1 month",
+              checked: data['reviewdate3'] == "In 1 months"
+            },
+            {
+              value: "other",
+              text: "Other",
+              checked: data['reviewdate3'] == "other",
+              conditional: {
+                html: dateHtml
+              }
+            }
+          ],
+          hint: {
+            text: ""
+          }
+        }) }}
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+        </div>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

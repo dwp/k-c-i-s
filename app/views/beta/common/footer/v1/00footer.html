@@ -1,0 +1,12 @@
+{% extends "layout_accessibility.html" %}
+
+{% block pageTitle %}
+Footer - Keep Customer Interactions Safe
+{% endblock %}
+
+{% block content %}
+	<h1 class="govuk-heading-xl" id="page-title">Footer</h1>
+	{% if not (checked("displaymode", "presentation") == "checked") %}
+		{% include "./notes/00footer__notes.njk" %}
+	{% endif %} 
+{% endblock %}

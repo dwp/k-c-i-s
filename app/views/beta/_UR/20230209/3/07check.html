@@ -1,0 +1,130 @@
+{% extends "layout.html" %}
+{% block pageTitle %}
+  Check your answers - Keep Customer Interactions Safe
+{% endblock %}
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+      text: "beta"
+    },
+      html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "./templates/key_details.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
+  </section>
+{% endblock %}
+{% block content %}
+  {% include "./templates/govuk-caption-m-ur.njk" %}
+  <h1 class="govuk-heading-xl">Check your answers</h1>
+  {% set bulletListMeasure %}
+    {% if data['applymeasures1'] or data['applymeasures2'] or data['applymeasures3'] %}
+    <ul class="govuk-list govuk-list--bullet">
+      {% for item in data['applymeasures1'] %}
+            <li>{{ item }}</li>
+      {% endfor %}
+      {% for item in data['applymeasures2'] %}
+            <li>{{ item }}</li>
+      {% endfor %}
+      {% for item in data['applymeasures3'] %}
+            <li>{{ item }}</li>
+      {% endfor %}
+    </ul>
+    {% else %}
+      <p>None</p>
+    {% endif %}
+  {% endset %}
+  {% set bulletListAction %}
+    {% if data['Actions'] %}
+    <ul class="govuk-list govuk-list--bullet">
+      {% for item in data['Actions'] %}
+        <li>{{ item }}
+          {% if (item == "Sent a letter") and data['more-detail'] %}
+            <br>{{data['more-detail']}}</li>
+          {% endif %}
+      {% endfor %}
+    </ul>
+    {% else %}
+      <p>None</p>
+    {% endif %}
+  {% endset %}
+  {% set reviewDate %}
+    {% if data['review'] %}
+      {% if data['review'] == "other" %}
+        {{data['review']}}
+      {% else %}
+        {{data['review']}}
+      {% endif %}
+    {% else %}
+      None
+    {% endif %}
+  {% endset %}
+  {% set accountMeasureHTML %}
+    {% if data['measureaccounts'] %}
+      {{data['measureaccounts']}}
+    {% else %}
+      None
+    {% endif %}
+  {% endset %}
+  <div class="govuk-!-margin-bottom-9">
+    {{ govukSummaryList({
+      rows: [
+        {
+          key: {
+            text: "Actions"
+          },
+          value: {
+            html: bulletListAction
+          }
+        },
+        {
+          key: {
+            text: "Measures"
+          },
+          value: {
+            html: bulletListMeasure
+          }
+        },
+        {
+          key: {
+            text: "Why have you applied these measures?"
+          },
+          value: {
+            html:  accountMeasureHTML
+          }
+        },
+        {
+          key: {
+            text: "Measures review date"
+          },
+          value: {
+            html: reviewDate
+          }
+        }
+      ]
+    }) }}
+  </div>
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h2 class="govuk-heading-m">Are you ready to add these actions and measures to this customer's record?</h2>
+      <p class="govuk-body">If you need to change anything, use the back link near the top of this page.</p>
+      <p class="govuk-body">When you click 'Record actions and measures', we will send your decision to the reporter and their manager.</p>
+      <p class="govuk-body govuk-!-font-weight-bold">You will not be able to change anything about your decision after you click the button.</p>
+      <div class="govuk-button-group">
+        {{ govukButton(
+            {
+              text: "Record actions and measures",
+              href: "08confirmation"
+            }
+          )
+        }}
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

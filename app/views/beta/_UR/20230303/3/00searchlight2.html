@@ -1,0 +1,44 @@
+
+
+
+
+
+{% block content %}
+<style>
+   #background {
+      background-size: cover;
+      background-image: url('/public/images/searchlight/202302_searchlighthome_menu.png');
+      width: 100%;
+      Height: 100%;
+   }
+   #clickable {
+      width: 100%;
+      Height: 100%;
+      z-index:100;
+      margin-left: auto; 
+      margin-right: 0;
+   }
+      #clickablecontainer {
+      width: 20%;
+      Height: 100%;
+      z-index:100;
+      margin-left: auto; 
+      margin-right: 0;
+   }
+   .mybutton {
+      width:100%;
+      height:100%;
+      background-color: RGBA(0,0,0,0);
+      border:0;
+   }
+   .mybotton:hover, #clickable:hover {
+   cursor:pointer
+   }
+</style>
+<div id="background"><div id="clickablecontainer"><form class="form" action="/beta/_UR/20230303/3/01landingpage1_blank" method="post"><button class="mybutton" data-module="govuk-button"><div id="clickable"></div></button></form></div></div>
+<script>
+
+</script>
+
+
+{% endblock %}

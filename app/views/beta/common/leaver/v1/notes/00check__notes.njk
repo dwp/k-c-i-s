@@ -1,0 +1,35 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<hr>
+<br>
+<h3 class="govuk-heading-s govuk-!-font-weight-regular">NOT PART OF DESIGN: Demo only</h3>
+<h4 class="govuk-heading-s">Versions</h3>
+{% include "../../_versions/00check__versions.njk" %}
+
+<h4 class="govuk-heading-s">States</h3>
+<ul class="govuk-list govuk-list--bullet">
+		<li><a href="00check">Check your answers - examples</a></li>
+		<li><a href="00check_worst">Check your answers - worst case</a></li>
+		<li><a href="00history">History</a></li>
+		<li><a href="00landing">Landing</a></li>
+</ul>
+<h4 class="govuk-heading-s">v1 Design notes</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li>It is unlikely to happen often with a live incident as we have an SLA that requires measures to be in place in 48hrs.</li>
+		<li>As incidents age it will become more prevalent, however on Business Support, Decision Makers and Solicitors will be viewing old incidents. Of them, possible only solicitors have a pressing need. </li>
+		<li>A siingle string to be used everywhere will be most efficient to develop</li>	
+		<li>Third party organisations such as CHDA will not be available through Active Directory</li>
+	</ul>
+<h4 class="govuk-heading-s">Hypotheses</h3>
+	<ul class="govuk-list govuk-list--bullet">
+	</ul>
+{% set journeyNotesHTMLDecision %}
+	{% include "beta/common/leaver/notes/v1__notes.njk" %}
+{% endset %}
+{{ govukDetails({
+	summaryText: "v1 Journey level design notes",
+	html: journeyNotesHTMLDecision
+}) }}	

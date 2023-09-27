@@ -1,0 +1,97 @@
+{% extends "layout_ur.html" %}
+{% block pageTitle %}
+  Error: Why have you applied these measures? - Keep Customer Interactions Safe
+{% endblock %}
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+      text: "beta"
+    },
+      html: 'This is a new service – your <a class="govuk-link" href="10actionerror">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "./templates/key_details.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "04measure"
+    }) }}
+  </section>
+{% endblock %}
+{% block content %}
+{% if ([data['applymeasures12'], data['applymeasures22'], data['applymeasures32']] | join) == '' %}
+   {% set heading %}
+    Why did you decide not to apply any measures?
+   {% endset %}
+{% else %}
+   {% set heading %}
+    Why did you decide to apply these measures?
+   {% endset %}
+{% endif %}
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: [
+            {
+              text: "Tell us why you decided to apply these measures",
+              href: "#actionaccounts"
+            }
+          ]
+        }) }}
+        {% include "./templates/govuk-caption-m-ur.njk" %}
+        {% set bulletList %}
+          <ul class="govuk-list govuk-list--bullet">
+            {% for item in data['applymeasures12'] %}
+                  <li>{{ item }}</li>
+            {% endfor %}
+            {% for item in data['applymeasures22'] %}
+                  <li>{{ item }}</li>
+            {% endfor %}
+            {% for item in data['applymeasures32'] %}
+                  <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+          <p class="govuk-hint">You should include anything that another decision maker might need if they pick this up in future. </p>
+          {{ govukWarningText({
+            text: "This information will be visible to the reporter’s manager and may also be sent to the reporter’s local trade union representative.",
+            iconFallbackText: "Warning"
+          }) }}
+        {% endset %}
+        <form class="form" action="06reviewdate" method="post">
+          {{ govukCharacterCount({
+            name: "measureaccounts2",
+            id: "measureaccounts2",
+            maxlength: 3000,
+            label: {
+              text: heading,
+              isPageHeading: true,
+              classes: "govuk-label--xl"
+            },
+              hint: {
+              html: bulletList
+            },
+            value: data['measureaccounts2'],
+            errorMessage: {
+              text: "Tell us why you decided to apply these measures"
+            }
+          }) }}  
+          <div class="govuk-button-group">
+            {{ govukButton({
+              text: "Continue"
+            }) }}
+          </div>
+        </form>
+    </div>
+  </div>
+
+
+{% endblock %}
+
+
+
+
+
+
+

@@ -1,0 +1,36 @@
+{% set versions = [ 
+  "/beta/report_incident/reportv9/concern9/02fileuploadcheck",
+  "/beta/report_incident/reportv10/concern10/02fileuploadcheck",
+  "/beta/report_incident/reportv11/concern11/02fileuploadcheck",
+  "/beta/report_incident/reportv12/c02fileuploadcheck"
+] %}
+
+
+
+{{ govukPagination({
+
+  items: [
+    {
+      number: 9,
+      href: versions[0]
+    },
+    {
+      number: 10,
+      href: versions[1]
+    },
+    {
+      number: 11,
+      href: versions[2]
+    },
+    {
+      number: 12,
+      href: versions[3]
+    }
+  ]
+}) }}
+
+
+{% block pageScripts %}
+  <script src="/public/javascripts/versions_1-0.js"></script>
+{% endblock %}
+

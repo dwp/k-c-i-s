@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% block pageTitle %}
+  Account for actions - Keep Customer Interactions Safe
+{% endblock %}
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+      text: "beta"
+    },
+      html: 'This is a new service – your <a class="govuk-link" href="10actionerror">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "templates/v7/key_details_ann.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
+  </section>
+{% endblock %}
+{% block content %}
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+      {% include "templates/v7/govuk-caption-m.njk" %}
+      {{ govukInput({
+        id: "contact-by-email",
+        name: "contact-by-email",
+        type: "email",
+        autocomplete: "email",
+        spellcheck: false,
+        classes: "govuk-!-width-one-third",                 
+        hint: {
+          text: "Their email address"
+        },
+        label: {
+          text: "Reassign to colleague",
+          isPageHeading: true,
+          classes: "govuk-label--xl"
+        }
+      }) }}
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Reassign ",
+          href: "01landingpage1_blank"
+        }) }}
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

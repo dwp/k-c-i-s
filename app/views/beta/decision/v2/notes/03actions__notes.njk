@@ -1,0 +1,42 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<hr>
+<br>
+<h3 class="govuk-heading-s govuk-!-font-weight-regular">NOT PART OF DESIGN: Demo only</h3>
+<h4 class="govuk-heading-s">Versions</h3>
+{% include "../../_versions/03actions__versions.njk" %}
+
+<h4 class="govuk-heading-s">States</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li><a href="03actions">Actions</a></li>
+		<li><a href="03actions_error">Actions error</a></li>
+	</ul>
+<h4 class="govuk-heading-s">v2 Design notes</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li>Development story <a href="https://dwpdigital.atlassian.net/browse/CITI-18280">CITI-18280 - Build: Record Actions</a> (Included so that dependency not introduced)</li>
+		<li>Removed "none" option because the user is expert and doesnt need explicit prompting here - they will be prompted by the actions summary</li>
+		<li>Added letter - most often used</li>
+		<li>Used free text to record letter type because templates are subject to change</li>
+		<li>Clear data in description on submit</li>
+		<li>Order of actions used letter first to make simpler coding. It is also a more common action than verbal warning (Jan 2023 NM UR)</li>
+		<li>Active measures should colour header red</li>
+		<li>Describe letter - Use free text box with 2000 character count and monitor in data - this should be plenty - we dont want the letter text</li>
+		<li>Caption will be the latest incident or concern</li>
+	</ul>
+<h4 class="govuk-heading-s">Hypotheses</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li><a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132775346323/Agents+Safeguarding+-+User+Role+Model#decision_maker">Decision maker user canvas</a></li>
+		<ul class="govuk-list govuk-list--bullet">
+			<li>Need: Send letters to customers</li>
+		</ul>
+	</ul>
+{% set journeyNotesHTMLDecision_v2 %}
+	{% include "beta/decision/notes/v2__notes.njk" %}
+{% endset %}
+{{ govukDetails({
+	summaryText: "v2 Journey level design notes",
+	html: journeyNotesHTMLDecision_v2
+}) }}	

@@ -1,0 +1,50 @@
+{% extends "layout_ur.html" %}
+{% block pageTitle %}
+    Start of journey
+{% endblock %}
+{% block beforeContent %}{% endblock %}
+{% block content %}
+    <h1 class="govuk-heading-xl">Research - 1. Make report</h1>
+    <p class="govuk-body">7 July 2023</p>
+
+
+
+    <div class="govuk-!-padding-bottom-7">
+        <form class="form" action="/beta/_UR/20230707/1_report/01manager_report" method="post">
+            {{ govukInput({
+                id: "your-first-name",
+                name: "your-first-name",
+                classes: "govuk-!-width-two-thirds",
+                value: data['your-first-name'],
+                label: {
+                    text: "Enter your first name"
+                }
+            }) }}
+            {{ govukInput({
+                id: "your-last-name",
+                name: "your-last-name",
+                classes: "govuk-!-width-two-thirds",
+                value: data['your-last-name'],
+                label: {
+                    text: "Enter your last name"
+                }
+            }) }}
+            {{ govukInput({
+                id: "your-email",
+                name: "your-email",
+                classes: "govuk-!-width-two-thirds",
+                value: data['your-email'],
+                label: {
+                    text: "Enter your email address"
+                }
+            }) }}
+            <p>Click the button below. The research session will start and you will see an email.</p>
+
+            <div class="govuk-button-group">
+                {{ govukButton({
+                    text: "Start session"
+                }) }}
+            </div>
+        </form>
+    </div>
+{% endblock %}

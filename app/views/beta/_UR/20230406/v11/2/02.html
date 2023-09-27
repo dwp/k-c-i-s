@@ -1,0 +1,63 @@
+{% extends "layout_ur.html" %}
+
+{% block pageTitle %}
+  Did someone feel uncomfortable, vulnerable or threatened because of an interaction with a customer? - Keep Customer Interactions Safe
+{% endblock %}
+
+{% block beforeContent %}
+<section aria-label="Phase banner" role="region">
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "beta"
+  },
+    html: 'This is a new service – your <a class="govuk-link" href="01report_error">feedback</a> will help us to improve it.'
+}) }}
+</section>
+{% include "templates/v2/header_searchlight.njk" %}
+<section aria-label="Back" role="region">
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:history.back()"
+}) }}
+</section>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" action="#" method="post">
+      {{ govukRadios({
+        idPrefix: "decision_scenario3",
+        name: "decision_scenario3",
+
+        fieldset: {
+          legend: {
+            text: "Are you reporting something that happened during an interaction with a customer? ",
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+          text: ""
+        },
+        items: [
+          {
+            value: "1",
+            text: "Yes"
+          },
+          {
+            value: "2",
+            text: "No"
+          }
+        ]
+      }) }}
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

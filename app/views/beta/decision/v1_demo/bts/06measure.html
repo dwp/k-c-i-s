@@ -1,0 +1,245 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Measures applied - Keep Customer Interactions Safe
+{% endblock %}
+
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+      text: "beta"
+    },
+      html: 'This is a new service – your <a class="govuk-link" href="08discrimination_error">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "templates/v7/key_details.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "03actions"
+    }) }}
+  </section>
+{% endblock %}
+
+{% block content %}
+  <h1 class="govuk-fieldset__legend--xl">{% include "templates/v7/govuk-caption-m.njk" %}Select measures to apply</h1>
+  <br><br>
+  {% set locationHTML %}
+    <section aria-label="Incident overview" role="region">
+      {{ govukCheckboxes({
+        idPrefix: "applymeasures1",
+        name: "applymeasures1",
+        fieldset: {
+          legend: {
+            text: "Location",
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+          text: "Select all that apply."
+        },
+        items: [
+          {
+            value: "accompaniedvisits",
+            text: "Accompanied visits only"
+          },
+          {
+            value: "accompaniedinterviews",
+            text: "Accompanied interviews"
+          },
+          {
+            value: "banned-dwp",
+            text: "Banned from office (by DWP)"
+          },
+          {
+            value: "banned-gld",
+            text: "Banned from office (by GLD)"
+          },
+          {
+            value: "screened",
+            text: "Must be dealt with in a screened environment"
+          },
+          {
+            value: "nohomevisits",
+            text: "No home visits"
+          },
+          {
+            value: "injunction",
+            text: "Prohibitory Injunction or Interdict in place"
+          }
+        ]
+      }) }}
+    </section>
+  {% endset -%}
+
+  {% set communications_and_equipmentHTML %}
+    <section aria-label="Incident details" role="region">
+                {{ govukCheckboxes({
+        idPrefix: "applymeasures2",
+        name: "applymeasures2",
+        fieldset: {
+          legend: {
+            text: "Communications and equipment",
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+          text: "Select all that apply."
+        },
+        items: [
+          {
+            value: "1",
+            text: "Banned from using UCFS Journal"
+          },
+          {
+            value: "2",
+            text: "Customer not permitted to use DWP computers"
+          },
+          {
+            value: "3",
+            text: "Must be dealt with by post"
+          },
+          {
+            value: "4",
+            text: "Postal signing"
+          },
+          {
+            value: "5",
+            text: "Must be dealt with by digital"
+          }
+        ]
+      }) }}
+    </section>
+  {% endset -%}
+
+  {% set personnelHTML %}
+    <section aria-label="Incident witnesses" role="region">
+      {{ govukCheckboxes({
+        idPrefix: "applymeasures3",
+        name: "applymeasures3",
+        fieldset: {
+          legend: {
+            text: "Personnel",
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+          text: "Select all that apply."
+        },
+        items: [
+          {
+            value: "1",
+            text: "Dealt with by member of other race"
+          },
+          {
+            value: "2",
+            text: "Deal with by member of other sex"
+          },
+          {
+            value: "3",
+            text: "Dealt with by member of other race / sex"
+          },
+          {
+            value: "4",
+            text: "Dealt with by member of same race"
+          },
+          {
+            value: "5",
+            text: "Dealt with by member of same sex"
+          },
+          {
+            value: "6",
+            text: "Dealt with by member of same race / sex"
+          },
+          {
+            value: "7",
+            text: "Not to be seen by lone females"
+          },
+          {
+            value: "8",
+            text: "Not to be seen by lone males"
+          },
+          {
+            value: "9",
+            text: "Contact named officer only"
+          },
+          {
+            value: "10",
+            text: "No contact with named officer"
+          },
+          {
+            value: "11",
+            text: "To be dealt with by a named officer"
+          }
+        ]
+      }) }}
+    </section>
+  {% endset -%}
+
+  {% set monitor_behaviourHTML %}
+    <section aria-label="Files attached to incident report" role="region">
+      {{ govukCheckboxes({
+        idPrefix: "applymeasures4",
+        name: "applymeasures4",
+        fieldset: {
+          legend: {
+            text: "Monitor behaviour",
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "1",
+            text: "Monitor behaviour"
+          }
+        ]
+      }) }}
+    
+    </section>
+  {% endset -%}
+
+  {{ govukTabs({
+    items: [
+      {
+        label: "Location",
+        id: "location",
+        panel: {
+          html: locationHTML
+        }
+      },
+      {
+        label: "Communications and equipment",
+        id: "communications_and_equipment",
+        panel: {
+          html: communications_and_equipmentHTML
+        }
+      },
+      {
+        label: "Personnel",
+        id: "personnel",
+        panel: {
+          html: personnelHTML
+        }
+      },
+        {
+        label: "Monitor behaviour",
+        id: "monitor_behaviour",
+        panel: {
+          html: monitor_behaviourHTML
+        }
+      }
+    ]
+  }) }}
+  <h2 class="govuk-heading-l">Measures selected</h2>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>Accompanied interviews</li>
+    <li>Must be dealt with in a screened environment</li>
+  </ul>
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Continue",
+      href: "08measureaccount"
+    }) }}
+  </div>
+{% endblock %}

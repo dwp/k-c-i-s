@@ -1,0 +1,89 @@
+{% extends "layout_ur.html" %}
+{% block pageTitle %}
+    Start of journey
+{% endblock %}
+{% block beforeContent %}{% endblock %}
+{% block content %}
+    <h1 class="govuk-heading-xl">Research</h1>
+    <p class="govuk-body">3 March 2023</p>
+    <div class="govuk-!-padding-bottom-7">
+                  <form class="form" action="/beta/_UR/20230303/3/00searchlight" method="post">
+            {{ govukInput({
+              id: "your-first-name",
+              name: "your-first-name",
+              classes: "govuk-!-width-two-thirds",
+              value: data['your-first-name'],
+              label: {
+                text: "Your first name"
+              }
+            }) }}
+            {{ govukInput({
+              id: "your-last-name",
+              name: "your-last-name",
+              classes: "govuk-!-width-two-thirds",
+              value: data['your-last-name'],
+              label: {
+                text: "Your last name"
+              }
+            }) }}
+            {{ govukInput({
+              id: "your-email",
+              name: "your-email",
+              type: "email",
+              autocomplete: "email",
+              value: data['your-email'],
+              spellcheck: false,
+              label: {
+                text: "Your email address"
+              },
+              hint: {
+                text: "Enter their email address as it appears on the Global Address List"
+              }
+            }) }}
+         
+
+
+                  {{ govukRadios({
+                    idPrefix: "decision_scenario",
+                    name: "decision_scenario",
+
+                    fieldset: {
+                      legend: {
+                        text: "Choose scenario number",
+                        classes: "govuk-fieldset__legend--m"
+                      }
+                    },
+                    items: [
+                      {
+                        value: "1",
+                        text: "1", 
+                        checked: data['decision_scenario'].includes('1')
+                      },
+                      {
+                        value: "2",
+                        text: "2", 
+                        checked: data['decision_scenario'].includes('2')
+                      },
+                      {
+                        value: "3",
+                        text: "3", 
+                        checked: data['decision_scenario'].includes('3')
+                      },
+                      {
+                        value: "4",
+                        text: "4", 
+                        checked: data['decision_scenario'].includes('4')
+                      }
+                    ]
+                  }) }}
+                  <div class="govuk-button-group">
+                    {{ govukButton({
+                      text: "Continue"
+                    }) }}
+                  </div>
+                </form> 
+                <p>Note: based on v3 Decision</p>
+   
+    </div>
+
+</p>{% endblock %}

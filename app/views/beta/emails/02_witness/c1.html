@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block pageTitle %}
+    email
+{% endblock %}
+{% block beforeContent %}{% endblock %}
+{% block content %}
+    {% include "../image_display.html" %}
+    <img src="/public/images/emails/c1.png">
+    {% if not (checked("displaymode", "presentation") == "checked") %}
+		{% include "./notes/c1__notes.njk" %}
+	{% endif %}
+{% endblock %}

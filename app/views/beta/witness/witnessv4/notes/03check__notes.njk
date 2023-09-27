@@ -1,0 +1,40 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<hr>
+<br>
+<h3 class="govuk-heading-s govuk-!-font-weight-regular">NOT PART OF DESIGN: Demo only</h3>
+<h4 class="govuk-heading-s">Versions</h3>
+{% include "beta/witness/_versions/03check__versions.njk" %}
+
+<h4 class="govuk-heading-s">States</h3>
+<ul class="govuk-list govuk-list--bullet">
+<a href="03check-simple">1. Check - simple</a><br>
+<a href="03check">2. Check - "on behalf of" and "I did not witness this incident"</a><br>
+</ul>
+<h4 class="govuk-heading-s">v4 Design notes</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li>Cannot change witness Reporter or witness as they are set in the invite from the line manager</li>
+		<li>If you change if your answer about seeing the incident to yes, you will be forced to fill in details before returning</li>
+		<li>If you answered no to witnessing the incident, you cannot change the description as it is automatically generated</li>
+		<li>Added change link</li>
+		<ul>
+			<li>Story <a href="https://dwpdigital.atlassian.net/browse/CITI-19507">Witness Report - Check Answers Change Pattern</a></li>
+		</ul>
+	</ul>
+<h4 class="govuk-heading-s">Hypotheses</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li><a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132775346323/Agents+Safeguarding+-+User+Role+Model#witness">Witness user canvas</a></li>
+		<ul class="govuk-list govuk-list--bullet">
+			<li>Need: Reactively submit witness report</li>
+		</ul>
+	</ul>
+{% set journeyNotesHTML %}
+	{% include "beta/witness/notes/v4__notes.njk" %}
+{% endset %}
+{{ govukDetails({
+	summaryText: "v4 Journey level design notes",
+	html: journeyNotesHTML
+}) }}

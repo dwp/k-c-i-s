@@ -1,0 +1,33 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<hr>
+<br>
+<h3 class="govuk-heading-s govuk-!-font-weight-regular">NOT PART OF DESIGN: Demo only</h3>
+<h4 class="govuk-heading-s">Versions</h3>
+{% include "../../_versions/07check__versions.njk" %}
+
+<h4 class="govuk-heading-s">States</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li><a href="07check_good">Check your answers - complex</a></li>
+		<li><a href="07check">Check your answers - simple</a></li>
+	</ul>
+<h4 class="govuk-heading-s">v3 Design notes</h3>
+	<ul class="govuk-list govuk-list--bullet">
+	</ul>
+<h4 class="govuk-heading-s">Hypotheses</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li><a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132775346323/Agents+Safeguarding+-+User+Role+Model#decision_maker">Decision maker user canvas</a></li>
+		<ul class="govuk-list govuk-list--bullet">
+			<li>Need: Review if applied measures suitable</li>
+		</ul>
+	</ul>
+{% set journeyNotesHTMLDecision_v3 %}
+	{% include "beta/decision/notes/v3__notes.njk" %}
+{% endset %}
+{{ govukDetails({
+	summaryText: "v3 Journey level design notes",
+	html: journeyNotesHTMLDecision_v3
+}) }}	

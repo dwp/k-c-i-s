@@ -1,0 +1,25 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Sorry, the service is unavailable - Agent Safeguarding
+{% endblock %}
+{% block beforeContent %}
+{% include "templates/v2/header_newservice.html" %}
+{% include "templates/v2/header_searchlight.njk" %}
+{% endblock %}
+
+
+{% block content %}
+<div class="govuk-width-container">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">Sorry, the service is unavailable</h1>
+  <p class="govuk-body">Use <a class="govuk-link" href="https://sswap-ucb-web.az.dwpcloud.uk/UCBWeb">UCB</a> if you need to report something.</p><br>
+  <p class="govuk-body">Please also raise an incident in <a class="govuk-link" href="https://dwp.service-now.com">DWP Place</a> to let us know about this problem with the service.</p><br>
+
+    </div>
+</div>
+
+
+{% endblock %}

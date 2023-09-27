@@ -1,0 +1,46 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<hr>
+<br>
+<h3 class="govuk-heading-s govuk-!-font-weight-regular">NOT PART OF DESIGN: Demo only</h3>
+<h4 class="govuk-heading-s">Versions</h3>
+{% include "beta/history/_versions/01history__versions.njk" %}
+
+<h4 class="govuk-heading-s">States</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li><a href="02history">History</a></li>
+	</ul>
+<h4 class="govuk-heading-s">v2 Design notes</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li>UCD ideation</li>
+		<li>Includes click-throughs to other journey: <a href="/beta/examine/v3/00incident">v3 tabbed Examine incident/concern report</a></li>
+		<li>What are the events that should be included?</li>
+		<li>Do we need to display the reference number - is this useful?</li>
+		<li>Are the details enough to identify and build the overall picture</li>
+		<li>Do we need a context of an incident</li>
+		<li>Does a more consistent naming convention make easier to read</li>
+	</ul>
+<h4 class="govuk-heading-s">Hypotheses</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li><a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132775346323/Agents+Safeguarding+-+User+Role+Model#decision_maker">Decision maker user canvas</a></li>
+		<ul class="govuk-list govuk-list--bullet">
+			<li>Need: Work on multiple cases</li>
+			<li>Pain: Inefficient processes and missing SLAs</li>
+			<li>Pain: The number of reviews needing doing</li>
+		</ul>
+		<li><a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132775346323/Agents+Safeguarding+-+User+Role+Model#business_support">Business support user canvas</a></li>
+		<ul class="govuk-list govuk-list--bullet">
+			<li>Need: Work on multiple cases</li>
+			<li>Pain relievers: Single source of truth</li>
+		</ul>
+	</ul>
+	{% set journeyNotesHTML %}
+		{% include "beta/history/notes/v2__notes.njk" %}
+	{% endset %}
+	{{ govukDetails({
+		summaryText: "v2 Journey level design notes",
+		html: journeyNotesHTML
+	}) }}		

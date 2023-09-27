@@ -1,0 +1,98 @@
+{% extends "layout.html" %}
+{% block pageTitle %}
+  Error: What was the main cause of this incident? - Keep Customer Interactions Safe
+{% endblock %}
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+        text: "beta"
+      },
+      html: 'This is a new service – your <a class="govuk-link" href="04trigger">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "./templates/key_details_red.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "02history_complex"
+    }) }}
+  </section>
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: [
+          {
+            text: "Tell us what caused this incident",
+            href: "#incident-type"
+          }
+        ]
+      }) }}
+      {% include "./templates/govuk-caption-m-20230630_multi.njk" %}
+        {{ govukRadios({
+        idPrefix: "incident-type",
+        name: "incident-type",
+        fieldset: {
+          legend: {
+            text: "What was the main cause of this incident?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--xl"
+          }
+        },
+        items: [
+          {
+            value: "payment",
+            text: "An issue with payment: for example, the customer believes they're entitled to more money"
+          },
+          {
+            value: "service",
+            text: "An issue with the service DWP provides: for example, the customer complained about long waiting times"
+          },
+          {
+            value: "policy",
+            text: "An issue with DWP policy: for example, the customer was asked to leave when they became abusive"
+          },
+          {
+            value: "dwperror",
+            text: "An error in DWP process or an error made by staff"
+          },
+          {
+            value: "intoxication",
+            text: "Customer was under the influence of alcohol or drugs"
+          },
+          {
+            value: "health",
+            text: "Customer had a physical or mental health condition"
+          },
+          {
+            value: "target",
+            text: "Customer targeted a specific member of staff"
+          },
+          {
+            value: "Other",
+            text: "Other"
+          },
+          {
+            value: "Unsure",
+            text: "Not enough information in the report to say what caused the incident"
+          }
+        ],
+        errorMessage: {
+          text: "Tell us what caused this incident"
+        }
+      }) }}
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Continue",
+          href: "04actions"
+        }) }}
+      </div>
+    </div>
+  </div>
+  {% if not (checked("displaymode", "presentation") == "checked") %}
+		{% include "./notes/03trigger__notes.njk" %}
+	{% endif %}
+{% endblock %}

@@ -1,0 +1,34 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<hr>
+<br>
+<h3 class="govuk-heading-s govuk-!-font-weight-regular">NOT PART OF DESIGN: Demo only</h3>
+<h4 class="govuk-heading-s">Versions</h3>
+{% include "beta/report_incident/_versions/08discrimination__versions.njk" %}
+
+<h4 class="govuk-heading-s">States</h3>
+<ul class="govuk-list govuk-list--bullet">
+	<a href="08discrimination">1. Discrimination?</a><br>
+	<a href="08discrimination_error">2. Error: Tell us </a><br>
+</ul>
+<h4 class="govuk-heading-s">v12 Design notes</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li>Changed question and hint text to make it clearer. <a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/133220532225/Reporters+unclear+that+discrimination+page+asks+if+it+was+aimed+towards+them">UR has shown</a> that users are confused about whether this is about the customer discriminating because the agent they dealt with has a disability, or the customer discriminating because they themselves have a disability. See <a href="https://dwpdigital.atlassian.net/browse/CITI-20178">Dev story</a>.</li>
+	</ul>
+<h4 class="govuk-heading-s">Hypotheses</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li><a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132775346323/Agents+Safeguarding+-+User+Role+Model#reporter">Reporter user canvas</a></li>
+		<ul class="govuk-list govuk-list--bullet">
+			<li>Need: Report Incident</li>
+		</ul>
+	</ul>
+{% set journeyNotesHTMLincidentreport %}
+	{% include "beta/report_incident/notes/v12__notes.njk" %}
+{% endset %}
+{{ govukDetails({
+	summaryText: "v12 Journey level design notes",
+	html: journeyNotesHTMLincidentreport
+}) }}

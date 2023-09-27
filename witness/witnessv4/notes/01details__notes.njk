@@ -1,0 +1,34 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<hr>
+<br>
+<h3 class="govuk-heading-s govuk-!-font-weight-regular">NOT PART OF DESIGN: Demo only</h3>
+<h4 class="govuk-heading-s">Versions</h3>
+{% include "beta/witness/_versions/01details__versions.njk" %}
+
+<h4 class="govuk-heading-s">States</h3>
+<ul class="govuk-list govuk-list--bullet">
+<a href="01details_simple">1. Simple</a><br>
+<a href="01details_onbehalf">2. On behalf of</a><br>
+<a href="01detailserror">3. Error: Tell us if you witnessed</a><br>
+<a href="01details2error">4. Error: Tell us if they witnessed</a><br>
+</ul>
+<h4 class="govuk-heading-s">v4 Design notes</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li>When request is sent to someone reporting on behalf of the actual witness the hint text is changed to be appropriate to reduce confusion</li>
+		<li>Added hint text to encourage reporting even if the details are perceived as different (ie. witnesses may have a different view of when the incident started)</li>
+	</ul>
+<h4 class="govuk-heading-s">Hypotheses and insights</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li>  </li>
+	</ul>
+{% set journeyNotesHTML %}
+	{% include "beta/witness/notes/v4__notes.njk" %}
+{% endset %}
+{{ govukDetails({
+	summaryText: "v4 Journey level design notes",
+	html: journeyNotesHTML
+}) }}	

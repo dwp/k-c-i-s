@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+{% block pageTitle %}
+  Event - Keep Customer Interactions Safe
+{% endblock %}
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+        text: "beta"
+      },
+      html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "templates/v7/key_details_red.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
+  </section>
+{% endblock %}
+{% block content %}
+      <h1 class="govuk-heading-xl">Action update</h1>
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Date"
+            },
+            value: {
+            html: '2 March 2023 at 9:00am'
+            }
+          },
+          {
+            key: {
+              text: "From"
+            },
+            value: {
+              text: "Sadiq Assam"
+            }
+          },
+          {
+            key: {
+              text: "Message"
+            },
+            value: {
+              html: "Can you let me know when you have delivered a verbal warning"
+            }
+          }
+        ]
+      }) }}
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Date"
+            },
+            value: {
+            html: '3 March 2023 at 1:30pm'
+            }
+          },          
+          {
+            key: {
+              text: "From"
+            },
+            value: {
+              html: "Sarah Sencha"
+            }
+          },
+          {
+            key: {
+              text: "Message"
+            },
+            value: {
+              html: "Completed oral warning at 1pm today by phone. Customer was calm."
+            }
+          }
+        ]
+      }) }}
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Back to customer history",
+          href: "02history_complex"
+        }) }}
+      </div>
+
+  {% if not (checked("displaymode", "presentation") == "checked") %}
+		{% include "./notes/21eventinfo__notes.njk" %}
+	{% endif %}
+{% endblock %}

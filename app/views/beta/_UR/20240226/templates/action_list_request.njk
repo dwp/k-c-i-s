@@ -1,9 +1,0 @@
-{% for item in data["2401_actions"] %}
-  {{ item }}{% if not ((item == data["2401_actions"] | last) and  (data["2401_actions_dm"] == "")) %}, {% endif %}
-{% endfor %}             
-{% for item in data["2401_actions_dm"] %}
-  {{ item }}{% if not (item == data["2401_actions_dm"] | last) %}, {% endif %}
-{% endfor %}             
-{% if data["2401_actions"] == "" and data["2401_actions_dm"] == "" %} 
-  <li>None</li>
-{% endif %} 

@@ -1,0 +1,71 @@
+
+{% extends "layout.html" %}
+{% block pageTitle %}
+  Event - Keep Customer Interactions Safe
+{% endblock %}
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+        text: "beta"
+      },
+      html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "templates/v7/key_details_red.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
+  </section>
+{% endblock %}
+{% block content %}
+      <h1 class="govuk-heading-xl">Information update (pending)</h1>
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Date"
+            },
+            value: {
+            html: '2 March 2023 at 2:00pm'
+            }
+          },
+          {
+            key: {
+              text: "From"
+            },
+            value: {
+              text: "Sadiq Assam"
+            }
+          },
+          {
+            key: {
+              text: "To"
+            },
+            value: {
+              html: "Sarah Sencha"
+            }
+          },
+          {
+            key: {
+              text: "Message"
+            },
+            value: {
+              html: "Hi, please could you let me know if you checked the SPL before calling the customer."
+            }
+          }
+        ]
+      }) }}
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Back to customer history",
+          href: "02history_complex"
+        }) }}
+      </div>
+
+  {% if not (checked("displaymode", "presentation") == "checked") %}
+		{% include "./notes/25eventinfo__notes.njk" %}
+	{% endif %}
+{% endblock %}

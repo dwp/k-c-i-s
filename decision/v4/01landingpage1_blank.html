@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Your reports - Keep Customer Interactions Safe
+{% endblock %}
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+    {{ govukPhaseBanner({
+      tag: {
+        text: "beta"
+      },
+      html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back to Searchlight home",
+      href: "00searchlight"
+    }) }}
+  </section>
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row govuk-!-padding-bottom-7">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl" id="page-title">Your reports</h1>
+      <h2 class="govuk-heading-l">To do</h2>
+      <div class="govuk-hint">
+      Each row in this table represents a report that needs action from you.
+      </div>
+      {{ govukButton({
+        text: "Get next report ",
+        href: "01landingpage1_nmready"
+      }) }}
+    </div>
+  </div>
+
+
+	{% if not (checked("displaymode", "presentation") == "checked") %}
+		{% include "./notes/01landing__notes.njk" %}
+	{% endif %}
+{% endblock %}

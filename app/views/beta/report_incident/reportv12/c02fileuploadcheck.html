@@ -13,7 +13,7 @@
       html: 'This is a new service – your <a class="govuk-link" href="10add_error">feedback</a> will help us to improve it.'
     }) }}
   </section>
-  {% include "./templates/key_details_robert_blue.njk" %}
+  {% include "templates/v2/header_searchlight.njk" %}
   <section aria-label="Back" role="region">
     {{ govukBackLink({
       text: "Back",
@@ -25,37 +25,36 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form class="form" action="c03assign" method="post">
-        {{ govukRadios({
-          idPrefix: "add-files",
-          name: "add-files",
-          fieldset: {
-            legend: {
-              text: "Do you want to add files to your report?",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--l"
-            }
-          },
-          items: [
-            {
-              value: "yes",
-              text: "Yes"
-            },
-            {
-              value: "no",
-              text: "No"
-            }
-          ],
-          hint: {
-            text: "You can add files that contain evidence to support your report."
+      {{ govukRadios({
+        idPrefix: "add-files",
+        name: "add-files",
+        fieldset: {
+          legend: {
+            text: "Do you want to add files to your report?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
           }
+        },
+        items: [
+          {
+            value: "yes",
+            text: "Yes"
+          },
+          {
+            value: "no",
+            text: "No"
+          }
+        ],
+        hint: {
+          text: "You can add files that contain evidence to support your report."
+        }
+      }) }}
+      <div>
+        {{ govukButton({
+          text: "Continue",
+          href: "c03check"
         }) }}
-        <div>
-          {{ govukButton({
-            text: "Continue"
-          }) }}
-        </div>
-      </form>
+      </div>
     </div>
   </div>
 	{% if not (checked("displaymode", "presentation") == "checked") %}

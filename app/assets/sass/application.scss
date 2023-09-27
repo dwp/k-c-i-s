@@ -8,22 +8,4 @@ $font-stack: Helvetica, Arial, sans-serif;
 
 // Add extra styles here
 
-
-// overrride for grey text in caption
-.kcis-caption-reportedby {
-    color: $govuk-secondary-text-colour;
-}
-// overrride for black text in caption
-.kcis-caption-incidenttype {
-    color: $govuk-text-colour;
-}
-
-// override for normal line spacing
-.kcis-defaultsize {
-    line-height: 1.3157894737 !important;
-}
-
-// correcting font side in status tag
-.dwp-key-details-bar__status .govuk-tag {
-    font-size: 1.1875rem;
-  }
+@import "node_modules/@ministryofjustice/frontend/moj/all";

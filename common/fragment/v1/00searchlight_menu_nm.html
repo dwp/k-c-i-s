@@ -1,0 +1,39 @@
+
+
+
+
+
+{% block content %}
+   <link href="/public/stylesheets/application.css" rel="stylesheet" type="text/css" />
+<style>
+   #background {
+      background-size: cover;
+      background-image: url('/public/images/common/searchlight/v1/20230607_searchlight_menu_nm.jpg');
+      width: 100%;
+      Height: 100%;
+   }
+   #clickable {
+      width: 100%;
+      Height: 100%;
+      z-index:100;
+      margin-left: auto; 
+      margin-right: 0;
+   }
+      #clickablecontainer {
+      width: 20%;
+      Height: 100%;
+      z-index:100;
+      margin-left: auto; 
+      margin-right: 0;
+   }
+</style>
+<div id="background"><div id="clickablecontainer"><a href="#"><div id="clickable"></div></a></div></div>
+<script>
+
+</script>
+     {% if not (checked("displaymode", "presentation") == "checked") %}
+         {% include "./notes/00searchlight__notes.njk" %}
+      {% endif %}
+
+
+{% endblock %}

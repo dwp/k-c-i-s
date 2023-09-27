@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block pageTitle %}
-  Pre-KCIS incident report - Keep Customer Interactions Safe
+  Original incident report - Keep Customer Interactions Safe
 {% endblock %}
 {% block beforeContent %}
   <section aria-label="Phase banner" role="region">
@@ -21,7 +21,7 @@
 {% endblock %}
 {% block content %}
   {% include "./templates/govuk-caption-m-whitney.njk" %}
-  <h1 class="govuk-heading-xl">Pre-KCIS incident report</h1>
+  <h1 class="govuk-heading-xl">Original incident report</h1>
   <section aria-label="Incident overview" role="region">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
@@ -118,7 +118,7 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         <div class="govuk-!-padding-bottom-9">
-          <h2 class="govuk-heading-l">Witnesses - remove?</h2>
+          <h2 class="govuk-heading-l">Witnesses</h2>
           <p>There are currently no witnesses to this incident</p>
         </div>
       </div>
@@ -128,7 +128,7 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         <div class="govuk-!-padding-bottom-9">
-          <h2 class="govuk-heading-l">Police action - remove?</h2>
+          <h2 class="govuk-heading-l">Police action</h2>
           <p class="govuk-body">The relevant manager has not yet submitted a report.</p>
         </div>
       </div>
@@ -148,7 +148,7 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         <div class="govuk-!-padding-bottom-9">
-          <h2 class="govuk-heading-l">Business support comments - remove?</h2>
+          <h2 class="govuk-heading-l">Business support comments</h2>
           <p class="govuk-body">We need to have the line manager report here</p>
         </div>
       </div>
@@ -176,7 +176,7 @@
                   text: "Reporter's email address"
                 },
                 value: {
-                  text: " - remove?"
+                  text: ""
                 }
               },
               {
@@ -192,7 +192,7 @@
                   text: "Manager's email address"
                 },
                 value: {
-                  html: " - remove?"
+                  html: ""
                 }
               }
             ]

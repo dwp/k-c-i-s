@@ -176,7 +176,7 @@
               classes: "govuk-!-width-one-third"
             },
             value: {
-            html: "clt called the service centre re his payment being nil, advised him that there is a sanction on his claim and he needs to re-engage at the job centre and make a new appointment. <br><br>he then became abuse over the telephone, swearing at me saying you bitch, you moran , making comments how easy it is for me to be sat there and to make comments, i advised the clt to stop swearing and that we don't tolerate this language, he became more abusive over the phone he said you must love this you bitch and advised him the call will be terminated, he made comments about myself my voice and that im i old enough to work there, i advised him i am going to end the call and the call was then terminated i spoke to my manager about the incident and advised i was fine."
+            html: "clt called the service centre re his payment being nil, advised him that there is a sanction on his claim and he needs to re-engage at the job centre and make a new appointment. <br><br>he then became abuse over the telephone, swearing at me saying you fucking bitch, you moran , making comments how easy it is for me to be sat there and to make comments, i advised the clt to stop swearing and that we don't tolerate this language, he became more abusive over the phone he said you must love this you bitch and advised him the call will be terminated, he made comments about myself my voice and that im i old enough to work there, i advised him i am going to end the call and the call was then terminated i spoke to my manager about the incident and advised i was fine."
             }
           }
         ]
@@ -190,23 +190,22 @@
       </h2>
     </div>
   </div>
-  <form class="form" action="13confirm" method="post">
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
-        <h2 class="govuk-heading-m">Are you ready to submit your report?</h2>
-        <p class="govuk-body">If you need to change anything in your report, use the back link near the top of this page.</p>
-        <p class="govuk-body">When you click Submit, we will send your report to the appropriate manager to review.</p>
-        <p class="govuk-body govuk-!-font-weight-bold">You will not be able to change anything in your report after you click Submit.</p>
-      </div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h2 class="govuk-heading-m">Are you ready to submit your report?</h2>
+      <p class="govuk-body">If you need to change anything in your report, use the back link near the top of this page.</p>
+      <p class="govuk-body">When you click Submit, we will send your report to the appropriate manager to review.</p>
+      <p class="govuk-body govuk-!-font-weight-bold">You will not be able to change anything in your report after you click Submit.</p>
     </div>
-    <div>
-      {{ govukButton(
-        {
-          text: "Submit"
-        }
-      ) }}
-    </div>
-  </form>
+  </div>
+  <div>
+    {{ govukButton(
+      {
+        text: "Submit",
+        href: "13confirm"
+      }
+    ) }}
+  </div>
 	{% if not (checked("displaymode", "presentation") == "checked") %}
 		{% include "./notes/12check__notes.njk" %}
 	{% endif %}

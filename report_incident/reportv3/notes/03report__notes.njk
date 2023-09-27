@@ -1,0 +1,46 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<hr>
+<br>
+<h3 class="govuk-heading-s govuk-!-font-weight-regular">NOT PART OF DESIGN: Demo only</h3>
+<h4 class="govuk-heading-s">Versions</h3>
+{% include "beta/report_incident/_versions/09describe__versions.njk" %}
+
+<h4 class="govuk-heading-s">States</h3>
+<ul class="govuk-list govuk-list--bullet">
+	<li><a href="03report">1. Describe?</a></li>
+	<li><a href="03reportError">2. Error: x7 </a></li>
+</ul>
+<h4 class="govuk-heading-s">v3 Design notes</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li>Focus for this sprint: going to be updated with READY pages by the end of the sprint</li>
+		<li>Reduced number of questions - <a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132492919547/Sprint+22+-+User+research+results">users included a lot of information which they began to duplicate in other boxes</a></li>
+		<li>Reduced amount of 'important information' text in blue box - <a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132492919547/Sprint+22+-+User+research+results">important information is not read by most users before they start completing the report form</a></li>
+		<li>Changed formatting of hint text and examples to split them out and make them easier to read</li>
+		<li>Paint reliever: remove jargon. Revised q1 to remove jargon</li>
+			<li>Pain point: reporters don’t use exact (offensive) language that customers do - therefore included swearing in example in q4 to encourage users to do the same</li>
+				<li>Pain point: reporters don’t know what to write in reports. Included more detailed guidance for q4</li>
+	</ul>
+<h4 class="govuk-heading-s">Hypotheses</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li><a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132775346323/Agents+Safeguarding+-+User+Role+Model#reporter">Reporter user canvas</a></li>
+		<ul class="govuk-list govuk-list--bullet">
+			<li>Need: Report Incident</li>
+			<li>Pain: Don't know what to write in reports</li>
+			<li>Pain: Entering offensive language</li>
+			<li>Pain reliever: Remove jargon and signpost</li>
+			<li>Pain reliever: Provide guidance each step of the way</li>
+			<li>Pain: Journeys too complex</li>
+			<li>Pain reliever: Keep journeys as short as possible</li>
+		</ul>
+	</ul>
+{% set journeyNotesHTMLincidentreport %}
+	{% include "beta/report_incident/notes/v3__notes.njk" %}
+{% endset %}
+{{ govukDetails({
+	summaryText: "v3 Journey level design notes",
+	html: journeyNotesHTMLincidentreport
+}) }}

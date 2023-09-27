@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Prepare for interaction - Keep Customer Interactions Safe
+{% endblock %}
+
+{% block beforeContent %}
+<section aria-label="Phase banner" role="region">
+
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{{ govukPhaseBanner({
+tag: {
+text: "beta"
+},
+html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+}) }}
+</section>
+{% include "templates/v7/key_details_red.njk" %}
+<section aria-label="Back" role="region">
+{{ govukBackLink({
+text: "Back to Searchlight home",
+href: "/"
+}) }}
+</section>
+{% endblock %}
+
+{% block content %}
+<h1 class="govuk-heading-xl" id="page-title">Prepare for interaction</h1>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <p class="govuk-body">
+    There are <a href="#">active measures</a> in place for this customer. Check these measures to help keep your next interaction safe.
+    </p>
+    {{ govukButton({
+      text: "Back to Searchlight home",
+      href: "#"
+    }) }}
+  </div>
+</div>
+
+	{% if not (checked("displaymode", "presentation") == "checked") %}
+		{% include "./notes/01interaction__notes.njk" %}
+	{% endif %}
+{% endblock %}

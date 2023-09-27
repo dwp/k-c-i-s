@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Error: Where did this concern come from? - Keep Customer Interactions Safe
+  Error: Who do you work for? - Keep Customer Interactions Safe
 {% endblock %}
 
 {% block beforeContent %}
@@ -13,7 +13,7 @@
       html: 'This is a new service – your <a class="govuk-link" href="00agentsource.html">feedback</a> will help us to improve it.'
     }) }}
   </section>
-  {% include "./templates/key_details_robert_blue.njk" %}
+  {% include "templates/v2/header_searchlight.njk" %}
   <section aria-label="Back" role="region">
     {{ govukBackLink({
       text: "Back",
@@ -25,66 +25,48 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form class="form" action="c01comments" method="post">
-        {{ govukErrorSummary({
-          titleText: "There is a problem",
-          errorList: [
-            {
-              text: "Select the organisation you work for",
-              href: "#organisation"
-            }
-          ]
-        }) }}
-        {{ govukRadios({
-          idPrefix: "organisation",
-          name: "organisation",
-          fieldset: {
-            legend: {
-              text: "Select where this concern came from?",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--l"
-            }
-          },
-          items: [
-            {
-              value: "CHDA",
-              text: "Centre for Health and Disability Assessments (CHDA)"
-            },
-            {
-              value: "pip",
-              text: "Personal Independence Payment (PIP)"
-            },
-            {
-              value: "g4s",
-              text: "G4S"
-            },
-            {
-              value: "tp",
-              text: "Teleperformance"
-            },
-            {
-              value: "DWP",
-              text: "Department for Work and Pensions (DWP)"
-            },
-            {
-              value: "other",
-              text: "Other"
-            }
-          ],
-          hint: {
-            text: "Select the most appropriate option to describe the source of this referral."
-          },
-          errorMessage: {
-            text: "Select the organisation you work for"
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: [
+          {
+            text: "Select the organisation you work for",
+            href: "#organisation"
           }
+        ]
+      }) }}
+      {{ govukRadios({
+        idPrefix: "organisation",
+        name: "organisation",
+        fieldset: {
+          legend: {
+            text: "Who do you work for?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "CHDA",
+            text: "Centre for Health and Disability Assessments (CHDA)"
+          },
+          {
+            value: "DWP",
+            text: "Department for Work and Pensions (DWP)"
+          }
+        ],
+          hint: {
+          text: "Select one option."
+        },
+          errorMessage: {
+          text: "Select the organisation you work for"
+        }
+      }) }}
+      <div>
+        {{ govukButton({
+        text: "Continue",
+        href: "c01comments"
         }) }}
-        
-        <div>
-          {{ govukButton({
-          text: "Continue"
-          }) }}
-        </div>
-      </form>
+      </div>
     </div>
   </div>
 	{% if not (checked("displaymode", "presentation") == "checked") %}

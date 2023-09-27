@@ -1,9 +1,0 @@
-{% for item in data["2401_actions"] %}
-  <li>{{ item }}</li>
-{% endfor %}             
-{% for item in data["2401_actions_dm"] %}
-  <li>{{ item }}</li>
-{% endfor %}             
-{% if data["2401_actions"] == "" and data["2401_actions_dm"] == "" %} 
-  <li>None</li>
-{% endif %} 

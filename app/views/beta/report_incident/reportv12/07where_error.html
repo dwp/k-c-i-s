@@ -1,10 +1,7 @@
 {% extends "layout.html" %}
 
-{% set myPageTitle = "Where did the incident happen?" %}
-
-
 {% block pageTitle %}
-  Error: {{myPageTitle}} - Keep Customer Interactions Safe
+  Error: Where were you during the incident? - Keep Customer Interactions Safe
 {% endblock %}
 
 {% block beforeContent %}
@@ -16,7 +13,7 @@
       html: 'This is a new service – your <a class="govuk-link" href="07where_error2">feedback</a> will help us to improve it.'
     }) }}
   </section>
-  {% include "./templates/key_details_robert_blue.njk" %}
+  {% include "templates/v2/header_searchlight.njk" %}
   <section aria-label="Back" role="region">
     {{ govukBackLink({
       text: "Back",
@@ -46,59 +43,58 @@
         }
       }) }}
       {% endset -%}
-      <form class="form" action="08discrimination" method="post">
-          {{ govukRadios({
-            idPrefix: "location",
-            name: "location",
-            fieldset: {
-              legend: {
-                text: myPageTitle,
-                isPageHeading: true,
-                classes: "govuk-fieldset__legend--l"
+        {{ govukRadios({
+          idPrefix: "location",
+          name: "location",
+          fieldset: {
+            legend: {
+              text: "Where were you during the incident?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "Select one option."
+          },
+          errorMessage: {
+            text: "Tell us where you were when it happened"
+          },
+          items: [
+            {
+              value: "office",
+              text: "The office you're based at"
+            },
+            {
+              value: "differentoffice",
+              text: "A different office"
+            },
+            {
+              value: "outreach",
+              text: "An outreach location"
+            },
+            {
+              value: "home",
+              text: "Your home"
+            },
+            {
+              value: "customershouse",
+              text: "The customer's home"
+            },
+            {           
+              value: "somewhereelse",
+              text: "Somewhere else",
+              conditional: {
+                html: somewhereHtml
               }
-            },
-            hint: {
-              text: "If you are reporting on behalf of a colleague, record their answer"
-            },
-            errorMessage: {
-              text: "Tell us where you were when it happened"
-            },
-            items: [
-              {
-                value: "office",
-                text: "The office you're based at"
-              },
-              {
-                value: "differentoffice",
-                text: "A different office"
-              },
-              {
-                value: "outreach",
-                text: "An outreach location"
-              },
-              {
-                value: "home",
-                text: "Your home"
-              },
-              {
-                value: "customershouse",
-                text: "The customer's home"
-              },
-              {
-                value: "somewhereelse",
-                text: "Somewhere else",
-                conditional: {
-                  html: somewhereHtml
-                }
-              }
-            ]
+            }
+          ]
+        }) }}
+        <div>
+          {{ govukButton({
+          text: "Continue",
+          href: "08discrimination"
           }) }}
-          <div>
-            {{ govukButton({
-            text: "Continue"
-            }) }}
-          </div>
-        </form>
+        </div>
     </div>
   </div>
 	{% if not (checked("displaymode", "presentation") == "checked") %}

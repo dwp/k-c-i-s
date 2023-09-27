@@ -1,0 +1,21 @@
+{% set versions = [ 
+  "../witnessv2/00email"
+] %}
+
+
+
+{{ govukPagination({
+
+  items: [
+    {
+      number: 2,
+      href: versions[0]
+    }
+  ]
+}) }}
+
+
+{% block pageScripts %}
+  <script src="/public/javascripts/versions_1-0.js"></script>
+{% endblock %}
+

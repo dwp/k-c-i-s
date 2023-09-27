@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-View incident collection - Keep Customer Interactions Safe
+View incident - Keep Customer Interactions Safe
 {% endblock %}
 
 
@@ -9,7 +9,7 @@ View incident collection - Keep Customer Interactions Safe
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-		<h1 class="govuk-heading-xl">View incident collection</h1>
+		<h1 class="govuk-heading-xl">View incident</h1>
 		{{ govukTable({
 			firstCellIsHeader: true,
 			head: [
@@ -17,22 +17,19 @@ View incident collection - Keep Customer Interactions Safe
 					text: ""
 				},
 				{
-					html: '<a href="/beta/incident_manager_journey/v6/02incident_simple_inperson">v6 Manager - review and comment </a> '
+					html: '<a href="/beta/incident_manager_journey/v4/02incident_simple_inperson">v4 Manager - review and comment </a> '
 				},
 				{
-					html: '<a href="/beta/incident_manager_journey/v6/i03incident_best_simple_info">v6 Manager - further information request</a>'
+					html: '<a href="/beta/incident_manager_journey/v4/i03incident_best_simple_info">v4 Manager - further information request v4</a'
 				},
 				{
-					html: '<a href="/beta/incident_manager_journey/v6/d03incident_best_simple_info">v6 Manager - view decision </a>'
+					html: '<a href="/beta/incident_manager_journey/v4/d03incident_best_simple_info">v4 Manager - view decision </a>'
 				},
 				{
-					html: '<a href="/beta/decision/v8/h_02incident_best_simple_vo">v8 VO - view history (decision</a> - <a href="/beta/decision/v8/02history_complex_vo">VO Customer history</a>)'
+					html: '<a href="/beta/decision/v6/h_02incident_best_simple_existing">v6 Case reviewer (decision - timeline)</a>'
 				},
 				{
-					html: '<a href="/beta/decision/v8/h_02incident_best_simple_existing">v8 Case reviewer (decision - Customer history)</a>'
-				},
-				{
-					html: '<a href="/beta/decision/v8/10incident_best_simple_info">v8 Decision maker (decision - Customer history) </a> '
+					html: '<a href="/beta/decision/v6/10incident_best_simple_info">v6 Decision maker (decision - complete decision) </a> '
 				}
 			],
 			rows: [
@@ -50,10 +47,7 @@ View incident collection - Keep Customer Interactions Safe
 						html: '<a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132775346323/Agents+Safeguarding+-+User+Role+Model#manager">Manager</a> views decision '
 					},
 					{
-						html: 'Visiting officer from VO Customer history'
-					},
-					{
-						html: '<a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132775346323/Agents+Safeguarding+-+User+Role+Model#case_reviewer">Case reviewer</a> from Customer History'
+						html: '<a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132775346323/Agents+Safeguarding+-+User+Role+Model#case_reviewer">Case reviewer</a> from timeline'
 					},
 					{
 						html: '<a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132775346323/Agents+Safeguarding+-+User+Role+Model#decision_maker">Decision maker</a> when completing decision (cover note)'
@@ -64,10 +58,7 @@ View incident collection - Keep Customer Interactions Safe
 						text: "Witness section"
 					},
 					{
-						html: '<strong class="govuk-tag govuk-tag--red">N</strong>'
-					},
-					{
-						text: "Y"
+						text: "N"
 					},
 					{
 						text: "Y"
@@ -87,10 +78,7 @@ View incident collection - Keep Customer Interactions Safe
 						text: "Police section"
 					},
 					{
-						html: '<strong class="govuk-tag govuk-tag--red">N</strong>'
-					},
-					{
-						text: "Y"
+						text: "N"
 					},
 					{
 						text: "Y"
@@ -110,10 +98,7 @@ View incident collection - Keep Customer Interactions Safe
 						text: "Manager report"
 					},
 					{
-						html: '<strong class="govuk-tag govuk-tag--red">N</strong>'
-					},
-					{
-						text: "Y"
+						text: "N"
 					},
 					{
 						text: "Y"
@@ -133,10 +118,7 @@ View incident collection - Keep Customer Interactions Safe
 						text: "Correspondence - witness and manager"
 					},
 					{
-						html: '<strong class="govuk-tag govuk-tag--red">N</strong>'
-					},
-					{
-						text: "Y"
+						text: "N"
 					},
 					{
 						text: "Y"
@@ -153,19 +135,16 @@ View incident collection - Keep Customer Interactions Safe
 				],
 				[
 					{
-						html: 'Business support <br><span class="govuk-body govuk-!-font-weight-regular govuk-body-s">handover notes</span>'
+						text: "Business support handover"
 					},
 					{
-						html: '<strong class="govuk-tag govuk-tag--red">N</strong>'
+						text: "N"
 					},
 					{
-						html: '<strong class="govuk-tag govuk-tag--red">N</strong>'
+						text: "N"
 					},
 					{
-						html: '<strong class="govuk-tag govuk-tag--red">N</strong>'
-					},
-					{
-						html: '<strong class="govuk-tag govuk-tag--red">N</strong>'
+						text: "N"
 					},
 					{
 						text: "Y"
@@ -192,26 +171,20 @@ View incident collection - Keep Customer Interactions Safe
 					},
 					{
 						text: "Y"
-					},
-					{
-						text: "Y"
 					}
 				],
 				[
 					{
-						html: 'Business support contact details <br><span class="govuk-body govuk-!-font-weight-regular govuk-body-s">(not yet implemented)</span>'
+						text: "Business support contact details (not yet implemented)"
 					},
 					{
-						html: '<strong class="govuk-tag govuk-tag--red">N</strong>'
+						text: "N"
 					},
 					{
-						html: '<strong class="govuk-tag govuk-tag--red">N</strong>'
+						text: "N"
 					},
 					{
-						html: '<strong class="govuk-tag govuk-tag--red">N</strong>'
-					},
-					{
-						html: '<strong class="govuk-tag govuk-tag--red">N</strong>'
+						text: "N"
 					},
 					{
 						text: "Y"
@@ -222,19 +195,16 @@ View incident collection - Keep Customer Interactions Safe
 				],
 				[
 					{
-						html: 'Witness/manager resend email button <span class="govuk-body govuk-!-font-weight-regular govuk-body-s">(always available)</span>'
+						text: "Witness/manager resend email button (when applicable)"
 					},
 					{
-						html: '<strong class="govuk-tag govuk-tag--red">N</strong>'
+						text: "N"
 					},
 					{
-						html: '<strong class="govuk-tag govuk-tag--red">N</strong>'
+						text: "N"
 					},
 					{
-						html: '<strong class="govuk-tag govuk-tag--red">N</strong>'
-					},
-					{
-						html: '<strong class="govuk-tag govuk-tag--red">N</strong>'
+						text: "N"
 					},
 					{
 						text: "Y"
@@ -245,19 +215,16 @@ View incident collection - Keep Customer Interactions Safe
 				],
 				[
 					{
-						html: 'Request info button <span class="govuk-body govuk-!-font-weight-regular govuk-body-s">(always available)</span>'
+						text: "Request info button (when applicable)"
 					},
 					{
-						html: '<strong class="govuk-tag govuk-tag--red">N</strong>'
+						text: "N"
 					},
 					{
-						html: '<strong class="govuk-tag govuk-tag--red">N</strong>'
+						text: "N"
 					},
 					{
-						html: '<strong class="govuk-tag govuk-tag--red">N</strong>'
-					},
-					{
-						html: '<strong class="govuk-tag govuk-tag--red">N</strong>'
+						text: "N"
 					},
 					{
 						text: "Y"
@@ -268,16 +235,13 @@ View incident collection - Keep Customer Interactions Safe
 				],
 				[
 					{
-						text: "Continue/back button "
+						text: "Continue button label"
 					},
 					{
 						text: "Continue"
 					},
 					{
 						text: "Back to Add information"
-					},
-					{
-						text: "Back to customer history"
 					},
 					{
 						text: "Back to decision"
@@ -287,98 +251,6 @@ View incident collection - Keep Customer Interactions Safe
 					},
 					{
 						text: "Back to Complete decision"
-					}
-				],
-				[
-					{
-						text: "File upload (button)"
-					},
-					{
-						html: '<strong class="govuk-tag govuk-tag--red">N</strong>'
-					},
-					{
-						html: '<strong class="govuk-tag govuk-tag--red">N</strong>'
-					},
-					{
-						html: '<strong class="govuk-tag govuk-tag--red">N</strong>'
-					},
-					{
-						html: '<strong class="govuk-tag govuk-tag--red">N</strong>'
-					},
-					{
-						text: "Y"
-					},
-					{
-						text: "Y"
-					}
-				],
-				[
-					{
-						text: "File download "
-					},
-					{
-						text: "Y - only those originally uploaded"
-					},
-					{
-						text: "Y - only those originally uploaded"
-					},
-					{
-						text: "Y - only those originally uploaded"
-					},
-					{
-						text: "Y"
-					},
-					{
-						text: "Y"
-					},
-					{
-						text: "Y"
-					}
-				],
-				[
-					{
-						text: "File timestamp "
-					},
-					{
-						html: '<strong class="govuk-tag govuk-tag--red">N</strong>'
-					},
-					{
-						html: '<strong class="govuk-tag govuk-tag--red">N</strong>'
-					},
-					{
-						html: '<strong class="govuk-tag govuk-tag--red">N</strong>'
-					},
-					{
-						text: "Y"
-					},
-					{
-						text: "Y"
-					},
-					{
-						text: "Y"
-					}
-				],
-				[
-					{
-						html: 'Assign manager'
-					},
-					{
-						html: '<strong class="govuk-tag govuk-tag--red">N</strong>'
-					},
-					{
-						html: '<strong class="govuk-tag govuk-tag--red">N</strong>'
-					},
-					{
-						html: '<strong class="govuk-tag govuk-tag--red">N</strong>'
-					},
-					{
-						html: '<strong class="govuk-tag govuk-tag--red">N</strong>'
-					},
-					{
-						text: "Y"
-					},
-					{
-						text: "Y"
 					}
 				]
 			]

@@ -11,7 +11,7 @@
       html: 'This is a new service – your <a class="govuk-link" href="04acting_manager_error">feedback</a> will help us to improve it.'
     }) }}
   </section>
-  {% include "./templates/key_details_robert_blue.njk" %}
+  {% include "templates/v2/header_searchlight.njk" %}
   <section aria-label="Back" role="region">
     {{ govukBackLink({
       text: "Back",
@@ -37,43 +37,42 @@
           }
         }) }}
       {% endset -%}
-      <form class="form" action="04bbusiness" method="post">
-        {{ govukRadios({
-          idPrefix: "acting-manager",
-          name: "acting-manager",
-          fieldset: {
-            legend: {
-              text: "Who is the most appropriate manager to review this report?",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--l"
-            }
-          },
-          items: [
-            {
-              value: "linemanager",
-              text: "My line manager (Sarah Sencha)"
-            },
-            {
-              value: "anothermanager",
-              text: "Another manager",
-              hint: {
-                text: "For example, a job centre manager or someone standing in for your line manager"
-              },
-              conditional: {
-                html: managerDetailsHtml
-              }
-            }
-          ],
-          hint: {
-            text: "Select one option. If your line manager is incorrect on this screen, select 'Another manager'."
+      {{ govukRadios({
+        idPrefix: "acting-manager",
+        name: "acting-manager",
+        fieldset: {
+          legend: {
+            text: "Who is the most appropriate manager to review this report?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
           }
+        },
+        items: [
+          {
+            value: "linemanager",
+            text: "My line manager (Sarah Sencha)"
+          },
+          {
+            value: "anothermanager",
+            text: "Another manager",
+            hint: {
+              text: "For example, a job centre manager or someone standing in for your line manager"
+            },
+            conditional: {
+              html: managerDetailsHtml
+            }
+          }
+        ],
+        hint: {
+          text: "Select one option. If your line manager is incorrect on this screen, select 'Another manager'."
+        }
+      }) }}
+      <div>
+        {{ govukButton({
+          text: "Continue",
+          href: "04interaction"
         }) }}
-        <div>
-          {{ govukButton({
-            text: "Continue"
-          }) }}
-        </div>
-      </form>
+      </div>
     </div>
   </div>
 	{% if not (checked("displaymode", "presentation") == "checked") %}

@@ -1,0 +1,71 @@
+		<div class="govuk-width-container ">
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<hr>
+			<br>
+			<h3 class="govuk-heading-s govuk-!-font-weight-regular">NOT PART OF DESIGN: Demo only</h3>
+			<h4 class="govuk-heading-s">Versions</h3>
+			{% include "../../_versions/01statement__versions.njk" %}
+			<h4 class="govuk-heading-s">States</h3>
+			<ul class="govuk-list govuk-list--bullet">
+				<li><a href="/beta/common/footer/v1/01statement">01 Statement</a> - Accessibility statement</li>
+			</ul>
+			<h4 class="govuk-heading-s">v1 Design notes</h3>
+				<ul class="govuk-list govuk-list--bullet">
+					<li>Story: <a href="https://dwpdigital.atlassian.net/browse/CITI-21237">KCIS User: Accessibility statement</a></li>
+				</ul>
+				h4 class="govuk-heading-s">v2 Design notes</h3>
+					<ul class="govuk-list govuk-list--bullet">
+						<li>Story: <a href="https://dwpdigital.atlassian.net/browse/CITI-22248">KCIS User: Accessibility statement link</a></li>
+					</ul>
+
+			<h4 class="govuk-heading-s">Hypotheses</h3>
+			<ul class="govuk-list govuk-list--bullet">
+				<li><a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132775346323/Agents+Safeguarding+-+User+Role+Model#safeguarding_user">Safeguarding user canvas</a></li>
+			</ul>
+			{% set journeyNotesHTML %}
+				{% include "beta/common/footer/notes/v1__notes.njk" %}
+			{% endset %}
+			{% from "govuk/components/details/macro.njk" import govukDetails %}
+			{{ govukDetails({
+				summaryText: "v1 Journey level design notes",
+				html: journeyNotesHTML
+			}) }}
+
+		</div>
+		<div class="govuk-width-container ">
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<hr>
+			<br>
+			<h3 class="govuk-heading-s govuk-!-font-weight-regular">NOT PART OF DESIGN: Demo only</h3>
+			<h4 class="govuk-heading-s">Versions</h3>
+			{% include "../../_versions/01statement__versions.njk" %}
+			<h4 class="govuk-heading-s">States</h3>
+			<ul class="govuk-list govuk-list--bullet">
+				<li><a href="/beta/common/footer/v1/01statement">01 Statement</a> - Accessibility statement</li>
+			</ul>
+			<h4 class="govuk-heading-s">v1 Design notes</h3>
+				<ul class="govuk-list govuk-list--bullet">
+					<li>Story: <a href="https://dwpdigital.atlassian.net/browse/CITI-21237">KCIS User: Accessibility statement</a></li>
+				</ul>
+			<h4 class="govuk-heading-s">Hypotheses</h3>
+			<ul class="govuk-list govuk-list--bullet">
+				<li><a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132775346323/Agents+Safeguarding+-+User+Role+Model#safeguarding_user">Safeguarding user canvas</a></li>
+			</ul>
+			{% set journeyNotesHTML %}
+				{% include "beta/common/footer/notes/v1__notes.njk" %}
+			{% endset %}
+			{% from "govuk/components/details/macro.njk" import govukDetails %}
+			{{ govukDetails({
+				summaryText: "v1 Journey level design notes",
+				html: journeyNotesHTML
+			}) }}
+
+		</div>

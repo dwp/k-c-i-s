@@ -33,25 +33,47 @@
       </div>
     </div>
   <div class="govuk-grid-row govuk-!-padding-bottom-2">
-    <div class="govuk-grid-column-full">
+    <div class="govuk-grid-column-two-thirds">
       <h2 class="govuk-heading-l">To do</h2>
       <p class="govuk-hint">
         Each row in the table below represents a report that needs action from you.
-      </p>
-            <p class="govuk-body">
-        There are 24 unassigned reports for Business support and 3 for Decision Makers
-      </p>
-      <h3 class="govuk-heading-s">Unassigned reports</h3>
-      <p class="govuk-body">
-        Business support: 24
-<br>
-        Decision maker: 3
       </p>
       {{ govukButton({
         text: "Get next report",
         href: "01landingpage1_nmready"
       }) }}
     </div>
+		<div class="govuk-grid-column-one-third grey">
+      {{ govukTable({
+        caption: "Unassigned reports",
+        captionClasses: "govuk-table__caption--s",
+        firstCellIsHeader: true,
+        rows: [
+          [
+            {
+              html: "Business support",
+              classes: "govuk-body-s govuk-!-font-weight-regular"
+            },
+            {
+              text: "24",
+              format: "numeric",
+              classes: "govuk-body-s"
+            }
+          ],
+          [
+            {
+              text: "Decision makers",
+              classes: "govuk-body-s govuk-!-font-weight-regular"
+            },
+            {
+              text: "5",
+              format: "numeric",
+              classes: "govuk-body-s"
+            }
+          ]
+        ]
+      }) }}
+		</div>
   </div>
   <div class="govuk-!-padding-bottom-7">
     {{ govukTable({
@@ -76,7 +98,7 @@
       rows: [
         [
           {
-            html: "<span class='govuk-visually-hidden'>Date: </span>7 August 2022<br><span class='govuk-body-s' style='color:#505a5f'>  at 8:06am</span>"
+            html: "<span class='govuk-visually-hidden'>Date: </span>7 July 2022<br><span class='govuk-body-s' style='color:#505a5f'>  at 8:11am</span>"
           },
           {
             html: "<span class='govuk-visually-hidden'>Customer: </span>Robert Da Silva"
@@ -88,9 +110,9 @@
             html: "<span class='govuk-visually-hidden'>Witnesses: </span>None indicated"
           },
           {
-            html: "<a href='14reassign'>Reassign</a> | <a href='02history_complex' aria-label='Review and apply measures for an incident on 7 June 2022 at 8:06am'>Open</a>"
+            html: "<a href='13reassign'>Reassign</a> | <a href='02history_complex_walk' aria-label='Review and apply measures for an incident on 7 July 2022 at 8:11am'>Open</a>"
           }
-        ]
+        ]   
       ]
     }) }}
   </div>

@@ -1,0 +1,101 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Error: Complete decision - Keep Customer Interactions Safe
+{% endblock %}
+
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+      text: "beta"
+    },
+      html: 'This is a new service – your <a class="govuk-link" href="08discrimination_error">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "./templates/key_details_red.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "08reviewdate"
+    }) }}
+  </section>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: [
+          {
+            text: "Enter comments for the manager",
+            href: "#note"
+          }
+        ]
+      }) }}
+      <div class="govuk-!-padding-bottom-4">
+      {% include "./templates/govuk-caption-m-mike.njk" %}
+        <h1 class="govuk-heading-xl">Complete decision</h1>
+        <p class="govuk-body">Review the actions and measures you have selected, and add comments for the relevant manager.</p>
+        <p class="govuk-body">You can refer to <a href="10incident_best_simple_info">the original report</a>.</p>
+      </div>
+      <section aria-label="measures" role="region">
+        <div class="govuk-!-padding-bottom-4">
+          <h2 class="govuk-heading-l">Measures </h2>
+          <h3 class="govuk-heading-m">Measures to be applied</h3>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>Interim ban from office (by DWP)</li>
+          </ul>
+          <h3 class="govuk-heading-m">Reasons for applying measures</h3>
+          <p class="govuk-body">This is the measures summary. This is the measures summary. This is the measures summary. This is the measures summary. This is the measures summary. This is the measures summary. This is the measures summary. </p>
+        </div>
+      </section>
+
+      <section aria-label="actions" role="region">
+        <div class="govuk-!-padding-bottom-9">
+          <h2 class="govuk-heading-l">Actions </h2>
+          <h3 class="govuk-heading-m">Manager </h3>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>Send a letter<br>
+            Send template (T01) <br><br>
+            (please let me know which letterhead you used)
+            </li>
+          </ul>
+          <h3 class="govuk-heading-m">Decision maker</h3>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>Request a banning order</li>
+          </ul>
+        </div>
+      </section>
+
+
+      <section aria-label="notes" role="region">
+        {{ govukTextarea({
+          name: "note",
+          id: "note",
+          rows: "15",
+          label: {
+            html: "<h2 class='govuk-heading-l'>Comments for manager</h2>",
+            classes: "govuk-label--l"
+          },
+          hint: {
+            text: "Only the manager can see what you enter here. "
+          },
+          errorMessage: {
+            text: "Enter comments for the manager"
+          }
+        }) }}
+      </section>
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Continue",
+          href: "11check_good"
+        }) }}
+      </div>
+    </div>
+  </div>
+  {% if not (checked("displaymode", "presentation") == "checked") %}
+		{% include "./notes/09prepare_single_man__notes.njk" %}
+	{% endif %}
+{% endblock %}

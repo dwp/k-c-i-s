@@ -1,0 +1,106 @@
+{% extends "layout.html" %}
+{% block pageTitle %}
+  Check your answers - Keep Customer Interactions Safe
+{% endblock %}
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+      text: "beta"
+    },
+      html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "./templates/key_details_robert_blue.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
+  </section>
+{% endblock %}
+{% block content %}
+  {% include "./templates/govuk-caption-m-whitney.njk" %}
+  <h1 class="govuk-heading-xl">Check your answers</h1>
+  <div class="govuk-!-margin-bottom-9">
+    {% set witness1HTML %}
+      <p class="govuk-body">There are currently no witnesses to this incident</p>
+      {{ govukWarningText({
+        html: "<p class='govuk-hint'>Before you complete your review, all witnessess should submit a witness report, and you should review them all.</p>",
+        iconFallbackText: "Warning"
+      }) }}
+    {% endset %}
+    {{ govukSummaryList({
+      rows: [
+        {
+          key: {
+            text: "Witnesses"
+          },
+          value: {
+            html: witness1HTML
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "'Witnesses'"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Did anyone call the police?"
+          },
+          value: {
+            text: "No"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "'Did anyone call the police?'"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Comments and recommendations"
+          },
+          value: {
+            html: "I have reviewed this incident and recommend no action be taken."
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "'Comments and recommendations'"
+              }
+            ]
+          }
+        }
+      ]
+    }) }}
+  </div>  
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h2 class="govuk-heading-m">Are you ready to submit your review?</h2>
+      <p class="govuk-body">When you click Submit, we will send your review to a case reviewer and then to a decision maker.</p>
+      <p class="govuk-body govuk-!-font-weight-bold">You will not be able to change anything in your review after you click Submit.</p>
+      <div class="govuk-button-group">
+        {{ govukButton(
+            {
+              text: "Submit",
+              href: "13confirmation"
+            }
+          )
+        }}
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

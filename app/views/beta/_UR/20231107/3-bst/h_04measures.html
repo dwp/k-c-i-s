@@ -1,0 +1,78 @@
+{% extends "layout.html" %}
+{% block pageTitle %}
+  Measures - Keep Customer Interactions Safe
+{% endblock %}
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+        text: "beta"
+      },
+      html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "templates/v7/key_details_red.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
+  </section>
+{% endblock %}
+{% block content %}
+  <h1 class="govuk-heading-xl">Measures</h1>
+  {{ govukSummaryList({
+    rows: [
+      {
+        key: {
+          html: 'Measures <strong class="govuk-tag govuk-tag--red">Active</strong>'
+        },
+        value: {
+          html: '<ul class="govuk-list govuk-list--bullet">
+            <li>Interim ban from office (by DWP)</li>
+            <li>Must be seen in a screened area</li>
+            <li>No home visits</li>
+            <li>Must only interact with a named member of staff<br>whitney@dwp.gov</li>
+          </ul>'
+        }
+      },
+      {
+        key: {
+          text: "Date applied"
+        },
+        value: {
+          text: "30 May 2023"
+        }
+      },
+      {
+        key: {
+          text: "Applied by"
+        },
+        value: {
+          html: "Sarah Sencha"
+        }
+      },
+      {
+        key: {
+          text: "Review date"
+        },
+        value: {
+          html: "30 May 2024"
+        }
+      }
+    ]
+  }) }}
+  <div class="govuk-grid-row govuk-!-padding-bottom-3">
+    <div class="govuk-grid-column-two-thirds">
+            <p class="govuk-!-padding-bottom-7">The customer must not have any face to face interaction as he has previously made a threat towards DWP and has thrown a weapon at staff</p>      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Back to customer history",
+          href: "javascript:history.back()"
+        }) }}
+      </div>
+    </div>
+  </div>
+  {% if not (checked("displaymode", "presentation") == "checked") %}
+		{% include "./notes/h_04measures__notes.njk" %}
+	{% endif %}
+{% endblock %}

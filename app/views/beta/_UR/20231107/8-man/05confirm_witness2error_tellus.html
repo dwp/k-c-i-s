@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+{% block pageTitle %}
+Error: Who will complete the witness report? - Keep Customer Interactions Safe
+{% endblock %}
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+    {{ govukPhaseBanner({
+      tag: {
+      text: "beta"
+    },
+      html: 'This is a new service – your <a class="govuk-link" href="05confirm_witness2error2">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "./templates/key_details_robert_blue.njk" %}
+  <section aria-label="Back" role="region">
+    {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
+  </section>
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: [
+          {
+            text: "Tell us who will complete the witness report",
+            href: "#contact"
+          }
+        ]
+      }) }}
+      <form class="form" action="route_witness2" method="post">
+        {% include "./templates/govuk-caption-m-whitney.njk" %}
+        {% set colleagueOnbehalfHTML %}
+        {{ govukInput({
+          label: {
+          text: "Their email address"
+        },
+          id: "witness-email",
+          name: "witness-email",
+          autocomplete: "email"
+        }) }}
+        {% endset %}
+        {{ govukRadios({
+          idPrefix: "contact",
+          name: "contact",
+          ispageheader: true,
+          fieldset: {
+            legend: {
+              html: "Who will complete the witness report for Sartaq&nbsp;Matcha?",
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          hint: {
+            text: "We will send them an email, asking them to complete a witness report on behalf of Sartaq Matcha."
+          },
+          items: [
+            {
+              value: "you",
+              text: "I will"
+            },
+            {
+              value: "colleague",
+              text: "Someone else who can access the service",
+              conditional: {
+                html: colleagueOnbehalfHTML
+              }
+            }
+          ],
+          errorMessage: {
+            text: "Tell us who will complete the witness report"
+          }
+        }) }}
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Send email"
+          }) }}
+        </div>
+      </form>
+    </div>
+  </div>
+	{% if not (checked("displaymode", "presentation") == "checked") %}
+		{% include "./notes/04add_witness__notes.njk" %}
+	{% endif %}	
+{% endblock %}

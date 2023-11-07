@@ -1,0 +1,210 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Check your answers - Keep Customer Interactions Safe
+{% endblock %}
+
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+        text: "beta"
+      },
+      html: 'This is a new service – your <a class="govuk-link" href="11g_upload_error">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "./templates/key_details_red.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
+  </section>
+{% endblock %}
+
+{% block content %}
+  <h1 class="govuk-heading-l" id="page-title">
+    Check your answers
+  </h1>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+        <h2 class="govuk-heading-m">
+          Overview
+        </h2>
+        <div class="govuk-grid-column-full govuk-summary-list__row">
+      </div>
+    </div>
+  </div>
+  <div class="govuk-!-padding-bottom-9">
+    {{ govukSummaryList({
+      rows: [
+        {
+          key: {
+            text: "Reporter",
+            classes: "govuk-!-width-one-third"
+          },
+          value: {
+            html: "<span class='govuk-visually-hidden'>Reporter: </span>Ruby Conn"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "Reporter"
+              }
+            ]
+          }
+        },
+        
+        {
+          key: {
+            text: "Manager who should review this report"
+          },
+          value: {
+            html: "Sarah Sencha <span class='govuk-body-s' style='color:#505a5f'>(sarah@dwp.gov.uk)</span>"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "Manager who should review this report"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Interaction type"
+          },
+          value: {
+            html: "Telephone"
+          }
+        },
+        {
+          key: {
+            text: "Incident date"
+          },
+          value: {
+            html: "7 November 2023"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "Incident date"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Incident time"
+          },
+          value: {
+            html: "9:00am"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "Incident time"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Your location during the incident"
+          },
+          value: {
+            html: "The office you're based at"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "Your location during the incident"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Discrimination type"
+          },
+          value: {
+            html: "<p class='govuk-body'>I feel the customer's behaviour was motivated by the following types of discrimination:</p><ul class='govuk-list govuk-list--bullet'><li>None</li></ul>"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "Discrimination type"
+              }
+            ]
+          }
+        }
+      ]
+    }) }}
+  </div>
+
+  <div class="govuk-grid-row  govuk-!-padding-bottom-9">
+    <div class="govuk-grid-column-full">
+      <div class="govuk-summary-list govuk-!-margin-0">
+        <div class="govuk-summary-list__row">
+          <h2 class="govuk-heading-m govuk-summary-list__key">
+            Incident description
+          </h2>
+          <div class="govuk-summary-list__actions">
+            <a class="govuk-link" href="">Change
+              <span class="govuk-visually-hidden"> Incident description</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Tell us about the incident",
+              classes: "govuk-!-width-one-third"
+            },
+            value: {
+            html: "Customer called to enquire about suspended payment, claimant was ranting and I could not get them to answer security questions - claimant stated that if he was an 'illegal' and came over in a small boat with 12 children we would be falling over ourselves to give them a brand new house and car and thousands of pounds per week. I asked customer not to make these kind of comments but they then threatened to go to the local jobcentre and 'cause a scene', and 'slice people up'. Call dropped."
+            }
+          }
+        ]
+      }) }}
+    </div>
+  </div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds govuk-!-padding-bottom-9">
+      <h2 class="govuk-heading-m">
+        There are no files attached to this incident report
+      </h2>
+    </div>
+  </div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h2 class="govuk-heading-m">Are you ready to submit your report?</h2>
+      <p class="govuk-body">If you need to change anything in your report, use the back link near the top of this page.</p>
+      <p class="govuk-body">When you click Submit, we will send your report to the appropriate manager to review.</p>
+      <p class="govuk-body govuk-!-font-weight-bold">You will not be able to change anything in your report after you click Submit.</p>
+    </div>
+  </div>
+  <div>
+    {{ govukButton(
+      {
+        text: "Submit",
+        href: "13confirm"
+      }
+    ) }}
+  </div>
+
+{% endblock %}

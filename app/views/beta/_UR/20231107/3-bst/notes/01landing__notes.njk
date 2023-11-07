@@ -1,0 +1,45 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<hr>
+<br>
+<h3 class="govuk-heading-s govuk-!-font-weight-regular">NOT PART OF DESIGN: Demo only</h3>
+<h4 class="govuk-heading-s">Versions</h3>
+{% include "../../_versions/01landing__versions.njk" %}
+
+<h4 class="govuk-heading-s">States</h3>
+<ul class="govuk-list govuk-list--bullet">
+		<li><a href="01landingpage1_blank">1. Landing page - Decision makers/Business Support first time through - no incidents</a></li>
+		<li><a href="01landingpage1_nmready">2. Landing page - Decision makers - ready to make decision vA</a></li>
+		<li><a href="01landingpage1_nmready_warning">3. Warning: Landing page - Decision makers - vA timeout</a></li>
+		<li><a href="01landingpage1_btsready">4. Landing page - Business Support - ready to prepare case</a></li>
+		<li><a href="01landingpage1_jsfallback">5. Landing page - JS fallback if JS not enabled</a></li>
+		<li><a href="01landingpage1_unavailable">6. Landing page - Task service unavailable</a></li>
+		<li><a href="01landingpage1_multiple">7. Landing page - Multiple incidents</a></li>
+</ul>
+<h4 class="govuk-heading-s">v6 Design notes</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li>Care with hidden text</li>
+		<li>Ordered with oldest at top</li>
+		<li>2. Landing page - Decision makers - Top row - no date - shows action request raised on self - not yet in backlog</li>
+		<li>2. Landing page - Decision makers - 3rd row - 17 August 2022 - shows Concern which will always have none for witnesses</li>
+		<li>7. Landing page - Multiple incidents - roll up into one line and display ambiguity for dates and witnesses where necessary</li>
+	</ul>
+<h4 class="govuk-heading-s">Hypotheses</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li><a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132775346323/Agents+Safeguarding+-+User+Role+Model#decision_maker">Decision maker user canvas</a></li>
+		<ul class="govuk-list govuk-list--bullet">
+			<li>Need: Work on multiple cases</li>
+			<li>Pain: Inefficient processes and missing SLAs</li>
+			<li>Pain: The number of reviews needing doing</li>
+		</ul>
+	</ul>
+{% set journeyNotesHTMLDecision_v6 %}
+	{% include "beta/decision/notes/v6__notes.njk" %}
+{% endset %}
+{{ govukDetails({
+	summaryText: "v6 Journey level design notes",
+	html: journeyNotesHTMLDecision_v6
+}) }}	

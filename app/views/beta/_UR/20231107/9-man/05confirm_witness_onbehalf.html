@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+{% block pageTitle %}
+Who will complete the witness report? - Keep Customer Interactions Safe
+{% endblock %}
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+      text: "beta"
+    },
+      html: 'This is a new service – your <a class="govuk-link" href="05confirm_witness2error">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "./templates/key_details_robert_blue.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
+  </section>
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="route_witness2" method="post">
+        {% include "./templates/govuk-caption-m-whitney.njk" %}
+        {% set colleagueOnbehalfHTML %}
+        {{ govukInput({
+          label: {
+          text: "Their email address"
+        },
+          id: "witness-email",
+          name: "witness-email",
+          autocomplete: "email"
+        }) }}
+        {% endset %}
+        {{ govukRadios({
+          idPrefix: "contact",
+          name: "contact",
+          fieldset: {
+            legend: {
+              html: "Who will complete the witness report for John&nbsp;State?",
+              classes: "govuk-fieldset__legend--xl",
+              isPageHeading: true
+            }
+          },
+          hint: {
+            text: "We will send them an email, asking them to complete a witness report on behalf of John State."
+          },
+          items: [
+            {
+              value: "you",
+              text: "I will"
+            },
+            {
+              value: "colleague",
+              text: "Someone else who can access the service",
+              conditional: {
+                html: colleagueOnbehalfHTML
+              }
+            }
+          ]
+        }) }}
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Send email",
+            href: "06sent-4you"
+          }) }}
+        </div>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

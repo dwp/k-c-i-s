@@ -11,7 +11,7 @@
       html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
     }) }}
   </section>
-  {% include "templates/v7/key_details_red.njk" %}
+  {% include "./templates/key_details_robert_blue.njk" %}
 {% endblock %}
 {% block content %}
   <div class="govuk-grid-row">
@@ -35,9 +35,7 @@
   {{ govukButton({
     text: "Back to customer history",
     classes: "govuk-button--primary",
-    href: "02history_complex"
+    href: "02history_complex_walk2"
   }) }}
-  {% if not (checked("displaymode", "presentation") == "checked") %}
-		{% include "./notes/h_07infoconfirm__notes.njk" %}
-	{% endif %}
+
 {% endblock %}

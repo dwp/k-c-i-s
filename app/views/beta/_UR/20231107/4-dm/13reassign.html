@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "layout_202311_demo.html" %}
 {% block pageTitle %}
   Assign this report to another decision maker - Keep Customer Interactions Safe
 {% endblock %}
@@ -11,7 +11,7 @@
       html: 'This is a new service – your <a class="govuk-link" href="11reassign_error">feedback</a> will help us to improve it.'
     }) }}
   </section>
-  {% include "./templates/key_details_red.njk" %}
+  {% include "./templates/key_details_robert_blue.njk" %}
   <section aria-label="Back" role="region">
     {{ govukBackLink({
       text: "Back",
@@ -22,7 +22,7 @@
 {% block content %}
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-      {% include "./templates/govuk-caption-m-mike.njk" %}
+  {% include "./templates/govuk-caption-m-whitney_walk.njk" %}
       {{ govukInput({
         id: "contact-by-email",
         name: "contact-by-email",
@@ -46,7 +46,5 @@
       </div>
     </div>
   </div>
-  {% if not (checked("displaymode", "presentation") == "checked") %}
-		{% include "./notes/14reassign__notes.njk" %}
-	{% endif %}
+  
 {% endblock %}

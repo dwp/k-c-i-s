@@ -1,0 +1,33 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<hr>
+<br>
+<h3 class="govuk-heading-s govuk-!-font-weight-regular">NOT PART OF DESIGN: Demo only</h3>
+<h4 class="govuk-heading-s">Versions</h3>
+{% include "beta/incident_manager_journey/_versions/13confirmation__versions.njk" %}
+
+<h4 class="govuk-heading-s">States</h3>
+<ul class="govuk-list govuk-list--bullet">
+<a href="13confirmation">1. Confirmation</a><br>
+</ul>
+<h4 class="govuk-heading-s">v5 Design notes</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li></li>
+	</ul>
+<h4 class="govuk-heading-s">Hypotheses and insights</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li><a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132775346323/Agents+Safeguarding+-+User+Role+Model#manager">Manager user canvas</a></li>
+		<ul class="govuk-list govuk-list--bullet">
+			<li>Need: Submit Incident Manager Report</li>
+		</ul>
+	</ul>
+{% set journeyNotesHTMLincidentreport %}
+	{% include "beta/incident_manager_journey/notes/v5__notes.njk" %}
+{% endset %}
+{{ govukDetails({
+	summaryText: "v5 Journey level design notes",
+	html: journeyNotesHTMLincidentreport
+}) }}	

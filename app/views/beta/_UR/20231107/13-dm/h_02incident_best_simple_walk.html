@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "layout_202311_demo.html" %}
 {% block pageTitle %}
   Original incident report - Keep Customer Interactions Safe
 {% endblock %}
@@ -142,13 +142,7 @@
               </ol>
             </div>          
           <p class="govuk-body">The relevant manager has not yet submitted a report.</p>
-          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" aria-hidden="true">
-          <h3 class="govuk-heading-s">Contact manager</h3>
-          {{ govukButton({
-            html: 'Resend email request<span class="govuk-visually-hidden"> to manager Sarah Sencha</span>',
-            href: "#manager_section",
-            classes: "govuk-button--secondary"
-          }) }}
+
         </div>
       </div>
     </div>

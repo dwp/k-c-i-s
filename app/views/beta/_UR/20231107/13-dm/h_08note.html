@@ -11,7 +11,7 @@
       html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
     }) }}
   </section>
-  {% include "templates/v7/key_details_red.njk" %}
+  {% include "./templates/key_details_robert_blue.njk" %}
   <section aria-label="Back" role="region">
     {{ govukBackLink({
       text: "Back",
@@ -28,7 +28,7 @@
               text: "Date"
             },
             value: {
-            html: '5 March 2023 at 2:00pm'
+            html: '10 November 2023 at 2:00pm'
             }
           },
           {
@@ -36,7 +36,7 @@
               text: "Written by"
             },
             value: {
-              html: 'Sadiq Assam'
+              html: 'Sartaq Matcha'
             }
           },
           {
@@ -44,7 +44,7 @@
               text: "Note text"
             },
             value: {
-              html: "Sent coaching notes regarding verbal warnings to manager"
+              html: "Followed up with GLD - Banning order not agreed"
             }
           }
         ]
@@ -56,7 +56,5 @@
         }) }}
       </div>
 
-  {% if not (checked("displaymode", "presentation") == "checked") %}
-		{% include "./notes/h_08note__notes.njk" %}
-	{% endif %}
+
 {% endblock %}

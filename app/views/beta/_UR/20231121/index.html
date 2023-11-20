@@ -5,74 +5,53 @@
 {% block beforeContent %}{% endblock %}
 {% block content %}
     <h1 class="govuk-heading-xl">Interactor</h1>
-<p class="govuk-body"><a href="/beta/_UR/20231121/01interaction">1. Prepare</a></p>
-<ul class="govuk-list govuk-list--bullet">
-    <li>Single measure - Home visits must be carried out by two members of staff</li>
-</ul>
-<p class="govuk-body"><a href="/beta/_UR/20231121/02interaction">2. Prepare</a></p>
-<ul class="govuk-list govuk-list--bullet">
-    <li>Single measure - Must be interviewed by two members of staff</li>
-</ul>
-<p class="govuk-body"><a href="/beta/_UR/20231121/03interaction">3. Prepare</a></p>
-<ul class="govuk-list govuk-list--bullet">
-    <li>Single measure - Interim ban from office (by DWP)</li>
-</ul>
-<p class="govuk-body"><a href="/beta/_UR/20231121/04interaction">4. Prepare</a></p>
-<ul class="govuk-list govuk-list--bullet">
-    <li>Single measure - Ban from office (by Government Legal Department)</li>
-</ul>
-<p class="govuk-body"><a href="/beta/_UR/20231121/05interaction">5. Prepare</a></p>
-<ul class="govuk-list govuk-list--bullet">
-    <li>Single measure - Must be seen in a screened area</li>
-</ul>
-<p class="govuk-body"><a href="/beta/_UR/20231121/06interaction">6. Prepare</a></p>
-<ul class="govuk-list govuk-list--bullet">
-    <li>Single measure - No home visits</li>
-</ul>
-<p class="govuk-body"><a href="/beta/_UR/20231121/07interaction">7. Prepare</a></p>
-<ul class="govuk-list govuk-list--bullet">
-    <li>Single measure - Court order (injunction or interdict) in place</li>
-</ul>
-<p class="govuk-body"><a href="/beta/_UR/20231121/08interaction">8. Prepare</a></p>
-<ul class="govuk-list govuk-list--bullet">
-    <li>Single measure - Must not be dealt with by phone</li>
-</ul>
-<p class="govuk-body"><a href="/beta/_UR/20231121/09interaction">9. Prepare</a></p>
-<ul class="govuk-list govuk-list--bullet">
-    <li>Single measure - Must only interact with female staff members</li>
-</ul>
-<p class="govuk-body"><a href="/beta/_UR/20231121/10interaction">10. Prepare</a></p>
-<ul class="govuk-list govuk-list--bullet">
-    <li>Single measure - Must only interact with male staff members</li>
-</ul>
-<p class="govuk-body"><a href="/beta/_UR/20231121/11interaction">11. Prepare</a></p>
-<ul class="govuk-list govuk-list--bullet">
-    <li>Single measure - Must only interact with a named member of staff</li>
-</ul>
-<hr>
-<p class="govuk-body"><a href="/beta/_UR/20231121/12interaction">12. Prepare</a></p>
-<ul class="govuk-list govuk-list--bullet">
-    <li>Legitimate example, do you understand?</li>
-    <li>Screened and to be seen by 2 people and one named </li>
-    <li>Interactors will understand measures</li>
-    <li>Interactors will challenge decisions using email</li>
-</ul>
-<p class="govuk-body"><a href="/beta/_UR/20231121/13interaction">13. Prepare </a></p>
-<ul class="govuk-list govuk-list--bullet">
-    <li>Manager request or other journey to feedback </li>
-</ul>
+<p class="govuk-body"> <a href="/beta/_UR/20231121/a-interaction">A. Prepare - Interim ban from office (by DWP)</a></p>
 
-<hr>
-<p class="govuk-body">Notes:</p>
+<p class="govuk-body"><a href="/beta/_UR/20231121/b-interaction">B. Prepare - Multiple measures</a></p>
 
-<ul class="govuk-list govuk-list--bullet">
-    <li>What does injunction look like</li>
-    <li>Discovery UR available?</li>
-    <li>If we use a journey to capture, we can capture the customer</li>
-    <li>If we use mailto: can we use a non-readable ref? GDPR v use at other end</li>
-    <li>Can we have one of each of the locations?</li>
-    <li>Should we have a details page for locations/</li>
-    <li>What if I need clarification - who do i contact? (ad hoc review to improve description)</li>
-    <li>Feeds into plan to monitor effectiveness of measures communications</li>
-</ul>
+<p class="govuk-body"><a href="/beta/_UR/20231121/c-inappropriate">C. Prepare - Report inappropriate measures</a></p>
+<p class="govuk-body"><a href="/beta/_UR/20231121/d-inappropriate">D. Prepare - Report inappropriate measures - alt</a></p>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<hr>
+{{ govukDetails({
+    summaryText: "Single measures",
+    html: '
+        <p class="govuk-body">The following pages show individual measures for consideration. </p>
+        <p class="govuk-body"><a href="/beta/_UR/20231121/01interaction">1. Prepare - Home visits must be carried out by two members of staff</a><br>
+            <a href="/beta/_UR/20231121/02interaction">2. Prepare - Must be interviewed by two members of staff</a><br>
+            <a href="/beta/_UR/20231121/03interaction">3. Prepare - Interim ban from office (by DWP)</a><br>
+            <a href="/beta/_UR/20231121/04interaction">4. Prepare - Ban from office (by Government Legal Department)</a><br>
+            <a href="/beta/_UR/20231121/05interaction">5. Prepare - Must be seen in a screened area</a><br>
+            <a href="/beta/_UR/20231121/06interaction">6. Prepare - No home visits</a><br>
+            <a href="/beta/_UR/20231121/07interaction">7. Prepare - Court order (injunction or interdict) in place</a><br>
+            <a href="/beta/_UR/20231121/08interaction">8. Prepare - Must not be dealt with by phone</a><br>
+            <a href="/beta/_UR/20231121/09interaction">9. Prepare - Must only interact with female staff members</a><br>
+            <a href="/beta/_UR/20231121/10interaction">10. Prepare - Must only interact with male staff members</a><br>
+            <a href="/beta/_UR/20231121/11interaction">11. Prepare - Must only interact with a named member of staff</a>
+        </p>'
+}) }}
+<hr>
+
+{{ govukDetails({
+    summaryText: "Notes - Internal office use",
+    html: '
+        <ul class="govuk-list govuk-list--bullet">
+            <li>What does injunction look like</li>
+            <li>Discovery UR available?</li>
+            <li>If we use a journey to capture, we can capture the customer</li>
+            <li>If we use mailto: can we use a non-readable ref? GDPR v use at other end</li>
+            <li>Can we have one of each of the locations?</li>
+            <li>Should we have a details page for locations?</li>
+            <li>What if I need clarification - who do i contact? (ad hoc review to improve description)</li>
+            <li>Feeds into plan to monitor effectiveness of measures communications</li>
+        </ul>'
+}) }}
+
+
 {% endblock %}

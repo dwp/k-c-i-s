@@ -25,13 +25,43 @@ href: "/beta/_UR/20231121/"
 {% endblock %}
 
 {% block content %}
-<h1 class="govuk-heading-xl" id="page-title">Prepare for interaction</h1>
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h2 class="govuk-heading-l" id="page-title">Active measures</h2>
-    <ul class="govuk-list govuk-list--bullet">
-      <li>Court order (injunction or interdict) in place. <br><span class="govuk-hint">Contact John Smith (KCIS) for further details</span></li>
-    </ul>
+  {{ govukCheckboxes({
+    name: "waste",
+    fieldset: {
+      legend: {
+        text: "Why do you feel these measures are not appropriate?",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    hint: {
+      text: "Select all that apply."
+    },
+    items: [
+      {
+        value: "2",
+        html: "Home visits must be carried out by two members of staff"
+      },
+      {
+        value: "screened",
+        html: "Must be seen in a screened area"
+      }
+    ]
+  }) }}
+
+          {{ govukTextarea({
+            name: "info-reply",
+            id: "info-reply",
+            value: data['info-reply'],
+
+            label: {
+              text: "Tell us why",
+              classes: "govuk-label--m"
+            }
+          }) }}
+
     {{ govukButton({
       text: "Back to Searchlight home",
       href: "/beta/_UR/20231121/"

@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block pageTitle %}
-  Is this the location of the incident? - Keep Customer Interactions Safe
+  Tell us the location of the incident - Keep Customer Interactions Safe
 {% endblock %}
 {% block beforeContent %}
   <section aria-label="Phase banner" role="region">
@@ -37,32 +37,33 @@
         name: "add-files",
         fieldset: {
           legend: {
-            text: "Is this the location of the incident?",
+            text: "Tell us the location of the incident",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
         },
         items: [
           {
-            value: "yes",
-            text: "Yes"
+            value: "Freetown JCP",
+            text: "Freetown JCP"
           },
           {
-            value: "no",
-            text: "No",
+            value: "Ipswitch Telephony",
+            text: "Ipswitch Telephony"
+          },
+          {
+            value: "other",
+            text: "Other",
             conditional: {
               html: locationHtml
             }
           }
-        ],
-        hint: {
-          html: '<p class="govuk-body">Location: Freetown JCP</p>'
-        }
+        ]
       }) }}
       <div>
         {{ govukButton({
           text: "Continue",
-          href: "12check_simple"
+          href: "08discrimination"
         }) }}
       </div>
     </div>

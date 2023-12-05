@@ -29,6 +29,18 @@
         titleText: "There is a problem",
         errorList: [
           {
+            text: "Enter the location they are banned from",
+            href: "#interim"
+          },
+          {
+            text: "Enter the location they are banned from",
+            href: "#ban_loc"
+          },
+          {
+            text: "Enter the details of the order",
+            href: "#order"
+          },
+          {
             text: "Enter their email address",
             href: "#email"
           },
@@ -45,6 +57,60 @@
       {% include "./templates/govuk-caption-m-mike.njk" %}
       <h1 class="govuk-fieldset__legend--xl">Which measures have you applied to make interactions with this customer safer?</h1>
       <p class="govuk-hint">Select all that apply.</p>
+      {% set banHtml %}
+        {{ govukInput({
+          id: "ban_loc",
+          name: "ban_loc",
+          label: {
+            text: "The locations the ban should be applied to"
+          },
+          errorMessage: {
+            text: "Enter the location they are banned from"
+          }
+        }) }}
+      {% endset %}      
+      {% set interimHtml %}
+        {{ govukInput({
+          id: "interim",
+          name: "interim",
+          label: {
+            text: "The locations the ban should be applied to"
+          },
+          errorMessage: {
+            text: "Enter the location they are banned from"
+          }
+        }) }}
+      {% endset %}      
+      {% set orderHtml %}
+        {{ govukInput({
+          id: "order",
+          name: "order",
+          label: {
+            text: "Order details"
+          },
+          hint: {
+            text: "Enter the details required by interactors to keep interactions safe"
+          },
+          errorMessage: {
+            text: "Enter the details of the order"
+          }
+        }) }}
+      {% endset %}      
+      {% set namedHtml %}
+        {{ govukInput({
+          id: "email",
+          name: "email",
+          label: {
+            text: "Their email address"
+          },
+          hint: {
+            text: "Enter their email address as it appears on the Global Address List"
+          },
+          errorMessage: {
+            text: "Enter their email address"
+          }
+        }) }}
+      {% endset %}      
       {{ govukCheckboxes({
         idPrefix: "applymeasures1",
         name: "applymeasures1",
@@ -65,11 +131,19 @@
           },
           {
             value: "banned-dwp",
-            text: "Interim ban from office (by DWP)"
+            text: "Interim ban from office (by DWP)",
+            conditional: {
+              html: interimHtml
+            },
+            checked: true
           },
           {
             value: "banned-gld",
-            text: "Ban from office (by Government Legal Department)"
+            text: "Ban from office (by Government Legal Department)",
+            conditional: {
+              html: banHtml
+            },
+            checked: true
           },
           {
             value: "screened",
@@ -81,7 +155,11 @@
           },
           {
             value: "injunction",
-            text: "Court order (injunction or interdict) in place"
+            text: "Court order (injunction or interdict) in place",
+            conditional: {
+              html: orderHtml
+            },
+            checked: true
           }
         ]
       }) }}
@@ -101,21 +179,7 @@
           }
         ]
       }) }}
-      {% set namedHtml %}
-      {{ govukInput({
-        id: "email",
-        name: "email",
-        label: {
-          text: "Their email address"
-        },
-        errorMessage: {
-          text: "Enter their email address, in the format name@example.com"
-        },
-        hint: {
-          text: "Enter their email address as it appears on the Global Address List"
-        }
-      }) }}
-      {% endset %}
+
       {{ govukCheckboxes({
         idPrefix: "applymeasures3",
         name: "applymeasures3",

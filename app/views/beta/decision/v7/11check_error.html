@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block pageTitle %}
-  Error: Check your answers - Keep Customer Interactions Safe
+  Check your answers - Keep Customer Interactions Safe
 {% endblock %}
 {% block beforeContent %}
   <section aria-label="Phase banner" role="region">
@@ -20,15 +20,16 @@
   </section>
 {% endblock %}
 {% block content %}
-      {{ govukErrorSummary({
-        titleText: "There is a problem",
-        errorList: [
-          {
-            text: "You cannot apply actions or measures to multiple incidents",
-            href: "#multi"
-          }
-        ]
-      }) }}
+  {% set html %}
+  <p class="govuk-notification-banner__heading">
+    2 incidents are open
+  </p>
+  <p class="govuk-body">Incidents must be closed individually. The actions and measures should be applied only on the latest incident based on the entire case history. Make sure all live incidents are assigned to one Decision Maker.</p>
+{% endset %}
+
+{{ govukNotificationBanner({
+  html: html
+}) }}    
   {% include "./templates/govuk-caption-m-mike.njk" %}
   <h1 class="govuk-heading-xl">Check your answers</h1>
   <div class="govuk-!-margin-bottom-9">
@@ -73,7 +74,7 @@
             text: "Actions"
           },
           value: {
-            html: 'Issue a verbal warning <p id="multi" class="govuk-error-message">You cannot apply actions or measures to multiple incidents</p>'
+            html: 'Issue a verbal warning '
           },
           actions: {
             items: [

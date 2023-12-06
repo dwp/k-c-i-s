@@ -32,37 +32,37 @@
       </style>
       {% include "./templates/govuk-caption-m-mike.njk" %}
       <h1 class="govuk-fieldset__legend--xl">Which measures have you applied to make interactions with this customer safer?</h1>
-      <p class="govuk-hint">Select all that apply.</p>
+      <p class="govuk-hint">Select all that apply, including any safety measures that already exist.</p>
       {% set orderHtml %}
         {{ govukInput({
           id: "order",
           name: "order",
           label: {
-            text: "Order details"
+            text: "Details of injunction or interdict"
           },
           hint: {
-            text: "Enter the details required by interactors to keep interactions safe"
+            text: "Enter all information staff need to keep interactions safe"
           }
         }) }}
-      {% endset %}      
+      {% endset %}
       {% set banHtml %}
         {{ govukInput({
           id: "ban_loc",
           name: "ban_loc",
           label: {
-            text: "The locations the ban should be applied to"
+            text: "Locations the customer will be banned from"
           }
         }) }}
-      {% endset %}      
+      {% endset %}
       {% set interimHtml %}
         {{ govukInput({
           id: "interim",
           name: "interim",
           label: {
-            text: "The locations the ban should be applied to"
+            text: "Locations the customer will be banned from"
           }
         }) }}
-      {% endset %}      
+      {% endset %}
       {% set namedHtml %}
         {{ govukInput({
           id: "email",
@@ -74,7 +74,7 @@
             text: "Enter their email address as it appears on the Global Address List"
           }
         }) }}
-      {% endset %}      
+      {% endset %}
       {{ govukCheckboxes({
         idPrefix: "applymeasures1",
         name: "applymeasures1",
@@ -177,5 +177,5 @@
   </div>
   {% if not (checked("displaymode", "presentation") == "checked") %}
 		{% include "./notes/06measures__notes.njk" %}
-	{% endif %}	
+	{% endif %}
 {% endblock %}

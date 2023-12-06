@@ -29,15 +29,15 @@
         titleText: "There is a problem",
         errorList: [
           {
-            text: "Enter the location they are banned from",
+            text: "Enter all locations they will be banned from",
             href: "#interim"
           },
           {
-            text: "Enter the location they are banned from",
+            text: "Enter all locations they will be banned from",
             href: "#ban_loc"
           },
           {
-            text: "Enter the details of the order",
+            text: "Enter the details of the injunction or interdict",
             href: "#order"
           },
           {
@@ -62,40 +62,40 @@
           id: "ban_loc",
           name: "ban_loc",
           label: {
-            text: "The locations the ban should be applied to"
+            text: "Locations the customer will be banned from"
           },
           errorMessage: {
-            text: "Enter the location they are banned from"
+            text: "Enter all locations they will be banned from"
           }
         }) }}
-      {% endset %}      
+      {% endset %}
       {% set interimHtml %}
         {{ govukInput({
           id: "interim",
           name: "interim",
           label: {
-            text: "The locations the ban should be applied to"
+            text: "Locations the customer will be banned from"
           },
           errorMessage: {
-            text: "Enter the location they are banned from"
+            text: "Enter all locations they will be banned from"
           }
         }) }}
-      {% endset %}      
+      {% endset %}
       {% set orderHtml %}
         {{ govukInput({
           id: "order",
           name: "order",
           label: {
-            text: "Order details"
+            text: "Details of injunction or interdict"
           },
           hint: {
-            text: "Enter the details required by interactors to keep interactions safe"
+            text: "Enter all information staff need to keep interactions safe"
           },
           errorMessage: {
-            text: "Enter the details of the order"
+            text: "Enter all necessary details of injunction or interdict"
           }
         }) }}
-      {% endset %}      
+      {% endset %}
       {% set namedHtml %}
         {{ govukInput({
           id: "email",
@@ -110,7 +110,7 @@
             text: "Enter their email address"
           }
         }) }}
-      {% endset %}      
+      {% endset %}
       {{ govukCheckboxes({
         idPrefix: "applymeasures1",
         name: "applymeasures1",
@@ -218,5 +218,5 @@
   </div>
   {% if not (checked("displaymode", "presentation") == "checked") %}
 		{% include "./notes/06measures__notes.njk" %}
-	{% endif %}	
+	{% endif %}
 {% endblock %}

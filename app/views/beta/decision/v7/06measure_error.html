@@ -56,7 +56,7 @@
       }) }}
       {% include "./templates/govuk-caption-m-mike.njk" %}
       <h1 class="govuk-fieldset__legend--xl">Which measures have you applied to make interactions with this customer safer?</h1>
-      <p class="govuk-hint">Select all that apply, including any safety measures that already exist..</p>
+      <p class="govuk-hint">Select all that apply, including any safety measures that already exist.</p>
       {% set banHtml %}
         {{ govukInput({
           id: "ban_loc",
@@ -65,7 +65,7 @@
             text: "Locations the customer will be banned from"
           },
           errorMessage: {
-            text: "Enter all locations they will be banned from"
+            text: "Enter all locations the ban will apply to"
           }
         }) }}
       {% endset %}
@@ -77,7 +77,7 @@
             text: "Locations the customer will be banned from"
           },
           errorMessage: {
-            text: "Enter all locations they will be banned from"
+            text: "Enter all locations the interim ban will apply to"
           }
         }) }}
       {% endset %}

@@ -1,9 +1,34 @@
 <ul class="govuk-list govuk-list--bullet">
+
   <li>Action requests</li>
   <ul>
-    <li><a href="/beta/decision/v7/02history_complex">02 History</a> - Concatenate action requests</li>
+    <li><a href="/beta/decision/v7/02history_complex">02 History</a> - Concatenate action requests / <a href="02history_complex_vo">read-only for VO</a> </li>
     <li><a href="/beta/decision/v7/h_05action">h_05 Action request</a> - Show who is responsible for each action</li>
   </ul>
+  <li>Add note to include file upload</li>
+  <ul>
+    <li><a href="/beta/decision/v7/h07a_add">h07a_add</a> - Add file? (journey accessed from <a href="/beta/decision/v7/02history_complex">Customer History</a>)</li>
+    <li><a href="/beta/decision/v7/h07a_11a_upload">h07a_11a_upload</a> - Select fiile</li>
+  </ul>
+  <li>Add details (Locations) added to bans and court order </li>
+  <ul>
+    <li><a href="/beta/decision/v7/06measure">06measure</a> - details (Locations) added to bans and court order </li>
+    <li><a href="/beta/decision/v7/07measureaccount">07measureaccount</a> - display only</li>
+    <li><a href="/beta/decision/v7/09prepare_single_man">09prepare_single_man</a> - display only</li>
+    <li><a href="/beta/decision/v7/11check_good">11check_good</a> - display only</li>
+  </ul>
+  <li>Review reference numbers</li>
+  <ul>
+    <li>A new "Review" concept is being created so that a Decision Maker can make a review at any time. In this case, a new number will be generated and displayed on the confirmation page. A review is open to DMs only and is accessed when the Customer History is accessed via the "View history" link in the fragment. </li>
+  </ul>
+  <ul>
+    <li><a href="/beta/decision/v7/12confirmation">Confirmation page</a> - not explicitly prototyped</li>
+  </ul>
+  <li>Caption removed for review</li>
+  <ul>
+    <li>In a "Review", there is no incident or concern context so the caption is no longer required above the title. This is omitted for all pages in the decision making journey after customer history. These pages have not been explicitly prototyped: <a href="/beta/decision/v7/02history_complex">02 history</a>, <a href="/beta/decision/v7/03type">03 type</a>, <a href="/beta/decision/v7/04trigger">04 trigger</a>, <a href="/beta/decision/v7/05actions">05 actions</a>, <a href="/beta/decision/v7/06measure">06 measures</a>, <a href="/beta/decision/v7/07measureaccount">07 account for measures</a>, <a href="/beta/decision/v7/08reviewdate">08 review date</a>, <a href="/beta/decision/v7/09prepare_single_man">09 finalise decision</a>, <a href="/beta/decision/v7/11check">11 check</a>.</li>
+  </ul>
+  
 </ul>
 <a href="/public/images/user-flows/make_decision_v7_incident.png"><img src="/public/images/user-flows/make_decision_v7_incident.png" width="100%"></a>
 <a href="/public/images/user-flows/make_decision_v7_concern.png"><img src="/public/images/user-flows/make_decision_v7_concern.png" width="100%"></a>

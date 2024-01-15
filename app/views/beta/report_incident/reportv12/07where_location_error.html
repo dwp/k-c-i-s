@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block pageTitle %}
-  Tell us the location of the incident - Keep Customer Interactions Safe
+  Error: Tell us the location of the incident - Keep Customer Interactions Safe
 {% endblock %}
 {% block beforeContent %}
   <section aria-label="Phase banner" role="region">
@@ -22,6 +22,15 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: [
+          {
+            text: "Tell us the location of the incident",
+            href: "#location"
+          }
+        ]
+      }) }}
         {{ govukInput({
           id: "location",
           name: "location",
@@ -30,6 +39,9 @@
             text: "Tell us the location of the incident",
             classes: "govuk-label--l",
             isPageHeading: true
+          },
+          errorMessage: {
+            text: "Tell us the location of the incident"
           },
           hint: {
             text: "Enter the office or other location"

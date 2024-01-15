@@ -22,23 +22,50 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+      {% set locationHtml %}
         {{ govukInput({
           id: "location",
           name: "location",
           spellcheck: false,
           label: {
-            text: "Tell us the location of the incident",
-            classes: "govuk-label--l",
-            isPageHeading: true
-          },
-          hint: {
-            text: "Enter the office or other location"
+            text: "Enter location"
           }
         }) }}
+        {% endset -%}
+      {{ govukRadios({
+        idPrefix: "add-files",
+        name: "add-files",
+        fieldset: {
+          legend: {
+            text: "Tell us the location of the incident",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "Freetown JCP",
+            text: "Freetown JCP"
+          },
+          {
+            value: "Ipswitch Telephony",
+            text: "Ipswitch Telephony"
+          },
+          {
+            value: "other",
+            text: "Other",
+            conditional: {
+              html: locationHtml
+            }
+          }
+        ]
+      }) }}
+      <div>
         {{ govukButton({
           text: "Continue",
           href: "08discrimination"
         }) }}
+      </div>
     </div>
   </div>
 	{% if not (checked("displaymode", "presentation") == "checked") %}

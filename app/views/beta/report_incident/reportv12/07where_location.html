@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block pageTitle %}
-  Tell us the location of the incident - Keep Customer Interactions Safe
+  Tell us where the incident happened - Keep Customer Interactions Safe
 {% endblock %}
 {% block beforeContent %}
   <section aria-label="Phase banner" role="region">
@@ -27,12 +27,12 @@
           name: "location",
           spellcheck: false,
           label: {
-            text: "Tell us the location of the incident",
+            text: "Tell us where the incident happened",
             classes: "govuk-label--l",
             isPageHeading: true
           },
           hint: {
-            text: "Enter the office or other location"
+            text: "For example, 'Newcastle East Jobcentre' or 'Loxley House, Nottingham'"
           }
         }) }}
         {{ govukButton({

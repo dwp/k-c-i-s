@@ -34,7 +34,6 @@ href: "00searchlight"
 <h2 class="govuk-heading-l">To do</h2>
 <div class="govuk-hint">
 Each row in this table represents a report that needs action from you.
-{% include "./templates/instructions.njk" %}
 </div>
 <div class="govuk-!-padding-bottom-7">
   {{ govukTable({
@@ -78,6 +77,7 @@ Each row in this table represents a report that needs action from you.
     ]
   }) }}
 </div>
+{% include "./templates/instructions.njk" %}
 
 
 	{% if not (checked("displaymode", "presentation") == "checked") %}

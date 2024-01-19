@@ -31,14 +31,6 @@
         {
           text: "Enter their full name",
           href: "#full-name"
-        },
-        {
-          text: "Enter their email address",
-          href: "#email2"
-        },
-        {
-          text: "Enter their email address, in the format name@example.com",
-          href: "#email2"
         }
       ]
       }) }}
@@ -65,19 +57,6 @@
           text: "Enter their full name"
         }
       }) }}
-      {{ govukInput({
-        id: "email2",
-        name: "email2",
-        type: "email2",
-        autocomplete: "email",
-        spellcheck: false,
-        label: {
-          text: "Their email address"
-        },
-        errorMessage: {
-          text: "Enter their email address"
-        }
-      }) }}
       {% endset -%}
       {{ govukRadios({
         idPrefix: "on-behalf",
@@ -96,14 +75,14 @@
           },
           {
             value: "no",
-            text: "No, I am reporting for a colleague",
+            text: "No, I am reporting for a colleague with access to KCIS",
             conditional: {
               html: accessHTML
             }
           },
           {
             value: "no",
-            text: "No, I am reporting this on behalf of someone else",
+            text: "No, I am reporting for someone else",
             conditional: {
               html: noaccessHTML
             },

@@ -61,16 +61,6 @@
           text: "Their full name"
         }
       }) }}
-      {{ govukInput({
-        id: "email",
-        name: "email",
-        type: "email",
-        autocomplete: "email",
-        spellcheck: false,
-        label: {
-          text: "Their email address"
-        }
-      }) }}
       {% endset -%}
       {{ govukRadios({
         idPrefix: "on-behalf",
@@ -89,15 +79,15 @@
           },
           {
             value: "no",
-            text: "No, I am reporting for a colleague",
+            text: "No, I am reporting for a colleague with access to KCIS",
+            checked: true,
             conditional: {
               html: accessHTML
-            },
-            checked: true
+            }
           },
           {
             value: "no",
-            text: "No, I am reporting this on behalf of someone else",
+            text: "No, I am reporting for someone else",
             conditional: {
               html: noaccessHTML
             }

@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Error: Do you want to add files to your report? - Keep Customer Interactions Safe
+  Error: Do you want to add files to your note? - Keep Customer Interactions Safe
 {% endblock %}
 
 {% block beforeContent %}
@@ -29,7 +29,7 @@
         titleText: "There is a problem",
         errorList: [
           {
-            text: "Select yes if you want to add files to your report",
+            text: "Select yes if you want to add files to your note",
             href: "#add-files"
           }
         ]
@@ -39,7 +39,7 @@
         name: "add-files",
         fieldset: {
           legend: {
-            text: "Do you want to add files to your report?",
+            text: "Do you want to add files to your note?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
@@ -55,10 +55,10 @@
           }
         ],
         hint: {
-          text: "You can add files that contain evidence to support your report."
+          text: "You can add files that contain evidence to support your note."
         },
         errorMessage: {
-          text: "Select yes if you want to add files to your report"
+          text: "Select yes if you want to add files to your note"
         }
       }) }}
       <div>

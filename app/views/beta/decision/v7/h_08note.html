@@ -20,51 +20,55 @@
   </section>
 {% endblock %}
 {% block content %}
-      <h1 class="govuk-heading-xl">Note</h1>
-      {{ govukSummaryList({
-        rows: [
-          {
-            key: {
-              text: "Date"
+      <div class="govuk-!-padding-bottom-9">
+        <h1 class="govuk-heading-xl">Note</h1>
+        {{ govukSummaryList({
+          rows: [
+            {
+              key: {
+                text: "Date"
+              },
+              value: {
+              html: '5 March 2023 at 2:00pm'
+              }
             },
-            value: {
-            html: '5 March 2023 at 2:00pm'
-            }
-          },
-          {
-            key: {
-              text: "Written by"
+            {
+              key: {
+                text: "Written by"
+              },
+              value: {
+                html: 'Sadiq Assam'
+              }
             },
-            value: {
-              html: 'Sadiq Assam'
+            {
+              key: {
+                text: "Note text"
+              },
+              value: {
+                html: "Sent coaching notes regarding verbal warnings to manager"
+              }
             }
-          },
-          {
-            key: {
-              text: "Note text"
-            },
-            value: {
-              html: "Sent coaching notes regarding verbal warnings to manager"
-            }
-          }
-        ]
-      }) }}
+          ]
+        }) }}
+      </div>
+  <section aria-label="Files attached to concern report" role="region">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-!-padding-bottom-9">
+          <h2 class="govuk-heading-l" id="attached">There are no files attached to this note</h2>
+
+        
+        </div>
+      </div>
+    </div>
+  </section>
       <div class="govuk-button-group">
         {{ govukButton({
           text: "Back to customer history",
           href: "javascript:history.back()"
         }) }}
       </div>
-      <section aria-label="Files attached to concern report" role="region">
-        <div class="govuk-grid-row">
-          <div class="govuk-grid-column-two-thirds">
-            <div class="govuk-!-padding-bottom-9">
-              <h2 class="govuk-heading-l" id="attached">There are no files attached to this note</h2>
 
-            </div>
-          </div>
-        </div>
-      </section>
   {% if not (checked("displaymode", "presentation") == "checked") %}
 		{% include "./notes/h_08note__notes.njk" %}
 	{% endif %}

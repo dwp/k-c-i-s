@@ -55,7 +55,16 @@
           href: "javascript:history.back()"
         }) }}
       </div>
+      <section aria-label="Files attached to concern report" role="region">
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
+            <div class="govuk-!-padding-bottom-9">
+              <h2 class="govuk-heading-l" id="attached">There are no files attached to this note</h2>
 
+            </div>
+          </div>
+        </div>
+      </section>
   {% if not (checked("displaymode", "presentation") == "checked") %}
 		{% include "./notes/h_08note__notes.njk" %}
 	{% endif %}

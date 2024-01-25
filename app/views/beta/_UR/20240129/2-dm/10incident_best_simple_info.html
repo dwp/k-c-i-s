@@ -1,0 +1,228 @@
+{% extends "layout_202311_demo.html" %}
+{% block pageTitle %}
+  Original incident report - Keep Customer Interactions Safe
+{% endblock %}
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+      text: "beta"
+    },
+      html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "./templates/key_details_robert_blue.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
+  </section>
+{% endblock %}
+{% block content %}
+  {% include "./templates/govuk-caption-m-whitney_walk.njk" %}
+  <h1 class="govuk-heading-xl">Original incident report</h1>
+  <section aria-label="Incident overview" role="region">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-!-padding-bottom-9">
+          <h2 class="govuk-heading-l" id="h2-overview"><span class="govuk-warning-text__assistive">Incident </span>Overview</h2>
+          {{ govukSummaryList({
+            rows: [
+              {
+                key: {
+                  html: "<span class='govuk-visually-hidden'>Incident </span>Occurred",
+                  classes: "govuk-!-width-one-half"
+                },
+                value: {
+                  text: data["2401_incident_date"] + " at 9:00am",
+                  classes: "govuk-!-width-one-half"
+                }
+              },
+              {
+                key: {
+                  html: "<span class='govuk-visually-hidden'>Incident </span>Reported"
+                },
+                value: {
+                  text: data["2401_incident_date"] + " at 9:15am"
+                }
+              },
+              {
+                key: {
+                  html: "<span class='govuk-visually-hidden'>Incident </span>Interaction type"
+                },
+                value: {
+                  html: "Telephone"
+                }
+              },
+              {
+                key: {
+                  text: "Incident location"
+                },
+                value: {
+                  text: data["2401_incident1_location"] 
+                }
+              },
+              {
+                key: {
+                  html: "<span class='govuk-visually-hidden'>Incident </span>Report reference"
+                },
+                value: {
+                  html: "<span aria-hidden='true'>INC-</span>000-000-001"
+                }
+              }
+            ]
+          }) }}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-label="Incident details" role="region">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-!-padding-bottom-9">
+          <h2 class="govuk-heading-l"><span class="govuk-warning-text__assistive">Incident</span> Details</h2>
+          <p class="govuk-hint">The content in these sections is exactly as the original reporter wrote it.</p>
+          <h3 class="govuk-heading-s">Tell us about the incident</h3>
+          <p class="govuk-body">Customer called to enquire about suspended payment, claimant was ranting and I could not get them to answer security questions - claimant stated that if he was an 'illegal' and came over in a small boat with 12 children we would be falling over ourselves to give them a brand new house and car and thousands of pounds per week. I asked customer not to make these kind of comments but they then threatened to go to the local jobcentre and 'cause a scene', and 'slice people up'. Call dropped.
+          </p>
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" aria-hidden="true">
+          <h3 class="govuk-heading-s">Do you feel the customer's behaviour was motivated by any type of discrimination?</h3>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>None</li>
+          </ul>
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" aria-hidden="true">
+        </div>
+      </div>
+    </div>
+  </section>
+  <section aria-label="Files attached to incident report" role="region">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-!-padding-bottom-9">
+          <h2 class="govuk-heading-m" id="attached">There are no files attached to this incident report</h2>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section aria-label="Witnesses" role="region">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-!-padding-bottom-9">
+          <h2 class="govuk-heading-l">Witnesses</h2>
+          <p>There are currently no witnesses to this incident.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section aria-label="Police action" role="region">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-!-padding-bottom-9">
+          <h2 class="govuk-heading-l">Police action</h2>
+          <p class="govuk-body">The relevant manager has not yet submitted a report.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section aria-label="Reviewing manager comments" role="region">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-!-padding-bottom-9">
+          <h2 class="govuk-heading-l" id="manager_section">Reviewing manager comments and recommendations</h2>
+   
+          <p class="govuk-body">{{ data["2401_manager1_report"]}}</p>
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" aria-hidden="true">
+          <h3 class="govuk-heading-s">Contact manager</h3>
+          {{ govukButton({
+            html: 'Resend email request<span class="govuk-visually-hidden"> to manager Sarah Sencha</span>',
+            href: "#manager_section",
+            classes: "govuk-button--secondary"
+          }) }}
+        </div>
+      </div>
+    </div>
+  </section>
+  <section aria-label="Business support comments" role="region">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-!-padding-bottom-9">
+          <h2 class="govuk-heading-l">Business support comments</h2>
+          <p class="govuk-body">{{ data["2401_bs1_report"]}}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+    <section aria-label="Contact details" role="region">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-!-padding-bottom-9">
+          <h2 class="govuk-heading-l">Contact details</h2>
+          {{ govukSummaryList({
+            rows: [
+              {
+                key: {
+                  text: "Original reporter",
+                  classes: "govuk-!-width-one-half"
+                },
+                value: {
+                  html: "<span class='govuk-visually-hidden'>Original reporter: </span>Ruby Conn<br>",
+                  classes: "govuk-!-width-one-half"
+                }
+              },
+              {
+                key: {
+                  text: "Reporter's email address"
+                },
+                value: {
+                  text: "ruby@dwp.gov.uk"
+                }
+              },
+              {
+                key: {
+                  text: "Manager"
+                },
+                value: {
+                  html: "Sarah Sencha"
+                }
+              },
+              {
+                key: {
+                  text: "Manager's email address"
+                },
+                value: {
+                  html: "sarah@dwp.gov.uk"
+                }
+              },
+              {
+                key: {
+                  text: "Business support"
+                },
+                value: {
+                  html: "Brenda Sport"
+                }
+              },
+              {
+                key: {
+                  text: "Business support email address"
+                },
+                value: {
+                  html: "brenda@dwp.gov.uk"
+                }
+              }
+            ]
+          }) }}
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Back to Complete decision",
+      href: "09prepare_single_man"
+    }) }}
+  </div>
+
+
+{% endblock %}

@@ -1,0 +1,95 @@
+{% extends "layout_202311_demo.html" %}
+
+{% block pageTitle %}
+  Your reports - Keep Customer Interactions Safe
+{% endblock %}
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+    {{ govukPhaseBanner({
+      tag: {
+        text: "beta"
+      },
+      html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back to Searchlight home",
+      href: "00searchlight"
+    }) }}
+  </section>
+{% endblock %}
+{% block content %}
+  <style>
+    .grey {
+    background-color: #f3f2f1;
+    padding-top: 20px;
+    }
+  </style>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">Your reports</h1>
+    </div>
+  </div>
+  <div class="govuk-grid-row govuk-!-padding-bottom-2">
+    <div class="govuk-grid-column-two-thirds">
+      <h2 class="govuk-heading-l">To do</h2>
+      <p class="govuk-hint">
+        Each row in the table below represents a report that needs action from you.
+      </p>
+      {{ govukButton({
+        text: "Get next report",
+        href: "../index"
+      }) }}
+    </div>
+		<div class="govuk-grid-column-one-third grey">
+      {{ govukTable({
+        caption: "Unassigned reports",
+        captionClasses: "govuk-table__caption--s",
+        firstCellIsHeader: true,
+        rows: [
+          [
+            {
+              html: "Business support",
+              classes: "govuk-body-s govuk-!-font-weight-regular"
+            },
+            {
+              text: "23",
+              format: "numeric",
+              classes: "govuk-body-s"
+            }
+          ],
+          [
+            {
+              text: "Decision makers",
+              classes: "govuk-body-s govuk-!-font-weight-regular"
+            },
+            {
+              text: "5",
+              format: "numeric",
+              classes: "govuk-body-s"
+            }
+          ]
+        ]
+      }) }}
+		</div>
+  </div>
+  
+  
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+

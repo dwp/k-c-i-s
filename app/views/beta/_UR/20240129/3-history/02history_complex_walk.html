@@ -1,0 +1,80 @@
+
+{% extends "layout_20240129_ur.html" %}
+{% block pageTitle %}
+  Customer history - Keep Customer Interactions Safe
+{% endblock %}
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+      text: "beta"
+    },
+      html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "./templates/key_details_robert_blue.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "01landingpage1_nmready"
+    }) }}
+  </section>
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+			<h1 class="govuk-heading-xl">Customer history</h1>
+		</div>
+	</div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+			<p>This page shows all incidents and safety concerns reported about this customer's behaviour, and any actions taken and measures applied as a result. </p>
+			<p>They are in date and time order with the most recent at the top. </p>
+      <div class="govuk-button-group">
+				{{ govukButton({
+					text: "Record new actions or measures",
+					href: "#"
+				}) }}
+				{{ govukButton({
+					text: "Add a note",
+					href: "#",
+					classes: "govuk-button--secondary"
+				}) }}
+		</div>
+		</div>
+		<div class="govuk-grid-column-one-third">
+			<style>
+				@media (min-width: 40.0625em) {
+					hr {
+						margin:0px !important;
+					}
+				}
+			</style>
+
+		</div>
+	</div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+			<ol class="dwp-timeline__events">
+				
+					<li class="dwp-timeline__events--entry">
+						<h2 class="govuk-heading-s govuk-!-margin-bottom-1">Measures</h2>
+						<p class="govuk-!-margin-bottom-1 govuk-hint">9 January 2024</p>
+						<p class="govuk-caption-m"><a href="h_04measures"><span class="govuk-visually-hidden">Measures. </span>Must be seen in a screened area, No home visits</a></p>
+					</li>
+					<li class="dwp-timeline__events--entry">
+						<h2 class="govuk-heading-s govuk-!-margin-bottom-1">Action request</h2>
+						<p class="govuk-!-margin-bottom-1 govuk-hint">9 January 2024</p>
+						<p class="govuk-caption-m"><a href="h_05action"><span class="govuk-visually-hidden">Action request. </span>Send a letter</a></p>
+					</li>
+					<li class="dwp-timeline__events--entry">
+						<h2 class="govuk-heading-s govuk-!-margin-bottom-1">Incident</h2>
+						<p class="govuk-!-margin-bottom-1 govuk-hint">9 January 2024</p>
+						<p class="govuk-caption-m"><a href="h_02incident_best_simple_walk"><span class="govuk-visually-hidden">Incident. </span>Ruby Conn: Telephone</a></p>
+					</li>
+			</ol>
+		</div>
+	</div>
+
+
+{% endblock %}

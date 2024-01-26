@@ -21,6 +21,9 @@
 {% endblock %}
 {% block content %}
   <h1 class="govuk-heading-xl">Measures</h1>
+  {% set measuresHTML %}
+  {% include "../2-dm/templates/measures_list.njk" %} 
+  {% endset %}
   {{ govukSummaryList({
     rows: [
       {
@@ -28,10 +31,7 @@
           html: 'Measures'
         },
         value: {
-          html: '<ul class="govuk-list govuk-list--bullet">
-            <li>Must be seen in a screened area</li>
-            <li>No home visits</li>
-          </ul>'
+          html: measuresHTML
         }
       },
       {
@@ -39,7 +39,7 @@
           text: "Date applied"
         },
         value: {
-          text: "29 January 2024"
+          text: data ['2401_incident_date']
         }
       },
       {
@@ -47,7 +47,7 @@
           text: "Applied by"
         },
         value: {
-          html: "Des Maker"
+          html: data['your-first-name'] + " " + data['your-last-name']
         }
       },
       {
@@ -55,17 +55,18 @@
           text: "Review date"
         },
         value: {
-          text: "29 January 2024"
+          text: data ['2401_incident_date_review']
         }
       }
     ]
   }) }}
   <div class="govuk-grid-row govuk-!-padding-bottom-3">
     <div class="govuk-grid-column-two-thirds">
-            <p class="govuk-!-padding-bottom-7">Claimant called Teleperformance, during call he stated if he was an 'illegal' and came over in a small boat with 12 children we would be falling over ourselves to give them a brand new house and car and thousands of pounds per week. Call Agent asked customer not to make these kind of comments but claimant then threatened to go to the local jobcentre and 'cause a scene', and 'slice people up'. Call dropped. No Line Manager comments received. Prompted by BST. Threat Guidance issued. Proceeded to decision due to imminent threat.</p>      <div class="govuk-button-group">
+      <p class="govuk-!-padding-bottom-7">{{data ["2401_measureaccount"]}}</p>
+      <div class="govuk-button-group">
         {{ govukButton({
           text: "Back to customer history",
-          href: "javascript:history.back()"
+          href: "02history_complex_walk"
         }) }}
       </div>
     </div>

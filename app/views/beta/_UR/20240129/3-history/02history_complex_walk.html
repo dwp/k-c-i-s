@@ -56,22 +56,41 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 			<ol class="dwp-timeline__events">
-				
+					
+				{% if (data['2401_applymeasures1'] == '' and data['2401_applymeasures2'] == '' and data['2401_applymeasures3'] == '') %}
 					<li class="dwp-timeline__events--entry">
 						<h2 class="govuk-heading-s govuk-!-margin-bottom-1">Measures</h2>
-						<p class="govuk-!-margin-bottom-1 govuk-hint">9 January 2024</p>
-						<p class="govuk-caption-m"><a href="h_04measures"><span class="govuk-visually-hidden">Measures. </span>Must be seen in a screened area, No home visits</a></p>
+						<p class="govuk-!-margin-bottom-1 govuk-hint">{{data ['2401_incident_date']}}</p>
+						<p class="govuk-caption-m"><a href="h_04measures"><span class="govuk-visually-hidden">Measures. </span>
+						None
+						</a></p>
 					</li>
+				{% else %}
+					<li class="dwp-timeline__events--entry">
+						<h2 class="govuk-heading-s govuk-!-margin-bottom-1">Measures (Active)</h2>
+						<p class="govuk-!-margin-bottom-1 govuk-hint">{{data ['2401_incident_date']}}</p>
+						<p class="govuk-caption-m"><a href="h_04measures"><span class="govuk-visually-hidden">Measures. </span>
+
+
+
+						{% if data['2401_applymeasures1'] or data['2401_applymeasures2'] or data['2401_applymeasures3'] %}
+						{{data['2401_applymeasures1']}}, {{data['2401_applymeasures2']}}, {{data['2401_applymeasures3']}}
+						{% endif %}
+						</a></p>
+					</li>
+				{% endif %}
+				{% if data['2401_actions'] %}
 					<li class="dwp-timeline__events--entry">
 						<h2 class="govuk-heading-s govuk-!-margin-bottom-1">Action request</h2>
-						<p class="govuk-!-margin-bottom-1 govuk-hint">9 January 2024</p>
-						<p class="govuk-caption-m"><a href="h_05action"><span class="govuk-visually-hidden">Action request. </span>Send a letter</a></p>
+						<p class="govuk-!-margin-bottom-1 govuk-hint">{{data ['2401_incident_date']}}4</p>
+						<p class="govuk-caption-m"><a href="h_05action"><span class="govuk-visually-hidden">Action request. </span>{{data['2401_actions']}}</a></p>
 					</li>
-					<li class="dwp-timeline__events--entry">
-						<h2 class="govuk-heading-s govuk-!-margin-bottom-1">Incident</h2>
-						<p class="govuk-!-margin-bottom-1 govuk-hint">9 January 2024</p>
-						<p class="govuk-caption-m"><a href="h_02incident_best_simple_walk"><span class="govuk-visually-hidden">Incident. </span>Ruby Conn: Telephone</a></p>
-					</li>
+				{% endif %}
+				<li class="dwp-timeline__events--entry">
+					<h2 class="govuk-heading-s govuk-!-margin-bottom-1">Incident</h2>
+					<p class="govuk-!-margin-bottom-1 govuk-hint">{{data ['2401_incident_date']}} </p>
+					<p class="govuk-caption-m"><a href="h_02incident_best_simple_walk"><span class="govuk-visually-hidden">Incident. </span>Ruby Conn: Telephone</a></p>
+				</li>
 			</ol>
 		</div>
 	</div>

@@ -1,19 +1,5 @@
 {% from "key-details-bar/macro.njk" import dwpKeyDetailsBar %}
 
-    {% if (data['2401_applymeasures1'] == '' and data['2401_applymeasures2'] == '' and data['2401_applymeasures3'] == '') %}
-    {% set bannerClass %}govuk-visually-hidden{% endset %}
-    {% else %}
-    {% set bannerClass %}govuk-tag--red{% endset %}
-    <style>
-    /* note "error" colour from GDS */
-    .dwp-key-details-bar {
-        background-color: #d4351c;
-    }
-</style>
-    {% endif %}
-
-
-
 {{ dwpKeyDetailsBar({
     primaryIdentifier: {
         text: 'Customer name:',
@@ -22,7 +8,7 @@
     status: {
         text: 'Measures status:',
         value: 'Active measures',
-        classes: bannerClass
+        classes: 'govuk-tag--red'
     },
     secondaryIdentifier: {
         text: 'National Insurance number:',
@@ -35,4 +21,9 @@
         }
     ]
 }) }}
-
+<style>
+    /* note "error" colour from GDS */
+    .dwp-key-details-bar {
+        background-color: #d4351c;
+    }
+</style>

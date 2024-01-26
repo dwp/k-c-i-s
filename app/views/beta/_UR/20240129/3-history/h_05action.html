@@ -11,7 +11,7 @@
       html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
     }) }}
   </section>
-  {% include "./templates/key_details_robert_blue.njk" %}
+  {% include "templates/v7/key_details_red.njk" %}
   <section aria-label="Back" role="region">
     {{ govukBackLink({
       text: "Back",
@@ -21,50 +21,55 @@
 {% endblock %}
 {% block content %}
       <h1 class="govuk-heading-xl">Action request</h1>
-      {{ govukSummaryList({
-        rows: [
-          {
-            key: {
-              text: "Date requested"
-            },
-            value: {
-              text: "29 January 2024"
-            }
-          },
-          {
-            key: {
-              text: "Requested by"
-            },
-            value: {
-              text: "Des Maker"
-            }
-          },
-          {
-            key: {
-              text: "Action"
-            },
-            value: {
-            html: '<ul class="govuk-list govuk-list--bullet">
-                    <li>Send a letter  <br>I have emailed you the letter. Please adjust addressing and send as soon as possible and complete the action request on KCIS</li>
-                  </ul>'
-            }
-          },
-          {
-            key: {
-              text: "Assigned to"
-            },
-            value: {
-              text: "Sarah Sencha"
-            }
-          }
-        ]
-      }) }}
+      
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Date requested
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data ['2401_incident_date']}}
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Requested by
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data['your-first-name'] + " " + data['your-last-name']}}
+          </dd>
+        </div>
+
+        {% for item in data["2401_actions"] %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Action: 
+              {% if item == 'Request solicitor to send a letter' or item == 'Request a banning order' %}
+                {{data['your-first-name'] + " " + data['your-last-name']}}
+              {% else %}
+                Sarah Sencha
+              {% endif %}
+           
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <ul class="govuk-list govuk-list--bullet">
+                {% if item == 'Send a letter' %}
+                  <li>{{ item }}<br>{{data["2401_letter_detail"]}}
+                {% else %}
+                  <li>{{ item }}
+                {% endif %}
+                </ul>
+            </dd>
+          </div>
+        {% endfor %}             
+
+      </dl>
       <div class="govuk-button-group">
         {{ govukButton({
           text: "Back to customer history",
-          href: "javascript:history.back()"
+          href: "02history_complex_walk"
         }) }}
       </div>
-
 
 {% endblock %}

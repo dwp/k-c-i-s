@@ -25,11 +25,10 @@
   <div class="govuk-!-margin-bottom-9">
     {% set actionListHTML %}
     <ul class="govuk-list govuk-list--bullet">
-      {% if not data["2401_actions"] %}
+      {% if (data["2401_actions"] == "" and data["2401_actions_dm"] == "")  %}
         <li>None</li>
       {% else %}
-        {% include "./templates/action_list_manager.njk" %} 
-        {% include "./templates/action_list_dm.njk" %} 
+        {% include "./templates/action_list.njk" %} 
       {% endif %}
     </ul>
     {% endset %}

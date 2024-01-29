@@ -69,16 +69,22 @@
               value: "Interview by a manager",
               text: "Interview by a manager",
               checked: data['2401_actions'].includes("Interview by a manager")
-            },
+            }
+          ]
+        }) }}
+        {{ govukCheckboxes({
+          idPrefix: "2401_actions_dm",
+          name: "2401_actions_dm",
+          items: [
             {
               value: "Request solicitor to send a letter",
               text: "Request solicitor to send a letter",
-              checked: data['2401_actions'].includes("Request solicitor to send a letter")
+              checked: data['2401_actions_dm'].includes("Request solicitor to send a letter")
             },
             {
               value: "Request a banning order",
               text: "Request a banning order",
-              checked: data['2401_actions'].includes("Request a banning order")
+              checked: data['2401_actions_dm'].includes("Request a banning order")
             }
           ]
         }) }}

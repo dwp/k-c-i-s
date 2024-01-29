@@ -28,6 +28,7 @@ require("./views/beta/_UR/20230406/routes/v11")(router);
 require("./views/beta/incident_manager_journey/routes/v4")(router);
 require("./views/beta/incident_manager_journey/routes/v2")(router);
 require("./views/beta/incident_manager_journey/routes/v1")(router);
+require("./views/beta/_UR/20240129/routes/2401")(router);
 
 
 

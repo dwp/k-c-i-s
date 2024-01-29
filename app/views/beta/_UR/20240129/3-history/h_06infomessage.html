@@ -15,37 +15,39 @@
   <section aria-label="Back" role="region">
     {{ govukBackLink({
       text: "Back",
-      href: "06measure"
+      href: "02history_complex_walk"
     }) }}
   </section>
 {% endblock %}
 {% block content %}
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        {% set hintHTML %}
-          {{ govukWarningText({
-            text: "Do not include the names of any DWP staff in your note.",
-            iconFallbackText: "Warning"
+        <form class="form" action="/beta/_UR/20240129/3-history/h07a_add" method="post">
+          {% set hintHTML %}
+            {{ govukWarningText({
+              text: "Do not include the names of any DWP staff in your note.",
+              iconFallbackText: "Warning"
+            }) }}
+          {% endset %}
+          {{ govukTextarea({
+            name: "2401_notetext",
+            id: "2401_notetext",
+            value:  data['2401_notetext'],
+            label: {
+              text: "Add a note",
+              isPageHeading: true,
+              classes: "govuk-label--xl"
+            },
+              hint: {
+              html: hintHTML
+            }
           }) }}
-        {% endset %}
-        {{ govukTextarea({
-          name: "actionaccounts",
-          id: "actionaccounts",
-          label: {
-            text: "Add a note",
-            isPageHeading: true,
-            classes: "govuk-label--xl"
-          },
-            hint: {
-            html: hintHTML
-          }
-        }) }}
-        <div class="govuk-button-group">
-          {{ govukButton({
-            text: "Continue",
-            href: "h_07infoconfirm"
-          }) }}
-        </div>
+          <div class="govuk-button-group">
+            {{ govukButton({
+              text: "Continue"
+            }) }}
+          </div>
+        </form>
     </div>
   </div>
 

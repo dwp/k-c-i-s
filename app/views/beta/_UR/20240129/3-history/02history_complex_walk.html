@@ -37,7 +37,7 @@
 				}) }}
 				{{ govukButton({
 					text: "Add a note",
-					href: "#",
+					href: "h_06infomessage",
 					classes: "govuk-button--secondary"
 				}) }}
 		</div>
@@ -70,20 +70,21 @@
 						<h2 class="govuk-heading-s govuk-!-margin-bottom-1">Measures (Active)</h2>
 						<p class="govuk-!-margin-bottom-1 govuk-hint">{{data ['2401_incident_date']}}</p>
 						<p class="govuk-caption-m"><a href="h_04measures"><span class="govuk-visually-hidden">Measures. </span>
-
-
-
-						{% if data['2401_applymeasures1'] or data['2401_applymeasures2'] or data['2401_applymeasures3'] %}
-						{{data['2401_applymeasures1']}}, {{data['2401_applymeasures2']}}, {{data['2401_applymeasures3']}}
-						{% endif %}
+							{% include "../2-dm/templates/measures_list_history.njk" %} 
 						</a></p>
 					</li>
 				{% endif %}
-				{% if data['2401_actions'] %}
+				{% if data['2401_actions'] or data['2401_actions_dm']  %}
 					<li class="dwp-timeline__events--entry">
 						<h2 class="govuk-heading-s govuk-!-margin-bottom-1">Action request</h2>
-						<p class="govuk-!-margin-bottom-1 govuk-hint">{{data ['2401_incident_date']}}4</p>
-						<p class="govuk-caption-m"><a href="h_05action"><span class="govuk-visually-hidden">Action request. </span>{{data['2401_actions']}}</a></p>
+						<p class="govuk-!-margin-bottom-1 govuk-hint">{{data ['2401_incident_date']}}</p>
+						<p class="govuk-caption-m"><a href="h_05action"><span class="govuk-visually-hidden">Action request. </span>
+							{% if (data["2401_actions"] == "" and data["2401_actions_dm"] == "")  %}
+							<li>None</li>
+						  {% else %}
+							{% include "../2-dm/templates/action_list_request.njk" %} 
+						  {% endif %}
+						</a></p>
 					</li>
 				{% endif %}
 				<li class="dwp-timeline__events--entry">

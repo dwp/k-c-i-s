@@ -51,11 +51,11 @@ module.exports = {
   // display mode default to presentation mode
   'displaymode' : ["design"],
   // UR 7/7/23 defaults for action dates
-  'otherdate' : ' ',
+  'otherdate' : ' ', 
   'date-interview' : ' ',
   // UR 29/1/24 changeable default value of date
-  '2401_incident_date': '31 January 2024', //incident date
-  '2401_incident_date_review': '31 January 2025', // review date
+  '2401_incident_date': '1 February 2024', //incident date
+  '2401_incident_date_review': '1 February 2025', // review date
   '2401_actions': '', // initialise checkbox
   '2401_actions_dm': '', // initialise checkbox
   '2401_applymeasures1': '', // initialise checkbox

@@ -22,7 +22,7 @@
 {% block content %}
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <form class="form" action="/beta/_UR/20240129/4-action/01landingpage2_manager2" method="post">
+        <form class="form" action="/beta/_UR/20240129/4-action/01landingpage2_manager" method="post">
           <h1 class="govuk-heading-xl">Send letter</h1>
             <p class="govuk-body">Tell us the date you did this, and the outcome. </p>
             {{ govukSummaryList({
@@ -108,8 +108,8 @@
               id: "action-record-letter",
               value: data['action-record-letter'],
               hint: {
-                          text: "Did you speak to the customer and if so, what was their reaction? If you didn’t speak to the customer (for example, if you sent them a letter), tell us when you expect the letter to arrive."
-                        },
+                text: "Did you speak to the customer and if so, what was their reaction? If you didn’t speak to the customer (for example, if you sent them a letter), tell us when you expect the letter to arrive."
+              },
               label: {
                 text: "Outcome",
                 classes: "govuk-label--m"

@@ -157,22 +157,11 @@
                   <p class="govuk-caption-m">{{ data['2401_incident_date'] }} at {{ data['2401_timestamp'] }}</p>
                   <p class="govuk-body">{{ data['2401_requestinfo'] }}</p>
               </li>
-              <li class="dwp-timeline__events--entry">
-                <h3 class="govuk-heading-s govuk-!-margin-bottom-1">Information</h3>
-                <p class="govuk-caption-m govuk-!-margin-bottom-1">From Sarah Sencha</p>
-                <p class="govuk-caption-m">{{ data['2401_incident_date'] }} at 10.30am</p>
-                <p class="govuk-body">{{ data['action-record-letter'] }}</p>
-              </li>
+
             </ol>
           </div>
           {% endif %}
-          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" aria-hidden="true">
-          <h3 class="govuk-heading-s">Contact manager</h3>
-          {{ govukButton({
-            html: 'Request information<span class="govuk-visually-hidden"> from manager Sarah Sencha</span>',
-            href: "#",
-            classes: "govuk-button--secondary"
-          }) }}
+
         </div>
       </div>
     </div>
@@ -252,7 +241,7 @@
   </section>
   <div class="govuk-button-group">
     {{ govukButton({
-      text: "Back to customer history",
+      text: "Back to Add information",
       href: "javascript:history.back()"
     }) }}
   </div>

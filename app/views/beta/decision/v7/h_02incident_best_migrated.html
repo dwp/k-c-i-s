@@ -21,7 +21,7 @@
 {% endblock %}
 {% block content %}
   {% include "./templates/govuk-caption-m-whitney.njk" %}
-  <h1 class="govuk-heading-xl">Pre-KCIS incident report</h1>
+  <h1 class="govuk-heading-xl">Original incident report</h1>
   <section aria-label="Incident overview" role="region">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
@@ -78,6 +78,14 @@
                 value: {
                   html: "<span aria-hidden='true'>INC-</span>000-456-234"
                 }
+              },
+              {
+                key: {
+                  html: "<span class='govuk-visually-hidden'>Incident </span>Report source"
+                },
+                value: {
+                  html: "Pre-KCIS"
+                }
               }
             ]
           }) }}
@@ -95,18 +103,20 @@
           <p class="govuk-hint">The content in these sections is exactly as the original reporter wrote it.</p>
 
           <h3 class="govuk-heading-s">Tell us about the incident</h3>
-          <p class="govuk-body">----------------------- MIGRATED RECORD -----------------------</p>
+          <p class="govuk-body">------------------- PRE-KCIS MIGRATED RECORD -------------------</p>
           <p class="govuk-body">I contacted the customer as he wished to make a complaint regarding his recent appointment in the Job Centre. Customer felt that he had not been treated fairly as he was English and we are in Wales. Customer would not let me speak to explain the reason for the appointment and why the Work Coach had asked him to supply additional information.
           </p>
           <p class="govuk-body">Customer continued to talk over me and called me racist, he advised that had he come over by boat he would be given better treatment or if he was a druggie he would be given additional money. I tried to calm the customer down but he continually spoke. I asked him to listen to me and what I was trying to tell him but he would not. I terminated the call. This isn't the first time I have had dealings with this customer both via telephone and face to face. He tries to intimidate by not letting you speak. I did feel a little intimidated by him but more frustration.
           </p>
-          <p class="govuk-body">----------------------- Discrimination -----------------------</p>
-          <p class="govuk-body">Abuse type: Personal</p>
           <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" aria-hidden="true">
           <h3 class="govuk-heading-s">Do you feel the customer's behaviour was motivated by any type of discrimination?</h3>
           <ul class="govuk-list govuk-list--bullet">
             <li>None</li>
           </ul>
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" aria-hidden="true">
+          <h3 class="govuk-heading-s">Pre-KCIS notes (Box 8.0)</h3>
+          <p class="govuk-body">TC 1/3/2023 - LM to send first warning letter.
+          </p>          
           <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" aria-hidden="true">
         </div>
       </div>
@@ -116,8 +126,7 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         <div class="govuk-!-padding-bottom-9">
-          <h2 class="govuk-heading-l" id="attached">Files attached to incident report</h2>
-          <p>2 files were uploaded to the legacy system</p>
+          <h2 class="govuk-heading-m" id="attached">There are no files attached to this incident report</h2>
         </div>
       </div>
     </div>
@@ -126,7 +135,7 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         <div class="govuk-!-padding-bottom-9">
-          <h2 class="govuk-heading-l">Witnesses - remove?</h2>
+          <h2 class="govuk-heading-l">Witnesses</h2>
           <p>There are currently no witnesses to this incident</p>
         </div>
       </div>
@@ -136,7 +145,7 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         <div class="govuk-!-padding-bottom-9">
-          <h2 class="govuk-heading-l">Police action - remove?</h2>
+          <h2 class="govuk-heading-l">Police action</h2>
           <p class="govuk-body">The relevant manager has not yet submitted a report.</p>
         </div>
       </div>
@@ -156,8 +165,8 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         <div class="govuk-!-padding-bottom-9">
-          <h2 class="govuk-heading-l">Business support comments - remove?</h2>
-          <p class="govuk-body">We need to have the line manager report here</p>
+          <h2 class="govuk-heading-l">Business support comments</h2>
+          <p class="govuk-body">Business support have not yet commented.</p>
         </div>
       </div>
     </div>
@@ -184,7 +193,7 @@
                   text: "Reporter's email address"
                 },
                 value: {
-                  text: " - remove?"
+                  text: "Not available"
                 }
               },
               {
@@ -200,7 +209,7 @@
                   text: "Manager's email address"
                 },
                 value: {
-                  html: " - remove?"
+                  text: "Not available"
                 }
               },
               {
@@ -208,7 +217,7 @@
                   text: "Business support"
                 },
                 value: {
-                  html: "- Remove?"
+                  text: "Not available"
                 }
               },
               {
@@ -216,7 +225,7 @@
                   text: "Business support's email address"
                 },
                 value: {
-                  html: "- Remove?"
+                  text: "Not available"
                 }
               }
             ]

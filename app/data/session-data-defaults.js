@@ -54,8 +54,8 @@ module.exports = {
   'otherdate' : ' ', 
   'date-interview' : ' ',
   // UR 29/1/24 changeable default value of date
-  '2401_incident_date': '2 February 2024', //incident date
-  '2401_incident_date_review': '2 February 2025', // review date
+  '2401_incident_date': '5 February 2024', //incident date
+  '2401_incident_date_review': '5 February 2025', // review date
   '2401_actions': '', // initialise checkbox
   '2401_actions_dm': '', // initialise checkbox
   '2401_applymeasures1': '', // initialise checkbox

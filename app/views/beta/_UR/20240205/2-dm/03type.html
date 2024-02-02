@@ -1,0 +1,74 @@
+{% extends "layout_20240205_ur.html" %}
+{% block pageTitle %}
+  What was the most serious thing that happened during the incident? - Keep Customer Interactions Safe
+{% endblock %}
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+        text: "beta"
+      },
+      html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "./templates/key_details_robert_blue.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "02history_complex_walk"
+    }) }}
+  </section>
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+  {% include "./templates/govuk-caption-m-whitney_walk.njk" %}
+  <form class="form" action="/beta/_UR/20240129/2-dm/04trigger" method="post">
+    {{ govukRadios({
+          idPrefix: "2401_incident_type",
+          name: "2401_incident_type",
+          value:  data['2401_incident_type'],
+          fieldset: {
+            legend: {
+              text: "What was the most serious thing that happened during the incident?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          items: [
+            {
+              value: "Physical assault",
+              text: "Physical assault"
+            },
+            {
+              value: "Attempted physical assault",
+              text: "Attempted physical assault"
+            },
+            {
+              value: "Attacked DWP equipment or property",
+              text: "Attacked DWP equipment or property"
+            },
+            {
+              value: "Suicide or self-harm",
+              text: "Suicide or self-harm"
+            },
+            {
+              value: "Verbal or written abuse",
+              text: "Verbal or written abuse"
+            },
+            {
+              value: "Threat",
+              text: "Threat"
+            }
+          ]
+                }) }}
+                <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+                </div>
+        </form>
+    </div>
+  </div>
+
+{% endblock %}

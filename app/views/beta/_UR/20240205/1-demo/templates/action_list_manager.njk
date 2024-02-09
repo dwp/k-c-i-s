@@ -1,9 +1,0 @@
-{% for item in data["2401_actions"] %}
-  {% if item == 'Send a letter' %}
-  <li>{{ item }}<br>{{data["2401_letter_detail"]}}
-  {% elif item == 'Issue a verbal warning' or item == 'Interview by a manager' %}
-  <li>{{ item }}
-  {% endif %}
-  </li>
-{% endfor %}             
-

@@ -1,0 +1,35 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<hr>
+<br>
+<h3 class="govuk-heading-s govuk-!-font-weight-regular">NOT PART OF DESIGN: Demo only</h3>
+<h4 class="govuk-heading-s">Versions</h3>
+{% include "../../_versions/h_03concern_best__versions.njk" %}
+
+<h4 class="govuk-heading-s">States</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li><a href="h_03concern_best">View concern</a></li>
+		<li><a href="h_03concern_best_migrated">View concern</a> - migrated data</li>
+	</ul>
+<h4 class="govuk-heading-s">v8 Design notes</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li>Story: <a href="https://dwpdigital.atlassian.net/browse/CITI-24773">Show Box 8 for Concerns</a></li>
+		<li>Add in a legacy view for migrated concerns to include the UCB decision</li>
+		<li>Date was not added as there is not always an event that has triggered the concern - it could be a pattern of behaviour</li>
+	</ul>
+<h4 class="govuk-heading-s">Hypotheses</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li><a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132775346323/Agents+Safeguarding+-+User+Role+Model#decision_maker">Decision maker user canvas</a></li>
+		<li><a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132775346323/Agents+Safeguarding+-+User+Role+Model#business_support">Business support user canvas</a></li>
+	</ul>
+	
+{% set journeyNotesHTMLDecision_v8 %}
+	{% include "beta/decision/notes/v8__notes.njk" %}
+{% endset %}
+{{ govukDetails({
+	summaryText: "v8 Journey level design notes",
+	html: journeyNotesHTMLDecision_v8
+}) }}	

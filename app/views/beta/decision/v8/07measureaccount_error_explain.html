@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+{% block pageTitle %}
+  Error: Why did you decide to apply these measures? - Keep Customer Interactions Safe
+{% endblock %}
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+      text: "beta"
+    },
+      html: 'This is a new service – your <a class="govuk-link" href="10actionerror">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "./templates/key_details_red.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "06measure"
+    }) }}
+  </section>
+{% endblock %}
+{% block content %}
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: [
+            {
+              text: "Tell us why you decided to apply these measures",
+              href: "#actionaccounts"
+            }
+          ]
+        }) }}
+      {% include "./templates/govuk-caption-m-mike.njk" %}
+        {% set hintHTML %}
+          <ul class="govuk-list govuk-list--bullet">
+            <li>Interim ban from office (by DWP)<br> Bromley JCP</li>
+            <li>Ban from office (by Government Legal Department)<br>Droitwich JCP</li>
+            <li>Must be seen in a screened area</li>
+            <li>Court order (injunction or interdict) in place<br>Refer to GLD</li>
+            <li>No home visits</li>
+            <li>Must only interact with a named member of staff<br>whitney@dwp.gov</li>
+          </ul>
+          <p class="govuk-hint">You should include anything that another decision maker might need if they pick this up in future. </p>
+          {{ govukWarningText({
+            text: "This information will be visible to the reporter’s manager and may also be sent to the reporter’s local trade union representative.",
+            iconFallbackText: "Warning"
+          }) }}
+        {% endset %}
+        {{ govukCharacterCount({
+          name: "actionaccounts",
+          id: "actionaccounts",
+          maxlength: 3000,
+          label: {
+            text: "Why did you decide to apply these measures?",
+            isPageHeading: true,
+            classes: "govuk-label--xl"
+          },
+            hint: {
+            html: hintHTML
+          },
+          errorMessage: {
+            text: "Tell us why you decided to apply these measures"
+          }
+        }) }}
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Continue",
+            href: "08reviewdate"
+          }) }}
+        </div>
+    </div>
+  </div>
+  {% if not (checked("displaymode", "presentation") == "checked") %}
+		{% include "./notes/07measureaccount__notes.njk" %}
+	{% endif %}
+{% endblock %}

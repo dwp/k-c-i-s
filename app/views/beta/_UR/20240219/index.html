@@ -1,0 +1,278 @@
+{% extends "layout.html" %}
+{% block pageTitle %}
+    Start of journey
+{% endblock %}
+{% block beforeContent %}{% endblock %}
+{% block content %}
+    <h1 class="govuk-heading-xl">VO / Gateway </h1>
+    <p class="govuk-body">{{ data['2401_incident_date'] }}</p>
+    <p class="govuk-body"><a href="/beta/_UR/20240219/5-history/00searchlight">Customer history</a></p>
+    <p class="govuk-body"><a href="/beta/_UR/20240219/6-prep/00searchlight">Prepare for interaction</a></p>
+
+    <form class="form" action="#" method="post">
+        {{ govukInput({
+            id: "your-first-name",
+            name: "your-first-name",
+            classes: "govuk-!-width-two-thirds",
+            value: data['your-first-name'],
+            label: {
+                text: "Enter your first name"
+            }
+        }) }}
+        {{ govukInput({
+            id: "your-last-name",
+            name: "your-last-name",
+            classes: "govuk-!-width-two-thirds",
+            value: data['your-last-name'],
+            label: {
+                text: "Enter your last name"
+            }
+        }) }}
+        {{ govukInput({
+            id: "your-email",
+            name: "your-email",
+            classes: "govuk-!-width-two-thirds",
+            value: data['your-email'],
+            label: {
+                text: "Enter your email address"
+            }
+        }) }}
+
+        <div class="govuk-button-group">
+            {{ govukButton({
+                text: "Save my information"
+            }) }}
+        </div>
+    </form>
+    {% set formHtml %}
+    <form class="form" action="#" method="post">
+        <input name="2401_incident_date" value="19 February 2024">
+        <input name="2401_incident_date_review" value="19 February 2025">
+        <input name="2401_requestinfo" value="Were the Police called? If so, what was the ref number?">
+        <input name="2401_information_answer" value="No. The police were not called">
+        <input name="2401_timestamp" value="10:20 am">
+        <input name="2401_timestamp2" value="10:30 am">
+        <input name="action-record-letter" value="Expect letter to arrive 23 February ">
+        
+        
+        {% set letterHtml %}
+              {{ govukTextarea({
+                name: "2401_letter_detail",
+                id: "2401_letter_detail",
+                value:  data['2401_letter_detail'],
+                label: {
+                  text: "Type of letter",
+                  classes: "govuk-label--s"
+                }
+              }) }}
+            {% endset -%}
+            {{ govukCheckboxes({
+              idPrefix: "2401_actions",
+              name: "2401_actions",
+              items: [
+                {
+                  value: "Send a letter",
+                  text: "Send a letter",
+                  checked: data['2401_actions'].includes("Send a letter"),
+                  conditional: {
+                    html: letterHtml
+                  }
+                },
+                {
+                  value: "Issue a verbal warning",
+                  text: "Issue a verbal warning",
+                  checked: data['2401_actions'].includes("Issue a verbal warning")
+                },
+                {
+                  value: "Interview by a manager",
+                  text: "Interview by a manager",
+                  checked: data['2401_actions'].includes("Interview by a manager")
+                }
+              ]
+            }) }}
+            {{ govukCheckboxes({
+              idPrefix: "2401_actions_dm",
+              name: "2401_actions_dm",
+              items: [
+                {
+                  value: "Request solicitor to send a letter",
+                  text: "Request solicitor to send a letter",
+                  checked: data['2401_actions_dm'].includes("Request solicitor to send a letter")
+                },
+                {
+                  value: "Request a banning order",
+                  text: "Request a banning order",
+                  checked: data['2401_actions_dm'].includes("Request a banning order")
+                }
+              ]
+            }) }}
+        <hr>
+
+        {% set orderHtml %}
+          {{ govukInput({
+            id: "2401_order",
+            name: "2401_order",
+            value: data['2401_order'],
+            label: {
+              text: "Details of injunction or interdict"
+            },
+            hint: {
+              text: "Enter all information staff need to keep interactions safe"
+            }
+          }) }}
+        {% endset %}
+        {% set banHtml %}
+          {{ govukInput({
+            id: "2401_ban_loc",
+            name: "2401_ban_loc",
+            value: data['2401_ban_loc'],
+            label: {
+              text: "Locations the customer will be banned from"
+            }
+          }) }}
+        {% endset %}
+        {% set interimHtml %}
+          {{ govukInput({
+            id: "2401_interim",
+            name: "2401_interim",
+            value: data['2401_interim'],
+            label: {
+              text: "Locations the customer will be banned from"
+            }
+          }) }}
+        {% endset %}
+        {% set namedHtml %}
+          {{ govukInput({
+            id: "2401_named_email",
+            name: "2401_named_email",
+            value: data['2401_named_email'],
+            label: {
+              text: "Their email address"
+            },
+            hint: {
+              text: "Enter their email address as it appears on the Global Address List"
+            }
+          }) }}
+        {% endset %}
+        {{ govukCheckboxes({
+          idPrefix: "2401_applymeasures1",
+          name: "2401_applymeasures1",
+          fieldset: {
+            legend: {
+              text: "",
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "Home visits must be carried out by two members of staff",
+              text: "Home visits must be carried out by two members of staff",
+              checked: data['2401_applymeasures1'].includes("Home visits must be carried out by two members of staff")
+            },
+            {
+              value: "Must be interviewed by two members of staff",
+              text: "Must be interviewed by two members of staff",
+              checked: data['2401_applymeasures1'].includes("Must be interviewed by two members of staff")
+            },
+            {
+              value: "Interim ban from office (by DWP)",
+              text: "Interim ban from office (by DWP)",
+              conditional: {
+                html: interimHtml
+              },
+              checked: data['2401_applymeasures1'].includes("Interim ban from office (by DWP)")
+            },
+            {
+              value: "Ban from office (by Government Legal Department)",
+              text: "Ban from office (by Government Legal Department)",
+              conditional: {
+                html: banHtml
+              },
+              checked: data['2401_applymeasures1'].includes("Ban from office (by Government Legal Department)")
+            },
+            {
+              value: "Must be seen in a screened area",
+              text: "Must be seen in a screened area",
+              checked: data['2401_applymeasures1'].includes("Must be seen in a screened area")
+            },
+            {
+              value: "No home visits",
+              text: "No home visits",
+              checked: data['2401_applymeasures1'].includes("No home visits")
+            },
+            {
+              value: "Court order (injunction or interdict) in place",
+              text: "Court order (injunction or interdict) in place",
+              conditional: {
+                html: orderHtml
+              },
+              checked: data['2401_applymeasures1'].includes("Court order (injunction or interdict) in place")
+            }
+          ]
+        }) }}
+        {{ govukCheckboxes({
+          idPrefix: "2401_applymeasures2",
+          name: "2401_applymeasures2",
+          fieldset: {
+            legend: {
+              text: "Communications",
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "Must not be dealt with by phone",
+              text: "Must not be dealt with by phone",
+              checked: data['2401_applymeasures2'].includes("Must not be dealt with by phone")
+            }
+          ]
+        }) }}
+        {{ govukCheckboxes({
+          idPrefix: "2401_applymeasures3",
+          name: "2401_applymeasures3",
+          fieldset: {
+            legend: {
+              text: "Personnel",
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "Must only interact with female staff members",
+              text: "Must only interact with female staff members",
+              checked: data['2401_applymeasures3'].includes("Must only interact with female staff members")
+            },
+            {
+              value: "Must only interact with male staff members",
+              text: "Must only interact with male staff members",
+              checked: data['2401_applymeasures3'].includes("Must only interact with male staff members")
+            },
+            {
+              value: "Must only interact with a named member of staff",
+              text: "Must only interact with a named member of staff",
+              conditional: {
+                html: namedHtml
+              },
+              checked: data['2401_applymeasures3'].includes("Must only interact with a named member of staff")
+            }
+          ]
+        }) }}
+        <hr>
+        {{ govukCharacterCount({
+          name: "2401_measureaccount",
+          id: "2401_measureaccount",
+          value: data ["2401_measureaccount"],
+          maxlength: 3000
+        }) }}
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Set actions, measures and account"
+          }) }}
+        </div>
+    </form>
+    {% endset  %}
+    {{ govukDetails({
+        summaryText: "Set defaults",
+        html: formHtml
+    }) }}
+{% endblock %}

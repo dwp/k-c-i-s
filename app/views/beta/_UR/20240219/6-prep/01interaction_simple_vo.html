@@ -1,0 +1,140 @@
+{% extends "layout_20240219_ur.html" %}
+
+{% block pageTitle %}
+Prepare for interaction - Keep Customer Interactions Safe
+{% endblock %}
+
+{% block beforeContent %}
+<section aria-label="Phase banner" role="region">
+
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{{ govukPhaseBanner({
+tag: {
+text: "beta"
+},
+html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+}) }}
+</section>
+{% include "../templates/key_details_robert_blue.njk" %}
+<section aria-label="Back" role="region">
+{{ govukBackLink({
+text: "Back to Searchlight home",
+href: "00searchlight"
+}) }}
+</section>
+{% endblock %}
+
+{% block content %}
+<h1 class="govuk-heading-xl" id="page-title">Prepare for interaction</h1>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h2 class="govuk-heading-l" id="page-title">Active measures</h2>
+    {% include "../templates/measures_list.njk" %} 
+
+    <h2 class="govuk-heading-l" id="headingpostcode">Other customers with active measures who live at this postcode</h2>
+      <form class="form" action="01interaction_simple_vo#headingpostcode" method="post">
+      {{ govukInput({
+        id: "2402_postcode",
+        name: "2402_postcode",
+        spellcheck: false,
+        classes: "govuk-!-width-one-third",
+        label: {
+          text: "Tell us the postcode of the incident",
+          classes: "govuk-label--m"
+        },
+        value: data["2402_postcode"]
+      }) }}
+      {{ govukButton({
+        text: "Search",
+        classes: "govuk-button--secondary"
+      }) }}
+    </form>
+    {{ govukSummaryList({
+      card: {
+        title: {
+          text: "John Doe"
+        },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "View history",
+              visuallyHiddenText: "for John Doe"
+            }
+          ]
+        }
+      },
+      rows: [
+        {
+          key: {
+            text: "Address"
+          },
+          value: {
+            html: data["2402_postcode"]
+          }
+        }
+      ]
+    }) }}
+    {{ govukSummaryList({
+      card: {
+        title: {
+          text: "Anne Other"
+        },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "View history",
+              visuallyHiddenText: "for Anne Other"
+            }
+          ]
+        }
+      },
+      rows: [
+        {
+          key: {
+            text: "Address"
+          },
+          value: {
+            html: data["2402_postcode"]
+          }
+        }
+      ]
+    }) }}
+    {{ govukSummaryList({
+      card: {
+        title: {
+          text: "Mea Too"
+        },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "View history",
+              visuallyHiddenText: "For Mea Too"
+            }
+          ]
+        }
+      },
+      rows: [
+        {
+          key: {
+            text: "Address"
+          },
+          value: {
+            html: data["2402_postcode"]
+          }
+        }
+      ]
+    }) }}
+    {{ govukButton({
+      text: "Back to Searchlight home",
+      href: "00searchlight"
+    }) }}
+    
+
+  </div>
+</div>
+
+
+{% endblock %}

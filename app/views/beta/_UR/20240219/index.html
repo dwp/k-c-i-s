@@ -38,18 +38,12 @@
             }
         }) }}
 
-        <div class="govuk-button-group">
-            {{ govukButton({
-                text: "Save my information"
-            }) }}
-        </div>
-    </form>
+
     {% set formHtml %}
-    <form class="form" action="#" method="post">
         <input name="2401_incident_date" value="19 February 2024">
         <input name="2401_incident_date_review" value="19 February 2025">
-        <input name="2401_requestinfo" value="Were the Police called? If so, what was the ref number?">
-        <input name="2401_information_answer" value="No. The police were not called">
+        <input name="2401_requestinfo" value="Can you confirm that you took the appropriate pastoral actions? There was nothing in your report.">
+        <input name="2401_information_answer" value="Yes. I sat with the reporter and ensured that they were ok. I've also made sure they have access to PAM assist if required. ">
         <input name="2401_timestamp" value="10:20 am">
         <input name="2401_timestamp2" value="10:30 am">
         <input name="action-record-letter" value="Expect letter to arrive 23 February ">
@@ -59,7 +53,7 @@
               {{ govukTextarea({
                 name: "2401_letter_detail",
                 id: "2401_letter_detail",
-                value:  data['2401_letter_detail'],
+                value:  "This is the first warning letter. I have sent you via email. ",
                 label: {
                   text: "Type of letter",
                   classes: "govuk-label--s"
@@ -73,7 +67,7 @@
                 {
                   value: "Send a letter",
                   text: "Send a letter",
-                  checked: data['2401_actions'].includes("Send a letter"),
+                  checked: true,
                   conditional: {
                     html: letterHtml
                   }
@@ -198,7 +192,7 @@
             {
               value: "No home visits",
               text: "No home visits",
-              checked: data['2401_applymeasures1'].includes("No home visits")
+              checked: true
             },
             {
               value: "Court order (injunction or interdict) in place",
@@ -261,18 +255,19 @@
         {{ govukCharacterCount({
           name: "2401_measureaccount",
           id: "2401_measureaccount",
-          value: data ["2401_measureaccount"],
+          value: "This was a credible threat, but there is no history of violence. There were some mitigating factors. No home visits.",
           maxlength: 3000
         }) }}
-        <div class="govuk-button-group">
-          {{ govukButton({
-            text: "Set actions, measures and account"
-          }) }}
-        </div>
-    </form>
+
     {% endset  %}
     {{ govukDetails({
         summaryText: "Set defaults",
         html: formHtml
     }) }}
+    <div class="govuk-button-group">
+      {{ govukButton({
+          text: "Save my information"
+      }) }}
+  </div>
+</form>
 {% endblock %}

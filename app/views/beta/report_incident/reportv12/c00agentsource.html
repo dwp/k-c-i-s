@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Who do you work for? - Keep Customer Interactions Safe
+  Where did this concern come from? - Keep Customer Interactions Safe
 {% endblock %}
 
 {% block beforeContent %}
@@ -30,7 +30,7 @@
         name: "organisation",
         fieldset: {
           legend: {
-            text: "Who do you work for?",
+            text: "Where did this concern come from?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
@@ -41,12 +41,24 @@
             text: "Centre for Health and Disability Assessments (CHDA)"
           },
           {
+            value: "g4s",
+            text: "G4S"
+          },
+          {
+            value: "tp",
+            text: "Teleperformance"
+          },
+          {
             value: "DWP",
             text: "Department for Work and Pensions (DWP)"
+          },
+          {
+            value: "other",
+            text: "Other"
           }
         ],
         hint: {
-          text: "Select one option."
+          text: "Select the most appropriate option to describe the source of this referral."
         }
       }) }}
       <div>

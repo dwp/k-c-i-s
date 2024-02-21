@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-View incident - Keep Customer Interactions Safe
+View incident collection - Keep Customer Interactions Safe
 {% endblock %}
 
 
@@ -9,7 +9,7 @@ View incident - Keep Customer Interactions Safe
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-		<h1 class="govuk-heading-xl">View incident</h1>
+		<h1 class="govuk-heading-xl">View incident collection</h1>
 		{{ govukTable({
 			firstCellIsHeader: true,
 			head: [
@@ -20,10 +20,13 @@ View incident - Keep Customer Interactions Safe
 					html: '<a href="/beta/incident_manager_journey/v4/02incident_simple_inperson">v4 Manager - review and comment </a> '
 				},
 				{
-					html: '<a href="/beta/incident_manager_journey/v4/i03incident_best_simple_info">v4 Manager - further information request v4</a'
+					html: '<a href="/beta/incident_manager_journey/v4/i03incident_best_simple_info">v4 Manager - further information request v4</a>'
 				},
 				{
 					html: '<a href="/beta/incident_manager_journey/v4/d03incident_best_simple_info">v4 Manager - view decision </a>'
+				},
+				{
+					html: '<a href="/beta/incident_manager_journey/v4/d03incident_best_simple_info">v4 VO - view history </a>'
 				},
 				{
 					html: '<a href="/beta/decision/v6/h_02incident_best_simple_existing">v6 Case reviewer (decision - timeline)</a>'
@@ -47,6 +50,9 @@ View incident - Keep Customer Interactions Safe
 						html: '<a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132775346323/Agents+Safeguarding+-+User+Role+Model#manager">Manager</a> views decision '
 					},
 					{
+						html: 'Visiting officer view history '
+					},
+					{
 						html: '<a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132775346323/Agents+Safeguarding+-+User+Role+Model#case_reviewer">Case reviewer</a> from timeline'
 					},
 					{
@@ -58,7 +64,10 @@ View incident - Keep Customer Interactions Safe
 						text: "Witness section"
 					},
 					{
-						text: "N"
+						html: '<strong class="govuk-tag govuk-tag--red">N</strong>'
+					},
+					{
+						text: "Y"
 					},
 					{
 						text: "Y"
@@ -78,7 +87,10 @@ View incident - Keep Customer Interactions Safe
 						text: "Police section"
 					},
 					{
-						text: "N"
+						html: '<strong class="govuk-tag govuk-tag--red">N</strong>'
+					},
+					{
+						text: "Y"
 					},
 					{
 						text: "Y"
@@ -98,7 +110,10 @@ View incident - Keep Customer Interactions Safe
 						text: "Manager report"
 					},
 					{
-						text: "N"
+						html: '<strong class="govuk-tag govuk-tag--red">N</strong>'
+					},
+					{
+						text: "Y"
 					},
 					{
 						text: "Y"
@@ -118,7 +133,10 @@ View incident - Keep Customer Interactions Safe
 						text: "Correspondence - witness and manager"
 					},
 					{
-						text: "N"
+						html: '<strong class="govuk-tag govuk-tag--red">N</strong>'
+					},
+					{
+						text: "Y"
 					},
 					{
 						text: "Y"
@@ -135,16 +153,19 @@ View incident - Keep Customer Interactions Safe
 				],
 				[
 					{
-						text: "Business support handover"
+						html: 'Business support <br><span class="govuk-body govuk-!-font-weight-regular govuk-body-s">handover notes</span>'
 					},
 					{
-						text: "N"
+						html: '<strong class="govuk-tag govuk-tag--red">N</strong>'
 					},
 					{
-						text: "N"
+						html: '<strong class="govuk-tag govuk-tag--red">N</strong>'
 					},
 					{
-						text: "N"
+						html: '<strong class="govuk-tag govuk-tag--red">N</strong>'
+					},
+					{
+						html: '<strong class="govuk-tag govuk-tag--red">N</strong>'
 					},
 					{
 						text: "Y"
@@ -171,23 +192,6 @@ View incident - Keep Customer Interactions Safe
 					},
 					{
 						text: "Y"
-					}
-				],
-				[
-					{
-						text: "Business support contact details (not yet implemented)"
-					},
-					{
-						text: "N"
-					},
-					{
-						text: "N"
-					},
-					{
-						text: "N"
-					},
-					{
-						text: "Y"
 					},
 					{
 						text: "Y"
@@ -195,16 +199,19 @@ View incident - Keep Customer Interactions Safe
 				],
 				[
 					{
-						text: "Witness/manager resend email button (when applicable)"
+						html: 'Business support contact details <br><span class="govuk-body govuk-!-font-weight-regular govuk-body-s">(not yet implemented)</span>'
 					},
 					{
-						text: "N"
+						html: '<strong class="govuk-tag govuk-tag--red">N</strong>'
 					},
 					{
-						text: "N"
+						html: '<strong class="govuk-tag govuk-tag--red">N</strong>'
 					},
 					{
-						text: "N"
+						html: '<strong class="govuk-tag govuk-tag--red">N</strong>'
+					},
+					{
+						html: '<strong class="govuk-tag govuk-tag--red">N</strong>'
 					},
 					{
 						text: "Y"
@@ -215,16 +222,19 @@ View incident - Keep Customer Interactions Safe
 				],
 				[
 					{
-						text: "Request info button (when applicable)"
+						html: 'Witness/manager resend email button <span class="govuk-body govuk-!-font-weight-regular govuk-body-s">(always available)</span>'
 					},
 					{
-						text: "N"
+						html: '<strong class="govuk-tag govuk-tag--red">N</strong>'
 					},
 					{
-						text: "N"
+						html: '<strong class="govuk-tag govuk-tag--red">N</strong>'
 					},
 					{
-						text: "N"
+						html: '<strong class="govuk-tag govuk-tag--red">N</strong>'
+					},
+					{
+						html: '<strong class="govuk-tag govuk-tag--red">N</strong>'
 					},
 					{
 						text: "Y"
@@ -235,13 +245,39 @@ View incident - Keep Customer Interactions Safe
 				],
 				[
 					{
-						text: "Continue button label"
+						html: 'Request info button <span class="govuk-body govuk-!-font-weight-regular govuk-body-s">(always available)</span>'
+					},
+					{
+						html: '<strong class="govuk-tag govuk-tag--red">N</strong>'
+					},
+					{
+						html: '<strong class="govuk-tag govuk-tag--red">N</strong>'
+					},
+					{
+						html: '<strong class="govuk-tag govuk-tag--red">N</strong>'
+					},
+					{
+						html: '<strong class="govuk-tag govuk-tag--red">N</strong>'
+					},
+					{
+						text: "Y"
+					},
+					{
+						text: "Y"
+					}
+				],
+				[
+					{
+						text: "Continue/back button "
 					},
 					{
 						text: "Continue"
 					},
 					{
 						text: "Back to Add information"
+					},
+					{
+						text: "Back to customer history"
 					},
 					{
 						text: "Back to decision"

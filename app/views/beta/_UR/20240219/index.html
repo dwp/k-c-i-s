@@ -11,36 +11,37 @@
     <p class="govuk-body"><a href="/beta/_UR/20240216/reportv12/00searchlight">(3. Make a report)</a></p>
 
     <form class="form" action="#" method="post">
-        {{ govukInput({
-            id: "your-first-name",
-            name: "your-first-name",
-            classes: "govuk-!-width-two-thirds",
-            value: data['your-first-name'],
-            label: {
-                text: "Enter your first name"
-            }
-        }) }}
-        {{ govukInput({
-            id: "your-last-name",
-            name: "your-last-name",
-            classes: "govuk-!-width-two-thirds",
-            value: data['your-last-name'],
-            label: {
-                text: "Enter your last name"
-            }
-        }) }}
-        {{ govukInput({
-            id: "your-email",
-            name: "your-email",
-            classes: "govuk-!-width-two-thirds",
-            value: data['your-email'],
-            label: {
-                text: "Enter your email address"
-            }
-        }) }}
+
 
 
     {% set formHtml %}
+    {{ govukInput({
+      id: "your-first-name",
+      name: "your-first-name",
+      classes: "govuk-!-width-two-thirds",
+      value: "DM_Firstname",
+      label: {
+          text: "Enter your first name"
+      }
+  }) }}
+  {{ govukInput({
+      id: "your-last-name",
+      name: "your-last-name",
+      classes: "govuk-!-width-two-thirds",
+      value: "Lastname",
+      label: {
+          text: "Enter your last name"
+      }
+  }) }}
+  {{ govukInput({
+      id: "your-email",
+      name: "your-email",
+      classes: "govuk-!-width-two-thirds",
+      value: "DM_Firstname@dwp.gov.uk",
+      label: {
+          text: "Enter your email address"
+      }
+  }) }}
         <input name="2401_incident_date" value="21 February 2024">
         <input name="2401_incident_date_review" value="21 February 2025">
         <input name="2401_requestinfo" value="Can you confirm that you took the appropriate pastoral actions? There was nothing in your report.">

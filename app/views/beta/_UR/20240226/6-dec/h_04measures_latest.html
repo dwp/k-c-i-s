@@ -1,0 +1,83 @@
+{% extends "layout_20240219_ur.html" %}
+{% block pageTitle %}
+  Measures - Keep Customer Interactions Safe
+{% endblock %}
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+        text: "beta"
+      },
+      html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "./templates/key_details_robert_blue.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
+  </section>
+{% endblock %}
+{% block content %}
+  <h1 class="govuk-heading-xl">Measures</h1>
+  {{ govukSummaryList({
+    rows: [
+      {
+        key: {
+          html: 'Measures <strong class="govuk-tag govuk-tag--red">active</strong>'
+        },
+        value: {
+          html: '<ul class="govuk-list govuk-list--bullet">
+            <li>Must be seen in a screened area</li>
+            <li>No home visits</li>
+          </ul>'
+        }
+      },
+      {
+        key: {
+          text: "Date applied"
+        },
+        value: {
+          text: "9 November 2023"
+        }
+      },
+      {
+        key: {
+          text: "Applied by"
+        },
+        value: {
+          html: "Des Maker"
+        }
+      },
+      {
+        key: {
+          text: "Review date"
+        },
+        value: {
+          text: "9 November 2024"
+        }
+      }
+    ]
+  }) }}
+  <div class="govuk-grid-row govuk-!-padding-bottom-3">
+    <div class="govuk-grid-column-two-thirds">
+            <p>
+       Claimant attended JCP without appointment. Claimant is unhappy that his payment has been suspended and his claim is “messed up”. He then told Reporting Officer that his situation is really serious and says he will show everyone how serious it is. Claimant then opend up the bag he was carrying and shows that he has a long bladed knife. He says that reporting Officer will be saving lives if they can sort out his claim. He tells me that he has been “unstable” from a young age. He said that the rest of the office is in danger if his benefit isn’t paid. He also states that he knows where people live and that he has followed people home.  The customer went on to make threatening statements – saying he believes he will only get help by threatening the lives of other people. Reporting Officer then advised claimant interview was over but claimant refused to leave, eventually being escorted from premises when threatened Reporting Officer that "I'll knife you outsie you bitch".</p>
+
+      <p>Police notified and CRN provided (CRN 12345678B). Police advise they will look to question claimant. Arrangements for Reporting Officer to be escorted to her car when she leaves the site for assurance on their safety. </p>
+
+      <p>Other incident reported on same day 000001. Claimant called Teleperformance, during call he stated if he was an 'illegal' and came over in a small boat with 12 children we would be falling over ourselves to give them a brand new house and car and thousands of pounds per week. Call Agent asked customer not to make these kind of comments but claimant then threatened to go to the local jobcentre and 'cause a scene', and 'slice people up'. Call dropped. No Lined Manager comments received despite request from BST and Threat Guidance being issued.</p>
+
+      <p>No previous incidents to consider in making decision. Claimant IRO UC since 03/2023 and has declared mental health issues but no fit note currently.  Phone claim so no Journal entries to consider.</p>
+
+      <p class="govuk-!-padding-bottom-7">Taking both incidents into account along with Line Manager comments and treating this decision to cover both incidents, Time Line completed and I will be applying for a banning order. In the meantime I will apply Control Measures of Must be Seen In Screened Environment and No Home Visits. 1st Warning Letter with Control Measures issued to Claimant. </p>
+        {{ govukButton({
+          text: "Back to customer history",
+          href: "javascript:history.back()"
+        }) }}
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

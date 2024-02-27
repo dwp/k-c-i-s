@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  What date did the concern happen? - Keep Customer Interactions Safe
+{% endblock %}
+
+{% block beforeContent %}
+<section aria-label="Phase banner" role="region">
+  {{ govukPhaseBanner({
+    tag: {
+    text: "beta"
+  },
+    html: 'This is a new service – your <a class="govuk-link" href="05when-date_error">feedback</a> will help us to improve it.'
+  }) }}
+</section>
+{% include "templates/v2/header_searchlight.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
+  </section>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {{ govukDateInput({
+        id: "passport-issued",
+        namePrefix: "passport-issued",
+        fieldset: {
+          legend: {
+            text: "When was this information reported?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+          text: "For example, 30 11 2021"
+        }
+      }) }}
+      <div>
+        {{ govukButton({
+          text: "Continue",
+          href: "c02comments"
+        }) }}
+      </div>
+
+
+      {% from "govuk/components/details/macro.njk" import govukDetails %}
+
+      {{ govukDetails({
+        summaryText: "Which date should I enter?",
+        text: "Enter the date this information was first reported to us. For example, if there is information on a form that indicates a risk of this customer having a panic attack, enter the date that the form was completed."
+      }) }}
+
+    </div>
+  </div>
+	{% if not (checked("displaymode", "presentation") == "checked") %}
+		{% include "./notes/cxxwhen__notes.njk" %}
+	{% endif %}
+{% endblock %}

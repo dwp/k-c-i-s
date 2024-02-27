@@ -1,0 +1,106 @@
+{% extends "layout_202311_demo.html" %}
+<!-- Set active submenu item -->
+{% set menuItemOne = " aria-current=page" %}
+{% set subMenuItemOne = " app-subnav__section-item--current" %}
+{% block pageTitle %}
+  Check your answers - Keep Customer Interactions Safe
+{% endblock %}
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+    {{ govukPhaseBanner({
+      tag: {
+      text: "beta"
+    },
+      html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "./templates/key_details_robert_blue.njk" %}
+  <section aria-label="Back" role="region">
+    {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
+  </section>
+{% endblock %}
+{% block content %}
+          {% include "./templates/govuk-caption-m-whitney.njk" %}
+  <h1 class="govuk-heading-xl">
+    Check your answers
+  </h1>
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Witness"
+      },
+      value: {
+        html: "<span class='govuk-body-s' style='color:#505a5f'>Sartaq Matcha on behalf of </span>John State"
+      }
+    },
+    {
+      key: {
+        text: "Witnessed incident"
+      },
+      value: {
+        text: "Yes"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "Witnessed incident"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Witness description"
+      },
+      value: {
+        html: "
+        <p>My colleague (G4S security guard) says:</p>
+
+<p>I responded to a desk alarm activated by my colleague at desk C12. She advised the customer refused to leave the site on termination of the appointment.  The customer swore and shouted the workcoach hadn't been fucking listening to what he had said and you will all be sorry. </p>
+
+<p>I escorted the customer from the building on the way out he threatened the workcoach saying I'll knife you outside you bitch. </p>  "
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "Witnessed incident"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="label-as-page-heading">
+          <h2 class="govuk-heading-m">Are you ready to submit your report?</h2>
+          <p>If you need to change anything in your report, select Change next to each answer or use the back link near the top of this page.</p>
+          <p class="govuk-body">When you click Submit, we will send your report to the appropriate manager to review.</p>
+          <p class="govuk-body govuk-!-font-weight-bold">You will not be able to change anything in your report after you click Submit.</p>
+          {% from "govuk/components/button/macro.njk" import govukButton %}
+          <div class="govuk-button-group">
+            {{ govukButton(
+                {
+                  text: "Submit",
+                  href: "w04confirm-youonbehalf"
+                }
+              )
+            }}
+          </div>
+        </fieldset>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

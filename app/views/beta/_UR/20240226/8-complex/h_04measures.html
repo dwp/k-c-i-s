@@ -1,0 +1,78 @@
+{% extends "layout_20240219_ur.html" %}
+{% block pageTitle %}
+  Measures - Keep Customer Interactions Safe
+{% endblock %}
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+        text: "beta"
+      },
+      html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "../templates/key_details_red.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
+  </section>
+{% endblock %}
+{% block content %}
+  <h1 class="govuk-heading-xl">Measures (Active)</h1>
+  {% set measuresHTML %}
+  <ul class="govuk-list govuk-list--bullet">
+    <li>Home visits must be carried out by two members of staff</li>
+  </ul>
+  {% endset %}
+  {{ govukSummaryList({
+    rows: [
+      {
+        key: {  
+          html: 'Measures'
+        },
+        value: {
+          html: measuresHTML
+        }
+      },
+      {
+        key: {
+          text: "Date applied"
+        },
+        value: {
+          text: "15 February 2024"
+        }
+      },
+      {
+        key: {
+          text: "Applied by"
+        },
+        value: {
+          html: "Sadiq Assam"
+        }
+      },
+      {
+        key: {
+          text: "Review date"
+        },
+        value: {
+          text: "15 February 2025"
+        }
+      }
+    ]
+  }) }}
+  <p>The customer must not have any face to face interaction as he has previously made a threat towards DWP and has thrown a weapon at staff. Bans requested and applied</p>
+  <div class="govuk-grid-row govuk-!-padding-bottom-3">
+    <div class="govuk-grid-column-two-thirds">
+      <p class="govuk-!-padding-bottom-7">{{data ["2401_measureaccount"]}}</p>
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Back to customer history",
+          href: "javascript:history.back()"
+        }) }}
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

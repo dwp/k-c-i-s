@@ -51,8 +51,18 @@ module.exports = {
   // display mode default to presentation mode
   'displaymode' : ["design"],
   // UR 7/7/23 defaults for action dates
-  'otherdate' : ' ',
-  'date-interview' : ' '
-
-  
+  'otherdate' : ' ', 
+  'date-interview' : ' ',
+  // UR 29/1/24 changeable default value of date
+  '2401_incident_date': '14 February 2024', //incident date
+  '2401_incident_date_review': '14 February 2025', // review date
+  '2401_actions': '', // initialise checkbox
+  '2401_actions_dm': '', // initialise checkbox
+  '2401_applymeasures1': '', // initialise checkbox
+  '2401_applymeasures2': '', // initialise checkbox
+  '2401_applymeasures3': '', // initialise checkbox
+  '2401_manager1_report': 'I have spoken to the reporter offered support. The account is simple. Weve had no previous trouble with this caller. I am not sure what measures are appropriate, but I have informed his JCP.',
+  '2401_bs1_report': 'LM Comments requested, Threat Guidance issued, Triaged to NM Inbox..',
+  '2401_incident1_location': 'Newcastle Call Centre (NCP)',
+  '2401_lmreminder': ''
 }

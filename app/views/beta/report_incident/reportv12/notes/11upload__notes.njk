@@ -21,9 +21,10 @@
 	<a href="11h_upload_error">11h. Upload error - size limit</a><br>
 	<a href="11i_upload_error">11i. Upload error - virus scan service failure</a><br>
 </ul>
-<h4 class="govuk-heading-s">v11 Design notes</h3>
+<h4 class="govuk-heading-s">v12 Design notes</h3>
 	<ul class="govuk-list govuk-list--bullet">
-		<li></li>
+		<li>Story: <a href="https://dwpdigital.atlassian.net/browse/CITI-24180">Reporter: Offline forms/File type warning/On behalf</a></li>
+		<li>Add Mappa Warning</li>
 	</ul>
 <h4 class="govuk-heading-s">Hypotheses</h3>
 	<ul class="govuk-list govuk-list--bullet">
@@ -33,9 +34,9 @@
 		</ul>
 	</ul>
 {% set journeyNotesHTMLincidentreport %}
-	{% include "beta/report_incident/notes/v11__notes.njk" %}
+	{% include "beta/report_incident/notes/v12__notes.njk" %}
 {% endset %}
 {{ govukDetails({
-	summaryText: "v11 Journey level design notes",
+	summaryText: "v12 Journey level design notes",
 	html: journeyNotesHTMLincidentreport
 }) }}	

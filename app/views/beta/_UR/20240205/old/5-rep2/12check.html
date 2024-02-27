@@ -1,0 +1,273 @@
+{% extends "layout_202311_demo.html" %}
+
+{% block pageTitle %}
+  Check your answers - Keep Customer Interactions Safe
+{% endblock %}
+
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+        text: "beta"
+      },
+      html: 'This is a new service – your <a class="govuk-link" href="11g_upload_error">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "./templates/key_details_red.njk" %}
+  {% set idArray = [
+    {
+        attribute: 'id',
+        value: 'spurious'
+    }] %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()",
+      attributes: [
+    {
+        id: 'id'
+    }]
+    }) }}
+  </section>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+      Check your answers
+    </h1>
+  </div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+      <h2 class="govuk-heading-m">
+        Overview
+      </h2>
+      <div class="govuk-grid-column-full govuk-summary-list__row">
+    </div>
+  </div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full govuk-!-padding-bottom-9">
+    {{ govukSummaryList({
+      rows: [
+        {
+          key: {
+            text: "Reporter", 
+            classes: "govuk-!-width-one-third"
+          },
+          value: {
+            html: "<span class='govuk-visually-hidden'>Reporter: </span>Rick O'Shea"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "Reporter"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Manager who should review this report"
+          },
+          value: {
+            html: "Sartaq Matcha <span class='govuk-body-s' style='color:#505a5f'>(sartaq@dwp.gov.uk)</span>"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "Manager who should review this report"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Interaction type"
+          },
+          value: {
+            text: "In person"
+          }
+        },
+        {
+          key: {
+            text: "Incident date"
+          },
+          value: {
+            html: "9 November 2023"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "Incident date"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Incident time"
+          },
+          value: {
+            html: "10:00am"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "Incident time"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Your location during the incident"
+          },
+          value: {
+            html: "The office you're based at"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "Your location during the incident"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Discrimination type"
+          },
+          value: {
+            html: "<p class='govuk-body'>I feel the customer's behaviour was motivated by the following types of discrimination:</p><ul class='govuk-list govuk-list--bullet'><li>None</li></ul>"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "Discrimination type"
+              }
+            ]
+          }
+        }
+      ]
+    }) }}
+  </div>
+</div>
+  <div class="govuk-grid-row  govuk-!-padding-bottom-9">
+    <div class="govuk-grid-column-full">
+        <div class="govuk-summary-list govuk-!-margin-0">
+          <div class="govuk-summary-list__row">
+            <h2 class="govuk-heading-m govuk-summary-list__key">
+              Incident description
+            </h2>
+            <div class="govuk-summary-list__actions">
+              <a class="govuk-link" href="">Change
+                <span class="govuk-visually-hidden"> Incident description</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "1. Why was the customer in contact with us?",
+              classes: "govuk-!-width-one-third"
+            },
+            value: {
+              text: "Customer attended the site for a unplanned appointment.  "
+            }
+          },
+          {
+            key: {
+              text: "2. How did the incident start? Was there a specific trigger?"
+            },
+            value: {
+              text: " I invited the customer over to my desk and asked the customer how I can help him. The customer said he is unhappy with the fact that his payment has been suspended and his claim is “messed up”. He then told me that his situation is really serious and says he will show everyone how serious it is.  "
+            }
+          },
+          {
+            key: {
+              text: "3. What were the issues with the customer’s behaviour?"
+            },
+            value: {
+              text: "The customer  then opend up the bag he is carrying and shows that he has a long bladed knife. He says that I will be saving lives if I can sort out his claim. He tells me that he has been “unstable” from a young age. He said that the rest of the office is in danger if his benefit isn’t paid. He also states that he knows where people live and that he has followed people home.  The customer went on to make threatening statements – saying he believes he will only get help by threatening the lives of other people. "
+            }
+          },
+          {
+            key: {
+              text: "4. Tell us what happened next. How did you try to resolve the situation, and how did the customer react?"
+            },
+            value: {
+              text: "I advised the customer the appointment had ended and requested the customer to leave which they refused and shouted saying I hadn't been fucking listening what he had said and you will all be sorry.  
+I activated my desk alarm to get help, "
+            }
+          },
+          {
+            key: {
+              text: "5. Did any of your colleagues see or hear what happened?"
+            },
+            value: {
+              text: "Yes"
+            }
+          },
+          {
+            key: {
+              text: "6. How did your interaction with the customer end?"
+            },
+            value: {
+              text: "the G4S guard came over and escorted the customer out of the building with him threatening me I'll knife you outside you bitch "
+            }
+          },
+          {
+            key: {
+              text: "7. How did you feel during the incident?"
+            },
+            value: {
+              text: "Despite my years of experience, I was a bit shaken. "
+            }
+          }
+        ]
+      }) }}
+    </div>
+  </div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds govuk-!-padding-bottom-9">
+      <h2 class="govuk-heading-m">
+        There are no files attached to this incident report
+      </h2>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h2 class="govuk-heading-m">Are you ready to submit your report?</h2>
+      <p class="govuk-body">If you need to change anything in your report, select Change next to each answer or use the back link near the top of this page.</p>
+      <p class="govuk-body">When you click Submit, we will send your report to the appropriate manager to review.</p>
+      <p class="govuk-body govuk-!-font-weight-bold">You will not be able to change anything in your report after you click Submit.</p>
+    </div>
+  </div>
+  <div>
+    {{ govukButton(
+      {
+        text: "Submit",
+        href: "13confirm"
+      }
+    ) }}
+  </div>
+
+{% endblock %}

@@ -1,0 +1,80 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<hr>
+<br>
+<h3 class="govuk-heading-s govuk-!-font-weight-regular">NOT PART OF DESIGN: Demo only</h3>
+<h4 class="govuk-heading-s">Versions</h3>
+{% include "../../_versions/01landingpage__versions.njk" %}
+
+<h4 class="govuk-heading-s">States</h3>
+<ul class="govuk-list govuk-list--bullet">
+	<a href="01landingpage1_manager_complex">1. A Complex view that the incident manager might see contains all item types - explained below</a><br>
+	<a href="01landingpage2_empty">2. A view when there are no requests</a><br>
+	<a href="01landingpage3_reopen_simple">3. Reopen an incomplete report (simple)</a><br>
+	<a href="01landingpage3_reopen">3. Reopen an incomplete report</a><br>
+	<a href="01landingpage4_manager">4. What an incident manager might see (first time through)</a><br>
+	<a href="01landingpage5_witness">5. What a witness may see</a><br>
+	<a href="01landingpage6_nonino">6. What a user without Nino access will see</a><br>
+</ul>
+<h4 class="govuk-heading-s">v5 Design notes</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li>Examples shown on "complex view" (note each type has different action link text):</li>
+			<ul class="govuk-list govuk-list--bullet">	
+				<li><b>Request for action</b></li>
+				<ul>
+					<li>Top row - Action taken at customer level. Other information not required</li>
+				</ul>
+				<li><b>Save and resume</b></li>
+				<ul>
+					<li>Not yet entered - resume incident report - incident date not yet recorded by the reporter</li>
+					<li>10 June - resume incident report - date recorded, in person, witnesses indicated</li>
+					<li>9 June - resume concern report - report date displayed. Witnesses are not indicated</li>
+				</ul>
+				<li><b>Incident manager report</b></li>
+				<ul>
+					<li>8 June - comment on Incident - In-person with witnesses</li>
+					<li>7 June - comment on Incident - On behalf of someone else, not witnesses</li>
+				</ul>
+				<li><b>Witness report</b></li>
+				<ul>
+					<li>6 June - witness report - original request </li>
+					<li>6 June - witness report - original request (duplicate)</li>
+					<li>5 June - witness report - original report and witness reported on behalf of </li>
+					<li>5 June - witness report - original report and witness reported on behalf of (duplicate)</li>
+				</ul>
+				<li><b>Request for information</b></li>
+				<ul>
+					<li>4 June </li>
+				</ul>
+				<li><b>View decision</b></li>
+				<ul>
+					<li>3 June - uses incident information as this manager was identified on the incident report</li>
+				</ul>
+			</ul>	
+			<li>Added instructions for offline reporting for those unable to handle NINos</li>
+			<li>Date - Incident date if known or Last modified date or created date for concerns. This will change to concern date when concern date is added to concern journey</li>
+			<li>Sorted by date. Oldest first (If no date, not yet entered at the top followed by "-")</li>
+			<li>If no witnesses indicated for incident use "None indicated"</li>
+			<li>Concerns will always show "None" for witnesses</li>
+			<li>Hidden text has been modified</li>
+			<li>There will only ever be one report (incident or concern) saved (for save and return)</li>
+			<li>If today is selected, the date will be recorded and shown in "Another date" in the date screen</li>
+			<li>Removed completed section for simplicity of implementation</li>
+			<li>View decision items are not removed at this stage. Backlog item added</li>
+			<li>Note: This is a different page from case reviewers landing page</li>
+			<li>Story: <a href="https://dwpdigital.atlassian.net/browse/CITI-25051">To do list for Searchlight users without NINo access</a></li>
+		</ul>
+	</ul>
+<h4 class="govuk-heading-s">Hypotheses</h3>
+	<ul class="govuk-list govuk-list--bullet">
+	</ul>
+{% set journeyNotesHTMLDecision %}
+	{% include "beta/common/landing/notes/v5__notes.njk" %}
+{% endset %}
+{{ govukDetails({
+	summaryText: "v5 Journey level design notes",
+	html: journeyNotesHTMLDecision
+}) }}	

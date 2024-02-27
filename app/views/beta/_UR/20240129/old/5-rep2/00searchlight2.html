@@ -1,0 +1,34 @@
+
+{% block content %}
+   <link href="/public/stylesheets/application.css" rel="stylesheet" type="text/css" />
+   <style>
+      #background {
+         background-size: cover;
+         background-image: url('/public/images/reporter/v12/20230929_searchlight_red.jpg');
+         border-width: 1px;
+         width: 100% !important;
+         height: 100% !important;
+      }
+      #clickable {
+         width: 10%;
+         Height: 10%;
+         z-index:100;
+         margin-left: auto;
+         margin-right: 0;
+
+      }
+   </style>
+   <a href="01report">
+      <div id="background"><div id="clickable"></div></div>
+   </a>
+   <script>
+      window.onload = function() {
+   
+         let myClickableDiv = document.getElementById('clickable');
+         let myBackgroundDiv = document.getElementById('background');
+
+   
+      };
+   </script>
+
+{% endblock %}

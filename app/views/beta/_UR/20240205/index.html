@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% block pageTitle %}
+    Start of journey
+{% endblock %}
+{% block beforeContent %}{% endblock %}
+{% block content %}
+    <h1 class="govuk-heading-xl">User Research (SISO)</h1>
+    <p class="govuk-body">{{ data['2401_incident_date'] }}</p>
+    <p class="govuk-body"><a href="/beta/_UR/20240205/2-dm/00searchlight">1. SISO (Business support) - Assess incident, Send LM reminder email x3</a></p>
+    <p class="govuk-body"><a href="/beta/_UR/20240205/3-history/00searchlight">2. SISO (Business support) - Check history </a></p>
+
+    <form class="form" action="/beta/_UR/20240205/" method="post">
+        {{ govukInput({
+            id: "your-first-name",
+            name: "your-first-name",
+            classes: "govuk-!-width-two-thirds",
+            value: data['your-first-name'],
+            label: {
+                text: "Enter your first name"
+            }
+        }) }}
+        {{ govukInput({
+            id: "your-last-name",
+            name: "your-last-name",
+            classes: "govuk-!-width-two-thirds",
+            value: data['your-last-name'],
+            label: {
+                text: "Enter your last name"
+            }
+        }) }}
+        {{ govukInput({
+            id: "your-email",
+            name: "your-email",
+            classes: "govuk-!-width-two-thirds",
+            value: data['your-email'],
+            label: {
+                text: "Enter your email address"
+            }
+        }) }}
+
+        <div class="govuk-button-group">
+            {{ govukButton({
+                text: "Save my information"
+            }) }}
+        </div>
+    </form>
+
+
+{% endblock %}

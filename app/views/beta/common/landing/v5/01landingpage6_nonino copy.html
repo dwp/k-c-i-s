@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+<!-- Set active submenu item -->
+{% set menuItemOne = " aria-current=page" %}
+{% set subMenuItemOne = " app-subnav__section-item--current" %}
+
+{% block pageTitle %}
+Reporting incidents and preparing for interactions - Keep Customer Interactions Safe
+{% endblock %}
+
+{% block beforeContent %}
+<section aria-label="Phase banner" role="region">
+
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{{ govukPhaseBanner({
+tag: {
+text: "beta"
+},
+html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+}) }}
+</section>
+<section aria-label="Back" role="region">
+
+{{ govukBackLink({
+text: "Back to Searchlight home",
+href: "00searchlight"
+}) }}
+</section>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+	
+		<h1 class="govuk-heading-xl">Do you have the wrong access?</h1>
+		<p>If you are expecting to be able to make a report related to a known customer or to check safety measures then you may have the wrong permissions. </p>
+		<p>Ask your manager to email <a href="mailto:kcis.feedback@dwp.gov.uk">kcis.feedback@dwp.gov.uk</a> with a subject of <strong>"Wrong access"</strong> and include your email address and a confirmation that you routinely interact with customers as part of your day-to-day job. </p>
+
+		
+		<h2 class="govuk-heading-l">Preparing for a safe interaction</h2>
+		<p>Ask your manager to check safety measures for you.</p>
+		<p>If your manager is not able to do this then  email <a href="mailto:kcis.feedback@dwp.gov.uk">kcis.feedback@dwp.gov.uk</a> with a subject of <strong>"URGENT: Safety measures required</strong>. We will reply as soon as possible.</p>
+
+
+		{% include "./templates/instructions_nonino.njk" %}
+
+	</div>
+</div>
+
+
+	{% if not (checked("displaymode", "presentation") == "checked") %}
+		{% include "./notes/01landingpage__notes.njk" %}
+	{% endif %} 
+{% endblock %}

@@ -21,12 +21,7 @@
   </section>
 {% endblock %}
 {% block content %}
-  <style>
-    .grey {
-    background-color: #f3f2f1;
-    padding-top: 20px;
-    }
-  </style>
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-xl">Your reports</h1>
@@ -39,40 +34,17 @@
         Each row in the table below represents a report that needs action from you.
       </p>
       {{ govukButton({
-        text: "Get next report",
+        text: "Get next incident",
         href: "01landingpage1_nmready_walk"
+      }) }}&nbsp;
+      {{ govukButton({
+        text: "Get next concern",
+        href: "01landingpage1_nmready_walk",
+        classes: "govuk-button--secondary"
       }) }}
     </div>
 		<div class="govuk-grid-column-one-third grey">
-      {{ govukTable({
-        caption: "Unassigned reports",
-        captionClasses: "govuk-table__caption--s",
-        firstCellIsHeader: true,
-        rows: [
-          [
-            {
-              html: "Business support",
-              classes: "govuk-body-s govuk-!-font-weight-regular"
-            },
-            {
-              text: "24",
-              format: "numeric",
-              classes: "govuk-body-s"
-            }
-          ],
-          [
-            {
-              text: "Decision makers",
-              classes: "govuk-body-s govuk-!-font-weight-regular"
-            },
-            {
-              text: "5",
-              format: "numeric",
-              classes: "govuk-body-s"
-            }
-          ]
-        ]
-      }) }}
+      {% include "./templates/unassigned_report.njk" %}
 		</div>
   </div>
   

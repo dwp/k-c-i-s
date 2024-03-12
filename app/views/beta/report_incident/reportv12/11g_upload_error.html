@@ -25,11 +25,15 @@
     titleText: "There is a problem",
     errorList: [
       {
-        html: "<span class='govuk-visually-hidden'>Error: File name</span>Safeguarding.exe - You cannot add this type of file.",
+        html: "<span class='govuk-visually-hidden'>Error: File name</span>Safeguarding.exe - You cannot add this type of file",
         href: "#type"
       },
       {
         html: "<span class='govuk-visually-hidden'>Error: File name</span>definite_evidence - You cannot add files that do not have an extension (.docx, .pdf, etc)",
+        href: "#ext"
+      },
+      {
+        html: "<span class='govuk-visually-hidden'>Error: File name</span>v1 myfile%&.pdf - You cannot add files that use characters that are not letters or numbers in the filename",
         href: "#ext"
       }
     ]
@@ -37,11 +41,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-l">Add files</h1>
-      {{ govukDetails({
-        summaryText: "Files must be smaller than 1MB",
-        html: "<p class='govuk-body'>If each file is smaller than 1MB, add files one at a time. </p>
-              <p class='govuk-body'>To add a file that is bigger than 1MB, select Continue on this screen and complete your report. You can email the files to the email address shown in the final screen, after you submit your report.</p>"
-      }) }}
+
       {% include "./templates/mappa_warning.njk" %}
     </div>
   </div>
@@ -54,7 +54,7 @@
             <div class="govuk-summary-list__row moj-multi-file-upload__row" id="type">
               <div class="govuk-summary-list__value moj-multi-file-upload__message">
                 <p class="govuk-body govuk-error-message">
-                  <span class="govuk-visually-hidden">Error: File name</span>Safeguarding.exe - You cannot add this type of file.
+                  <span class="govuk-visually-hidden">Error: File name</span>Safeguarding.exe - You cannot add this type of file
                 </p>
               </div>
               <div class="govuk-summary-list__actions moj-multi-file-upload__actions" style="">
@@ -64,6 +64,15 @@
               <div class="govuk-summary-list__value moj-multi-file-upload__message">
                 <p class="govuk-body govuk-error-message">
                   <span class="govuk-visually-hidden">Error: File name</span>definite_evidence - You cannot add files that do not have an extension (.docx, .pdf, etc)
+                </p>
+              </div>
+              <div class="govuk-summary-list__actions moj-multi-file-upload__actions" style="">
+              </div>
+            </div>
+            <div class="govuk-summary-list__row moj-multi-file-upload__row" id="ext">
+              <div class="govuk-summary-list__value moj-multi-file-upload__message">
+                <p class="govuk-body govuk-error-message">
+                  <span class='govuk-visually-hidden'>Error: File name</span>v1 myfile%&.pdf - You cannot add files that use characters that are not letters or numbers in the filename
                 </p>
               </div>
               <div class="govuk-summary-list__actions moj-multi-file-upload__actions" style="">

@@ -44,35 +44,8 @@
       }) }}
     </div>
 		<div class="govuk-grid-column-one-third grey">
-      {{ govukTable({
-        caption: "Unassigned reports",
-        captionClasses: "govuk-table__caption--s",
-        firstCellIsHeader: true,
-        rows: [
-          [
-            {
-              html: "Business support",
-              classes: "govuk-body-s govuk-!-font-weight-regular"
-            },
-            {
-              text: "24",
-              format: "numeric",
-              classes: "govuk-body-s"
-            }
-          ],
-          [
-            {
-              text: "Decision makers",
-              classes: "govuk-body-s govuk-!-font-weight-regular"
-            },
-            {
-              text: "5",
-              format: "numeric",
-              classes: "govuk-body-s"
-            }
-          ]
-        ]
-      }) }}
+      {% include "./templates/unassigned_report.njk" %}
+
 		</div>
   </div>
   <div class="govuk-!-padding-bottom-7">

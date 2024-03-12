@@ -33,15 +33,7 @@
       <p class="govuk-hint">
         Each row in the table below represents a report that needs action from you.
       </p>
-      {{ govukButton({
-        text: "Get next incident",
-        href: "01landingpage1_nmready_walk"
-      }) }}&nbsp;
-      {{ govukButton({
-        text: "Get next concern",
-        href: "01landingpage1_nmready_walk",
-        classes: "govuk-button--secondary"
-      }) }}
+      {% include "./templates/getnext.njk" %}
     </div>
 		<div class="govuk-grid-column-one-third grey">
       {% include "./templates/unassigned_report.njk" %}

@@ -1,0 +1,20 @@
+{% set versions = [ 
+  "../reportv12/c03assign"
+] %}
+
+
+
+{{ govukPagination({
+
+  items: [
+    {
+      number: 12,
+      href: versions[0]
+    }
+  ]
+}) }}
+
+{% block pageScripts %}
+  <script src="/public/javascripts/versions_1-0.js"></script>
+{% endblock %}
+

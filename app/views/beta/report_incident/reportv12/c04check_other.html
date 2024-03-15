@@ -14,7 +14,7 @@
       html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
     }) }}
   </section>
-  {% include "templates/v2/header_searchlight.njk" %}
+  {% include "./templates/key_details_robert_blue.njk" %}
   <section aria-label="Back" role="region">
     {{ govukBackLink({
       text: "Back",
@@ -30,23 +30,6 @@
   <div class="govuk-!-padding-bottom-9">
     {{ govukSummaryList({
       rows: [
-        {
-          key: {
-            text: "Concern date"
-          },
-          value: {
-            text: "2 August 2023"
-          },
-          actions: {
-            items: [
-              {
-                href: "#",
-                text: "Change",
-                visuallyHiddenText: "Concern date"
-              }
-            ]
-          }
-        },
         {
           key: {
             text: "Work for"
@@ -80,6 +63,23 @@
               }
             ]
           }
+        },
+        {
+          key: {
+            text: "Assign to colleague"
+          },
+          value: {
+            text: "Sadiq Assam"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "Assign to colleague"
+              }
+            ]
+          }
         }
       ]
     }) }}
@@ -101,13 +101,13 @@
         {{ govukButton(
             {
               text: "Submit",
-              href: "c04confirm"
+              href: "c05confirm"
             }
           ) }}
       </div>
     </div>
   </div>
 	{% if not (checked("displaymode", "presentation") == "checked") %}
-		{% include "./notes/c03check__notes.njk" %}
+		{% include "./notes/c04check__notes.njk" %}
 	{% endif %}
 {% endblock %}

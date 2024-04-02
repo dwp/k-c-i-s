@@ -7,37 +7,17 @@
 <br>
 <h3 class="govuk-heading-s govuk-!-font-weight-regular">NOT PART OF DESIGN: Demo only</h3>
 <h4 class="govuk-heading-s">Versions</h3>
-{% include "../../_versions/h_02incident_best_simple__notes__versions.njk" %}
+{% include "../../_versions/h_02a_reassign__versions.njk" %}
 
 <h4 class="govuk-heading-s">States</h3>
 	<ul class="govuk-list govuk-list--bullet">
-		<li><a href="h_02incident_best_simple">View incident - simplified</a></li>
-		<li><a href="h_02incident_best_simple_existing">View incident </a></li>
-		<li><a href="h_02incident_best_migrated">View incident migrated - no UI change</a></li>
-		<li><a href="h_02incident_best_simple_files">View incident - Attach files</a></li>
+		<li><a href="h_02a_reassign">1. Reassign manager</a></li>
+		<li><a href="h_02a_reassign_error">2. Error: Reassign manager</a></li>
 	</ul>
 <h4 class="govuk-heading-s">v8 Design notes</h3>
 	<ul class="govuk-list govuk-list--bullet">
 		<li>Story: <a href="https://dwpdigital.atlassian.net/browse/CITI-24518">Reassign reviewing manager</a></li>
-		<li>Story: <a href="https://dwpdigital.atlassian.net/browse/CITI-24710 ">Attach files to incident</a></li>
-		<li>Added “attached by” column so that you can tell whether it was the reporter of a case reviewer who added. Without this we would not be able to understand the file in context</li>
-		<li>Story: <a href="https://dwpdigital.atlassian.net/browse/CITI-24566">Show Migrated Box 8 on Incident Report</a></li>
-		<ul class="govuk-list govuk-list--bullet">
-			<li>If flagged as migrated data, add "report source", note in narrative and "Box 8" row.</li>
-			<li>"Not available" rather than blanks</li>
-			<li>File attachments have not been migrated</li>
-		</ul>
-		<li>Business support details restored to contact details in the Backlog: <a href="https://dwpdigital.atlassian.net/browse/CITI-21882">Case reviewer: Display business support agent contact</a></li>
-		<li>Case reviewer - same reminder and extra info required for both Business Support and Decision makers</li>
-		<li>If Comments and recommendations is blank or only shows reminders, show "Resend email request" button</li>
-		<li>If Comments and recommendations has a report, show "Request information" button</li>
-		<li>"correspondence" handled by an API</li>
-		<li>Email reminder stamped so that Case reviewer can see a reminder has already been sent</li>
-		<li>Request information button only shown on incidents (not concerns)</li>
-		<li>Only "live" incidents provide this functionality</li>
-		<li>"Resend email request" button in witnesses and manager sections have hidden text</li>
-		<li>Check if there is a witness statement before sending email reminder because it may have been submitted while Case reviewer is reading the page</li>
-		<li>User will see the confirmation of their email being sent as they are returning to the section that they left and there will now be a record of it</li>
+		<li>On reassign page link back to Contacts section</li>
 	</ul>
 <h4 class="govuk-heading-s">Hypotheses and insights</h3>
 	<ul class="govuk-list govuk-list--bullet">

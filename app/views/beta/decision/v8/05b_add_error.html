@@ -13,7 +13,7 @@
       html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
     }) }}
   </section>
-  {% include "templates/v7/key_details_red.njk" %}
+  {% include "./templates/key_details_red.njk" %}
   <section aria-label="Back" role="region">
     {{ govukBackLink({
       text: "Back",
@@ -41,7 +41,7 @@
           legend: {
             text: "Do you want to add files to your note?",
             isPageHeading: true,
-            classes: "govuk-fieldset__legend--l"
+            classes: "govuk-fieldset__legend--xl"
           }
         },
         items: [

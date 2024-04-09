@@ -1,0 +1,32 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<hr>
+<br>
+<h3 class="govuk-heading-s govuk-!-font-weight-regular">NOT PART OF DESIGN: Demo only</h3>
+<h4 class="govuk-heading-s">Versions</h3>
+{% include "../../_versions/01number__versions.njk" %}
+
+<h4 class="govuk-heading-s">States</h3>
+<ul class="govuk-list govuk-list--bullet">
+		<li><a href="01number">1. Search by report number</a></li>
+		<li><a href="01number_error">2. Error: Number search</a></li>
+
+</ul>
+<h4 class="govuk-heading-s">v1 Design notes</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li>Story <a href="https://dwpdigital.atlassian.net/browse/CITI-xxxxx">CITI-xxxxx - Administration tools</a></li>
+	</ul>
+<h4 class="govuk-heading-s">Hypotheses</h3>
+<ul class="govuk-list govuk-list--bullet">
+	<li>A select group of managers require workflow tools</li>
+</ul>
+{% set journeyNotesHTMLDecision_v1 %}
+	{% include "beta/administrator/notes/v1__notes.njk" %}
+{% endset %}
+{{ govukDetails({
+	summaryText: "v1 Journey level design notes",
+	html: journeyNotesHTMLDecision_v1
+}) }}	

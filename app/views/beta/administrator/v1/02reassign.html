@@ -1,0 +1,91 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Reassign report - Keep Customer Interactions Safe
+{% endblock %}
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+        text: "beta"
+      },
+      html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "01number"
+    }) }}
+  </section>
+{% endblock %}
+{% block content %}
+  <h1 class="govuk-heading-l">
+    Reassign report
+  </h1>
+  {% include "./templates/hint.njk" %}
+  <div class="govuk-!-padding-bottom-7">
+    {{ govukTable({    
+      head: [
+        {
+          html: "Number"
+        },
+        {
+          html: "Date"
+        },
+        {
+          text: "Customer"
+        },
+        {
+          text: "Original reporter"
+        },
+        {
+          text: "Status"
+        },
+        {
+          text: "Assigned"
+        }
+      ],
+      rows: [
+        [
+          {
+            html: "<span class='govuk-visually-hidden'>Report number: </span>12345678"
+          },
+          {
+            html: "<span class='govuk-visually-hidden'>Report date: </span>10 June 2022<br><span class='govuk-body-s' style='color:#505a5f'>  at 8:06am</span>"
+          },
+          {
+            html: "<span class='govuk-visually-hidden'>Customer: </span>Robert De Silva"
+          },
+          {
+            html: "<span class='govuk-visually-hidden'>Original reporter: </span>Whitney Earl"
+          },
+          {
+            html: "<span class='govuk-visually-hidden'>Status: </span> Decision pending"
+          },
+          {
+            html: "sadiq@dwp.gov.uk"
+          }
+        ]
+      ]
+    }) }}
+  </div>                                
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {{ govukInput({
+        label: {
+          text: "Email address"
+        },
+        id: "event-name",
+        name: "eventName"
+      }) }}
+      {{ govukButton({
+        text: "Reassign",
+        href: "02reassign_success"
+      }) }}
+    </div>
+  </div>
+  {% if not (checked("displaymode", "presentation") == "checked") %}
+    {% include "./notes/02reassign__notes.njk" %}
+	{% endif %}      
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Error: What would you like to do? - Keep Customer Interactions Safe
+{% endblock %}
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+        text: "beta"
+      },
+      html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "00home"
+    }) }}
+  </section>
+{% endblock %}
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: [
+          {
+            text: "Enter the email address of the colleague you want to assign this report to",
+            href: "#email"
+          },
+          {
+            text: "Enter their email address in the format name@example.com",
+            href: "#email"
+          },
+          {
+            text: "This person cannot access the service",
+            href: "#email"
+          }
+        ]
+      }) }}
+      <h1 class="govuk-heading-l">
+        Find report
+      </h1>
+      {{ govukInput({
+        label: {
+          text: "Report number"
+        },
+        id: "event-name",
+        name: "eventName",
+        classes: "govuk-input--width-20",
+        errorMessage: {
+          text: "This person cannot access the service"
+        }
+      }) }}
+      {{ govukButton({
+        text: "Find report",
+        href: "02reassign"
+      }) }}
+    </div>
+  </div>
+  {% if not (checked("displaymode", "presentation") == "checked") %}
+    {% include "./notes/01number__notes.njk" %}
+	{% endif %}    
+{% endblock %}

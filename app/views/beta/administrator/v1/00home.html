@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  What would you like to do? - Keep Customer Interactions Safe
+{% endblock %}
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+        text: "beta"
+      },
+      html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "#"
+    }) }}
+  </section>
+{% endblock %}
+{% block content %}
+  <h1 class="govuk-heading-l">
+    What would you like to do?
+  </h1>
+
+  <ul class="govuk-list govuk-list--bullet">
+    <li><a href="01number">Search for a report by number</a> (and reassign)</li>
+    <li><a href="03person">List reports assigned to a colleague</a> (and reassign)</li>
+  </ul>
+  {% if not (checked("displaymode", "presentation") == "checked") %}
+		{% include "./notes/00home__notes.njk" %}
+	{% endif %}    
+{% endblock %}

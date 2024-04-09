@@ -1,0 +1,141 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  List and reassign reports - Keep Customer Interactions Safe
+{% endblock %}
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+        text: "beta"
+      },
+      html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "03person"
+    }) }}
+  </section>
+{% endblock %}
+{% block content %}
+  <h1 class="govuk-heading-l">
+    List and reassign reports
+  </h1>
+  <p class="govuk-body">Reports currently assigned to sarah@dwp.gov.uk</p>
+  <div class="govuk-!-padding-bottom-7">
+    {{ govukTable({    
+      head: [
+        {
+          html: "Number"
+        },
+        {
+          html: "Date"
+        },
+        {
+          text: "Customer"
+        },
+        {
+          text: "Original reporter"
+        },
+        {
+          text: "Status"
+        },
+        {
+          text: "Action"
+        }
+      ],
+      rows: [
+      [
+        {
+          html: "<span class='govuk-visually-hidden'>Report number: </span>12345678"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Report date: </span>13 June 2022<br><span class='govuk-body-s' style='color:#505a5f'>  at 8:06am</span>"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Customer: </span>Robert De Silva"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Original reporter: </span>Whitney Earl"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Status: </span> Submitted"
+        },
+        {
+          html: "<a href='05email'>Reassign</a>"
+        }
+      ],
+      [
+        {
+          html: "<span class='govuk-visually-hidden'>Report number: </span>87654321"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Report date: </span>12 June 2022<br><span class='govuk-body-s' style='color:#505a5f'>  at 6:00am</span>"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Customer: </span>Robert De Silva"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Original reporter: </span>Whitney Earl"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Status: </span> Preparing"
+        },
+        {
+          html: "<a href='05email'>Reassign</a>"
+        }
+      ],
+      [
+        {
+          html: "<span class='govuk-visually-hidden'>Report number: </span>4444444"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Report date: </span>11 June 2022<br><span class='govuk-body-s' style='color:#505a5f'>  at 11:56am</span>"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Customer: </span>Robert De Silva"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Original reporter: </span>Whitney Earl"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Status: </span> Ready for decision"
+        },
+        {
+          html: "<a href='05email'>Reassign</a>"
+        }
+      ],
+      [
+        {
+          html: "<span class='govuk-visually-hidden'>Report number: </span>5555555"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Report date: </span>10 June 2022<br><span class='govuk-body-s' style='color:#505a5f'>  at 9:35am</span>"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Customer: </span>Robert De Silva"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Original reporter: </span>Whitney Earl"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Status: </span> Decision pending"
+        },
+        {
+          html: "<a href='05email'>Reassign</a>"
+        }
+      ]
+    ]
+  }) }}
+  </div>                                
+  {{ govukButton({
+    text: "Back",
+    href: "03person"
+  }) }}
+
+  {% if not (checked("displaymode", "presentation") == "checked") %}
+    {% include "./notes/04list__notes.njk" %}
+	{% endif %}      
+{% endblock %}

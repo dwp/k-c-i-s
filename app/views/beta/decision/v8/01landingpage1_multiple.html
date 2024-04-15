@@ -27,21 +27,27 @@
   padding-top: 20px;
   }
 </style>
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
+
+        {% set html %}
+  <p class="govuk-notification-banner__heading">
+    Ther are no more unassigned incidents available
+  </p>
+{% endset %}
+
+{{ govukNotificationBanner({
+  html: html
+}) }}
         <h1 class="govuk-heading-xl">Your reports</h1>
-      </div>
-    </div>
+
+
   <div class="govuk-grid-row govuk-!-padding-bottom-2">
     <div class="govuk-grid-column-two-thirds">
       <h2 class="govuk-heading-l">To do</h2>
       <p class="govuk-hint">
         Each row in the table below represents a report that needs action from you.
       </p>
-      {{ govukButton({
-        text: "Get next report",
-        href: "01landingpage1_nmready"
-      }) }}
+      {% include "./templates/getnext.njk" %}
+
     </div>
 		<div class="govuk-grid-column-one-third grey">
       {% include "./templates/unassigned_report.njk" %}

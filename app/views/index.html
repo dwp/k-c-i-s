@@ -33,6 +33,25 @@ Prototype index - Keep Customer Interactions Safe
 			<h2 class="govuk-heading-l" id="interaction">Prepare for interaction</h2>
 			<h3 class="govuk-heading-s"><strong class="govuk-tag govuk-tag--blue">UCD - In progress</strong></h3>
 			<ul class="govuk-list govuk-list--bullet">
+				<li><a href="/beta/interaction/v3/01interaction">Prepare for interaction v3</a><br><br>
+				{{ govukDetails({
+					summaryText: "Page index",
+					html: '
+								<ul class="govuk-list">
+									<li><a href="/beta/interaction/v3/01interaction">01interaction - Prepare for interaction</a></li>
+								</ul>'
+				}) }}
+				{% set journeyNotesHTMLinteract_v3 %}
+					{% include "./beta/interaction/notes/v3__notes.njk" %}
+				{% endset %}
+				{{ govukDetails({
+					summaryText: "v3 Interaction journey-level notes",
+					html: journeyNotesHTMLinteract_v3
+				}) }}
+				</li>
+			</ul>
+			<h3 class="govuk-heading-s"><strong class="govuk-tag govuk-tag--green">Development</strong></h3>
+			<ul class="govuk-list govuk-list--bullet">
 				<li><a href="/beta/interaction/v2/01interaction">Prepare for interaction v2</a><br><br>
 				{{ govukDetails({
 					summaryText: "Page index",
@@ -50,31 +69,30 @@ Prototype index - Keep Customer Interactions Safe
 				}) }}
 				</li>
 			</ul>
-			<h3 class="govuk-heading-s"><strong class="govuk-tag govuk-tag--green">Development</strong></h3>
-			<ul class="govuk-list govuk-list--bullet">
-				<li><a href="/beta/interaction/v1/01interaction">Prepare for interaction v1</a><br><br>
-				{{ govukDetails({
-					summaryText: "Page index",
-					html: '
-								<ul class="govuk-list">
-									<li><a href="/beta/interaction/v1/01interaction">01interaction - Prepare for interaction link to SPL</a></li>
-								</ul>'
-				}) }}
-				{% set journeyNotesHTMLinteract_v1 %}
-					{% include "./beta/interaction/notes/v1__notes.njk" %}
-				{% endset %}
-				{{ govukDetails({
-					summaryText: "v1 Interaction journey-level notes",
-					html: journeyNotesHTMLinteract_v1
-				}) }}
-				</li>
-			</ul>
 			<hr>
 
 			<h3 class="govuk-heading-s">Archive</h3>
 			{% set oldjourneysHTML %}
 				<ul class="govuk-list govuk-list--bullet">
-					<li>None</li>
+					<ul class="govuk-list govuk-list--bullet">
+						<li><a href="/beta/interaction/v1/01interaction">Prepare for interaction v1</a><br><br>
+						{{ govukDetails({
+							summaryText: "Page index",
+							html: '
+										<ul class="govuk-list">
+											<li><a href="/beta/interaction/v1/01interaction">01interaction - Prepare for interaction link to SPL</a></li>
+										</ul>'
+						}) }}
+						{% set journeyNotesHTMLinteract_v1 %}
+							{% include "./beta/interaction/notes/v1__notes.njk" %}
+						{% endset %}
+						{{ govukDetails({
+							summaryText: "v1 Interaction journey-level notes",
+							html: journeyNotesHTMLinteract_v1
+						}) }}
+						</li>
+					</ul>
+		
 				</ul>
 			{% endset %}
 			{{ govukDetails({
@@ -739,11 +757,13 @@ Prototype index - Keep Customer Interactions Safe
 									<li><a href="/beta/decision/v8/h_08note">h_08 note - from history</a></li>
 									<li><a href="/beta/decision/v8/h_09infomessage">h_09 request further information regarding live incident</a></li>
 								</ul>
-								<p class="govuk-body">Multiple incidents pages - not used</p>
+								<p class="govuk-body">Multiple incidents pages</p>
 								<ul class="govuk-list">
-									<li><a href="/beta/decision/v8/xxactions_assign">xx Assign actions to manager</a></li>
-									<li><a href="/beta/decision/v8/xxmultipleincident">xx multiple incidents list</a></li>
-									<li><a href="/beta/decision/v8/xxprepare">xx Prepare cover note</a></li>
+									<li><a href="/beta/decision/v8/01landingpage1_multiple">01landingpage1_multiple </a> - Displaying multiple incidents in to do list</li>
+									<li><a href="/beta/decision/v8/02history_complex_multiple">02history_complex_multiple</a> - Separating actions and measures</li>
+									<li><a href="/beta/decision/v8/20choosereport">20choosereport</a> - Choose which case to action</li>
+									<li>Mini CYA - TBC</li>
+									<li>Long CYA - TBC</li>
 
 								</ul>'
 				}) }}

@@ -49,9 +49,6 @@
                 html: '<ul class="govuk-list govuk-list--bullet">
                         <li>Send a letter  <br>Send interim ban letter to the customer
                         </li>
-                        <ul class="govuk-list">
-                          <li>v3 20240323 interim ban.doc</li>
-                        </ul>
                       </ul>
                       '
                 }
@@ -83,29 +80,8 @@
       <section aria-label="Files attached to action" role="region">
         <div class="govuk-grid-row">
           <div class="govuk-grid-column-two-thirds govuk-!-padding-bottom-9">
-              <h2 class="govuk-heading-l" id="attached">Uploaded letter</h2>
-              {{ govukTable({
-                captionClasses: "govuk-table__caption--l",
-                head: [
-                  {
-                    text: "File name",
-                    classes: 'govuk-!-width-one-half'
-                  },
-                  {
-                    text: "Action"
-                  }
-                ],
-                rows: [
-                  [
-                    {
-                      html: "<span class='govuk-visually-hidden'>File name: </span>v3 20240323 interim ban.doc"
-                    },
-                    {
-                      html: "<a href='/public/images/screen_shot.png' role='button' draggable='false' class='govuk-button govuk-button--secondary ' data-module='govuk-button' download>Download file<span class='govuk-visually-hidden'>ESA50.pdf</span></a>"
-                    }
-                  ]
-                ]
-              }) }}
+              <h2 class="govuk-heading-m" id="attached">There are no files attached to this action request</h2>
+
           </div>
         </div>
       </section>      

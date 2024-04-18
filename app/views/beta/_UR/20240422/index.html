@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+{% block pageTitle %}
+    Start of journey
+{% endblock %}
+{% block beforeContent %}{% endblock %}
+{% block content %}
+    <h1 class="govuk-heading-xl">SPOCs</h1>
+    <p class="govuk-body">22 April 2024</p>
+    <h2 class="govuk-heading-l">Prepare for interaction</h2>
+
+
+        
+    <form action="/beta/_UR/20240422/reportv12/01report">
+        <p>Please enter the following information to tailor your profile</p>
+        {{ govukInput({
+            id: "20240422_managername",
+            name: "20240422_managername",
+            spellcheck: false,
+            label: {
+              text: "Their full name"
+            },
+            hint: {
+              text: "Enter their full name"
+            }
+          }) }}
+        {{ govukInput({
+            id: "email",
+            name: "email",
+            type: "email",
+            autocomplete: "email",
+            spellcheck: false,
+            label: {
+              text: "Their email address"
+            },
+            hint: {
+              text: "Enter their email address as it appears on the Global Address List"
+            }
+          }) }}
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+    </form>
+{% endblock %}

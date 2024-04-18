@@ -1,0 +1,117 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Error: What date did the concern happen? - Keep Customer Interactions Safe
+{% endblock %}
+
+{% block beforeContent %}
+<section aria-label="Phase banner" role="region">
+  {{ govukPhaseBanner({
+    tag: {
+    text: "beta"
+  },
+    html: 'This is a new service – your <a class="govuk-link" href="06when_error">feedback</a> will help us to improve it.'
+  }) }}
+</section>
+{% include "templates/v2/header_searchlight.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
+  </section>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: [
+          {
+            text: "Enter the date when this happened",
+            href: "#date"
+          },
+          {
+            text: "Date must be today or in the past",
+            href: "#concern-date-past"
+          },
+          {
+            text: "Date must be one year ago or less",
+            href: "#concern-date-limit"
+          },
+          {
+            text: "Enter the date of the concern",
+            href: "#concern-date-enter"
+          },
+          {
+            text: "Enter a valid date",
+            href: "#concern-date-enter"
+          },
+          {
+            text: "Enter a valid day for the concern",
+            href: "#concern-date-day"
+          },
+          {
+            text: "Enter a valid month for the concern",
+            href: "#concern-date-month"
+          },
+
+          {
+            text: "Date of concern must include a day",
+            href: "#concern-date-must-day"
+          },
+          {
+            text: "Date of concern must include a month",
+            href: "#concern-date-must-month"
+          },
+          {
+            text: "Date of concern must include a year",
+            href: "#concern-date-must-year"
+          },
+          {
+            text: "Date of concern must include a day and a month",
+            href: "#concern-date-must-daymonth"
+          },
+          {
+            text: "Date of concern must include a day and a year",
+            href: "#concern-date-must-dayyear"
+          },
+          {
+            text: "Date of concern must include a month and a year",
+            href: "#concern-date-must-monthyear"
+          },
+          {
+            text: "Year must include 4 numbers: for example, 2023",
+            href: "#concern-date-year4numbers"
+          }
+        ]
+      }) }}
+
+      {{ govukDateInput({
+        id: "passport-issued",
+        namePrefix: "passport-issued",
+        fieldset: {
+          legend: {
+            text: "When did this happen?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+          text: "Enter the date this information was first recorded. For example, if there is information on a form that indicates a risk, enter the date the form was completed. Use the format: 30 11 2021"
+        },
+        errorMessage: {
+          text: "Enter the date when this happened"
+        }
+      }) }}
+      <div>
+        {{ govukButton({
+          text: "Continue",
+          href: "c02comments"
+        }) }}
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

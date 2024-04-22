@@ -13,16 +13,18 @@
 <ul class="govuk-list govuk-list--bullet">
 	<a href="00error">1. Error page</a><br>
 </ul>
-<h4 class="govuk-heading-s">v1 Design notes</h3>
+<h4 class="govuk-heading-s">v2 Design notes</h3>
 	<ul class="govuk-list govuk-list--bullet">
+		<li>Some classification</li>
+		<li>Story <a href="https://dwpdigital.atlassian.net/browse/CITI-25695">Add details to error page</a></li>
 	</ul>
 <h4 class="govuk-heading-s">Hypotheses</h3>
 	<ul class="govuk-list govuk-list--bullet">
 	</ul>
 {% set journeyNotesHTMLDecision %}
-	{% include "beta/common/error/notes/v1__notes.njk" %}
+	{% include "beta/common/error/notes/v2__notes.njk" %}
 {% endset %}
 {{ govukDetails({
-	summaryText: "v1 Journey level design notes",
+	summaryText: "v2 Journey level design notes",
 	html: journeyNotesHTMLDecision
 }) }}	

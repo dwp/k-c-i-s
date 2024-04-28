@@ -1,0 +1,195 @@
+{% extends "layout_20240429_ur.html" %}
+
+{% block pageTitle %}
+  Which measures have you applied to make interactions with this customer safer? - Keep Customer Interactions Safe
+{% endblock %}
+
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+      text: "beta"
+    },
+      html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "./templates/key_details_robert_blue.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "05actions"
+    }) }}
+  </section>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <style>
+        h1 {
+            margin-block-start: 0em;
+        }
+      </style>
+      {% include "./templates/multi_caption.njk" %}
+      <h1 class="govuk-fieldset__legend--xl">Which measures have you applied to make interactions with this customer safer?</h1>
+      <p class="govuk-hint">Select all that apply, including any safety measures that already exist.</p>
+      <form class="form" action="07measureaccount" method="post">
+        {% set orderHtml %}
+          {{ govukInput({
+            id: "2401_order",
+            name: "2401_order",
+            value: data['2401_order'],
+            label: {
+              text: "Details of injunction or interdict"
+            },
+            hint: {
+              text: "Enter all information staff need to keep interactions safe"
+            }
+          }) }}
+        {% endset %}
+        {% set banHtml %}
+          {{ govukInput({
+            id: "2401_ban_loc",
+            name: "2401_ban_loc",
+            value: data['2401_ban_loc'],
+            label: {
+              text: "Locations the customer will be banned from"
+            }
+          }) }}
+        {% endset %}
+        {% set interimHtml %}
+          {{ govukInput({
+            id: "2401_interim",
+            name: "2401_interim",
+            value: data['2401_interim'],
+            label: {
+              text: "Locations the customer will be banned from"
+            }
+          }) }}
+        {% endset %}
+        {% set namedHtml %}
+          {{ govukInput({
+            id: "2401_named_email",
+            name: "2401_named_email",
+            value: data['2401_named_email'],
+            label: {
+              text: "Their email address"
+            },
+            hint: {
+              text: "Enter their email address as it appears on the Global Address List"
+            }
+          }) }}
+        {% endset %}
+        {{ govukCheckboxes({
+          idPrefix: "2401_applymeasures1",
+          name: "2401_applymeasures1",
+          fieldset: {
+            legend: {
+              text: "Location",
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "Home visits must be carried out by two members of staff",
+              text: "Home visits must be carried out by two members of staff",
+              checked: data['2401_applymeasures1'].includes("Home visits must be carried out by two members of staff")
+            },
+            {
+              value: "Must be interviewed by two members of staff",
+              text: "Must be interviewed by two members of staff",
+              checked: data['2401_applymeasures1'].includes("Must be interviewed by two members of staff")
+            },
+            {
+              value: "Interim ban from office (by DWP)",
+              text: "Interim ban from office (by DWP)",
+              conditional: {
+                html: interimHtml
+              },
+              checked: data['2401_applymeasures1'].includes("Interim ban from office (by DWP)")
+            },
+            {
+              value: "Ban from office (by Government Legal Department)",
+              text: "Ban from office (by Government Legal Department)",
+              conditional: {
+                html: banHtml
+              },
+              checked: data['2401_applymeasures1'].includes("Ban from office (by Government Legal Department)")
+            },
+            {
+              value: "Must be seen in a screened area",
+              text: "Must be seen in a screened area",
+              checked: data['2401_applymeasures1'].includes("Must be seen in a screened area")
+            },
+            {
+              value: "No home visits",
+              text: "No home visits",
+              checked: data['2401_applymeasures1'].includes("No home visits")
+            },
+            {
+              value: "Court order (injunction or interdict) in place",
+              text: "Court order (injunction or interdict) in place",
+              conditional: {
+                html: orderHtml
+              },
+              checked: data['2401_applymeasures1'].includes("Court order (injunction or interdict) in place")
+            }
+          ]
+        }) }}
+        {{ govukCheckboxes({
+          idPrefix: "2401_applymeasures2",
+          name: "2401_applymeasures2",
+          fieldset: {
+            legend: {
+              text: "Communications",
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "Must not be dealt with by phone",
+              text: "Must not be dealt with by phone",
+              checked: data['2401_applymeasures2'].includes("Must not be dealt with by phone")
+            }
+          ]
+        }) }}
+        {{ govukCheckboxes({
+          idPrefix: "2401_applymeasures3",
+          name: "2401_applymeasures3",
+          fieldset: {
+            legend: {
+              text: "Personnel",
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "Must only interact with female staff members",
+              text: "Must only interact with female staff members",
+              checked: data['2401_applymeasures3'].includes("Must only interact with female staff members")
+            },
+            {
+              value: "Must only interact with male staff members",
+              text: "Must only interact with male staff members",
+              checked: data['2401_applymeasures3'].includes("Must only interact with male staff members")
+            },
+            {
+              value: "Must only interact with a named member of staff",
+              text: "Must only interact with a named member of staff",
+              conditional: {
+                html: namedHtml
+              },
+              checked: data['2401_applymeasures3'].includes("Must only interact with a named member of staff")
+            }
+          ]
+        }) }}
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+        </div>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

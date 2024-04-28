@@ -64,5 +64,17 @@ module.exports = {
   '2401_manager1_report': 'I have spoken to the reporter offered support. The account is simple. Weve had no previous trouble with this caller. I am not sure what measures are appropriate, but I have informed his JCP.',
   '2401_bs1_report': 'LM Comments requested, Threat Guidance issued, Triaged to NM Inbox..',
   '2401_incident1_location': 'Newcastle Call Centre (NCP)',
-  '2401_lmreminder': ''
+  '2401_lmreminder': '',
+  // UR 22/4/24 accessibility
+  '202404report-type': ' ', // initialise checkbox
+  '20240422_managername': ' ', // initialise checkbox
+  '202404_acting-manager': ' ', // initialise checkbox
+  '202404_business': ' ', // initialise checkbox
+  '202404_interaction': ' ', // initialise checkbox
+  '202404_incident-date': ' ', // initialise checkbox
+  '202404_incident-date_choose': ' ', // initialise checkbox
+  '202404_location': ' ', // initialise checkbox
+  '202404_discrimination': ' ', // initialise checkbox
+  '202404_witnesses': ' ', // initialise checkbox
+  '202404_add-files': ' ' // initialise checkbox
 }

@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "layout_20240422_ur.html" %}
 
 {% block pageTitle %}
   Do you feel the customer's behaviour was motivated by discrimination? - Keep Customer Interactions Safe
@@ -25,73 +25,83 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      {{ govukCheckboxes({
-        idPrefix: "discrimination",
-        name: "discrimination",
-        fieldset: {
-          legend: {
-            text: "Do you feel the customer's behaviour was motivated by discrimination?",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--l"
-          }
-        },
-        hint: {
-          text: "If you feel the customer's behaviour was due to any of the following types of discrimination against other people, select all that apply."
-        },
-
-        items: [
-          {
-            value: "age",
-            text: "Age"
+      <form action="09describe">
+        {{ govukCheckboxes({
+          id: "202404_discrimination",
+          name: "202404_discrimination",
+          fieldset: {
+            legend: {
+              text: "Do you feel the customer's behaviour was motivated by discrimination?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
           },
-          {
-            value: "relationship",
-            text: "Being married or in a civil partnership"
+          hint: {
+            text: "If you feel the customer's behaviour was due to any of the following types of discrimination against other people, select all that apply."
           },
-          {
-            value: "pregnancy",
-            text: "Pregnancy or maternity"
-          },
-          {
-            value: "disability",
-            text: "Disability"
-          },
-          {
-            value: "reassignment",
-            text: "Gender reassignment"
-          },
-          {
-            value: "race",
-            text: "Race including colour, nationality, ethnic or national origin"
-          },
-          {
-            value: "belief",
-            text: "Religion or belief"
-          },
-          {
-            value: "sex",
-            text: "Sex"
-          },
-          {
-            value: "orientation",
-            text: "Sexual orientation"
-          },
-          {
-            divider: "or"
-          },
-          {
-            value: "none",
-            text: "None of the above",
-            behaviour: "exclusive"
-          }
-        ]
-      }) }}
-      <div>
-        {{ govukButton({
-          text: "Continue",
-          href: "09describe"
+          items: [
+            {
+              value: "Age",
+              text: "Age",
+              checked: data["202404_discrimination"].includes("Age")
+            },
+            {
+              value: "Being married or in a civil partnership",
+              text: "Being married or in a civil partnership",
+              checked: data["202404_discrimination"].includes("Being married or in a civil partnership")
+            },
+            {
+              value: "Pregnancy or maternity",
+              text: "Pregnancy or maternity",
+              checked: data["202404_discrimination"].includes("Pregnancy or maternity")
+            },
+            {
+              value: "Disability",
+              text: "Disability",
+              checked: data["202404_discrimination"].includes("Disability")
+            },
+            {
+              value: "Gender reassignment",
+              text: "Gender reassignment",
+              checked: data["202404_discrimination"].includes("Gender reassignment")
+            },
+            {
+              value: "Race including colour, nationality, ethnic or national origin",
+              text: "Race including colour, nationality, ethnic or national origin",
+              checked: data["202404_discrimination"].includes("Race including colour, nationality, ethnic or national origin")
+            },
+            {
+              value: "Religion or belief",
+              text: "Religion or belief",
+              checked: data["202404_discrimination"].includes("Religion or belief")
+            },
+            {
+              value: "Sex",
+              text: "Sex",
+              checked: data["202404_discrimination"].includes("Sex")
+            },
+            {
+              value: "Sexual orientation",
+              text: "Sexual orientation",
+              checked: data["202404_discrimination"].includes("Sexual orientation")
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "None of the above",
+              text: "None of the above",
+              checked: data["202404_discrimination"].includes("None of the above"),
+              behaviour: "exclusive"
+            }
+          ]
         }) }}
-      </div>
+        <div>
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+        </div>
+      </form>
     </div>
   </div>
 

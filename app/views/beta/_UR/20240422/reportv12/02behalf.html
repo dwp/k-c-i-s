@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "layout_20240422_ur.html" %}
 
 {% block pageTitle %}
   Were you involved in this incident? - Keep Customer Interactions Safe
@@ -25,67 +25,73 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      {% set accessHTML %}
-      {{ govukInput({
-        id: "email",
-        name: "email",
-        type: "email",
-        autocomplete: "email",
-        spellcheck: false,
-        label: {
-          text: "Their email address"
-        }
-      }) }}
-      {% endset -%}
-      {% set noaccessHTML %}
-      {{ govukInput({
-        id: "full-name",
-        name: "full-name",
-        label: {
-          text: "Their full name"
-        }
-      }) }}
-      {% endset -%}
-      {{ govukRadios({
-        idPrefix: "on-behalf",
-        name: "on-behalf",
-        fieldset: {
-          legend: {
-            text: "Were you involved in this incident?",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--l"
+      <form class="form" action="03acting_manager" method="post">
+        {% set accessHTML %}
+        {{ govukInput({
+          id: "202204_onbehalf_email",
+          name: "202204_onbehalf_email",
+          value: data['202204_onbehalf_email'],
+          type: "email",
+          autocomplete: "email",
+          spellcheck: false,
+          label: {
+            text: "Their email address"
           }
-        },
-        items: [
-          {
-            value: "yes",
-            text: "Yes"
-          },
-          {
-            value: "no",
-            text: "No, I am reporting for a colleague who can access KCIS",
-            conditional: {
-              html: accessHTML
-            }
-          },
-          {
-            value: "no",
-            text: "No, I am reporting for someone without access to KCIS",
-            conditional: {
-              html: noaccessHTML
-            }
-          }
-        ],
-        hint: {
-          text: "Select one option."
-        }
-      }) }}
-      <div>
-        {{ govukButton({
-          text: "Continue",
-          href: "03acting_manager"
         }) }}
-      </div>
+        {% endset %}
+        {% set noaccessHTML %}
+        {{ govukInput({
+          id: "202204_onbehalf_full-name",
+          name: "202204_onbehalf_full-name",
+          value: data['202204_onbehalf_full-name'],
+          label: {
+            text: "Their full name"
+          }
+        }) }}
+        {% endset %}
+        {{ govukRadios({
+          idPrefix: "on-behalf",
+          name: "on-behalf",
+          fieldset: {
+            legend: {
+              text: "Were you involved in this incident?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes",
+              checked: data['on-behalf'].includes("yes")
+            },
+            {
+              value: "no_access",
+              text: "No, I am reporting for a colleague who can access KCIS",
+              checked: data['on-behalf'].includes("no_access"),
+              conditional: {
+                html: accessHTML
+              }
+            },
+            {
+              value: "no_noaccess",
+              checked: data['on-behalf'].includes("no_noaccess"),
+              text: "No, I am reporting for someone without access to KCIS",
+              conditional: {
+                html: noaccessHTML
+              }
+            }
+          ],
+          hint: {
+            text: "Select one option."
+          }
+        }) }}
+        <div>
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+        </div>
+      </form>
     </div>
   </div>
 

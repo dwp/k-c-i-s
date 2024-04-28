@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "layout_20240422_ur.html" %}
 {% block pageTitle %}
   Do you want to add files to your report? - Keep Customer Interactions Safe
 {% endblock %}
@@ -22,36 +22,40 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      {{ govukRadios({
-        idPrefix: "add-files",
-        name: "add-files",
-        fieldset: {
-          legend: {
-            text: "Do you want to add files to your report?",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--l"
-          }
-        },
-        items: [
-          {
-            value: "yes",
-            text: "Yes"
+      <form class="form" action="11a_upload" method="post">
+
+        {{ govukRadios({
+          id: "202404_add-files",
+          name: "202404_add-files",
+          fieldset: {
+            legend: {
+              text: "Do you want to add files to your report?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
           },
-          {
-            value: "no",
-            text: "No"
+          items: [
+            {
+              value: "Yes",
+              text: "Yes",
+              checked: data["202404_add-files"].includes("Yes")
+            },
+            {
+              value: "No",
+              text: "No",
+              checked: data["202404_add-files"].includes("No")
+            }
+          ],
+          hint: {
+            text: "You can add files that contain evidence to support your report."
           }
-        ],
-        hint: {
-          text: "You can add files that contain evidence to support your report."
-        }
-      }) }}
-      <div>
-        {{ govukButton({
-          text: "Continue",
-          href: "12check_simple"
         }) }}
-      </div>
+        <div>
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+        </div>
+      </form>
     </div>
   </div>
 

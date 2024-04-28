@@ -1,0 +1,111 @@
+{% extends "layout_20240429_ur.html" %}
+{% block pageTitle %}
+  Which actions must be taken? - Keep Customer Interactions Safe
+{% endblock %}
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+      text: "beta"
+    },
+      html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "./templates/key_details_robert_blue.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "04trigger"
+    }) }}
+  </section>
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {% include "./templates/multi_caption2.njk" %}
+
+      {% if data['Referrer'].includes('11check_good_multi') %}
+        <form class="form" action="11check_good_multi" method="post">
+      {% elif data['Referrer'].includes('11check_good2') %}
+        <form class="form" action="11check_good2" method="post">
+      {% else %}
+        <form class="form" action="05letter2" method="post">
+      {% endif %}
+
+
+    {% set letterHtml %}
+          {{ govukTextarea({
+            name: "2401_letter_detail2",
+            id: "2401_letter_detail2",
+            value:  data['2401_letter_detail2'],
+            label: {
+              text: "Type of letter",
+              classes: "govuk-label--s"
+            },
+            hint: {
+              text: "For example: First warning letter about written abuse in journal."
+            }
+          }) }}
+        {% endset -%}
+        {{ govukCheckboxes({
+          idPrefix: "2401_actions2",
+          name: "2401_actions2",
+          fieldset: {
+            legend: {
+              text: "Which actions must be taken?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          hint: {
+            text: "Select all the actions that must be taken to keep your colleagues safe."
+          },
+          items: [
+            {
+              value: "Send a letter",
+              text: "Send a letter",
+              checked: (data['2401_actions2'] == "Send a letter"),
+              conditional: {
+                html: letterHtml
+              }
+            },
+            {
+              value: "Issue a verbal warning",
+              text: "Issue a verbal warning",
+              checked: (data['2401_actions2'] == "Issue a verbal warning")
+            },
+            {
+              value: "Interview by a manager",
+              text: "Interview by a manager",
+              checked: (data['2401_actions2'] == "Interview by a manager")
+            }
+          ]
+        }) }}
+        {{ govukCheckboxes({
+          idPrefix: "2401_actions_dm2",
+          name: "2401_actions_dm2",
+          items: [
+            {
+              value: "Request solicitor to send a letter",
+              text: "Request solicitor to send a letter",
+              checked: (data['2401_actions_dm2'] == "Request solicitor to send a letter")
+            },
+            {
+              value: "Request a banning order",
+              text: "Request a banning order",
+              checked: (data['2401_actions_dm2'] == "Request a banning order")
+            }
+          ]
+        }) }}
+
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+        </div>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

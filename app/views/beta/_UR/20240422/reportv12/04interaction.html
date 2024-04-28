@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "layout_20240422_ur.html" %}
 
 {% block pageTitle %}
   What type of interaction was it? - Keep Customer Interactions Safe
@@ -25,63 +25,69 @@
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-      {{ govukRadios({
-        idPrefix: "interaction",
-        name: "interaction",
-        fieldset: {
-          legend: {
-            text: "What type of interaction was it?",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--l"
-          }
-        },
-        hint: {
-          text: "Select one option."
-        },
-        items: [
-          {
-            value: "person",
-            text: "In person",
-            hint: {
-              text: "For example, at a job centre or a customer's house"
+    <form class="form" action="05when-date" method="post">
+        {{ govukRadios({
+          idPrefix: "202404_interaction",
+          name: "202404_interaction",
+          fieldset: {
+            legend: {
+              text: "What type of interaction was it?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
             }
           },
-          {
-            value: "socialmedia",
-            text: "Social media",
-            hint: {
-              text: "Comments, posts and videos on any social media platform"
-            }
+          hint: {
+            text: "Select one option."
           },
-          {
-            value: "telephone",
-            text: "Telephone",
-            hint: {
-              text: "Including voice mails and text messages"
+          items: [
+            {
+              value: "In person",
+              text: "In person",
+              checked: data['202404_interaction'].includes("In person"),
+              hint: {
+                text: "For example, at a job centre or a customer's house"
+              }
+            },
+            {
+              value: "Social media",
+              text: "Social media",
+              checked: data['202404_interaction'].includes("Social media"),
+              hint: {
+                text: "Comments, posts and videos on any social media platform"
+              }
+            },
+            {
+              value: "Telephone",
+              text: "Telephone",
+              checked: data['202404_interaction'].includes("Telephone"),
+              hint: {
+                text: "Including voice mails and text messages"
+              }
+            },
+            {
+              value: "Written",
+              text: "Written",
+              checked: data['202404_interaction'].includes("Written"),
+              hint: {
+                text: "Letters, emails, web chat or comments in journal"
+              }
+            },
+            {
+              value: "Video call",
+              text: "Video call",
+              checked: data['202404_interaction'].includes("Video call"),
+              hint: {
+                text: "For example, an appointment over Microsoft Teams"
+              }
             }
-          },
-          {
-            value: "written",
-            text: "Written",
-            hint: {
-              text: "Letters, emails, web chat or comments in journal"
-            }
-          },
-          {
-            value: "written",
-            text: "Video call",
-            hint: {
-              text: "For example, an appointment over Microsoft Teams"
-            }
-          }
-        ]
-      }) }}
-      <div>
-        {{ govukButton({
-          text: "Continue",
-          href: "05when-date"
+          ]
         }) }}
-      </div>
+        <div>
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+        </div>
+      </form>
     </div>
   </div>
 

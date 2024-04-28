@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "layout_20240422_ur.html" %}
 {% block pageTitle %}
   Who is the most appropriate manager to review this report? - Keep Customer Interactions Safe
 {% endblock %}
@@ -22,58 +22,61 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      {% set managerDetailsHtml %}
-        {{ govukInput({
-          id: "email",
-          name: "email",
-          type: "email",
-          autocomplete: "email",
-          spellcheck: false,
-          label: {
-            text: "Their email address"
-          },
-          value: data [email],
-          hint: {
-            text: "Enter their email address as it appears on the Global Address List"
-          }
-        }) }}
-      {% endset -%}
-      {{ govukRadios({
-        idPrefix: "acting-manager",
-        name: "acting-manager",
-        fieldset: {
-          legend: {
-            text: "Who is the most appropriate manager to review this report?",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--l"
-          }
-        },
-        items: [
-          {
-            value: "linemanager",
-            text: "My line manager (Sarah Sencha)"
-          },
-          {
-            value: "anothermanager",
-            text: "Another manager",
-            hint: {
-              text: "For example, a job centre manager or someone standing in for your line manager"
+      <form class="form" action="04abusiness" method="post">
+        {% set managerDetailsHtml %}
+          {{ govukInput({
+            id: "20240422_othermanageremail",
+            name: "20240422_othermanageremail",
+            type: "email",
+            autocomplete: "email",
+            spellcheck: false,
+            label: {
+              text: "Their email address"
             },
-            conditional: {
-              html: managerDetailsHtml
+            value: data['20240422_othermanageremail'],
+            hint: {
+              text: "Enter their email address as it appears on the Global Address List"
             }
+          }) }}
+        {% endset -%}
+        {{ govukRadios({
+          id: "202404_acting-manager",
+          name: "202404_acting-manager",
+          fieldset: {
+            legend: {
+              text: "Who is the most appropriate manager to review this report?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "linemanager",
+              text: "My line manager (" + data['20240422_managername'] + ")",
+              checked: data['202404_acting-manager'].includes("linemanager")
+            },
+            {
+              value: "anothermanager",
+              text: "Another manager",
+              checked: data['202404_acting-manager'].includes("anothermanager"),
+              hint: {
+                text: "For example, a job centre manager or someone standing in for your line manager"
+              },
+              conditional: {
+                html: managerDetailsHtml
+              }
+            }
+          ],
+          hint: {
+            text: "Select one option. If your line manager is incorrect on this screen, select 'Another manager'."
           }
-        ],
-        hint: {
-          text: "Select one option. If your line manager is incorrect on this screen, select 'Another manager'."
-        }
-      }) }}
-      <div>
-        {{ govukButton({
-          text: "Continue",
-          href: "04abusiness"
         }) }}
-      </div>
+        <div>
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+        </div>
+      </form>
     </div>
   </div>
 

@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "layout_20240422_ur.html" %}
 
 {% block pageTitle %}
   Check your answers - Keep Customer Interactions Safe
@@ -23,6 +23,7 @@
 {% endblock %}
 
 {% block content %}
+
   <h1 class="govuk-heading-l" id="page-title">
     Check your answers
   </h1>
@@ -36,6 +37,63 @@
     </div>
   </div>
   <div class="govuk-!-padding-bottom-9">
+    {% set reporterHTML %}
+      <span class='govuk-visually-hidden'>Reporter: </span> 
+      {% if data['on-behalf'].includes("yes") %}
+        {{data['20240422_yourname']}} 
+      {% endif %}
+      {% if data['on-behalf'].includes("no_access") %}
+        <span class="govuk-body-s" style="color:#505a5f">{{data['20240422_yourname']}} on behalf of </span> {{data['202204_onbehalf_email']}} 
+      {% endif %}
+      {% if data['on-behalf'].includes("no_noaccess") %}
+      <span class="govuk-body-s" style="color:#505a5f">{{data['20240422_yourname']}} on behalf of </span> {{data['202204_onbehalf_full-name']}} 
+      {% endif %}
+    {% endset %}
+
+    {% set managerHTML %}
+      <span class='govuk-visually-hidden'>Reporter: </span> 
+      {% if data['202404_acting-manager'].includes("linemanager") %}
+        {{data['20240422_managername']}}  <span class='govuk-body-s' style='color:#505a5f'>({{data['20240422_email']}} )
+      {% endif %}
+      {% if data['202404_acting-manager'].includes("anothermanager") %}
+        {{data['20240422_othermanageremail']}} 
+      {% endif %}
+    {% endset %}
+
+    {% set dateHTML %}
+      {% if data['202404_incident-date'].includes("today") %}
+        {{ "today" | govukDate }}
+      {% endif %}
+      {% if data['202404_incident-date'].includes("yesterday") %}
+      {{ "today" | duration(-1, "days") | govukDate }}
+
+      {% endif %}
+      {% if data['202404_incident-date'].includes("other") %}
+      {{data['day']}}
+      {{data['month'] | monthName }}
+      {{data['year']}}
+
+      {% endif %}
+    {% endset %}
+
+    {% set timeHTML %}    
+      {{ ( data['incident-time-Hours'] + ":" + data['incident-time-Minutes'] ) | govukTime }}
+    {% endset %}
+
+    {% set discriminationHTML %}    
+    <p class='govuk-body'>I feel the customer's behaviour was motivated by the following types of discrimination:</p>
+    <ul class='govuk-list govuk-list--bullet'>
+      {% if data['202404_discrimination'].includes("None of the above") %}
+      <li>None</li>
+        {% else %}
+        {% for item in data["202404_discrimination"] %}
+
+        <li>{{item}}</li>
+        {% endfor %}
+      {% endif %}
+    </ul>
+    {% endset %}
+
     {{ govukSummaryList({
       rows: [
         {
@@ -44,12 +102,12 @@
             classes: "govuk-!-width-one-third"
           },
           value: {
-            html: "<span class='govuk-visually-hidden'>Reporter: </span>Whitney Earl"
+            html: reporterHTML
           },
           actions: {
             items: [
               {
-                href: "#",
+                href: "02behalf",
                 text: "Change",
                 visuallyHiddenText: "Reporter"
               }
@@ -62,12 +120,12 @@
             text: "Manager who should review this report"
           },
           value: {
-            html: "Sarah Sencha <span class='govuk-body-s' style='color:#505a5f'>(sarah@dwp.gov.uk)</span>"
+            html: managerHTML
           },
           actions: {
             items: [
               {
-                href: "#",
+                href: "03acting_manager",
                 text: "Change",
                 visuallyHiddenText: "Manager who should review this report"
               }
@@ -79,7 +137,16 @@
             text: "Interaction type"
           },
           value: {
-            html: "In person"
+            html: data['202404_interaction']
+          },
+          actions: {
+            items: [
+              {
+                href: "04interaction",
+                text: "Change",
+                visuallyHiddenText: "Manager who should review this report"
+              }
+            ]
           }
         },
         {
@@ -87,12 +154,12 @@
             text: "Incident date"
           },
           value: {
-            html: "13 June 2022"
+            html: dateHTML
           },
           actions: {
             items: [
               {
-                href: "#",
+                href: "05when-date",
                 text: "Change",
                 visuallyHiddenText: "Incident date"
               }
@@ -104,12 +171,12 @@
             text: "Incident time"
           },
           value: {
-            html: "3:30pm"
+            html: timeHTML
           },
           actions: {
             items: [
               {
-                href: "#",
+                href: "06when-time",
                 text: "Change",
                 visuallyHiddenText: "Incident time"
               }
@@ -121,12 +188,12 @@
             text: "Your location during the incident"
           },
           value: {
-            html: "The office you're based at"
+            html: data['202404_location']
           },
           actions: {
             items: [
               {
-                href: "#",
+                href: "07where",
                 text: "Change",
                 visuallyHiddenText: "Your location during the incident"
               }
@@ -138,12 +205,12 @@
             text: "Discrimination type"
           },
           value: {
-            html: "<p class='govuk-body'>I feel the customer's behaviour was motivated by the following types of discrimination:</p><ul class='govuk-list govuk-list--bullet'><li>None</li></ul>"
+            html: discriminationHTML
           },
           actions: {
             items: [
               {
-                href: "#",
+                href: "08discrimination",
                 text: "Change",
                 visuallyHiddenText: "Discrimination type"
               }
@@ -162,12 +229,78 @@
             Incident description
           </h2>
           <div class="govuk-summary-list__actions">
-            <a class="govuk-link" href="">Change
+            <a class="govuk-link" href="09describe">Change
               <span class="govuk-visually-hidden"> Incident description</span>
             </a>
           </div>
         </div>
       </div>
+      {% if data['202404_interaction'].includes("In person")%}
+
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "1. Why was the customer in contact with us?",
+              classes: "govuk-!-width-one-third"
+            },
+            value: {
+              text: data['202404_why']
+            }
+          },
+          {
+            key: {
+              text: "2. How did the incident start? Was there a specific trigger?"
+            },
+            value: {
+              text: data['202404_how']
+            }
+          },
+          {
+            key: {
+              text: "3. What were the issues with the customer’s behaviour?"
+            },
+            value: {
+              text: data['202404_what']
+            }
+          },
+          {
+            key: {
+              text: "4. Tell us what happened next. How did you try to resolve the situation, and how did the customer react?"
+            },
+            value: {text: data['202404_next']}
+          },
+          {
+            key: {
+              text: "5. Did any of your colleagues see or hear what happened?"
+            },
+            value: {
+              text: data['202404_witnesses']
+            }
+          },
+          {
+            key: {
+              text: "6. How did your interaction with the customer end?"
+            },
+            value: {
+              text: data['202404_end']
+            }
+          },
+          {
+            key: {
+              text: "7. How did you feel during the incident?"
+            },
+            value: {
+              text: data['202404_feel']
+            }
+          }
+        ]
+      }) }}
+
+      {% else %}
+
+
       {{ govukSummaryList({
         rows: [
           {
@@ -176,13 +309,16 @@
               classes: "govuk-!-width-one-third"
             },
             value: {
-            html: "clt called the service centre re his payment being nil, advised him that there is a sanction on his claim and he needs to re-engage at the job centre and make a new appointment. <br><br>he then became abuse over the telephone, swearing at me saying you bitch, you moran , making comments how easy it is for me to be sat there and to make comments, i advised the clt to stop swearing and that we don't tolerate this language, he became more abusive over the phone he said you must love this you bitch and advised him the call will be terminated, he made comments about myself my voice and that im i old enough to work there, i advised him i am going to end the call and the call was then terminated i spoke to my manager about the incident and advised i was fine."
+              text: data['Description']
             }
           }
         ]
       }) }}
+      {% endif %}
+
     </div>
   </div>
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds govuk-!-padding-bottom-9">
       <h2 class="govuk-heading-m">

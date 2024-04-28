@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "layout_20240422_ur.html" %}
 
 {% block pageTitle %}
 What do you want to report? - Keep Customer Interactions Safe
@@ -29,8 +29,8 @@ What do you want to report? - Keep Customer Interactions Safe
   <div class="govuk-grid-column-two-thirds">
     <form class="form" action="02behalf" method="post">
       {{ govukRadios({
-        idPrefix: "report-type",
-        name: "report-type",
+        idPrefix: "202404report-type",
+        name: "202404report-type",
         fieldset: {
           legend: {
             text: "What do you want to report?",
@@ -42,12 +42,14 @@ What do you want to report? - Keep Customer Interactions Safe
           {
             value: "incident",
             text: "An incident that has already happened",
+            checked: data['202404report-type'].includes("incident"),
             hint: {
               text: "For example, a customer has been verbally abusive to their work coach, or made threats in their journal"
             }
           },
           {
             value: "concern",
+            checked: data['202404report-type'].includes("concern"),
             text: "A concern that something might happen that will risk colleagues' safety",
             hint: {
               text: "For example, information on a UC50 form about this customer indicates there is a risk to staff"

@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "layout_20240422_ur.html" %}
 {% block pageTitle %}
   Add files - Keep Customer Interactions Safe
 {% endblock %}
@@ -20,6 +20,8 @@
   </section>
 {% endblock %}
 {% block content %}
+    <script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');</script>
+
   {% include "templates/incident_refactorv10/file_upload_styling.html" %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
@@ -50,5 +52,9 @@
       href: "12check_simple"
     }) }}
   </div>
-
+  new MOJFrontend.MultiFileUpload({
+    container: document.querySelector(".moj-multi-file-upload"),
+    uploadUrl: "/ajax-upload",
+    deleteUrl: "/ajax-delete",
+  });
 {% endblock %}

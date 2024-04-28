@@ -11,11 +11,38 @@
 
         
     <form action="/beta/_UR/20240422/reportv12/01report">
-        <p>Please enter the following information to tailor your profile</p>
+        <p>Please enter the following information to tailor your profile. This information will not be stored or used outside this session.</p>
+        {{ govukInput({
+          id: "20240422_yourname",
+          name: "20240422_yourname",
+          spellcheck: false,
+          value: data['20240422_yourname'],
+          label: {
+            text: "Your full name"
+          },
+          hint: {
+            text: "Enter your full name"
+          }
+        }) }}
+      {{ govukInput({
+          id: "20240422_youremail",
+          name: "20240422_youremail",
+          type: "email",
+          autocomplete: "email",
+          value: data['20240422_youremail'],
+          spellcheck: false,
+          label: {
+            text: "Your email address"
+          },
+          hint: {
+            text: "Enter your email address as it appears on the Global Address List"
+          }
+        }) }}
         {{ govukInput({
             id: "20240422_managername",
             name: "20240422_managername",
             spellcheck: false,
+            value: data['20240422_managername'],
             label: {
               text: "Their full name"
             },
@@ -24,10 +51,11 @@
             }
           }) }}
         {{ govukInput({
-            id: "email",
-            name: "email",
+            id: "20240422_email",
+            name: "20240422_email",
             type: "email",
             autocomplete: "email",
+            value: data['20240422_email'],
             spellcheck: false,
             label: {
               text: "Their email address"

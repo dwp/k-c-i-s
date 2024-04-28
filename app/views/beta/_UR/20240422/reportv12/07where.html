@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "layout_20240422_ur.html" %}
 
 {% block pageTitle %}
   Where were you during the incident? - Keep Customer Interactions Safe
@@ -25,64 +25,72 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      {% set somewhereHtml %}
-      {{ govukInput({
-        id: "somewhereelse-text",
-        name: "somewhereelse-text",
-        label: {
-          text: "Incident location"
-        }
-      }) }}
-      {% endset -%}
-      {{ govukRadios({
-        idPrefix: "location",
-        name: "location",
-        fieldset: {
-          legend: {
-            text: "Where were you during the incident?",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--l"
+      <form class="form" action="08discrimination" method="post">
+        {% set somewhereHtml %}
+        {{ govukInput({
+          id: "202404_somewhereelse-text",
+          name: "202404_somewhereelse-text",
+          value: data['202404_somewhereelse-text'],
+          label: {
+            text: "Incident location"
           }
-        },
-        hint: {
-          text: "Select one option."
-        },
-        items: [
-          {
-            value: "office",
-            text: "The office you're based at"
-          },
-          {
-            value: "differentoffice",
-            text: "A different office"
-          },
-          {
-            value: "outreach",
-            text: "An outreach location"
-          },
-          {
-            value: "home",
-            text: "Your home"
-          },
-          {
-            value: "customershouse",
-            text: "The customer's home"
-          },
-          {
-            value: "somewhereelse",
-            text: "Somewhere else",
-            conditional: {
-              html: somewhereHtml
-            }
-          }
-        ]
-      }) }}
-      <div>
-        {{ govukButton({
-        text: "Continue",
-        href: "08discrimination"
         }) }}
-      </div>
+        {% endset %}
+        {{ govukRadios({
+          idPrefix: "202404_location",
+          name: "202404_location",
+          fieldset: {
+            legend: {
+              text: "Where were you during the incident?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "Select one option."
+          },
+          items: [
+            {
+              value: "The office you're based at",
+              text: "The office you're based at",
+              checked: data["202404_location"].includes("The office you're based at")
+            },
+            {
+              value: "A different office",
+              text: "A different office",
+              checked: data["202404_location"].includes("A different office")
+            },
+            {
+              value: "An outreach location",
+              text: "An outreach location",
+              checked: data["202404_location"].includes("An outreach location")
+            },
+            {
+              value: "Your home",
+              text: "Your home",
+              checked: data["202404_location"].includes("Your home")
+            },
+            {
+              value: "The customer's home",
+              text: "The customer's home",
+              checked: data["202404_location"].includes("The customer's home")
+            },
+            {
+              value: "Somewhere else",
+              text: "Somewhere else",
+              checked: data["202404_location"].includes("Somewhere else"),
+              conditional: {
+                html: somewhereHtml
+              }
+            }
+          ]
+        }) }}
+        <div>
+          {{ govukButton({
+          text: "Continue"
+          }) }}
+        </div>
+      </form>
     </div>
   </div>
 	  

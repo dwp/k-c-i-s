@@ -19,6 +19,17 @@ router.use((req, res, next) => {
  
   next() 
   })
+  // GET SPRINT NAME - useful for relative templates  
+  router.use('/', (req, res, next) => {  
+    res.locals.currentURL = req.originalUrl; //current screen  
+    res.locals.prevURL = req.get('Referrer'); // previous screen
+
+    console.log('folder : ' + res.locals.folder + ', subfolder : ' + res.locals.subfolder  );
+    req.session.data['Referrer'] = req.get('Referrer');
+    req.session.data['Timenow'] = new Date();
+    next();  
+  });
+
 
 require("./views/beta/report_incident/routes/v9")(router);
 require("./views/beta/report_incident/routes/v10")(router);
@@ -29,6 +40,9 @@ require("./views/beta/incident_manager_journey/routes/v4")(router);
 require("./views/beta/incident_manager_journey/routes/v2")(router);
 require("./views/beta/incident_manager_journey/routes/v1")(router);
 require("./views/beta/_UR/20240129/routes/2401")(router);
+require("./views/beta/_UR/20240422/routes/2404")(router);
+require("./views/beta/_UR/20240429/routes/240429")(router);
+
 
 
 

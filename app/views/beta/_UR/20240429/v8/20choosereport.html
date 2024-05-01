@@ -25,13 +25,13 @@
       {% set inc1HTML %}
       <h2 class='govuk-heading-s govuk-!-margin-bottom-1'>Incident {% if data['20240429_inc1_status'] == "Decision pending" %}<strong class='govuk-tag'>{{data['20240429_inc1_status']}}{% if data['20240429_inc1_actioned'] == "yes" %} (actioned){% endif %}</strong>{% endif %}</h2>
         <p><span class='govuk-visually-hidden'>Report date: </span>{{data['20240429_inc1_date']}}<br>
-          <span class='govuk-body-s' style='color:#505a5f'>{{data['20240429_inc1_time']}}</span>  
+          <span class='govuk-body-s' style='color:#505a5f'>{{data['20240429_inc1_time']}} (Reported: {{data['20240429_inc1_time_reported']}})</span>  
         <br>{{data['20240429_inc1_reporter']}}:{{data['20240429_inc1_interaction_type']}}</p>
       {% endset %}
       {% set inc2HTML %}
       <h2 class='govuk-heading-s govuk-!-margin-bottom-1'>Incident {% if data['20240429_inc2_status'] == "Decision pending" %}<strong class='govuk-tag'>{{data['20240429_inc2_status']}}{% if data['20240429_inc2_actioned'] == "yes" %} (actioned){% endif %}</strong>{% endif %}</h2>
       <p><span class='govuk-visually-hidden'>Report date: </span>{{data['20240429_inc2_date']}}<br>
-        <span class='govuk-body-s' style='color:#505a5f'>{{data['20240429_inc2_time']}}</span>
+        <span class='govuk-body-s' style='color:#505a5f'>{{data['20240429_inc2_time']}} (Reported: {{data['20240429_inc2_time_reported']}})</span>
         <br>{{data['20240429_inc2_reporter']}}:{{data['20240429_inc2_interaction_type']}}</p>
       {% endset %}
       <form class="form" method="post" action="20actionroute">

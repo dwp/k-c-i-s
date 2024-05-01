@@ -4,14 +4,12 @@
 {% endblock %}
 {% block beforeContent %}{% endblock %}
 {% block content %}
-    <h1 class="govuk-heading-xl">SPOCs</h1>
-    <p class="govuk-body">22 April 2024</p>
-    <h2 class="govuk-heading-l">Prepare for interaction</h2>
+    <h1 class="govuk-heading-xl">Accessibility</h1>
+    <p>Please enter the following information to tailor your profile. This information will not be stored or used outside this session.</p>
 
 
         
     <form action="/beta/_UR/20240422/reportv12/01report">
-        <p>Please enter the following information to tailor your profile. This information will not be stored or used outside this session.</p>
         {{ govukInput({
           id: "20240422_yourname",
           name: "20240422_yourname",
@@ -19,9 +17,6 @@
           value: data['20240422_yourname'],
           label: {
             text: "Your full name"
-          },
-          hint: {
-            text: "Enter your full name"
           }
         }) }}
       {{ govukInput({
@@ -33,9 +28,6 @@
           spellcheck: false,
           label: {
             text: "Your email address"
-          },
-          hint: {
-            text: "Enter your email address as it appears on the Global Address List"
           }
         }) }}
         {{ govukInput({
@@ -44,10 +36,10 @@
             spellcheck: false,
             value: data['20240422_managername'],
             label: {
-              text: "Their full name"
+              text: "Your Manager's full name"
             },
             hint: {
-              text: "Enter their full name"
+              text: "You can use a ficticious name"
             }
           }) }}
         {{ govukInput({
@@ -59,9 +51,6 @@
             spellcheck: false,
             label: {
               text: "Their email address"
-            },
-            hint: {
-              text: "Enter their email address as it appears on the Global Address List"
             }
           }) }}
           {{ govukButton({

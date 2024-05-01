@@ -20,7 +20,7 @@
   </section>
 {% endblock %}
 {% block content %}
-  {% include "./templates/multi_caption2.njk" %}
+  {% include "./templates/multi_caption1.njk" %}
   <h1 class="govuk-heading-xl">Original incident report</h1>
   <section aria-label="Incident overview" role="region">
     <div class="govuk-grid-row">
@@ -35,7 +35,7 @@
                   classes: "govuk-!-width-one-half"
                 },
                 value: {
-                  text: data['20240429_inc2_date'] + data['20240429_inc2_time'],
+                  text: data['20240429_inc1_date'] + data['20240429_inc1_time'],
                   classes: "govuk-!-width-one-half"
                 }
               },
@@ -44,7 +44,7 @@
                   html: "<span class='govuk-visually-hidden'>Incident </span>Reported"
                 },
                 value: {
-                  text: data['20240429_inc2_date'] + data['20240429_inc2_time_reported']
+                  text: data['20240429_inc1_date'] + data['20240429_inc1_time_reported']
                 }
               },
               {
@@ -52,7 +52,7 @@
                   html: "<span class='govuk-visually-hidden'>Incident </span>Interaction type" 
                 },
                 value: {
-                  html:  data['20240429_inc2_interaction_type']
+                  html:  data['20240429_inc1_interaction_type']
                 }
               },
               {
@@ -60,7 +60,7 @@
                   text: "Incident location type"
                 },
                 value: {
-                  html: data['20240429_inc2_location_type']
+                  html: data['20240429_inc1_location_type']
                 }
               },
               {
@@ -68,7 +68,7 @@
                   text: "Incident location"
                 },
                 value: {
-                  html: data['20240429_inc2_location']
+                  html: data['20240429_inc1_location']
                 }
               },
               {
@@ -76,7 +76,7 @@
                   html: "<span class='govuk-visually-hidden'>Incident </span>Report reference"
                 },
                 value: {
-                  html: "<span aria-hidden='true'>" + data['20240429_inc2_reference_prefix'] + "</span>"  + data['20240429_inc2_reference_chars']
+                  html: "<span aria-hidden='true'>" + data['20240429_inc1_reference_prefix'] + "</span>"  + data['20240429_inc1_reference_chars']
                 }
               },
               {
@@ -89,7 +89,7 @@
               }
             ]
           }) }}
-          {% if not (data['20240429_inc2_discrimination'] == "None") %}
+          {% if not (data['20240429_inc1_discrimination'] == "None") %}
           {{ govukWarningText({
             text: "The reporter stated that the customer's behaviour involved discrimination.",
             iconFallbackText: "Warning"
@@ -107,11 +107,11 @@
           <h2 class="govuk-heading-l"><span class="govuk-warning-text__assistive">Incident</span> Details</h2>
           <p class="govuk-hint">The content in these sections is exactly as the original reporter wrote it.</p>
           <h3 class="govuk-heading-s">Tell us about the incident</h3>
-          <p>{{data['20240429_inc2_details']}}</p>
+          <p>{{data['20240429_inc1_details']}}</p>
           <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" aria-hidden="true">
           <h3 class="govuk-heading-s">Do you feel the customer's behaviour was motivated by any type of discrimination?</h3>
           <ul class="govuk-list govuk-list--bullet">
-            <li>{{data['20240429_inc2_discrimination']}}</li>
+            <li>{{data['20240429_inc1_discrimination']}}</li>
           </ul>
           <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" aria-hidden="true">
         </div>
@@ -132,7 +132,7 @@
       <div class="govuk-grid-column-two-thirds">
         <div class="govuk-!-padding-bottom-9">
           <h2 class="govuk-heading-l">Witnesses</h2>
-          <p>{{data['20240429_inc2_witnesses']}}</p>
+          <p>{{data['20240429_inc1_witnesses']}}</p>
         </div>
       </div>
     </div>
@@ -142,7 +142,7 @@
       <div class="govuk-grid-column-two-thirds">
         <div class="govuk-!-padding-bottom-9">
           <h2 class="govuk-heading-l">Police action</h2>
-          <p class="govuk-body">{{data['20240429_inc2_police']}}</p>
+          <p class="govuk-body">{{data['20240429_inc1_police']}}</p>
         </div>
       </div>
     </div>
@@ -152,11 +152,11 @@
       <div class="govuk-grid-column-two-thirds">
         <div class="govuk-!-padding-bottom-9">
           <h2 class="govuk-heading-l" id="manager_section">Reviewing manager comments and recommendations</h2>
-          <p class="govuk-body">{{data['20240429_inc2_manager_report']}}</p>
+          <p class="govuk-body">{{data['20240429_inc1_manager_report']}}</p>
           <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" aria-hidden="true">
           <h3 class="govuk-heading-s">Contact manager</h3>
           {{ govukButton({
-            html: 'Resend email request<span class="govuk-visually-hidden"> to manager ' + data['20240429_inc2_manager'] + '</span>',
+            html: 'Resend email request<span class="govuk-visually-hidden"> to manager ' + data['20240429_inc1_manager'] + '</span>',
             href: "#manager_section",
             classes: "govuk-button--secondary"
           }) }}
@@ -169,7 +169,7 @@
       <div class="govuk-grid-column-two-thirds">
         <div class="govuk-!-padding-bottom-9">
           <h2 class="govuk-heading-l">Business support comments</h2>
-          <p class="govuk-body">{{data['20240429_inc2_business_support_comments']}}</p>
+          <p class="govuk-body">{{data['20240429_inc1_business_support_comments']}}</p>
         </div>
       </div>
     </div>
@@ -204,7 +204,7 @@
                   classes: "govuk-!-width-one-half"
                 },
                 value: {
-                  html: "<span class='govuk-visually-hidden'>Original reporter: </span>" + data['20240429_inc2_reporter'] + "<br>",
+                  html: "<span class='govuk-visually-hidden'>Original reporter: </span>" + data['20240429_inc1_reporter'] + "<br>",
                   classes: "govuk-!-width-one-half"
                 }
               },
@@ -213,7 +213,7 @@
                   text: "Reporter's email address"
                 },
                 value: {
-                  text: data['20240429_inc2_reporters_email']
+                  text: data['20240429_inc1_reporters_email']
                 }
               },
               {
@@ -221,7 +221,7 @@
                   text: "Manager"
                 },
                 value: {
-                  html: data['20240429_inc2_managers_email']
+                  html: data['20240429_inc1_managers_email']
                 }
               },
               {
@@ -229,7 +229,7 @@
                   text: "Manager's email address"
                 },
                 value: {
-                  html: data['20240429_inc2_managers_email']
+                  html: data['20240429_inc1_managers_email']
                 }
               },
               {
@@ -237,7 +237,7 @@
                   text: "Business support"
                 },
                 value: {
-                  html: data['20240429_inc2_business_support']
+                  html: data['20240429_inc1_business_support']
                 }
               },
               {
@@ -245,13 +245,13 @@
                   text: "Business support's email address"
                 },
                 value: {
-                  html: data['20240429_inc2_business_support_email']
+                  html: data['20240429_inc1_business_support_email']
                 }
               }
             ]
           }) }}
-          <form action="inc2_reassign">
-            <input type="hidden" name="20240429_current_report" value="incident2">
+          <form action="inc1_reassign">
+            <input type="hidden" name="20240429_current_report" value="incident1">
             {% include "./templates/assign1.njk" %}
           </form>
         </div>
@@ -261,7 +261,7 @@
   <div class="govuk-button-group">
     {{ govukButton({
       text: "Back",
-      href: "02history_complex_multiple"
+      href: "javascript:history.back()"
     }) }}
   </div>
 

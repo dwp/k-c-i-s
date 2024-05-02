@@ -31,25 +31,16 @@
     <div class="govuk-grid-column-two-thirds">
 			<p>This page shows all incidents and safety concerns reported about this customer's behaviour, and any actions taken and measures applied as a result. </p>
 			<p>They are in date and time order with the most recent at the top. </p>
-	{% if data['20240429_inc1_actioned'] and data['20240429_inc2_actioned'] %}
-		{% set actionClass = "govuk-button--secondary" %}
-		{% set measureClass = "" %}
-		{% set measureHref = "#" %}
-	{% else %}
-		{% set actionClass = "" %}
-		{% set measureClass = "govuk-button--secondary" %}
-		{% set measureHref = "#" %}
-	{% endif %}
+
       <div class="govuk-button-group">
-				{{ govukButton({
-					text: "Prepare new actions",
-					href: "#",
-					classes: actionClass
-				}) }}
+		{{ govukButton({
+			text: "Prepare new actions",
+			href: "20choosereport"
+		}) }}
 				{{ govukButton({
 					text: "Add new measures",
 					href: measureHref,
-					classes: measureClass
+					classes: "govuk-button--secondary"
 				}) }}
 				{{ govukButton({
 					text: "Add a note",
@@ -65,7 +56,7 @@
 					<li class="dwp-timeline__events--entry">
 						<h2 class="govuk-heading-s govuk-!-margin-bottom-1">Measures</h2>
 						<p class="govuk-!-margin-bottom-1 govuk-hint">{{ "today" | govukDate }}</p>
-						<p class="govuk-caption-m"><a href="#">No home visits</a></p>
+						<p class="govuk-caption-m"><a href="#">None</a></p>
 					</li>
 					<li class="dwp-timeline__events--entry">
 						<h2 class="govuk-heading-s govuk-!-margin-bottom-1">Action request</h2>

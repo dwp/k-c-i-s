@@ -27,6 +27,9 @@
       <div class="govuk-grid-column-two-thirds">
         <div class="govuk-!-padding-bottom-9">
           <h2 class="govuk-heading-l" id="h2-overview"><span class="govuk-warning-text__assistive">Incident </span>Overview</h2>
+          {% set assignHTML %}
+            {{data['20240422_youremail']}}sdsa <br>Decision pending {% if data['20240429_inc2_actioned'] == "yes" %} (actioned){% endif %}
+          {% endset %}
           {{ govukSummaryList({
             rows: [
               {
@@ -84,7 +87,7 @@
                   html: "Assigned to"
                 },
                 value: {
-                  html: data['20240422_youremail'] + "<br>Decision pending" 
+                  html: assignHTML
                 }
               }
             ]

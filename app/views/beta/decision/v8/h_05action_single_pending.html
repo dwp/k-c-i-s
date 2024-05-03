@@ -20,38 +20,46 @@
   </section>
 {% endblock %}
 {% block content %}
-      <h1 class="govuk-heading-xl">Action request</h1>
-      {{ govukSummaryList({
-        rows: [
-          
-          {
-            key: {
-              text: "Date requested"
+<div class="govuk-!-padding-bottom-9">
+  <h1 class="govuk-heading-xl">Action request</h1>
+        {{ govukSummaryList({
+          rows: [
+        
+            {
+              key: {
+                text: "Date requested"
+              },
+              value: {
+                text: "1 March 2023"
+              }
             },
-            value: {
-              text: "1 March 2023"
-            }
-          },
-          {
-            key: {
-              text: "Requested by"
+            {
+              key: {
+                text: "Requested by"
+              },
+              value: {
+                html: "Sadiq Assam"
+              }
             },
-            value: {
-              html: "Sadiq Assam"
+            {
+              key: {
+                text: "Action: Sadiq Assam"
+              },
+              value: {
+              html: '<ul class="govuk-list govuk-list--bullet">
+                      <li>Request a banning order</li>
+                    </ul>'
+              }
             }
-          },
-          {
-            key: {
-              text: "Action: Sadiq Assam"
-            },
-            value: {
-            html: '<ul class="govuk-list govuk-list--bullet">
-                    <li>Request a banning order</li>
-                  </ul>'
-            }
-          }
-        ]
-      }) }}
+          ]
+        }) }}
+      </div>
+      <section aria-label="Files attached to action request" role="region">
+        <div class="govuk-!-padding-bottom-9">
+            <h2 class="govuk-heading-m" id="attached">There are no files attached to this action request
+            </h2>
+        </div>
+    </section>  
       <div class="govuk-button-group">
         {{ govukButton({
           text: "Back to customer history",

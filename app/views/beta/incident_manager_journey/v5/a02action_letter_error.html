@@ -143,6 +143,12 @@
           }
         }) }}
       {% endset %}
+      <section aria-label="Files attached to action request" role="region">
+        <div class="govuk-!-padding-bottom-9">
+            <h2 class="govuk-heading-m" id="attached">There are no files attached to this action request
+            </h2>
+        </div>
+    </section>      
       {{ govukRadios({
         idPrefix: "otherdate",
         name: "otherdate",

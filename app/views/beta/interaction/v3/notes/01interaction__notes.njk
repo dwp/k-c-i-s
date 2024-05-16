@@ -20,13 +20,16 @@
 	<ul class="govuk-list govuk-list--bullet">
 		<li>Story <a href="https://dwpdigital.atlassian.net/browse/CITI-xxxxx">TBC VO automation</a></li>
 		<li>Removed "first time through" automated lookup</li>
+		<li>Note: VO discussed being able to access the current customer history via an additional "View history" link</li>
+		<li>What if the middleware call fails. Display all and indicate the failed one differently - placeholder for now</li>
+		<li>Order of results would ideally be distance but that requires better location resolution than postcode - Use alphabetical showing error(s) at the end</li>
 	</ul>
 <h4 class="govuk-heading-s">Hypotheses</h3>
 	<ul class="govuk-list govuk-list--bullet">
 		<li><a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132775346323/Agents+Safeguarding+-+User+Role+Model#reporter">Reporter canvas</a></li>
 		<li>The interactor would prefer to navigate back to Searchlight</li>
 		<li>The interactor needs no further information than the applied measures (As consistent with SPL)</li>
-		
+		<li>Hidden text for screen readers required</li>
 	</ul>
 {% set journeyNotesHTMLinteract_v3 %}
 	{% include "beta/interaction/notes/v3__notes.njk" %}

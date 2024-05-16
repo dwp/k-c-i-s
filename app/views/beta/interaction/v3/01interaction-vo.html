@@ -33,39 +33,12 @@ href: "/"
       <li>Must be seen in a screened area</li>
       <li>No home visits</li>
     </ul>
-
+    <p><a href="">View history<span class='govuk-visually-hidden'> for Robert Da Silva</span></a></p>
     <h2 class="govuk-heading-l">Other customers with active measures who live at this postcode</h2>
-
     {{ govukSummaryList({
       card: {
         title: {
-          html: "John Doe <span class='govuk-body-s'>- AB 12 34 56 B</span>"
-        },
-        actions: {
-          items: [
-            {
-              href: "#",
-              text: "View history",
-              visuallyHiddenText: "for John Doe"
-            }
-          ]
-        }
-      },
-      rows: [
-      {
-        key: {
-          text: "Address"
-        },
-        value: {
-          html: "129 Acascia Drive, Borehamchester, Surreyham SH1 SPD, UK"
-        }
-      }
-  ]
-    }) }}
-    {{ govukSummaryList({
-      card: {
-        title: {
-          html: "Anne Other <span class='govuk-body-s'>- CD 12 12 12 C</span>"
+          html: "<span class='govuk-visually-hidden'>Name:</span>Anne Other <span class='govuk-body-s'>- <span class='govuk-visually-hidden'>National insurance number:</span>AC 12 12 12 C</span>"
         },
         actions: {
           items: [
@@ -80,7 +53,7 @@ href: "/"
       rows: [
         {
           key: {
-            text: "Address"
+            html: "Address<span class='govuk-visually-hidden'>for Anne Other</span>"
           },
           value: {
             html: "130 Acascia Drive, Borehamchester, Surreyham SH1 SPD, UK"
@@ -88,10 +61,37 @@ href: "/"
         }
       ]
     }) }}
+
     {{ govukSummaryList({
       card: {
         title: {
-          html: "Mea Too <span class='govuk-body-s'>- CX 56 34 21 B</span>"
+          html: "<span class='govuk-visually-hidden'>Name:</span>John Doe <span class='govuk-body-s'>- <span class='govuk-visually-hidden'>National insurance number:</span>AB 12 34 56 B</span>"
+        },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "View history",
+              visuallyHiddenText: "for John Doe"
+            }
+          ]
+        }
+      },
+      rows: [
+      {
+        key: {
+          html: "Address <span class='govuk-visually-hidden'>for John Doe</span>"
+        },
+        value: {
+          html: "129 Acascia Drive, Borehamchester, Surreyham SH1 SPD, UK"
+        }
+      }
+  ]
+    }) }}
+    {{ govukSummaryList({
+      card: {
+        title: {
+          html: "<span class='govuk-visually-hidden'>Name:</span>Mea Too <span class='govuk-body-s'>- <span class='govuk-visually-hidden'>National insurance number:</span>CX 56 34 21 B</span>"
         },
         actions: {
           items: [
@@ -106,10 +106,27 @@ href: "/"
       rows: [
         {
           key: {
-            text: "Address"
+            html: "Address<span class='govuk-visually-hidden'>for Mea Too</span>"
           },
           value: {
             html: "1 Very Close, Muncham, Morely SH1 SPD, UK"
+          }
+        }
+      ]
+    }) }}
+    {{ govukSummaryList({
+      card: {
+        title: {
+          html: "<span class='govuk-visually-hidden'>Name:</span>Error - Wait for a few seconds then refresh <span class='govuk-body-s'>- <span class='govuk-visually-hidden'>National insurance number:</span>Error - if this continues to fail raise an issue on DWP place</span>"
+        }
+      },
+      rows: [
+        {
+          key: {
+            html: "Address<span class='govuk-visually-hidden'>for Error</span>"
+          },
+          value: {
+            html: "Error"
           }
         }
       ]

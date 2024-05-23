@@ -1,0 +1,51 @@
+{% extends "layout_20240501_ur.html" %}
+{% block pageTitle %}
+  We've recorded your actions and measures - Keep Customer Interactions Safe
+{% endblock %}
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+        text: "beta"
+      },
+      html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "./templates/key_details_robert_blue.njk" %}
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {% include "./templates/multi_caption2.njk" %}
+      <br>
+      <br>
+
+      {% set refHTML %}
+      <div class="govuk-panel__body">Reference number:
+        <br>
+        <strong>
+          <span aria-hidden="true">{{data['20240429_inc2_reference_prefix']}}</span><span aria-hidden="false">{{data['20240429_inc2_reference_chars']}}</span>
+        </strong>
+      </div>
+      {% endset %}
+      {{ govukPanel({
+        titleText: "Report prepared",
+        html: refHTML,
+        id: "panel",
+        name: "panel"
+      }) }}
+      <h2 class="govuk-heading-m">You may have more reports to prepare for this customer. </h2>
+
+
+      <p class="govuk-body">
+        Prepare all reports then you can apply safety measures and complete the decision.
+      </p>
+    </div>
+  </div>
+  {{ govukButton({
+    text: "Return to customer history",
+    classes: "govuk-button--primary",
+    href: "02history_complex_multiple"
+  }) }}
+
+{% endblock %}

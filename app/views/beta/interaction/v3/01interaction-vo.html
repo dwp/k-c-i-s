@@ -25,16 +25,16 @@ href: "/"
 {% endblock %}
 
 {% block content %}
-<h1 class="govuk-heading-xl" id="page-title">Prepare for a meeting with a customer</h1>
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl" id="page-title">Prepare for a meeting with a customer</h1>
     <h2 class="govuk-heading-l" id="page-title">Active measures</h2>
     <ul class="govuk-list govuk-list--bullet">
       <li>Must be seen in a screened area</li>
       <li>No home visits</li>
     </ul>
     <p><a href="">View history<span class='govuk-visually-hidden'> for Robert Da Silva</span></a></p>
-    <h2 class="govuk-heading-l">Other customers with active measures who live at this postcode</h2>
+    <h2 class="govuk-heading-l">Other customers who live at this postcode</h2>
     {{ govukSummaryList({
       card: {
         title: {
@@ -57,6 +57,19 @@ href: "/"
           },
           value: {
             html: "130 Acascia Drive, Borehamchester, Surreyham SH1 SPD, UK"
+          }
+        },
+        {
+          key: {
+            html: "Active measures<span class='govuk-visually-hidden'>for Anne Other</span>"
+          },
+          value: {
+            html: "
+            <ul class='govuk-list govuk-list--bullet'>
+              <li>Must be seen in a screened area</li>
+              <li>No home visits</li>
+            </ul>
+            "
           }
         }
       ]

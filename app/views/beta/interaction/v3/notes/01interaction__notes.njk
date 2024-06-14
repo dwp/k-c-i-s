@@ -18,11 +18,18 @@
 </ul>
 <h4 class="govuk-heading-s">v3 Design notes</h3>
 	<ul class="govuk-list govuk-list--bullet">
-		<li>Story <a href="https://dwpdigital.atlassian.net/browse/CITI-xxxxx">TBC VO automation</a></li>
+		<li>Story <a href="https://dwpdigital.atlassian.net/browse/CITI-25768">Surface measures at postcode</a></li>
 		<li>Removed "first time through" automated lookup</li>
 		<li>Note: VO discussed being able to access the current customer history via an additional "View history" link</li>
-		<li>What if the middleware call fails. Display all and indicate the failed one differently - placeholder for now</li>
-		<li>Order of results would ideally be distance but that requires better location resolution than postcode - Use alphabetical showing error(s) at the end</li>
+		<li>What if the middleware calls fails. There are 4 errors possible. </li>
+		<ul class="govuk-list govuk-list--bullet">
+			<li>Name: CIS</li>
+			<li>NINo: GUID</li>
+			<li>Address: Residency</li>
+			<li>Active measures: KCIS Measures service</li>
+		</ul>
+		<li>Order of results would ideally be distance but that requires better location resolution than postcode - Use alphabetical with active mesasures at top</li>
+		<li>Pagination with be required for large lists. To be completed next version under: <a href="https://dwpdigital.atlassian.net/browse/CITI-26679">Surface measures at postcode - Paginate</a>. Currently limited to arbitary number and shows warning message</li>
 	</ul>
 <h4 class="govuk-heading-s">Hypotheses</h3>
 	<ul class="govuk-list govuk-list--bullet">

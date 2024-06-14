@@ -130,20 +130,33 @@ href: "/"
     {{ govukSummaryList({
       card: {
         title: {
-          html: "<span class='govuk-visually-hidden'>Name:</span>Error - Wait for a few seconds then refresh <span class='govuk-body-s'>- <span class='govuk-visually-hidden'>National insurance number:</span>Error - if this continues to fail raise an issue on DWP place</span>"
+          html: "<span class='govuk-visually-hidden'>Name:</span>Error (CIS) - Wait for a few seconds then refresh. If this continues to fail raise an issue on DWP place <span class='govuk-body-s'>- <span class='govuk-visually-hidden'>National insurance number:</span>Error (GUID) - Wait for a few seconds then refresh. If this continues to fail raise an issue on DWP place</span>"
         }
       },
       rows: [
-        {
-          key: {
-            html: "Address<span class='govuk-visually-hidden'>for Error</span>"
-          },
-          value: {
-            html: "Error"
-          }
+      {
+        key: {
+          html: "Address<span class='govuk-visually-hidden'>for Error</span>"
+        },
+        value: {
+          html: "Error (Residency) - Wait for a few seconds then refresh. If this continues to fail raise an issue on DWP place"
         }
-      ]
+      },
+      {
+        key: {
+          html: "Active measures<span class='govuk-visually-hidden'>for Anne Other</span>"
+        },
+        value: {
+          html: "Error (Measures) - Wait for a few seconds then refresh. If this continues to fail raise an issue on DWP place"
+        }
+      }
+]
+
     }) }}
+    {{ govukWarningText({
+      html: "This list may not display all customers with a KCIS history. <a href=''>Contact us</a> ",
+      iconFallbackText: "Warning"
+    }) }}    
     {{ govukButton({
       text: "Back to Searchlight home",
       href: "#"

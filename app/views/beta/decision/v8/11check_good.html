@@ -66,8 +66,7 @@
           value: {
             html: '<ul class="govuk-list govuk-list--bullet">
                     <li>Verbal warning</li>
-                    <li>Sent a letter<br>First Warning <br>
-                      v1 20240212 first warning letter.pdf</li>
+                    <li>Sent a letter<br>First Warning </li>
                   </ul>'
           },
           actions: {
@@ -82,14 +81,27 @@
         },
         {
           key: {
-            text: "Actions"
+            text: "Letter uploaded"
           },
           value: {
-            html: '<ul class="govuk-list govuk-list--bullet">
-                    <li>Verbal warning</li>
-                    <li>Sent a letter<br>First Warning <br>
-                      v1 20240212 first warning letter.pdf</li>
-                  </ul>'
+            html: 'v1 20240212 first warning letter.pdf'
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "Actions"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Letter to be sent by"
+          },
+          value: {
+            html: 'Decision Maker'
           },
           actions: {
             items: [

@@ -1,0 +1,34 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<hr>
+<br>
+<h3 class="govuk-heading-s govuk-!-font-weight-regular">NOT PART OF DESIGN: Demo only</h3>
+<h4 class="govuk-heading-s">Versions</h3>
+{% include "../../_versions/04trigger__versions.njk" %}
+
+<h4 class="govuk-heading-s">States</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li><a href="04trigger">1. Primary trigger</a></li>
+		<li><a href="04trigger_error">2. Error: Primary trigger</a></li>
+	</ul>
+<h4 class="govuk-heading-s">v8 Design notes</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li>Only show for incidents - not concerns</li>
+	</ul>
+<h4 class="govuk-heading-s">Hypotheses</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li><a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132775346323/Agents+Safeguarding+-+User+Role+Model#decision_maker">Decision maker user canvas</a></li>
+		<ul class="govuk-list govuk-list--bullet">
+			<li>Need: Send letters to customers</li>
+		</ul>
+	</ul>
+{% set journeyNotesHTMLDecision %}
+	{% include "beta/decision/notes/v8__notes.njk" %}
+{% endset %}
+{{ govukDetails({
+	summaryText: "v8 Journey level design notes",
+	html: journeyNotesHTMLDecision
+}) }}

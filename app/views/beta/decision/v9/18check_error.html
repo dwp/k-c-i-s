@@ -1,0 +1,171 @@
+{% extends "layout.html" %}
+{% block pageTitle %}
+  Check your answers - Keep Customer Interactions Safe
+{% endblock %}
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+      text: "beta"
+    },
+      html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "./templates/key_details_red.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "08reviewdate"
+    }) }}
+  </section>
+{% endblock %}
+{% block content %}
+  {% set html %}
+  <p class="govuk-notification-banner__heading">
+    2 incidents are open
+  </p>
+  <p class="govuk-body">Incidents must be closed individually. The actions and measures should be applied only on the latest incident based on the entire case history. Make sure all live incidents are assigned to one Decision Maker.</p>
+{% endset %}
+
+{{ govukNotificationBanner({
+  html: html
+}) }}    
+  {% include "./templates/govuk-caption-m-mike.njk" %}
+  <h1 class="govuk-heading-xl">Check your answers</h1>
+  <div class="govuk-!-margin-bottom-9">
+    {{ govukSummaryList({
+      rows: [
+        {
+          key: {
+            text: "Incident type"
+          },
+          value: {
+            html: 'Physical assault'
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "Incident type"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Incident cause"
+          },
+          value: {
+            html: 'An issue with payment'
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "Incident cause"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Actions"
+          },
+          value: {
+            html: 'Issue a verbal warning '
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "Actions"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Measures"
+          },
+          value: {
+            html: 'None'
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "Measures"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Reason for not applying measures"
+          },
+          value: {
+            html: "This was part one of two incidents. Actions and measures applied wrt the other one. I will ensure effective communicaiton of this. "
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "Reason for not applying measures"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Measures review date"
+          },
+          value: {
+            html: "Not applicable"
+          }
+        },
+        {
+          key: {
+            text: "Note for manager"
+          },
+          value: {
+            html: "Please arrange additional training for the work coach involved. "
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "Note for manager"
+              }
+            ]
+          }
+        }
+      ]
+    }) }}
+  </div>
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h2 class="govuk-heading-m">Are you ready to add these actions and measures to this customer's record?</h2>
+<p class="govuk-body">If you need to change anything in your report, select Change next to each answer or use the back link near the top of this page.</p>
+      <p class="govuk-body">When you click 'Record actions and measures', we will send your decision to the reporter and their manager.</p>
+      <p class="govuk-body govuk-!-font-weight-bold">You will not be able to change anything about your decision after you click the button.</p>
+      <div class="govuk-button-group">
+        {{ govukButton(
+            {
+              text: "Record actions and measures",
+              href: "12confirmation"
+            }
+          )
+        }}
+      </div>
+    </div>
+  </div>
+  {% if not (checked("displaymode", "presentation") == "checked") %}
+		{% include "./notes/11check__notes.njk" %}
+	{% endif %}
+{% endblock %}

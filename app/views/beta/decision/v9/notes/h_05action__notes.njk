@@ -1,0 +1,68 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<hr>
+<br>
+<h3 class="govuk-heading-s govuk-!-font-weight-regular">NOT PART OF DESIGN: Demo only</h3>
+<h4 class="govuk-heading-s">Versions</h3>
+{% include "../../_versions/h_05action__versions.njk" %}
+
+<h4 class="govuk-heading-s">States</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li><a href="h_05action_single_pending">Action request single</a></li>
+		<li><a href="h_05action">Action request multiple</a> - letter attached</li>
+		<li><a href="h_05action_nofiles">Action request - letter not attached</a></li>
+		<li><a href="h_05action_complete">Action (complete) - Manager action - letter</a></li>
+		<li><a href="h_05action_single">Action (complete) - Decision Maker action - Request ban</a></li>		
+	</ul>
+<h4 class="govuk-heading-s">v8 Design notes</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li>Story <a href="https://dwpdigital.atlassian.net/browse/CITI-19550">Decision Maker: Request Manager Takes Action</a></li>
+		<li>Actions are 2-part. </li>
+		<ul>
+			<li><b>Action request</b>. 
+			<ul>
+				<li>On Timeline: Can be multiple actions</li>
+				<li>On Timeline: Sort on requested date</li>
+				<li>On Details: One row per action </li>
+				<li>On Details: Display all action requests with who they are assigned to. ie Manager or Decision maker</li>
+				<li>Future feature? - Shows completed date for completed actions. 
+				<li>Future feature? - Links to completed actions. </li>
+				<li>Future feature? - Can send reminder to manager assigned for incomplete actions.</li>
+			</ul>
+			</li>
+			<li><b>Action</b>. 
+			<ul>
+				<li>One action per page. </li>
+				<li>In timeline as completed date</li>
+			</ul>
+			</li>
+		</ul>			
+			
+		<li>This has the following additional effects:</li>
+		<ul>
+			<li>Requires knowledge of whether each action is a Decision Maker action (Request banning order) or Manager action (Manager interview) so action can be assigned appropriately. </li>
+			<li>Concerns (and ad-hoc review) actions are assigned to the Decision Maker</li>
+			<li>Each action must have a short version ("Send letter") so that they can be referred to in the "To do" list. Story: <a href="https://dwpdigital.atlassian.net/browse/CITI-22746">Decision maker/Manager: Action Request Link Text</a></li>
+		</ul>
+		<li>Story: <a href="https://dwpdigital.atlassian.net/browse/CITI-24707">Attach Letter to Action Request</a></li>
+		<li>Show "no files" message when there are no files attached. Makes the lack of files explicit</li>
+		<li>Also amended "<a href="05b_add">add letter</a>" and "<a href="09prepare_single_man">Complete decision</a>" and "<a href="11check">Check your answers</a>" on this story </li>
+	</ul>
+<h4 class="govuk-heading-s">Hypotheses and insights</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li><a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/133180227671/Decision+makers+want+details+of+historical+actions">Decision makers want details of historical actions</a>		</li>
+		<li><a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132775346323/Agents+Safeguarding+-+User+Role+Model#decision_maker">Decision maker user canvas</a></li>
+		<li><a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132775346323/Agents+Safeguarding+-+User+Role+Model#business_support">Business support user canvas</a></li>
+	</ul>
+	
+{% set journeyNotesHTMLDecision_v8 %}
+	{% include "beta/decision/notes/v8__notes.njk" %}
+{% endset %}
+{{ govukDetails({
+	summaryText: "v8 Journey level design notes",
+	html: journeyNotesHTMLDecision_v8
+}) }}	
+

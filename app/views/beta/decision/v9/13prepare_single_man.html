@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Finalise actions - Keep Customer Interactions Safe
+{% endblock %}
+
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+      text: "beta"
+    },
+      html: 'This is a new service – your <a class="govuk-link" href="08discrimination_error">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "./templates/key_details_red.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "08reviewdate"
+    }) }}
+  </section>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-!-padding-bottom-4">
+        {% include "./templates/govuk-caption-m-whitney.njk" %}
+        <h1 class="govuk-heading-xl">Finalise actions</h1>
+        <p class="govuk-body">Review the actions you have selected, and add comments for the manager of the person who reported the incident.</p>
+        <p class="govuk-body">You can refer to <a href="17incident_best_simple_info">the original report</a>.</p>
+      </div>
+
+
+      <section aria-label="actions" role="region">
+        <div class="govuk-!-padding-bottom-9">
+          <h2 class="govuk-heading-l">Action request</h2>
+          <h3 class="govuk-heading-m">Manager (Sarah Sencha)</h3>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>Send a letter<br>
+
+              Please send this letter attached</li>
+              <ul class="govuk-list">
+                <li>v3 20240323 interim ban.doc</li>
+              </ul>
+            </ul>  
+          </li>
+          </ul>
+          <h3 class="govuk-heading-m">Decision maker (You)</h3>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>Request a banning order</li>
+          </ul>
+        </div>
+      </section>
+
+
+      <section aria-label="notes" role="region">
+        {{ govukTextarea({
+          name: "note",
+          id: "note",
+          rows: "15",
+          label: {
+            html: "<h2 class='govuk-heading-l'>Comments for manager</h2>",
+            classes: "govuk-label--l"
+          },
+          hint: {
+            text: "Only the manager - Sarah Sencha - can see what you enter here."
+          }
+        }) }}
+      </section>
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Continue",
+          href: "14measure"
+        }) }}
+      </div>
+    </div>
+  </div>
+  {% if not (checked("displaymode", "presentation") == "checked") %}
+		{% include "./notes/13prepare_single_man__notes.njk" %}
+	{% endif %}
+{% endblock %}

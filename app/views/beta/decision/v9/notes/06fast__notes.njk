@@ -12,12 +12,30 @@
 <h4 class="govuk-heading-s">States</h3>
 	<ul class="govuk-list govuk-list--bullet">
 		<li><a href="06fast">Identify fast track</a></li>
-		<li><a href="06fast_multi">Identify fast track - multiple incidents</a> - not developed yet</li>
 		<li><a href="06fast_error">Error</a></li>
 	</ul>
 <h4 class="govuk-heading-s">v9 Design notes</h3>
 	<ul class="govuk-list govuk-list--bullet">
-		<li>New page. Reassignment of multiple incidents from the submitted state means that this may need to be set by Decision Maker</li>
+		<li>New page. Gathering multiple incidents directly from the "submitted" status means that this may need to be set by Decision Maker</li>
+		<li>Single and multiple incidents - see flow diagram</li>
+		<li>Caption contains status for Incident and Concern not Review</li>
+		<li>Operation (suggest a.):</li>
+		<ul>
+			<li>a. Only show this page if BST has not entered Fast Track info</li>
+			<ul>
+				<li>Only one data point</li>
+				<li>Only shown in gathered reports</li>
+				<li>Trust that BST and DM would have same opinion</li>
+			</ul>
+			<li>b. Display BST value in hint (Or that it has not been marked)</li>
+			<ul>
+				<li>Second opinion</li>
+			</ul>
+			<li>c. Pre-fill with BST value</li>
+			<ul>
+				<li>Unexpected behaviour</li>
+			</ul>
+		</ul>
 	</ul>
 <h4 class="govuk-heading-s">Hypotheses</h3>
 	<ul class="govuk-list govuk-list--bullet">

@@ -1,0 +1,38 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<hr>
+<br>
+<h3 class="govuk-heading-s govuk-!-font-weight-regular">NOT PART OF DESIGN: Demo only</h3>
+<h4 class="govuk-heading-s">Versions</h3>
+	<ul class="govuk-list govuk-list--bullet">
+{% include "../../_versions/09prepare__versions.njk" %}
+	</ul>
+<h4 class="govuk-heading-s">States</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li><a href="13prepare_single_man">1. Complete decision - covering note</a></li>
+		<li><a href="13prepare_nomeasures">2. Complete decision - covering note - no measures</a></li>
+		<li><a href="13prepare_single_man_error">3. Error: Complete decision - covering note</a></li>
+	</ul>
+<h4 class="govuk-heading-s">v9 Design notes</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li>Caption contains status for Incident and Concern not Review</li>
+		<li>Covering note is mandatory</li>
+		<li>Large text entry as can be quite long - what is the data limit? Need GA on testing</li>
+		<li>Page only to be shown if "send letter" action requested</li>
+		<li>Single and multiple incidents - (moved in single flow) see flow diagram</li>
+		<li>Renamed and deleted measures due to moving this to the actions part of the decision</li>
+	</ul>
+<h4 class="govuk-heading-s">Hypotheses</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li><a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132775346323/Agents+Safeguarding+-+User+Role+Model#decision_maker">Decision maker user canvas</a></li>
+	</ul>
+{% set journeyNotesHTMLDecision %}
+	{% include "beta/decision/notes/v9__notes.njk" %}
+{% endset %}
+{{ govukDetails({
+	summaryText: "v9 Journey level design notes",
+	html: journeyNotesHTMLDecision
+}) }}	

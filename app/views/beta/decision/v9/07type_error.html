@@ -15,7 +15,7 @@
   <section aria-label="Back" role="region">
     {{ govukBackLink({
       text: "Back",
-      href: "02history_nomeasures"
+      href: "#"
     }) }}
   </section>
 {% endblock %}
@@ -76,12 +76,12 @@
 
         {{ govukButton({
           text: "Continue",
-          href: "04trigger"
+          href: "08trigger"
         }) }}
       </div>
     </div>
   </div>
   {% if not (checked("displaymode", "presentation") == "checked") %}
-		{% include "./notes/03type__notes.njk" %}
+		{% include "./notes/07type__notes.njk" %}
 	{% endif %}
 {% endblock %}

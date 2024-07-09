@@ -48,10 +48,10 @@
   <div>
     {{ govukButton({
       text: "Continue",
-      href: "05d_wholetter"
+      href: "12wholetter"
     }) }}
   </div>
 	{% if not (checked("displaymode", "presentation") == "checked") %}
-		{% include "./notes/05b_add.njk" %}
+		{% include "./notes/11upload.njk" %}
 	{% endif %}
 {% endblock %}

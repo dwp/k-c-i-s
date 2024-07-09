@@ -11,19 +11,27 @@
 
 <h4 class="govuk-heading-s">States</h3>
 	<ul class="govuk-list govuk-list--bullet">
+		<li><a href="04history_complex_simple">History</a> - Simplest single live reports</li>
+		<li><a href="04history_complex_typical">History</a> - Typical second report reports</li>
 		<li><a href="04history_complex_multiple">History</a> - Multiple live reports</li>
-		<li><a href="04history_complex_vo">History</a> - Visiting officer</li>
-		<li><a href="19history_bst">History</a> - Business support </li>
+		<li><a href="04history_complex_filter">History</a> - Filter possibilities</li>
+		<li><a href="04history_complex_vo">History</a> - Visiting officer <span class="govuk-tag">TO BE UPDATED</span></li>
+		<li><a href="04history_complex_empty">History</a> - Empty</li>
+		<li><a href="21history_bst">History</a> - Business support <span class="govuk-tag">TO BE UPDATED</span></li>
 	</ul>
 <h4 class="govuk-heading-s">v9 Design notes</h3>
 	<ul class="govuk-list govuk-list--bullet">
-		<li>Story - To be confirmed to concatenate all action requests on timeline and <a href="h_05action">action request details</a></li>
+		<li>VO cannot see incident statuses</li>
+		<li>Incident statuses show on all "Live" statuses. If there is only one live report only one will show. </li>
+		<li>In single report mode, there will be no "Prepared" pseudo status</li>
+		<li>If all "Actions" have been returned from the "Action request", hide "Action request" from the timeline. <a href="04history_complex_simple">Simple</a> view shows 3 actions requested by only 2 carried out so the request still shows</li>
 		<li>The date a Concern is recorded on KCIS is the date used to order this view. It is the only date that we can be sure is relevant/provided.</li>
 		<li>Hidden text needs amending for better explanation of links. Story <a href="https://dwpdigital.atlassian.net/browse/CITI-22227">Case Reviewer: Customer History Hidden Text</a></li>
 		<li>Sort order should be action requests then measures so that measures appears at the top of the timeline (Fixed in thi story: <a href="https://dwpdigital.atlassian.net/browse/CITI-22818">Case Reviewer: History Sort Order</a>)</li>
 		<li>As a Business support should have access to note in both BS and review journeys</li>
 		<li>As a case reviewer Add statuses to "live incidents" </li>
 		<li>As a case reviewer display time</li>
+		<li>The <a href="04history_complex_empty">empty history</a> message is currently "No incidents to display" which is incorrect. In this case, the "They are in date and time order..." paragraph is also removed.</li>
 
 	</ul>
 <h4 class="govuk-heading-s">Hypotheses and insights</h3>

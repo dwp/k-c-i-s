@@ -20,7 +20,7 @@
   </section>
 {% endblock %}
 {% block content %}
-  {% include "./templates/govuk-caption-m-mike.njk" %}
+  {% include "./templates/govuk-caption-m-whitney.njk" %}
   <h1 class="govuk-heading-xl">Check your answers</h1>
   <div class="govuk-!-margin-bottom-9">
     {{ govukSummaryList({
@@ -151,8 +151,8 @@
       <div class="govuk-button-group">
         {{ govukButton(
             {
-              text: "Record actions and measures",
-              href: "12confirmation"
+              text: "Add actions and measures. Close decision",
+              href: "19confirmation"
             }
           )
         }}
@@ -160,6 +160,6 @@
     </div>
   </div>
   {% if not (checked("displaymode", "presentation") == "checked") %}
-		{% include "./notes/11check__notes.njk" %}
+		{% include "./notes/18check__notes.njk" %}
 	{% endif %}
 {% endblock %}

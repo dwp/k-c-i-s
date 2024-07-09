@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+{% block pageTitle %}
+  Add information - Keep Customer Interactions Safe
+{% endblock %}
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+      text: "beta"
+    },
+      html: 'This is a new service – your <a class="govuk-link" href="10actionerror">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "./templates/key_details_robert_blue.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
+  </section>
+{% endblock %}
+{% block content %}
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+          {% include "./templates/govuk-caption-m-whitney_june.njk" %}
+          <h1 class="govuk-heading-xl">Add information</h1>
+          <p class="govuk-body">Enter the required information as soon as possible so that a decision can be made about the customer.</p>
+          <p class="govuk-body">You can refer to the <a href="i03incident_best_simple_info">original report and your comments and recommendations</a>.</p>
+          {{ govukSummaryList({
+            rows: [
+
+              {
+                key: {
+                  text: "From"
+                },
+                value: {
+                  text: "Sartaq Assam (KCIS)"
+                }
+              },
+              {
+                key: {
+                  text: "Message"
+                },
+                value: {
+                  text: "What were the exact words used?"
+                }
+              }
+            ]
+          }) }}
+          {{ govukTextarea({
+            name: "info-reply",
+            id: "info-reply",
+            value: data['info-reply'],
+            label: {
+              text: "Your reply",
+              classes: "govuk-label--s"
+            }
+          }) }}
+          <div class="govuk-button-group">
+            {{ govukButton({
+              text: "Send",
+              href: "01landingpage2_manager"
+            }) }}
+          </div>
+    </div>
+  </div>
+	{% if not (checked("displaymode", "presentation") == "checked") %}
+		{% include "./notes/i02moreinfo__notes.njk" %}
+	{% endif %}
+{% endblock %}

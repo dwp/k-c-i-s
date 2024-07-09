@@ -1,0 +1,137 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Decision - Keep Customer Interactions Safe
+{% endblock %}
+
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+      text: "beta"
+    },
+      html: 'This is a new service – your <a class="govuk-link" href="08discrimination_error">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "./templates/key_details_robert_blue.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
+  </section>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <style>
+        h1 {
+            margin-block-start: 0em;
+        }
+      </style>
+      <h1 class="govuk-heading-xl">Decision</h1>
+      {{ govukSummaryList({
+            rows: [
+              {
+                key: {
+                  text: "Incident date"
+                },
+                value: {
+                  text: "7 July 2023"
+                }
+              },
+              {
+                key: {
+                  text: "Decision date"
+                },
+                value: {
+                  text: "8 July 2023"
+                }
+              },
+              {
+                key: {
+                  text: "From"
+                },
+                value: {
+                  text: "Sadiq Assam (KCIS)"
+                }
+              },
+              {
+                key: {
+                  text: "Comments"
+                },
+                value: {
+                  text: "I have emailed you the appropriate letter to be sent to the customer. Please personalise to yourself and your office and send. Can you record the date you sent it and the expected delivery date. Also, could you interview the customer following their receipt and let me know how they respond. Both these actions should be available from your 'My reports' page in KCIS  "
+                }
+              }
+            ]
+          }) }}
+
+    <p class="govuk-body">You can refer to <a href="d03incident_best_simple_info">the original report and your comments and recommendations</a>.</p>
+      <h2 class="govuk-heading-l">Measures applied</h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>Interim ban from office (by DWP)<br>Banned from: Bromley JCP</li>
+        <li>Ban from office (by Government Legal Department)<br>Banned from: Droitwich JCP</li>
+        <li>Court order (injunction or interdict) in place<br>Refer to GLD</li>
+        <li>Must only interact with a named member of staff<br>Staff member: whitney@dwp.gov.uk</li>
+      </ul>
+      <p class="govuk-body">No other KCIS reports held and nothing of this nature in the UC journal. Clmt’s language was of a racist nature and colleague was intimidated in the exchange. Warning letter issued (site to post). Evidence to suggest clmt presents a risk to staff of ethnic background/heritage.  </p>
+      <h2 class="govuk-heading-l">Actions required</h2>
+      <div class="govuk-!-padding-bottom-9">
+        <h3 class="govuk-heading-m">Actions for you </h3>
+        <p class="govuk-body">These actions are all listed on your Home page. When you go back to the Home page, click each action and enter the required information.</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>Send letter<br>
+ 
+              Please send this letter attached</li>
+              <ul class="govuk-list">
+                <li>v3 20240323 interim ban.doc</li>
+              </ul>
+
+          <li>Interview by a manager</li>
+        </ul>
+        <h3 class="govuk-heading-m">Actions for other people</h3>
+        <p class="govuk-body">These actions will be carried out by someone else:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>Request solicitor to send a letter</li>
+        </ul>
+      </div>
+      <section aria-label="Files attached to action request" role="region">
+        <div class="govuk-!-padding-bottom-9">
+            <h3 class="govuk-heading-m" id="attached">Uploaded letter</h3>
+            {{ govukTable({
+              captionClasses: "govuk-table__caption--l",
+              head: [
+                {
+                  text: "File name"
+                },
+                {
+                  text: "Action"
+                }
+              ],
+              rows: [
+                [
+                  {
+                    html: "<span class='govuk-visually-hidden'>File name: </span>v3 20240323 interim ban.doc"
+                  },
+                  {
+                    html: "<a href='/public/images/screen_shot.png' role='button' draggable='false' class='govuk-button govuk-button--secondary ' data-module='govuk-button' download>Download file<span class='govuk-visually-hidden'>ESA50.pdf</span></a>"
+                  }
+                ]
+              ]
+            }) }}
+        </div>
+      </section>      
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Back to Home page",
+          href: "01landingpage2_manager"
+        }) }}
+      </div>
+    </div>
+  </div>
+	{% if not (checked("displaymode", "presentation") == "checked") %}
+		{% include "./notes/d02decision__notes.njk" %}
+	{% endif %}
+{% endblock %}

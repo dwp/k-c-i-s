@@ -9,3 +9,42 @@
 <a href="/public/images/user-flows/make_decision_v9_dm_concern.png"><img src="/public/images/user-flows/make_decision_v9_dm_concern.png" width="100%"></a>
 <a href="/public/images/user-flows/make_decision_v9_dm_review.png"><img src="/public/images/user-flows/make_decision_v9_dm_review.png" width="100%"></a>
 <a href="/public/images/user-flows/make_decision_v9_bs_incident.png"><img src="/public/images/user-flows/make_decision_v9_bs_incident.png" width="100%"></a>
+<form class="form" action="#" method="post">
+  {{ govukRadios({
+    idPrefix: "v9decision",
+    name: "v9decision",
+    fieldset: {
+      legend: {
+        html: "Which routing do you want to use?",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+    items: [
+      {
+        value: "single",
+        text: "Single",
+        hint: {
+          text: "Showing the routing for a single report"
+        },
+        checked: checked("v9decision", "single")
+      },
+      {
+        value: "multi",
+        text: "Multi",
+        hint: {
+          text: "Showing the routing for a multiple reports"
+        },
+        checked: checked("v9decision", "multi")
+      }
+    ],
+    hint: {
+      html: currentMode
+    }
+  }) }}
+  <div>
+    {{ govukButton({
+      text: "Apply now"
+    }) }}
+  </div>
+</form>

@@ -15,7 +15,7 @@
   <section aria-label="Back" role="region">
     {{ govukBackLink({
       text: "Back",
-      href: "02history_complex"
+      href: "#"
     }) }}
   </section>
 {% endblock %}
@@ -32,7 +32,7 @@
         ]
       }) }}
       {% include "./templates/govuk-caption-m-mike.njk" %}
-        {{ govukRadios({
+      {{ govukRadios({
         idPrefix: "incident-type",
         name: "incident-type",
         fieldset: {
@@ -42,30 +42,41 @@
             classes: "govuk-fieldset__legend--xl"
           }
         },
-        items: [
-          {
-            value: "payment",
-            text: "An issue with payment: for example, the customer believes they're entitled to more money"
-          },
+          items: [
+             {
+               value: "payment",
+               text: "An issue with payment",
+               hint: {
+                 text: "For example, the customer believes they're entitled to more money"
+               }
+             },
+
           {
             value: "service",
-            text: "An issue with the service DWP provides: for example, the customer complained about long waiting times"
+            text: "An issue with the service DWP provides",
+            hint: {
+              text: "For example, the customer complained about long waiting times"
+            }
           },
-          {
-            value: "policy",
-            text: "An issue with DWP policy: for example, the customer was asked to leave when they became abusive"
-          },
+
           {
             value: "dwperror",
             text: "An error in DWP process or an error made by staff"
           },
+
+          {
+            value: "policy",
+            text: "Customer did not accept rules of entry or rules of conduct"
+
+          },
+
           {
             value: "intoxication",
-            text: "Customer was under the influence of alcohol or drugs"
+            text: "Customer appeared to be under the influence of alcohol or drugs"
           },
           {
             value: "health",
-            text: "Customer had a physical or mental health condition"
+            text: "Customer appeared to have a physical or mental health condition"
           },
           {
             value: "target",
@@ -74,10 +85,6 @@
           {
             value: "Other",
             text: "Other"
-          },
-          {
-            value: "Unsure",
-            text: "Not enough information in the report to say what caused the incident"
           }
         ],
         errorMessage: {
@@ -87,12 +94,12 @@
       <div class="govuk-button-group">
         {{ govukButton({
           text: "Continue",
-          href: "05actions"
+          href: "09actions"
         }) }}
       </div>
     </div>
   </div>
   {% if not (checked("displaymode", "presentation") == "checked") %}
-		{% include "./notes/04trigger__notes.njk" %}
+		{% include "./notes/08trigger__notes.njk" %}
 	{% endif %}
 {% endblock %}

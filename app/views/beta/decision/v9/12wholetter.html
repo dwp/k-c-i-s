@@ -47,12 +47,12 @@
       <div>
         {{ govukButton({
           text: "Continue",
-          href: "06measure"
+          href: "13prepare_single_man"
         }) }}
       </div>
     </div>
   </div>
 	{% if not (checked("displaymode", "presentation") == "checked") %}
-		{% include "./notes/05d_wholetter.njk" %}
+		{% include "./notes/12wholetter.njk" %}
 	{% endif %}
 {% endblock %}

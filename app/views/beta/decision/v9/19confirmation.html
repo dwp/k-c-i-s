@@ -25,7 +25,7 @@
       </div>
       {% endset %}
       {{ govukPanel({
-        titleText: "We've recorded your actions and measures",
+        titleText: "We've published your decision",
         html: refHTML,
         id: "panel",
         name: "panel"
@@ -40,12 +40,19 @@
       </p>
     </div>
   </div>
-  {{ govukButton({
-    text: "Return to start",
-    classes: "govuk-button--primary",
-    href: "01landingpage1_blank"
-  }) }}
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Check customer history",
+      href: "02history_complex_multiple2"
+    }) }}
+    
+    {{ govukButton({
+      text: "Return to Your reports",
+      classes: "govuk-button--secondary",
+      href: "01landingpage1_blank"
+    }) }}
+  </div>
   {% if not (checked("displaymode", "presentation") == "checked") %}
-		{% include "./notes/12confirmation__notes.njk" %}
+		{% include "./notes/19confirmation__notes.njk" %}
 	{% endif %}
 {% endblock %}

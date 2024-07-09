@@ -48,6 +48,13 @@
 			</div>
 		</div>
 		<div class="govuk-grid-column-one-third">
+			<style>
+				@media (min-width: 40.0625em) {
+					hr {
+						margin:0px !important;
+					}
+				}
+			</style>
 			<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" aria-hidden="true">
 			{{ govukSummaryList({
 				rows: [
@@ -69,59 +76,60 @@
 		<div class="govuk-grid-column-two-thirds">
 			<ol class="dwp-timeline__events">
 				<li class="dwp-timeline__events--entry">
-					<h2 class="govuk-heading-s govuk-!-margin-bottom-1"> <strong class="govuk-tag">Decision pending</strong><br>Telephone incident</h2>
-					<p class="govuk-!-margin-bottom-1 govuk-hint">24 June 2024 at 3:00pm</p>
-					<p class="govuk-caption-m"><a href="h_02incident_best_simple_walk"><span class="govuk-visually-hidden"></span>Reported by Whitney Earl at 4:07pm </a></p>
+					<h2 class="govuk-heading-s govuk-!-margin-bottom-0"> <strong class="govuk-tag govuk-tag--green">Prepared</strong><br>
+						<a href="">Telephone incident</a></h2>
+					<p class="govuk-!-margin-bottom-0">24 June 2024 at 3:00pm</p>
+					<p class="govuk-body-s" style='color:#505a5f'>Reported by Whitney Earl, 24 June 2024 at 4:07pm </p>
 				</li>
 				<li class="dwp-timeline__events--entry">
-					<h2 class="govuk-heading-s govuk-!-margin-bottom-1">Incident <strong class="govuk-tag">Decision pending</strong></h2>
-					<p class="govuk-!-margin-bottom-1 govuk-hint">18 October 2023 at 3:30pm</p>
-					<p class="govuk-caption-m"><a href="#"><span class="govuk-visually-hidden">Incident. </span>Ted Lady: Telephone</a></p>
+					<h2 class="govuk-heading-s govuk-!-margin-bottom-0"> <strong class="govuk-tag">Decision pending</strong><br>
+						<a href="">Telephone incident</a></h2>
+					<p class="govuk-!-margin-bottom-0">1 March 2024 at 1:27pm</p>
+					<p class="govuk-body-s" style='color:#505a5f'>Reported by Ted Lady, 18 October 2024 at 3:57pm </p>
 				</li>
 				<li class="dwp-timeline__events--entry">
-					<h2 class="govuk-heading-s govuk-!-margin-bottom-1">Concern <strong class="govuk-tag">Decision pending</strong> Prepared</h2>
-					<p class="govuk-!-margin-bottom-1 govuk-hint">18 October 2023 (report date)</p>
-					<p class="govuk-caption-m"><a href="#"><span class="govuk-visually-hidden">Concern. </span>Teleperformance</a></p>
+					<h2 class="govuk-heading-s govuk-!-margin-bottom-0"> <strong class="govuk-tag">Decision pending</strong><br>
+						<a href="">Concern</a></h2>
+						<p class="govuk-!-margin-bottom-0">18 October 2023</p>
+					<p class="govuk-caption-m govuk-body-s" style='color:#505a5f'>Reported by Teleperformance</a></p>
 				</li>
 				<li class="dwp-timeline__events--entry">
-					<h2 class="govuk-heading-s govuk-!-margin-bottom-1">Action</h2>
-					<p class="govuk-!-margin-bottom-1 govuk-hint">3 March 2023</p>
-					<p class="govuk-caption-m"><a href="h_05action_single"><span class="govuk-visually-hidden">Action. </span>Issue a verbal warning</a></p>
+					<h2 class="govuk-heading-s govuk-!-margin-bottom-0"><a href="">No Verbal warning</a></h2>
+					<p class="govuk-!-margin-bottom-0 govuk-hint">3 March 2023</p>
+					<p class="govuk-caption-m"><a href="h_05action_single"><span class="govuk-visually-hidden">Action. </span></a></p>
 				</li>
 				<li class="dwp-timeline__events--entry">
-					<h2 class="govuk-heading-s govuk-!-margin-bottom-1">Measures <strong class="govuk-tag govuk-tag--red">active</strong></h2>
-					<p class="govuk-!-margin-bottom-1 govuk-hint">30 May 2022</p>
-					<p class="govuk-caption-m"><a href="h_04measures_none_notactive_walk"><span class="govuk-visually-hidden">Measures (not active).</span>None</a></p>
+					<h2 class="govuk-heading-s govuk-!-margin-bottom-0">Measures <strong class="govuk-tag govuk-tag--red">active</strong></h2>
+					<p class="govuk-!-margin-bottom-0 govuk-hint">30 May 2022</p>
+					<p class="govuk-caption-m"><a href="h_04measures_none_notactive_walk"><span class="govuk-visually-hidden">Measures</span>Must be seen in a screened environment</a></p>
 				</li>
 				<li class="dwp-timeline__events--entry">
-					<h2 class="govuk-heading-s govuk-!-margin-bottom-1">Action request</h2>
-					<p class="govuk-!-margin-bottom-1 govuk-hint">30 May 2022</p>
+					<h2 class="govuk-heading-s govuk-!-margin-bottom-0">Action request</h2>
+					<p class="govuk-!-margin-bottom-0 govuk-hint">30 May 2022</p>
 					<p class="govuk-caption-m"><a href="h_05action"><span class="govuk-visually-hidden">Action request. </span>Send a letter, Issue a verbal warning</a></p>
 				</li>
 				<li class="dwp-timeline__events--entry">
-					<h2 class="govuk-heading-s govuk-!-margin-bottom-1">Incident</h2>
-					<p class="govuk-!-margin-bottom-1 govuk-hint">30 May 2022 at 10:30am</p>
-					<p class="govuk-caption-m"><a href="#"><span class="govuk-visually-hidden">Incident. </span>Whitney Earl: Telephone</a></p>
+					<h2 class="govuk-heading-s govuk-!-margin-bottom-0"><a href="">In-person incident</a></h2>
+					<p class="govuk-!-margin-bottom-0">30 May 2022 at 10:30am</p>
+					<p class="govuk-body-s" style='color:#505a5f'>Reported by Whitney Earl, 24 June 2024 at 4:07pm </p>
 				</li>
 				<li class="dwp-timeline__events--entry">
-					<h2 class="govuk-heading-s govuk-!-margin-bottom-1">Note</h2>
-					<p class="govuk-!-margin-bottom-1 govuk-hint">5 March 2023</p>
-					<p class="govuk-caption-m"><a href="h_08note"><span class="govuk-visually-hidden">Note. </span>Sadiq Assam</a></p>
+					<h2 class="govuk-heading-s govuk-!-margin-bottom-0"><a href="">Note from Sadiq Assam</a></h2>
+					<p class="govuk-!-margin-bottom-0 govuk-hint">5 March 2023</p>
 				</li>
 				<li class="dwp-timeline__events--entry">
-					<h2 class="govuk-heading-s govuk-!-margin-bottom-1">Measures </h2>
-					<p class="govuk-!-margin-bottom-1 govuk-hint">1 June 2023</p>
-					<p class="govuk-caption-m"><a href="h_04measures_none"><span class="govuk-visually-hidden">Measures. </span>None</a></p>
+					<h2 class="govuk-heading-s govuk-!-margin-bottom-0"><a href="">No measures</a></h2>
+					<p class="govuk-!-margin-bottom-0 govuk-hint">1 June 2023</p>
 				</li>
 					<li class="dwp-timeline__events--entry">
-					<h2 class="govuk-heading-s govuk-!-margin-bottom-1">Measures (not active)</h2>
-					<p class="govuk-!-margin-bottom-1 govuk-hint">27 May 2023</p>
+					<h2 class="govuk-heading-s govuk-!-margin-bottom-0">Measures (not active)</h2>
+					<p class="govuk-!-margin-bottom-0 govuk-hint">27 May 2023</p>
 					<p class="govuk-caption-m"><a href="h_04measures_notactive"><span class="govuk-visually-hidden">Measures (not active). </span>Must be seen in a screened area, Must not be dealt with by phone</a></p>
 				</li>
 				<li class="dwp-timeline__events--entry">
-					<h2 class="govuk-heading-s govuk-!-margin-bottom-1">Concern </h2>
-					<p class="govuk-!-margin-bottom-1 govuk-hint">8 August 2022 (report date)</p>
-					<p class="govuk-caption-m"><a href="h_03concern_best"><span class="govuk-visually-hidden">Concern. </span>Centre for Health and Disability Assessments (CHDA)</a></p>
+					<h2 class="govuk-heading-s govuk-!-margin-bottom-0"><a href="">Concern</a> </h2>
+					<p class="govuk-!-margin-bottom-0 govuk-hint">8 August 2022</p>
+					<p class="govuk-caption-m govuk-body-s" style='color:#505a5f'>Reported by Centre for Health and Disability Assessments (CHDA)</a></p>
 				</li>
 			</ol>
 		</div>

@@ -15,7 +15,7 @@
   <section aria-label="Back" role="region">
     {{ govukBackLink({
       text: "Back",
-      href: "02history_complex"
+      href: "#"
     }) }}
   </section>
 {% endblock %}
@@ -23,17 +23,16 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       {% include "./templates/govuk-caption-m-mike.njk" %}
-      <h1 class="govuk-heading-xl">What was the main cause of this incident?</h1>
-        {{ govukRadios({
+      {{ govukRadios({
         idPrefix: "incident-type",
         name: "incident-type",
         fieldset: {
           legend: {
-            text: "Issues caused by DWP, or that customer believes were caused by DWP ",
-            classes: "govuk-fieldset__legend--m"
+            text: "What was the main cause of this incident?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--xl"
           }
         },
-
           items: [
              {
                value: "payment",
@@ -54,27 +53,14 @@
           {
             value: "dwperror",
             text: "An error in DWP process or an error made by staff"
-          }
-        ]
-      }) }}
-
-
-        {{ govukRadios({
-        idPrefix: "incident-type",
-        name: "incident-type",
-        fieldset: {
-          legend: {
-            text: "Issues caused by customer",
-            classes: "govuk-fieldset__legend--m"
-          }
-        },
-
-          items: [
+          },
 
           {
-            value: "conduct",
-            text: "Did not accept rules of entry or rules of conduct"
+            value: "policy",
+            text: "Customer did not accept rules of entry or rules of conduct"
+
           },
+
           {
             value: "intoxication",
             text: "Customer appeared to be under the influence of alcohol or drugs"
@@ -86,21 +72,7 @@
           {
             value: "target",
             text: "Customer targeted a specific member of staff"
-          }
-        ]
-      }) }}
-
-        {{ govukRadios({
-        idPrefix: "incident-type",
-        name: "incident-type",
-        fieldset: {
-          legend: {
-            text: "Other",
-            classes: "govuk-fieldset__legend--m"
-          }
-        },
-
-          items: [
+          },
           {
             value: "Other",
             text: "Other"
@@ -108,15 +80,16 @@
         ]
       }) }}
 
+
       <div class="govuk-button-group">
         {{ govukButton({
           text: "Continue",
-          href: "05actions"
+          href: "09actions"
         }) }}
       </div>
     </div>
   </div>
   {% if not (checked("displaymode", "presentation") == "checked") %}
-		{% include "./notes/04trigger__notes.njk" %}
+		{% include "./notes/08trigger__notes.njk" %}
 	{% endif %}
 {% endblock %}

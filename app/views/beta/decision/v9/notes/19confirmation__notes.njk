@@ -1,0 +1,37 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<hr>
+<br>
+<h3 class="govuk-heading-s govuk-!-font-weight-regular">NOT PART OF DESIGN: Demo only</h3>
+<h4 class="govuk-heading-s">Versions</h3>
+{% include "../../_versions/08confirmation__versions.njk" %}
+
+<h4 class="govuk-heading-s">States</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li><a href="19confirmation">Confirmation</a></li>
+		<li><a href="19confirmation_multi">Confirmation - multiple</a></li>
+	</ul>
+<h4 class="govuk-heading-s">v9 Design notes</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li>Prefix could be INC CON or REV <br>(numbers will be generated fror REV - adhoc review, with all numbers being unique)</li>
+		<li>Rename link to "Your reports"</li>
+		<li>Add link to "Customer history"</li>
+		<li>Change of content "We've published your decision"</li>
+	</ul>
+<h4 class="govuk-heading-s">Hypotheses</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li><a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132775346323/Agents+Safeguarding+-+User+Role+Model#decision_maker">Decision maker user canvas</a></li>
+		<ul class="govuk-list govuk-list--bullet">
+			<li>Insight: DMs like to check what their decision looks like on the Customer history</li>
+		</ul>
+	</ul>
+{% set journeyNotesHTMLDecision_v9 %}
+	{% include "beta/decision/notes/v9__notes.njk" %}
+{% endset %}
+{{ govukDetails({
+	summaryText: "v9 Journey level design notes",
+	html: journeyNotesHTMLDecision_v9
+}) }}	

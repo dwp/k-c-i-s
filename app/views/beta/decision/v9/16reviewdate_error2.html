@@ -1,0 +1,126 @@
+{% extends "layout.html" %}
+{% block pageTitle %}
+  Error: When should these measures be reviewed? - Keep Customer Interactions Safe
+{% endblock %}
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+      text: "beta"
+    },
+      html: 'This is a new service – your <a class="govuk-link" href="06when_error">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "./templates/key_details_red.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "#"
+    }) }}
+  </section>
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: [
+          {
+            text: "Tell us when these measures should be reviewed",
+            href: "#incident-date"
+          },
+          {
+            text: "Enter the review date",
+            href: "#incident-date"
+          },
+          {
+            text: "The review date must be in the future",
+            href: "#incident-date"
+          }
+        ]
+      }) }}
+      {% set dateHtml %}
+        {{ govukDateInput({
+          id: "incident-date",
+          namePrefix: "incident-date",
+          fieldset: {
+            legend: {
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          hint: {
+            text: "For example, 30 11 2021"
+          },
+          items: [
+            {
+              classes: "govuk-input--width-2 govuk-input--error",
+              name: "day"
+            },
+            {
+              classes: "govuk-input--width-2 govuk-input--error",
+              name: "month"
+            },
+            {
+              classes: "govuk-input--width-4 govuk-input--error",
+              name: "year"
+            }
+          ],
+          errorMessage: {
+            text: "Tell us when these measures should be reviewed"
+          }
+        }) }}
+      {% endset -%}
+      {% include "./templates/govuk-caption-m-whitney.njk" %}
+        {{ govukRadios({
+        idPrefix: "review",
+        name: "review",
+        fieldset: {
+          legend: {
+            text: "When should these measures be reviewed?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--xl"
+          }
+        },
+        items: [
+          {
+            value: "12months",
+            text: "In 12 months"
+          },
+          {
+            value: "6months",
+            text: "In 6 months"
+          },
+          {
+            value: "3months",
+            text: "In 3 months"
+          },
+          {
+            value: "2months",
+            text: "In 2 months"
+          },
+          {
+            value: "1month",
+            text: "In 1 month"
+          },
+          {
+            value: "other",
+            text: "Other",
+            conditional: {
+              html: dateHtml
+            },
+            checked: true
+          }
+        ]
+      }) }}
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Continue",
+          href: "18check"
+        }) }}
+      </div>
+    </div>
+  </div>
+  {% if not (checked("displaymode", "presentation") == "checked") %}
+		{% include "./notes/16reviewdate__notes.njk" %}
+	{% endif %}	
+{% endblock %}

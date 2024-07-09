@@ -62,12 +62,12 @@ Error: Do you want to upload the letter to be sent? - Keep Customer Interactions
       <div>
         {{ govukButton({
           text: "Continue",
-          href: "05c_upload"
+          href: "11upload"
         }) }}
       </div>
     </div>
   </div>
 	{% if not (checked("displaymode", "presentation") == "checked") %}
-		{% include "./notes/05b_add.njk" %}
+		{% include "./notes/10add.njk" %}
 	{% endif %}
 {% endblock %}

@@ -1,0 +1,48 @@
+
+{% extends "layout.html" %}
+{% block pageTitle %}
+  Customer history - Keep Customer Interactions Safe
+{% endblock %}
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+      text: "beta"
+    },
+      html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "./templates/key_details_ann.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back to Searchlight home",
+      href: "#"
+    }) }}
+  </section>
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+			<h1 class="govuk-heading-xl">Customer history</h1>
+		</div>
+	</div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+			<p>This page shows all incidents and safety concerns reported about this customer's behaviour, and any actions taken and measures applied as a result. </p>
+      <div class="govuk-button-group">
+		</div>
+		</div>
+		<div class="govuk-grid-column-one-third">
+
+		</div>
+	</div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+			<p>No history available.</p>
+		</div>
+	</div>
+
+	{% if not (checked("displaymode", "presentation") == "checked") %}
+	{% include "./notes/04history__notes.njk" %}
+	{% endif %}
+{% endblock %}

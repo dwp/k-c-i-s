@@ -1,0 +1,184 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Which measures have you applied to make interactions with this customer safer? - Keep Customer Interactions Safe
+{% endblock %}
+
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+      text: "beta"
+    },
+      html: 'This is a new service – your <a class="govuk-link" href="08discrimination_error">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "./templates/key_details_red.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "04actions"
+    }) }}
+  </section>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <!-- remove gap for caption -->
+      <style> h1 { margin-top: 0px}</style>
+      {% include "./templates/govuk-caption-m-whitney.njk" %}
+      <h1 class="govuk-fieldset__legend--xl">Which measures have you applied to make interactions with this customer safer?</h1>
+      <p>This customer has the following active measures:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>No home visits</li>
+        <li>Must only interact with a named member of staff<br>Staff member: whitney@dwp.gov</li>
+      </ul>
+
+      <p class="govuk-hint">Select all that apply.  If you do not select any measures all active measures will be removed.</p>
+      {% set orderHtml %}
+        {{ govukInput({
+          id: "order",
+          name: "order",
+          label: {
+            text: "Details of injunction or interdict"
+          },
+          hint: {
+            text: "Enter all information staff need to keep interactions safe"
+          }
+        }) }}
+      {% endset %}
+      {% set banHtml %}
+        {{ govukInput({
+          id: "ban_loc",
+          name: "ban_loc",
+          label: {
+            text: "Locations the customer will be banned from"
+          }
+        }) }}
+      {% endset %}
+      {% set interimHtml %}
+        {{ govukInput({
+          id: "interim",
+          name: "interim",
+          label: {
+            text: "Locations the customer will be banned from"
+          }
+        }) }}
+      {% endset %}
+      {% set namedHtml %}
+        {{ govukInput({
+          id: "email",
+          name: "email",
+          label: {
+            text: "Their email address"
+          },
+          hint: {
+            text: "Enter their email address as it appears on the Global Address List"
+          }
+        }) }}
+      {% endset %}
+      {{ govukCheckboxes({
+        idPrefix: "applymeasures1",
+        name: "applymeasures1",
+        fieldset: {
+          legend: {
+            text: "Location",
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "accompaniedvisits",
+            text: "Home visits must be carried out by two members of staff"
+          },
+          {
+            value: "accompaniedinterviews",
+            text: "Must be interviewed by two members of staff"
+          },
+          {
+            value: "banned-dwp",
+            text: "Interim ban from office (by DWP)",
+            conditional: {
+              html: interimHtml
+            }
+          },
+          {
+            value: "banned-gld",
+            text: "Ban from office (by Government Legal Department)",
+            conditional: {
+              html: banHtml
+            }
+          },
+          {
+            value: "screened",
+            text: "Must be seen in a screened area"
+          },
+          {
+            value: "nohomevisits",
+            text: "No home visits"
+          },
+          {
+            value: "injunction",
+            text: "Court order (injunction or interdict) in place",
+            conditional: {
+              html: orderHtml
+            }
+          }
+        ]
+      }) }}
+      {{ govukCheckboxes({
+        idPrefix: "applymeasures2",
+        name: "applymeasures2",
+        fieldset: {
+          legend: {
+            text: "Communications",
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "phone",
+            text: "Must not be dealt with by phone"
+          }
+        ]
+      }) }}
+      {{ govukCheckboxes({
+        idPrefix: "applymeasures3",
+        name: "applymeasures3",
+        fieldset: {
+          legend: {
+            text: "Personnel",
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "female",
+            text: "Must only interact with female staff members"
+          },
+          {
+            value: "male",
+            text: "Must only interact with male staff members"
+          },
+          {
+            value: "named",
+            text: "Must only interact with a named member of staff",
+            conditional: {
+              html: namedHtml
+            }
+          }
+        ]
+      }) }}
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Continue",
+          href: "15measureaccount"
+        }) }}
+      </div>
+    </div>
+  </div>
+  {% if not (checked("displaymode", "presentation") == "checked") %}
+		{% include "./notes/14measures__notes.njk" %}
+	{% endif %}
+{% endblock %}

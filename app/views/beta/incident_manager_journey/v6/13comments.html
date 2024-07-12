@@ -92,12 +92,12 @@
       <div class="govuk-button-group">
         {{ govukButton({
           text: "Continue",
-          href: "12check-simple"
+          href: "14check-simple"
         }) }}
       </div>
     </div>
   </div>
 	{% if not (checked("displaymode", "presentation") == "checked") %}
-		{% include "./notes/11comments__notes.njk" %}
+		{% include "./notes/13comments__notes.njk" %}
 	{% endif %}	
 {% endblock %}

@@ -15,7 +15,7 @@
 	<a href="a02action_letter_deliver">2. Take action - letter attached</a><br>
 	<a href="a02action_letter_error">3. Error: Take action </a><br>
 </ul>
-<h4 class="govuk-heading-s">v5 Design notes</h3>
+<h4 class="govuk-heading-s">v6 Design notes</h3>
 	<ul class="govuk-list govuk-list--bullet">
 		<li>Story <a href="https://dwpdigital.atlassian.net/browse/CITI-25658">Attach Letter to Action Request3 - Deliver to Manager</a></li>
 		<li>Confirmation that manager has taken action is via the item being removed from the to do list</li>
@@ -31,9 +31,9 @@
 		</ul>
 	</ul>
 {% set journeyNotesHTMLincidentreport %}
-	{% include "beta/incident_manager_journey/notes/v5__notes.njk" %}
+	{% include "beta/incident_manager_journey/notes/v6__notes.njk" %}
 {% endset %}
 {{ govukDetails({
-	summaryText: "v5 Journey level design notes",
+	summaryText: "v6 Journey level design notes",
 	html: journeyNotesHTMLincidentreport
 }) }}	

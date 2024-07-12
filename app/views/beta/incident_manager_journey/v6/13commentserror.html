@@ -111,14 +111,12 @@
       <div class="govuk-button-group">
         {{ govukButton({
           text: "Continue",
-          href: "12check-simple"
+          href: "14check-simple"
         }) }}
       </div>
     </div>
   </div>
-<hr>
-NOT PART OF DESIGN: Demo only<br>
-<a href="11comments">1. Comments</a><br>
-<a href="11commentserror">2. Error: Tell us</a><br>
-<hr>  
+	{% if not (checked("displaymode", "presentation") == "checked") %}
+		{% include "./notes/13comments__notes.njk" %}
+	{% endif %}	
 {% endblock %}

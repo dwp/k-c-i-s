@@ -7,16 +7,17 @@
 <br>
 <h3 class="govuk-heading-s govuk-!-font-weight-regular">NOT PART OF DESIGN: Demo only</h3>
 <h4 class="govuk-heading-s">Versions</h3>
-{% include "beta/incident_manager_journey/_versions/09police__versions.njk" %}
+{% include "beta/incident_manager_journey/_versions/12check__versions.njk" %}
 
 <h4 class="govuk-heading-s">States</h3>
 <ul class="govuk-list govuk-list--bullet">
-<a href="09police">1. Call police?</a><br>
-<a href="09policeerror">2. Error: Select yes</a><br>
+<a href="14check-simple">1. Simple</a><br>
+<a href="14check">2. Complex</a><br>
+<a href="14check-completed-witnesses">3. Completed witnesses</a><br>
 </ul>
-<h4 class="govuk-heading-s">v5 Design notes</h3>
+<h4 class="govuk-heading-s">v6 Design notes</h3>
 	<ul class="govuk-list govuk-list--bullet">
-		<li>No change</li>
+		<li>Added location set in <a href="09location">location page</a></li>
 	</ul>
 <h4 class="govuk-heading-s">Hypotheses and insights</h3>
 	<ul class="govuk-list govuk-list--bullet">
@@ -26,9 +27,9 @@
 		</ul>
 	</ul>
 {% set journeyNotesHTMLincidentreport %}
-	{% include "beta/incident_manager_journey/notes/v5__notes.njk" %}
+	{% include "beta/incident_manager_journey/notes/v6__notes.njk" %}
 {% endset %}
 {{ govukDetails({
-	summaryText: "v5 Journey level design notes",
+	summaryText: "v6 Journey level design notes",
 	html: journeyNotesHTMLincidentreport
 }) }}	

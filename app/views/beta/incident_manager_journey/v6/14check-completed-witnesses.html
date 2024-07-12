@@ -51,27 +51,11 @@
           {
             html: "Report complete"
           }
-        ],
-        [
-          {
-            html: "<span class='govuk-visually-hidden'>Witness name: </span>Ted Lady"
-          },
-          {
-            html: "Request sent to ted@dwp.gov.uk"
-          }
-        ],
-        [
-          {
-            html: "<span class='govuk-visually-hidden'>Witness name: </span>Sartaq Assam"
-          },
-          {
-            html: "Request sent to whitney@dwp.gov.uk"
-          }
         ]
       ]
     }) }}
     {{ govukWarningText({
-      html: "<p class='govuk-hint'>Before you complete your review, all witnessess should submit a witness report, and you should review them all. If you cannot do this before the review is due, explain this in your comments.</p>",
+      html: "<p class='govuk-hint'>Before you complete your review, all witnessess should submit a witness report, and you should review them all.</p>",
       iconFallbackText: "Warning"
     }) }}
   {% endset %}
@@ -165,7 +149,7 @@
             {{ govukButton(
                 {
                   text: "Submit",
-                  href: "13confirmation"
+                  href: "15confirmation"
                 }
               )
             }}
@@ -176,6 +160,7 @@
   </div>
 
 	{% if not (checked("displaymode", "presentation") == "checked") %}
-		{% include "./notes/12check__notes.njk" %}
+  {% include "./notes/14check__notes.njk" %}
 	{% endif %}	
+
 {% endblock %}

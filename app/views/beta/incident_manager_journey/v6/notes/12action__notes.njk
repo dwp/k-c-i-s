@@ -7,14 +7,14 @@
 <br>
 <h3 class="govuk-heading-s govuk-!-font-weight-regular">NOT PART OF DESIGN: Demo only</h3>
 <h4 class="govuk-heading-s">Versions</h3>
-{% include "beta/incident_manager_journey/_versions/11comments__versions.njk" %}
+{% include "beta/incident_manager_journey/_versions/10action__versions.njk" %}
 
 <h4 class="govuk-heading-s">States</h3>
 <ul class="govuk-list govuk-list--bullet">
-<a href="11comments">1. Comments</a><br>
-<a href="11commentserror">2. Error: Tell us</a><br>
+<a href="12action">1. Police action</a><br>
+<a href="12actionerror">2. Error: Tell us</a><br>
 </ul>
-<h4 class="govuk-heading-s">v5 Design notes</h3>
+<h4 class="govuk-heading-s">v6 Design notes</h3>
 	<ul class="govuk-list govuk-list--bullet">
 		<li>No change</li>
 	</ul>
@@ -26,9 +26,9 @@
 		</ul>
 	</ul>
 {% set journeyNotesHTMLincidentreport %}
-	{% include "beta/incident_manager_journey/notes/v5__notes.njk" %}
+	{% include "beta/incident_manager_journey/notes/v6__notes.njk" %}
 {% endset %}
 {{ govukDetails({
-	summaryText: "v5 Journey level design notes",
+	summaryText: "v6 Journey level design notes",
 	html: journeyNotesHTMLincidentreport
 }) }}	

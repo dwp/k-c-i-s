@@ -12,10 +12,16 @@
 <h4 class="govuk-heading-s">States</h3>
 <ul class="govuk-list govuk-list--bullet">
 <a href="09location">1. Location</a><br>
+<a href="09location_error">2. Error: Location</a><br>
 </ul>
 <h4 class="govuk-heading-s">v6 Design notes</h3>
 	<ul class="govuk-list govuk-list--bullet">
-		<li>New location page - autocomplete</li>
+		<li>New location page</li>
+		<li>Reference data for autocomplete (3.5k locations)</li>
+		<li>Use names and aliases as separate items to give same location code (5k lookups)</li>
+		<li>There is a dropdown for fallback if JavaSCRIPT is disabled</li>
+		<li>Select "Not found" to indicate not found - This is simpler than creating a radio button conditional reveal - needs testing</li>
+		<li>Value appears in <a href="14check-simple">check your answers</a></li>
 	</ul>
 <h4 class="govuk-heading-s">Hypotheses and insights</h3>
 	<ul class="govuk-list govuk-list--bullet">

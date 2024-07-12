@@ -51,6 +51,23 @@
         },
         {
           key: {
+            text: "Incident location"
+          },
+          value: {
+            text: "Location not available"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "Incident location"
+              }
+            ]
+          }
+        },
+        {
+          key: {
             text: "Did anyone call the police?"
           },
           value: {
@@ -95,7 +112,7 @@
         {{ govukButton(
             {
               text: "Submit",
-              href: "13confirmation"
+              href: "15confirmation"
             }
           )
         }}
@@ -103,6 +120,6 @@
     </div>
   </div>
 	{% if not (checked("displaymode", "presentation") == "checked") %}
-		{% include "./notes/12check__notes.njk" %}
+  {% include "./notes/14check__notes.njk" %}
 	{% endif %}	
 {% endblock %}

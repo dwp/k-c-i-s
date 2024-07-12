@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block pageTitle %}
-  Tell us where the incident happened - Keep Customer Interactions Safe
+  Error: Tell us where the incident happened - Keep Customer Interactions Safe
 {% endblock %}
 {% block beforeContent %}
   <section aria-label="Phase banner" role="region">
@@ -22,6 +22,15 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: [
+          {
+            text: "Tell us the incident location or select 'Location not available'",
+            href: "#last-location"
+          }
+        ]
+      }) }}
       <link rel="stylesheet" href="/public/countryautocomplete/accessible-autocomplete.min.css">
       <style>
         /* Example page specific styling. */
@@ -54,6 +63,8 @@
         }
       </style>
       {% include "./templates/govuk-caption-m-whitney.njk" %}
+      <form action="09location.html" method="get">
+        <div class="govuk-form-group govuk-form-group--error"> 
 
       <h1 class="govuk-label-wrapper">
         <label class="govuk-label govuk-label--xl" for="last-location">
@@ -64,9 +75,11 @@
           <p class="govuk-hint">For example, 'Newcastle East Jobcentre' or 'Loxley House, Nottingham'</p>
           <p class="govuk-hint">If the location you need is not available, select 'Location not available'</p>
         </div>
-        <form action="09location.html" method="get">
-            <div class="autocomplete-wrapper">
-              <select name="last-location" id="last-location">
+        <p id="policeQuestion-error" class="govuk-error-message">
+          <span class="govuk-visually-hidden">Error:</span> Tell us the incident location or select 'Location not available'
+        </p>
+          <div class="autocomplete-wrapper">
+            <select name="last-location" id="last-location">
               <option value="territory:AE-AJ">Select a location</option>
               <option value="territory:AE-AJ">Aberdare Jobcentre</option>
               <option value="territory:AE-AJ">Aberdeen (DCA/TTS) </option>
@@ -85,7 +98,8 @@
               <option value="territory:AE-AZ">Not found</option>
             </select>
           </div>
-          <div class="govuk-button-group">
+        </div>          
+        <div class="govuk-button-group">
             {{ govukButton({
               text: "Continue",
               href: "10agentsource"
@@ -96,6 +110,7 @@
               href: "10agentsource"
             }) }}
           </div>
+      
         </form>
     </div>
   </div>

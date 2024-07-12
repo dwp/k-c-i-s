@@ -14,7 +14,7 @@
 <a href="07witness_report_simple">1. simple</a><br>
 <a href="07witness_report">2. Complex - On behalf</a> - includes if witness was entered by manager<br>
 </ul>
-<h4 class="govuk-heading-s">v5 Design notes</h3>
+<h4 class="govuk-heading-s">v6 Design notes</h3>
 	<ul class="govuk-list govuk-list--bullet">
 		<li>No change</li>
 	</ul>
@@ -27,9 +27,9 @@
 		</ul>
 	</ul>
 {% set journeyNotesHTMLincidentreport %}
-	{% include "beta/incident_manager_journey/notes/v5__notes.njk" %}
+	{% include "beta/incident_manager_journey/notes/v6__notes.njk" %}
 {% endset %}
 {{ govukDetails({
-	summaryText: "v5 Journey level design notes",
+	summaryText: "v6 Journey level design notes",
 	html: journeyNotesHTMLincidentreport
 }) }}	

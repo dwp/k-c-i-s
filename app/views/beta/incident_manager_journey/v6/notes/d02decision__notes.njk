@@ -16,7 +16,7 @@
 	<a href="d02decision_letter">3. View decision - letter attached</a><br>
 	<a href="d02decision_notactive">4. View decision - historic</a><br>
 </ul>
-<h4 class="govuk-heading-s">v5 Design notes</h3>
+<h4 class="govuk-heading-s">v6 Design notes</h3>
 	<ul class="govuk-list govuk-list--bullet">
 		<li>Story: <a href="https://dwpdigital.atlassian.net/browse/CITI-23738">Manager: Display Decision Ban Location</a></li>
 		<li>Added location/details for bans/interdict</li>
@@ -34,9 +34,9 @@
 		</ul>
 	</ul>
 {% set journeyNotesHTMLincidentreport %}
-	{% include "beta/incident_manager_journey/notes/v5__notes.njk" %}
+	{% include "beta/incident_manager_journey/notes/v6__notes.njk" %}
 {% endset %}
 {{ govukDetails({
-	summaryText: "v5 Journey level design notes",
+	summaryText: "v6 Journey level design notes",
 	html: journeyNotesHTMLincidentreport
 }) }}	

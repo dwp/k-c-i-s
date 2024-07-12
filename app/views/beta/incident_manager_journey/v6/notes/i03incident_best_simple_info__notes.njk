@@ -13,7 +13,7 @@
 <ul class="govuk-list govuk-list--bullet">
 	<a href="i03incident_best_simple_info">1. View incident</a><br>
 </ul>
-<h4 class="govuk-heading-s">v5 Design notes</h3>
+<h4 class="govuk-heading-s">v6 Design notes</h3>
 	<ul class="govuk-list govuk-list--bullet">
 		<li>No "resend email request" button</li>
 		<li>No "request further information" button</li>
@@ -28,9 +28,9 @@
 		</ul>
 	</ul>
 {% set journeyNotesHTMLincidentreport %}
-	{% include "beta/incident_manager_journey/notes/v5__notes.njk" %}
+	{% include "beta/incident_manager_journey/notes/v6__notes.njk" %}
 {% endset %}
 {{ govukDetails({
-	summaryText: "v5 Journey level design notes",
+	summaryText: "v6 Journey level design notes",
 	html: journeyNotesHTMLincidentreport
 }) }}	

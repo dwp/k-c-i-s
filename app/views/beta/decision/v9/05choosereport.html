@@ -42,6 +42,12 @@
         <span class='govuk-body-s' style='color:#505a5f'>Reported by Whitney Earl, 24 June at 4:07pm</span>
       </p>
       {% endset %}
+      {% set inc3HTML %}
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-0"> <strong class="govuk-tag">Decision pending</strong><br>
+          Concern</h2>
+          <p class="govuk-!-margin-bottom-0">23 June 2024 at 1:27pm</p>
+        <p class="govuk-caption-m govuk-body-s" style='color:#505a5f'>Reported by Teleperformance</a></p>
+      {% endset %}
       <form class="form" method="post" action="06fast">
         {% include "./templates/govuk-caption-m-multiple.njk" %}
         {{ govukRadios({
@@ -62,6 +68,10 @@
             {
               value: "incident1",
               html: inc1HTML
+            },
+            {
+              value: "incident3",
+              html: inc3HTML
             }
           ],
           hint: {

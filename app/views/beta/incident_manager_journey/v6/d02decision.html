@@ -98,12 +98,13 @@
             </h2>
         </div>
     </section>  
-      <div class="govuk-button-group">
-        {{ govukButton({
-          text: "Back to Home page",
-          href: "01landingpage2_manager"
-        }) }}
-      </div>
+      <form action="01landingpage2_manager">
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Back to Your reports"
+          }) }}
+        </div>
+      </form>
     </div>
   </div>
 	{% if not (checked("displaymode", "presentation") == "checked") %}

@@ -1,0 +1,120 @@
+{% extends "layout.html" %}
+<!-- Set active submenu item -->
+{% set menuItemOne = " aria-current=page" %}
+{% set subMenuItemOne = " app-subnav__section-item--current" %}
+
+{% block pageTitle %}
+Your reports - Keep Customer Interactions Safe
+{% endblock %}
+
+{% block beforeContent %}
+<section aria-label="Phase banner" role="region">
+
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{{ govukPhaseBanner({
+tag: {
+text: "beta"
+},
+html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+}) }}
+</section>
+<section aria-label="Back" role="region">
+
+{{ govukBackLink({
+text: "Back to Searchlight home",
+href: "00searchlight"
+}) }}
+</section>
+{% endblock %}
+
+{% block content %}
+
+
+<h1 class="govuk-heading-xl" id="page-title">Your reports</h1>
+<h2 class="govuk-heading-l">To do</h2>
+<div class="govuk-hint">
+  Each row in this table represents a report that needs action from you.
+
+</div>
+<div class="govuk-!-padding-bottom-7">
+  {{ govukTable({
+    firstCellIsHeader: true,
+
+    head: [
+      {
+        html: "Date"
+      },
+      {
+        text: "Customer"
+      },
+      {
+        text: "Original reporter"
+      },
+      {
+        text: "Witnesses"
+      },
+      {
+        text: "Action"
+      }
+    ],
+    rows: [
+      [
+        {
+          html: "<span class='govuk-visually-hidden'>Not applicable</span>-"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Customer: </span>Robert Da Silva"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Not applicable</span>-"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Not applicable</span>-"
+        },
+        {
+          html: "<a href='#' aria-label='for customer Robert Da Silva'>Send letter</a>"
+        }
+      ],    
+      [
+        {
+          html: "<span class='govuk-visually-hidden'>Date: </span>8 June 2022<br><span class='govuk-body-s' style='color:#505a5f'> at 9:50pm</span>"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Customer: </span>Robert Da Silva"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Original reporter: </span>Whitney Earl"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Witnesses. </span>Yes"
+        },
+        {
+          html: "<a href='#' aria-label='Review and comment on an incident on 8 June 2022 at 9:50pm'>Review and comment</a>"
+        }
+      ],
+      [
+        {
+          html: "<span class='govuk-visually-hidden'>Date: </span>3 June 2023<br><span class='govuk-body-s' style='color:#505a5f'> at 9:50am</span>"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Customer: </span>Robert Da Silva"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Original reporter: </span>Whitney Earl"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Witnesses. </span>None indicated"
+        },
+        {
+          html: "<a href='#' aria-label='View decision on an incident on 3 June 2023 at 9:20am'>View decision</a>"
+        }
+      ]      
+    ]
+  }) }}
+</div>
+{% include "./templates/instructions.njk" %}
+
+	{% if not (checked("displaymode", "presentation") == "checked") %}
+		{% include "./notes/01landingpage__notes.njk" %}
+	{% endif %} 
+{% endblock %}

@@ -1,4 +1,17 @@
 {% from "key-details-bar/macro.njk" import dwpKeyDetailsBar %}
+<style>
+.nocopy {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    }
+</style>      
+{% set ninoHTML %}
+QQ<span class="nocopy"> </span>12<span class="nocopy"> </span>34<span class="nocopy"> </span>56<span class="nocopy"> </span>X
+{% endset %}
 
 {{ dwpKeyDetailsBar({
     primaryIdentifier: {
@@ -8,7 +21,7 @@
 
     secondaryIdentifier: {
         text: 'National Insurance number:',
-        value: 'QQ 12 34 56 X'
+        value: ninoHTML
     },
     additionalData: [
         {

@@ -1,0 +1,96 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Home page collection - Keep Customer Interactions Safe
+{% endblock %}
+
+
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+		<h1 class="govuk-heading-xl">KCIS - Remove references to "Potentially Violent"</h1>
+      <h2 class="govuk-heading-l">Can we just replace the "add details" journey with one page?</h2>
+      <h3 class="govuk-heading-m">1</h3>
+		<img src="/public/images/common/searchlight_pv/v1/11.png" alt="11">
+      <p>Change "Add personal details" to "Add active measures status"</p>
+      <h3 class="govuk-heading-m">2</h3>
+      <p>Use this page design:</p>
+      <hr>
+      <h3 class="govuk-heading-m">Add an active measures status</h3>
+      <p>This customer has active measures</p>
+
+      <div class="govuk-button-group">
+         {{ govukButton({
+           text: "Submit"
+         }) }}
+         </div>
+         <hr>
+
+       <p>If not... do 1-4. </p>
+       <p>5. is required either way.</p>
+      <h2 class="govuk-heading-l">Adding PV marker</h2>
+      <h3 class="govuk-heading-m">1</h3>
+		<img src="/public/images/common/searchlight_pv/v1/11.png" alt="11">
+      <p>Change "Add personal details" to "Add active measures status"</p>
+      <h3 class="govuk-heading-m">2</h3>
+		<img src="/public/images/common/searchlight_pv/v1/12.png" alt="12">
+      <p>Change "Potentially violent status" to "Active measures status"</p>
+      <h3 class="govuk-heading-m">3</h3>
+		<img src="/public/images/common/searchlight_pv/v1/13.png" alt="13">
+      <p>Delete options "The person's partner" and "Someone else in the household". Leave only "The person"</p>
+      <p>(... or skip the page?)</p>
+      <h3 class="govuk-heading-m">4</h3>
+		<img src="/public/images/common/searchlight_pv/v1/14.png" alt="14">
+      <p>Change "Add a potentially violent status" to "Add active measures status"</p>
+      <p>Change "Who is potentially violent" to "Who has active measures?"</p>
+      <p>Change "This customer has been flagged as potentially violent." to "This customer has active measures."</p>
+      <h3 class="govuk-heading-m">5</h3>
+		<img src="/public/images/common/searchlight_pv/v1/15.png" alt="15">
+      <p>Change "Potentially violent status added" to "Active measures status added"</p>
+
+
+      <h2 class="govuk-heading-l">Removing the PV marker</h2>
+      <h2 class="govuk-heading-l">Can we just replace the "add details" journey with two pages?</h2>
+      <p>Note: this will remove MI if used</p>
+      <hr>
+      <h3 class="govuk-heading-m">Remove active measures status</h3>
+      <p>This person does not have active measures</p>
+
+      <div class="govuk-button-group">
+         {{ govukButton({
+           text: "Submit"
+         }) }}
+         </div>
+       <hr>
+       <p>If not... do 1-2. </p>
+       <p>3. is required either way.</p>
+      <h3 class="govuk-heading-m">1</h3>
+		<img src="/public/images/common/searchlight_pv/v1/21.png" alt="21">
+      <p>Skip page</p>
+      <h3 class="govuk-heading-m">2</h3>
+		<img src="/public/images/common/searchlight_pv/v1/22.png" alt="22">
+      <p>Change "Correct the potentially violent status" to "Correct the active measures status"</p>
+      <p>Change "Remove the potentially violent status" to "Remove the active measures status"</p>
+      <h3 class="govuk-heading-m">3</h3>
+		<img src="/public/images/common/searchlight_pv/v1/23.png" alt="23">      
+      <h3 class="govuk-heading-m">Variations of PV marker under Personal details</h3>
+		<img src="/public/images/common/searchlight_pv/v1/31.png" alt="31">     
+      <p>Change "This customer has been flagged as potentially violent." to "This customer has active measures."</p>
+      <p>Change "Change" to "Remove"</p>
+
+ 
+		<img src="/public/images/common/searchlight_pv/v1/32.png" alt="32">      
+      <p>Change (for legacy) "This customer's partner or another member of their household have been flagged as potentially violent" to  "This customer's partner or another member of their household has active measures"</p>
+		<img src="/public/images/common/searchlight_pv/v1/33.png" alt="33">      
+      <p>Change (for legacy) "This customer, their partner or another member of their household have been flagged as potentially violent" to  "This customer, their partner or another member of their household has active measures"</p>
+
+	</div>
+</div>
+
+
+   
+   {% if not (checked("displaymode", "presentation") == "checked") %}
+      {% include "./notes/00searchlight_pv__notes.njk" %}
+   {% endif %}
+{% endblock %}

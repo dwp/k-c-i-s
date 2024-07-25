@@ -1,0 +1,35 @@
+		<div class="govuk-width-container ">
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<hr>
+			<br>
+			<h3 class="govuk-heading-s govuk-!-font-weight-regular">NOT PART OF DESIGN: Demo only</h3>
+			<h4 class="govuk-heading-s">Versions</h3>
+			{% from "govuk/components/pagination/macro.njk" import govukPagination %}
+			{% include "../../_versions/00searchlight_pv__versions.njk" %}			
+			<h4 class="govuk-heading-s">States</h3>
+			<ul class="govuk-list govuk-list--bullet">
+					<li><a href="00searchlight_pv">1. Searchlight PV fragment</a></li>
+			</ul>
+			<h4 class="govuk-heading-s">v1 Design notes</h3>
+				<ul class="govuk-list govuk-list--bullet">
+					<li>Story: <a href="https://dwpdigital.atlassian.net/browse/CITI-19179">Access Safeguarding History Via Customer Profile</a></li>
+				</ul>
+			<h4 class="govuk-heading-s">Hypotheses</h3>
+			<ul class="govuk-list govuk-list--bullet">
+				<li><a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132775346323/Agents+Safeguarding+-+User+Role+Model#reporter">Reporter canvas</a></li>
+			</ul>
+			{% set journeyNotesHTML %}
+				{% include "beta/common/fragment/notes/v1__notes.njk" %}
+			{% endset %}
+			{% from "govuk/components/details/macro.njk" import govukDetails %}
+			{{ govukDetails({
+				summaryText: "v1 Journey level design notes",
+				html: journeyNotesHTML
+			}) }}						
+
+		</div>
+

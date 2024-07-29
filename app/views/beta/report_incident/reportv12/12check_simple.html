@@ -190,22 +190,23 @@
       </h2>
     </div>
   </div>
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      <h2 class="govuk-heading-m">Are you ready to submit your report?</h2>
-      <p class="govuk-body">If you need to change anything in your report, use the back link near the top of this page.</p>
-      <p class="govuk-body">When you click Submit, we will send your report to the appropriate manager to review.</p>
-      <p class="govuk-body govuk-!-font-weight-bold">You will not be able to change anything in your report after you click Submit.</p>
+  <form class="form" action="13confirm" method="post">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-m">Are you ready to submit your report?</h2>
+        <p class="govuk-body">If you need to change anything in your report, use the back link near the top of this page.</p>
+        <p class="govuk-body">When you click Submit, we will send your report to the appropriate manager to review.</p>
+        <p class="govuk-body govuk-!-font-weight-bold">You will not be able to change anything in your report after you click Submit.</p>
+      </div>
     </div>
-  </div>
-  <div>
-    {{ govukButton(
-      {
-        text: "Submit",
-        href: "13confirm"
-      }
-    ) }}
-  </div>
+    <div>
+      {{ govukButton(
+        {
+          text: "Submit"
+        }
+      ) }}
+    </div>
+  </form>
 	{% if not (checked("displaymode", "presentation") == "checked") %}
 		{% include "./notes/12check__notes.njk" %}
 	{% endif %}

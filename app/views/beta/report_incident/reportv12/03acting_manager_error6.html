@@ -46,46 +46,47 @@
           }
         }) }}
       {% endset -%}
-      {{ govukRadios({
-        idPrefix: "acting-manager",
-        name: "acting-manager",
-        fieldset: {
-          legend: {
-            text: "Who is the most appropriate manager to review this report?",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--l"
-          }
-        },
-        items: [
-          {
-            value: "linemanager",
-            text: "My line manager (No longer works here)",
-            checked: true
+      <form class="form" action="04abusiness" method="post">
+        {{ govukRadios({
+          idPrefix: "acting-manager",
+          name: "acting-manager",
+          fieldset: {
+            legend: {
+              text: "Who is the most appropriate manager to review this report?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
           },
-          {
-          value: "anothermanager",
-          text: "Another manager",
+          items: [
+            {
+              value: "linemanager",
+              text: "My line manager (No longer works here)",
+              checked: true
+            },
+            {
+            value: "anothermanager",
+            text: "Another manager",
+            hint: {
+              text: "For example, a job centre manager or someone standing in for your line manager"
+            },
+            conditional: {
+            html: managerDetailsHtml
+            }
+            }
+          ],
           hint: {
-            text: "For example, a job centre manager or someone standing in for your line manager"
+            text: "Select one option."
           },
-          conditional: {
-          html: managerDetailsHtml
+          errorMessage: {
+            text: "Tell us who should review this report"
           }
-          }
-        ],
-        hint: {
-          text: "Select one option."
-        },
-        errorMessage: {
-          text: "Tell us who should review this report"
-        }
-      }) }}
-      <div>
-        {{ govukButton({
-          text: "Continue",
-          href: "04abusiness"
         }) }}
-      </div>
+        <div>
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+        </div>
+      </form>
     </div>
   </div>
 	{% if not (checked("displaymode", "presentation") == "checked") %}

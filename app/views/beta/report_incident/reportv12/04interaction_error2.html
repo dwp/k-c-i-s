@@ -34,66 +34,67 @@
           }
         ]
       }) }}
-      {{ govukRadios({
-        idPrefix: "interaction",
-        name: "interaction",
-        fieldset: {
-          legend: {
-            text: "What type of interaction was it?",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--l"
-          }
-        },
-        hint: {
-          text: "Select one option."
-        },
-        errorMessage: {
-          text: "Select the type of interaction"
-        },
-        items: [
-          {
-            value: "person",
-            text: "In person",
-            hint: {
-              text: "For example, at a job centre or a customer's house"
+      <form class="form" action="05when-date" method="post">
+        {{ govukRadios({
+          idPrefix: "interaction",
+          name: "interaction",
+          fieldset: {
+            legend: {
+              text: "What type of interaction was it?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
             }
           },
-          {
-            value: "socialmedia",
-            text: "Social media",
-            hint: {
-              text: "Comments, posts and videos on any social media platform"
-            }
+          hint: {
+            text: "Select one option."
           },
-          {
-            value: "telephone",
-            text: "Telephone",
-            hint: {
-              text: "Including voice mails and text messages"
-            }
+          errorMessage: {
+            text: "Select the type of interaction"
           },
-          {
-            value: "written",
-            text: "Written",
-            hint: {
-              text: "Letters, emails, web chat or comments in journal"
+          items: [
+            {
+              value: "person",
+              text: "In person",
+              hint: {
+                text: "For example, at a job centre or a customer's house"
+              }
+            },
+            {
+              value: "socialmedia",
+              text: "Social media",
+              hint: {
+                text: "Comments, posts and videos on any social media platform"
+              }
+            },
+            {
+              value: "telephone",
+              text: "Telephone",
+              hint: {
+                text: "Including voice mails and text messages"
+              }
+            },
+            {
+              value: "written",
+              text: "Written",
+              hint: {
+                text: "Letters, emails, web chat or comments in journal"
+              }
+            },
+            {
+              value: "written",
+              text: "Video call",
+              hint: {
+                text: "For example, an appointment over Microsoft Teams"
+              }
             }
-          },
-          {
-            value: "written",
-            text: "Video call",
-            hint: {
-              text: "For example, an appointment over Microsoft Teams"
-            }
-          }
-        ]
-      }) }}
-      <div>
-        {{ govukButton({
-          text: "Continue",
-          href: "06when"
+          ]
         }) }}
-      </div>
+        <div>
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+        </div>
+      </form>
     </div>
   </div>
 	{% if not (checked("displaymode", "presentation") == "checked") %}

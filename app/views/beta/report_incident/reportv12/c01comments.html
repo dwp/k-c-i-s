@@ -29,54 +29,55 @@
         <p class="govuk-notification-banner__heading">Keep to the facts and be as specific as possible.</p>
         <p class="govuk-notification-banner__heading">Do not include the names of any DWP staff in your answers.</p>
       {% endset %}
-      {{ govukNotificationBanner({
-        html: html
-      }) }}
-      {{ govukCharacterCount({
-        id: "description",
-        name: "Description",
-        rows: "12",
-        maxlength: 2000,
-        label: {
-          text: "Tell us about the safety concern you want to report",
-          classes: "govuk-label--l",
-          isPageHeading: true
-        }
-      }) }}
-      {{ govukCheckboxes({
-        idPrefix: "checklist",
-        name: "checklist",
-        fieldset: {
-          legend: {
-            text: "Please confirm you have considered and included, where relevant:",
-            classes: "govuk-fieldset__legend--s"
+      <form class="form" action="c02fileuploadcheck" method="post">
+        {{ govukNotificationBanner({
+          html: html
+        }) }}
+        {{ govukCharacterCount({
+          id: "description",
+          name: "Description",
+          rows: "12",
+          maxlength: 2000,
+          label: {
+            text: "Tell us about the safety concern you want to report",
+            classes: "govuk-label--l",
+            isPageHeading: true
           }
-        },
-        items: [
-          {
-            value: "references",
-            text: "Names and page numbers of all forms that identify this safety concern - for example: ESA50 form, p3-5."
+        }) }}
+        {{ govukCheckboxes({
+          idPrefix: "checklist",
+          name: "checklist",
+          fieldset: {
+            legend: {
+              text: "Please confirm you have considered and included, where relevant:",
+              classes: "govuk-fieldset__legend--s"
+            }
           },
-          {
-            value: "date",
-            text: "The date the safety concern was identified (this is likely to be the date on the forms)."
-          },
-          {
-            value: "originals",
-            text: "Where the original forms are stored, if you have this information."
-          },
-          {
-            value: "words",
-            text: "The exact words used on the forms that point to a safety risk. Only include information that is relevant to this concern."
-          }
-        ]
-      }) }}
-      <div class="govuk-button-group">
-        {{ govukButton({
-      text: "Continue",
-      href: "c02fileuploadcheck"
-      }) }}
-      </div>
+          items: [
+            {
+              value: "references",
+              text: "Names and page numbers of all forms that identify this safety concern - for example: ESA50 form, p3-5."
+            },
+            {
+              value: "date",
+              text: "The date the safety concern was identified (this is likely to be the date on the forms)."
+            },
+            {
+              value: "originals",
+              text: "Where the original forms are stored, if you have this information."
+            },
+            {
+              value: "words",
+              text: "The exact words used on the forms that point to a safety risk. Only include information that is relevant to this concern."
+            }
+          ]
+        }) }}
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+        </div>
+      </form>
     </div>
   </div>
 	{% if not (checked("displaymode", "presentation") == "checked") %}

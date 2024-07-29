@@ -25,66 +25,66 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      {{ govukErrorSummary({
-        titleText: "There is a problem",
-        errorList: [
-          {
-            text: "Select the organisation you work for",
-            href: "#organisation"
-          }
-        ]
-      }) }}
-      {{ govukRadios({
-        idPrefix: "organisation",
-        name: "organisation",
-        fieldset: {
-          legend: {
-            text: "Select where this concern came from?",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--l"
-          }
-        },
-        items: [
-          {
-            value: "CHDA",
-            text: "Centre for Health and Disability Assessments (CHDA)"
-          },
-          {
-            value: "pip",
-            text: "Personal Independence Payment (PIP)"
-          },
-          {
-            value: "g4s",
-            text: "G4S"
-          },
-          {
-            value: "tp",
-            text: "Teleperformance"
-          },
-          {
-            value: "DWP",
-            text: "Department for Work and Pensions (DWP)"
-          },
-          {
-            value: "other",
-            text: "Other"
-          }
-        ],
-        hint: {
-          text: "Select the most appropriate option to describe the source of this referral."
-        },
-        errorMessage: {
-          text: "Select the organisation you work for"
-        }
-
-      }) }}
-          
-      <div>
-        {{ govukButton({
-        text: "Continue",
-        href: "c01comments"
+      <form class="form" action="c01comments" method="post">
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: [
+            {
+              text: "Select the organisation you work for",
+              href: "#organisation"
+            }
+          ]
         }) }}
-      </div>
+        {{ govukRadios({
+          idPrefix: "organisation",
+          name: "organisation",
+          fieldset: {
+            legend: {
+              text: "Select where this concern came from?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "CHDA",
+              text: "Centre for Health and Disability Assessments (CHDA)"
+            },
+            {
+              value: "pip",
+              text: "Personal Independence Payment (PIP)"
+            },
+            {
+              value: "g4s",
+              text: "G4S"
+            },
+            {
+              value: "tp",
+              text: "Teleperformance"
+            },
+            {
+              value: "DWP",
+              text: "Department for Work and Pensions (DWP)"
+            },
+            {
+              value: "other",
+              text: "Other"
+            }
+          ],
+          hint: {
+            text: "Select the most appropriate option to describe the source of this referral."
+          },
+          errorMessage: {
+            text: "Select the organisation you work for"
+          }
+        }) }}
+        
+        <div>
+          {{ govukButton({
+          text: "Continue"
+          }) }}
+        </div>
+      </form>
     </div>
   </div>
 	{% if not (checked("displaymode", "presentation") == "checked") %}

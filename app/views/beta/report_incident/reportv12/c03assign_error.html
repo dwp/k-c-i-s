@@ -22,43 +22,44 @@
 {% block content %}
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        {{ govukErrorSummary({
-          titleText: "There is a problem",
-          errorList: [
-            {
-              text: "Enter their email address, in the format name@example.com",
-              href: "#assign-by-email"
+        <form class="form" action="c04check" method="post">
+          {{ govukErrorSummary({
+            titleText: "There is a problem",
+            errorList: [
+              {
+                text: "Enter their email address, in the format name@example.com",
+                href: "#assign-by-email"
+              },
+              {
+                text: "This person cannot access the service",
+                href: "#assign-by-email"
+              }
+            ]
+          }) }}
+          {{ govukInput({
+            id: "assign-by-email",
+            name: "assign-by-email",
+            type: "email",
+            autocomplete: "email",
+            spellcheck: false,
+            hint: {
+              text: "Tell us the email of the decision maker to assign this report to. Leave empty if you do not want to assign this report. "
             },
-            {
-              text: "This person cannot access the service",
-              href: "#assign-by-email"
+            label: {
+              text: "Who should we assign this report to?",
+              isPageHeading: true,
+              classes: "govuk-label--l"
+            },
+            errorMessage: {
+              text: "Enter their email address, in the format name@example.com"
             }
-          ]
-        }) }}
-        {{ govukInput({
-        id: "assign-by-email",
-        name: "assign-by-email",
-        type: "email",
-        autocomplete: "email",
-        spellcheck: false,
-        hint: {
-          text: "Tell us the email of the decision maker to assign this report to. Leave empty if you do not want to assign this report. "
-        },
-        label: {
-          text: "Who should we assign this report to?",
-          isPageHeading: true,
-          classes: "govuk-label--l"
-        },
-        errorMessage: {
-          text: "Enter their email address, in the format name@example.com"
-        }
-      }) }}
-      <div class="govuk-button-group">
-        {{ govukButton({
-          text: "Continue",
-          href: "c04check"
-        }) }}
-      </div>
+          }) }}
+          <div class="govuk-button-group">
+            {{ govukButton({
+              text: "Continue"
+            }) }}
+          </div>
+        </form>
     </div>
   </div>
 	{% if not (checked("displaymode", "presentation") == "checked") %}

@@ -56,49 +56,50 @@
         }
       }) }}
       {% endset -%}
-      {{ govukRadios({
-        idPrefix: "on-behalf",
-        name: "on-behalf",
-        fieldset: {
-          legend: {
-            text: "Were you involved in this incident?",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--l"
-          }
-        },
-        items: [
-          {
-            value: "yes",
-            text: "Yes"
-          },
-          {
-            value: "no",
-            text: "No, I am reporting for a colleague who can access KCIS",
-            conditional: {
-              html: accessHTML
+      <form class="form" action="03acting_manager" method="post">
+        {{ govukRadios({
+          idPrefix: "on-behalf",
+          name: "on-behalf",
+          fieldset: {
+            legend: {
+              text: "Were you involved in this incident?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
             }
           },
-          {
-            value: "no",
-            text: "No, I am reporting for someone without access to KCIS",
-            conditional: {
-              html: noaccessHTML
+          items: [
+            {
+              value: "yes",
+              text: "Yes"
+            },
+            {
+              value: "no",
+              text: "No, I am reporting for a colleague who can access KCIS",
+              conditional: {
+                html: accessHTML
+              }
+            },
+            {
+              value: "no",
+              text: "No, I am reporting for someone without access to KCIS",
+              conditional: {
+                html: noaccessHTML
+              }
             }
+          ],
+          hint: {
+            text: "Select one option."
+          },
+          errorMessage: {
+            text: "Select yes if you were involved in this incident"
           }
-        ],
-        hint: {
-          text: "Select one option."
-        },
-        errorMessage: {
-          text: "Select yes if you were involved in this incident"
-        }
-      }) }}
-      <div>
-        {{ govukButton({
-        text: "Continue",
-        href: "03acting_manager"
         }) }}
-      </div>
+        <div>
+          {{ govukButton({
+          text: "Continue"
+          }) }}
+        </div>
+      </form>
     </div>
   </div>
 	{% if not (checked("displaymode", "presentation") == "checked") %}

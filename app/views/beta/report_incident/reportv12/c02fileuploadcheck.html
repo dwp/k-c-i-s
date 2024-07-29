@@ -25,36 +25,37 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      {{ govukRadios({
-        idPrefix: "add-files",
-        name: "add-files",
-        fieldset: {
-          legend: {
-            text: "Do you want to add files to your report?",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--l"
-          }
-        },
-        items: [
-          {
-            value: "yes",
-            text: "Yes"
+      <form class="form" action="c03assign" method="post">
+        {{ govukRadios({
+          idPrefix: "add-files",
+          name: "add-files",
+          fieldset: {
+            legend: {
+              text: "Do you want to add files to your report?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
           },
-          {
-            value: "no",
-            text: "No"
+          items: [
+            {
+              value: "yes",
+              text: "Yes"
+            },
+            {
+              value: "no",
+              text: "No"
+            }
+          ],
+          hint: {
+            text: "You can add files that contain evidence to support your report."
           }
-        ],
-        hint: {
-          text: "You can add files that contain evidence to support your report."
-        }
-      }) }}
-      <div>
-        {{ govukButton({
-          text: "Continue",
-          href: "c03assign"
         }) }}
-      </div>
+        <div>
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+        </div>
+      </form>
     </div>
   </div>
 	{% if not (checked("displaymode", "presentation") == "checked") %}

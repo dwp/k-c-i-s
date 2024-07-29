@@ -25,52 +25,53 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      {{ govukRadios({
-        idPrefix: "organisation",
-        name: "organisation",
-        fieldset: {
-          legend: {
-            text: "Where did this concern come from?",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--l"
+      <form class="form" action="c01comments" method="post">
+        {{ govukRadios({
+          idPrefix: "organisation",
+          name: "organisation",
+          fieldset: {
+            legend: {
+              text: "Where did this concern come from?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "CHDA",
+              text: "Centre for Health and Disability Assessments (CHDA)"
+            },
+            {
+              value: "pip",
+              text: "Personal Independence Payment (PIP)"
+            },
+            {
+              value: "g4s",
+              text: "G4S"
+            },
+            {
+              value: "tp",
+              text: "Teleperformance"
+            },
+            {
+              value: "DWP",
+              text: "Department for Work and Pensions (DWP)"
+            },
+            {
+              value: "other",
+              text: "Other"
+            }
+          ],
+          hint: {
+            text: "Select the most appropriate option to describe the source of this referral."
           }
-        },
-        items: [
-          {
-            value: "CHDA",
-            text: "Centre for Health and Disability Assessments (CHDA)"
-          },
-          {
-            value: "pip",
-            text: "Personal Independence Payment (PIP)"
-          },
-          {
-            value: "g4s",
-            text: "G4S"
-          },
-          {
-            value: "tp",
-            text: "Teleperformance"
-          },
-          {
-            value: "DWP",
-            text: "Department for Work and Pensions (DWP)"
-          },
-          {
-            value: "other",
-            text: "Other"
-          }
-        ],
-        hint: {
-          text: "Select the most appropriate option to describe the source of this referral."
-        }
-      }) }}
-      <div>
-        {{ govukButton({
-          text: "Continue",
-          href: "c01comments"
         }) }}
-      </div>
+        <div>
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+        </div>
+      </form>
     </div>
   </div>
 	{% if not (checked("displaymode", "presentation") == "checked") %}

@@ -25,45 +25,45 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-    
-      {{ govukRadios({
-        idPrefix: "on-behalf",
-        name: "on-behalf",
-        fieldset: {
-          legend: {
-            text: "What is your business area?",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--l"
+      <form class="form" action="04interaction" method="post">
+        {{ govukRadios({
+          idPrefix: "business",
+          name: "business",
+          fieldset: {
+            legend: {
+              text: "What is your business area?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "1",
+              text: "Work and Health Services (UC)"
+            },
+            {
+              value: "2",
+              text: "Child Maintenance Group"
+            },
+            {
+              value: "3",
+              text: "Retirement Services"
+            },
+            {
+              value: "4",
+              text: "Disability Services & Decision Making "
+            }
+          ],
+          hint: {
+            text: "Select one option."
           }
-        },
-        items: [
-          {
-            value: "1",
-            text: "Work and Health Services (UC)"
-          },
-          {
-            value: "2",
-            text: "Child Maintenance Group"
-          },
-          {
-            value: "3",
-            text: "Retirement Services"
-          },
-          {
-            value: "4",
-            text: "Disability Services & Decision Making "
-          }
-        ],
-        hint: {
-          text: "Select one option."
-        }
-      }) }}
-      <div>
-        {{ govukButton({
-          text: "Continue",
-          href: "04interaction"
         }) }}
-      </div>
+        <div>
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+        </div>
+      </form>
     </div>
   </div>
 	{% if not (checked("displaymode", "presentation") == "checked") %}

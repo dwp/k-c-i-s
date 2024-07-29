@@ -34,75 +34,76 @@
           }
         ]
       }) }}
-      {{ govukCheckboxes({
-        idPrefix: "discrimination",
-        name: "discrimination",
-        fieldset: {
-          legend: {
-            text: "Do you feel the customer's behaviour was motivated by any of the following types of discrimination?",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--l"
-          }
-        },
-        errorMessage: {
-          text: "Tell us if the customer's behaviour was motivated by discrimination"
-        },
-        hint: {
-          text: "Select all that apply."
-        },
-        items: [
-          {
-            value: "age",
-            text: "Age"
+      <form class="form" action="09describe" method="post">
+        {{ govukCheckboxes({
+          idPrefix: "discrimination",
+          name: "discrimination",
+          fieldset: {
+            legend: {
+              text: "Do you feel the customer's behaviour was motivated by any of the following types of discrimination?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
           },
-          {
-            value: "relationship",
-            text: "Being married or in a civil partnership"
+          errorMessage: {
+            text: "Tell us if the customer's behaviour was motivated by discrimination"
           },
-          {
-            value: "pregnancy",
-            text: "Pregnancy or maternity"
+          hint: {
+            text: "Select all that apply."
           },
-          {
-            value: "disability",
-            text: "Disability"
-          },
-          {
-            value: "reassignment",
-            text: "Gender reassignment"
-          },
-          {
-            value: "race",
-            text: "Race including colour, nationality, ethnic or national origin"
-          },
-          {
-            value: "belief",
-            text: "Religion or belief"
-          },
-          {
-            value: "sex",
-            text: "Sex"
-          },
-          {
-            value: "orientation",
-            text: "Sexual orientation"
-          },
-          {
-            divider: "or"
-          },
-          {
-            value: "none",
-            text: "None of the above",
-            behaviour: "exclusive"
-          }
-        ]
-      }) }}
-      <div>
-        {{ govukButton({
-          text: "Continue",
-          href: "09describe"
+          items: [
+            {
+              value: "age",
+              text: "Age"
+            },
+            {
+              value: "relationship",
+              text: "Being married or in a civil partnership"
+            },
+            {
+              value: "pregnancy",
+              text: "Pregnancy or maternity"
+            },
+            {
+              value: "disability",
+              text: "Disability"
+            },
+            {
+              value: "reassignment",
+              text: "Gender reassignment"
+            },
+            {
+              value: "race",
+              text: "Race including colour, nationality, ethnic or national origin"
+            },
+            {
+              value: "belief",
+              text: "Religion or belief"
+            },
+            {
+              value: "sex",
+              text: "Sex"
+            },
+            {
+              value: "orientation",
+              text: "Sexual orientation"
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "none",
+              text: "None of the above",
+              behaviour: "exclusive"
+            }
+          ]
         }) }}
-      </div>
+        <div>
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+        </div>
+      </form>
     </div>
   </div>
 	{% if not (checked("displaymode", "presentation") == "checked") %}

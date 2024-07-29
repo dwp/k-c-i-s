@@ -48,57 +48,57 @@
           ]
         }) }}
       {% endset %}
-      {{ govukRadios({
-        idPrefix: "date",
-        name: "date",
-        items: [
-          {
-            value: "today",
-            text: "Today"
-          },
-          {
-            value: "yesterday",
-            text: "Yesterday"
-          },
-          {
-            value: "other",
-            text: "Another date",
-            conditional: {
-              html: dateHtml
+      <form class="form" action="06when-time" method="post">
+        {{ govukRadios({
+          idPrefix: "date",
+          name: "date",
+          items: [
+            {
+              value: "today",
+              text: "Today"
+            },
+            {
+              value: "yesterday",
+              text: "Yesterday"
+            },
+            {
+              value: "other",
+              text: "Another date",
+              conditional: {
+                html: dateHtml
+              }
             }
-          }
-        ],
-          fieldset: {
-            legend: {
-              text: "What date did the incident happen?",
-              classes: "govuk-fieldset__legend--l",
-              isPageHeading: true
+          ],
+            fieldset: {
+              legend: {
+                text: "What date did the incident happen?",
+                classes: "govuk-fieldset__legend--l",
+                isPageHeading: true
+              }
             }
-          }
-      }) }}
-      <style>
-        .govuk-date-input__item {
-          font-size:20px !important;
-        }
-        #incident-time .govuk-date-input__item:first-child {
-          margin:0px;
-        }
-        #incident-time .govuk-date-input__item:last-child {
-          margin-left:10px;
-        }
-        #incident-time .govuk-date-input__item:first-child .govuk-form-group::after {
-          content: ":";
-          display: inline-block;
-          padding-left: 5px;
-        }
-      </style>
-
-      <div>
-        {{ govukButton({
-          text: "Continue",
-          href: "06when-time"
         }) }}
-      </div>
+        <style>
+          .govuk-date-input__item {
+            font-size:20px !important;
+          }
+          #incident-time .govuk-date-input__item:first-child {
+            margin:0px;
+          }
+          #incident-time .govuk-date-input__item:last-child {
+            margin-left:10px;
+          }
+          #incident-time .govuk-date-input__item:first-child .govuk-form-group::after {
+            content: ":";
+            display: inline-block;
+            padding-left: 5px;
+          }
+        </style>
+        <div>
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+        </div>
+      </form>
     </div>
   </div>
 	{% if not (checked("displaymode", "presentation") == "checked") %}

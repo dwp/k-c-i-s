@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Error: Do you want to add files to your report? - Keep Customer Interactions Safe
+  Error: What is your business area? - Keep Customer Interactions Safe
 {% endblock %}
 
 {% block beforeContent %}
@@ -10,10 +10,10 @@
       tag: {
         text: "beta"
       },
-      html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+      html: 'This is a new service – your <a class="govuk-link" href="02behalf_error">feedback</a> will help us to improve it.'
     }) }}
   </section>
-  {% include "./templates/key_details_robert_blue.njk" %}
+  {% include "templates/v2/header_searchlight.njk" %}
   <section aria-label="Back" role="region">
     {{ govukBackLink({
       text: "Back",
@@ -29,37 +29,45 @@
         titleText: "There is a problem",
         errorList: [
           {
-            text: "Select yes if you want to add files to your report",
-            href: "#add-files"
+          text: "Tell us your business area",
+          href: "#business"
           }
         ]
       }) }}
-      <form class="form" action="c03assign" method="post">
+      <form class="form" action="04interaction" method="post">
         {{ govukRadios({
-          idPrefix: "add-files",
-          name: "add-files",
+          idPrefix: "business",
+          name: "business",
           fieldset: {
             legend: {
-              text: "Do you want to add files to your report?",
+              text: "What is your business area?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }
           },
           items: [
             {
-              value: "yes",
-              text: "Yes"
+              value: "1",
+              text: "Work and Health Services (UC)"
             },
             {
-              value: "no",
-              text: "No"
+              value: "2",
+              text: "Child Maintenance Group"
+            },
+            {
+              value: "3",
+              text: "Retirement Services"
+            },
+            {
+              value: "4",
+              text: "Disability Services & Decision Making "
             }
           ],
           hint: {
-            text: "You can add files that contain evidence to support your report."
+            text: "Select one option."
           },
           errorMessage: {
-            text: "Select yes if you want to add files to your report"
+            text: "Tell us your business area"
           }
         }) }}
         <div>
@@ -71,6 +79,6 @@
     </div>
   </div>
 	{% if not (checked("displaymode", "presentation") == "checked") %}
-		{% include "./notes/c02fileuploadcheck__notes.njk" %}
+		{% include "./notes/04abusiness__notes.njk" %}
 	{% endif %}
 {% endblock %}

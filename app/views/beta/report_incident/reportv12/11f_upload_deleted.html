@@ -65,28 +65,29 @@
       </div>
     </div>
   </div>
-  <div class="moj-multi-file-upload__upload" id="moj-multi-file-upload__upload">
-    <div style="width:fit-content">
-      <div class="govuk-form-group">
-        <label class="govuk-label govuk-label--m" for="documents">
-          Choose files
-        </label>
-        <div class="moj-multi-file-upload__dropzone"  style="padding-right: 30px">
-          <input class="govuk-file-upload moj-multi-file-upload__input moj-hidden" id="documents" name="documents" type="file" multiple="" accept="" limit="1048576" limitmb="1">
-          <p class="govuk-body">Drag and drop files here or</p>
-          <label for="documents" id="choose-files" class="govuk-button govuk-button--secondary govuk-file-upload_input_label" tabindex="0">Choose files</label>
-            <div aria-live="polite" role="status" class="govuk-visually-hidden">
+  <form class="form" action="12check_simple" method="post">
+    <div class="moj-multi-file-upload__upload" id="moj-multi-file-upload__upload">
+      <div style="width:fit-content">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-label--m" for="documents">
+            Choose files
+          </label>
+          <div class="moj-multi-file-upload__dropzone"  style="padding-right: 30px">
+            <input class="govuk-file-upload moj-multi-file-upload__input moj-hidden" id="documents" name="documents" type="file" multiple="" accept="" limit="1048576" limitmb="1">
+            <p class="govuk-body">Drag and drop files here or</p>
+            <label for="documents" id="choose-files" class="govuk-button govuk-button--secondary govuk-file-upload_input_label" tabindex="0">Choose files</label>
+              <div aria-live="polite" role="status" class="govuk-visually-hidden">
+              </div>
             </div>
-          </div>
+        </div>
       </div>
     </div>
-  </div>
-  <div>
-    {{ govukButton({
-      text: "Continue",
-      href: "12check_simple"
-    }) }}
-  </div>
+    <div>
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+    </div>
+  </form>
 	{% if not (checked("displaymode", "presentation") == "checked") %}
 		{% include "./notes/11upload__notes.njk" %}
 	{% endif %}

@@ -22,23 +22,25 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        {{ govukInput({
-          id: "location",
-          name: "location",
-          spellcheck: false,
-          label: {
-            text: "Tell us where the incident happened",
-            classes: "govuk-label--l",
-            isPageHeading: true
-          },
-          hint: {
-            text: "For example, 'Newcastle East Jobcentre' or 'Loxley House, Nottingham'"
-          }
-        }) }}
-        {{ govukButton({
-          text: "Continue",
-          href: "08discrimination"
-        }) }}
+      <form class="form" action="08discrimination" method="post">
+          {{ govukInput({
+            id: "location",
+            name: "location",
+            spellcheck: false,
+            label: {
+              text: "Tell us where the incident happened",
+              classes: "govuk-label--l",
+              isPageHeading: true
+            },
+            hint: {
+              text: "For example, 'Newcastle East Jobcentre' or 'Loxley House, Nottingham'"
+            }
+          }) }}
+          {{ govukButton({
+            text: "Continue",
+            href: "08discrimination"
+          }) }}
+        </form>
     </div>
   </div>
 	{% if not (checked("displaymode", "presentation") == "checked") %}

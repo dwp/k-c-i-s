@@ -20,29 +20,30 @@ Who should we assign this report to? - Keep Customer Interactions Safe
   </section>
 {% endblock %}
 {% block content %}
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
-      {{ govukInput({
-        id: "contact-by-email",
-        name: "contact-by-email",
-        type: "email",
-        autocomplete: "email",
-        spellcheck: false,
-        hint: {
-          text: "Tell us the email of the decision maker to assign this report to. Leave empty if you do not want to assign this report. "
-        },
-        label: {
-          text: "Who should we assign this report to?",
-          isPageHeading: true,
-          classes: "govuk-label--l"
-        }
-      }) }}
-      <div class="govuk-button-group">
-        {{ govukButton({
-          text: "Continue",
-          href: "c04check"
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="c04check" method="post">
+        {{ govukInput({
+          id: "contact-by-email",
+          name: "contact-by-email",
+          type: "email",
+          autocomplete: "email",
+          spellcheck: false,
+          hint: {
+            text: "Tell us the email of the decision maker to assign this report to. Leave empty if you do not want to assign this report. "
+          },
+          label: {
+            text: "Who should we assign this report to?",
+            isPageHeading: true,
+            classes: "govuk-label--l"
+          }
         }) }}
-      </div>
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+        </div>
+      </form>
     </div>
   </div>
 	{% if not (checked("displaymode", "presentation") == "checked") %}

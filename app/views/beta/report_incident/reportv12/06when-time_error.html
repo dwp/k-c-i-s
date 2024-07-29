@@ -62,41 +62,42 @@
           padding-left: 5px;
         }
       </style>
-      {{ govukDateInput({
-        id: "incident-time",
-        namePrefix: "incident-time",
-        hint: {
-          text: "Use the 24-hour clock. For example, 15:30"
-        },
-        fieldset: {
-          legend: {
-            text: "What time did the incident happen?",
-            classes: "govuk-fieldset__legend--l",
-            isPageHeading: true
-          }
-        },
-        items: [
-          {
-            classes: "govuk-input--width-2 govuk-input--error",
-            name: "Hours",
-            value: data['incident-time-Hours']
+      <form class="form" action="07where" method="post">
+        {{ govukDateInput({
+          id: "incident-time",
+          namePrefix: "incident-time",
+          hint: {
+            text: "Use the 24-hour clock. For example, 15:30"
           },
-          {
-            classes: "govuk-input--width-2 govuk-input--error",
-            name: "Minutes",
-            value: data['incident-time-Minutes']
+          fieldset: {
+            legend: {
+              text: "What time did the incident happen?",
+              classes: "govuk-fieldset__legend--l",
+              isPageHeading: true
+            }
+          },
+          items: [
+            {
+              classes: "govuk-input--width-2 govuk-input--error",
+              name: "Hours",
+              value: data['incident-time-Hours']
+            },
+            {
+              classes: "govuk-input--width-2 govuk-input--error",
+              name: "Minutes",
+              value: data['incident-time-Minutes']
+            }
+          ],
+          errorMessage: {
+            text: "Enter the time of the incident"
           }
-        ],
-        errorMessage: {
-          text: "Enter the time of the incident"
-        }
-      }) }}
-      <div>
-        {{ govukButton({
-          text: "Continue",
-          href: "07where_simple"
         }) }}
-      </div>
+        <div>
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+        </div>
+      </form>
     </div>
   </div>
 

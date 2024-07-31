@@ -1,6 +1,7 @@
 {% from "key-details-bar/macro.njk" import dwpKeyDetailsBar %}
     
 {% set ninoHTML %}
+<span style='margin-right: .2em'>QQ</span><span style='margin-right: .2em'>12</span><span style='margin-right: .2em'>34</span><span style='margin-right: .2em'>56</span><span style='margin-right: .2em'>X</span>
 {% endset %}
 
 {{ dwpKeyDetailsBar({
@@ -11,13 +12,13 @@
 
     secondaryIdentifier: {
         text: 'National Insurance number:',
-        value: "<span style='margin-right: .2em'>QQ</span><span style='margin-right: .2em'>12</span><span style='margin-right: .2em'>34</span><span style='margin-right: .2em'>56</span><span style='margin-right: .2em'>X</span>"
+        value: ninoHTML
 
     },
     additionalData: [
         {
             text: "Date of birth:",
-            value: "4 June 1972"
+            value: "4 June 1973"
         }
     ]
 }) }}

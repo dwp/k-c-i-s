@@ -47,20 +47,40 @@
           },
           items: [
             {
-              value: "1",
-              text: "Work and Health Services (UC)"
+              value: "msp",
+              text: "Medical service provider (outsourced)"
             },
             {
-              value: "2",
-              text: "Child Maintenance Group"
+              value: "cmg",
+              text: "Child maintenance group"
             },
             {
-              value: "3",
-              text: "Retirement Services"
+              value: "cc",
+              text: "Corporate centre"
             },
             {
-              value: "4",
-              text: "Disability Services & Decision Making "
+              value: "dm",
+              text: "Debt management "
+            },
+            {
+              value: "pensions",
+              text: "Pensions"
+            },
+            {
+              value: "pip",
+              text: "Personal Independence Payments (PIP)"
+            },
+            {
+              value: "telephony",
+              text: "Telephony provider (outsourced)"
+            },
+            {
+              value: "cfcd",
+              text: "Counter Fraud, Compliance & Debt (CFCD)"
+            },
+            {
+              value: "other",
+              text: "Other"
             }
           ],
           hint: {
@@ -79,6 +99,6 @@
     </div>
   </div>
 	{% if not (checked("displaymode", "presentation") == "checked") %}
-		{% include "./notes/04abusiness__notes.njk" %}
+		{% include "./notes/04bbusiness__notes.njk" %}
 	{% endif %}
 {% endblock %}

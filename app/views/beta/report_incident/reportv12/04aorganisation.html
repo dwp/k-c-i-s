@@ -1,0 +1,88 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Which organisation do you work for? - Keep Customer Interactions Safe
+{% endblock %}
+
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+        text: "beta"
+      },
+      html: 'This is a new service – your <a class="govuk-link" href="02behalf_error">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "templates/v2/header_searchlight.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
+  </section>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="04bbusiness" method="post">
+        {{ govukRadios({
+          idPrefix: "business",
+          name: "business",
+          fieldset: {
+            legend: {
+              text: "Which organisation do you work for?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "chda",
+              text: "Centre for Health and Disability Assessments (CHDA)"
+            },
+            {
+              value: "g4s",
+              text: "G4S"
+            },
+            {
+              value: "teleperformance",
+              text: "Teleperformance"
+            },
+            {
+              value: "capita",
+              text: "Capita"
+            },
+            {
+              value: "serco",
+              text: "Serco"
+            },
+            {
+              value: "ventura",
+              text: "Ventura"
+            },
+            {
+              value: "dwp",
+              text: "Department for Work and Pensions (DWP)"
+            },
+            {
+              value: "other",
+              text: "Other"
+            }
+          ],
+          hint: {
+            text: "Select one option."
+          }
+        }) }}
+        <div>
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+        </div>
+      </form>
+    </div>
+  </div>
+	{% if not (checked("displaymode", "presentation") == "checked") %}
+		{% include "./notes/04aorganisation__notes.njk" %}
+	{% endif %}
+{% endblock %}

@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  What is your business area? - Keep Customer Interactions Safe
+  What is your business line? - Keep Customer Interactions Safe
 {% endblock %}
 
 {% block beforeContent %}
@@ -31,27 +31,54 @@
           name: "business",
           fieldset: {
             legend: {
-              text: "What is your business area?",
+              text: "What is your business line?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }
           },
           items: [
             {
-              value: "1",
-              text: "Work and Health Services (UC)"
+              value: "workingage",
+              text: "Working Age",
+              hint: {
+                text: "For example: Job centres, work coaches, service centre agents"
+              }
             },
             {
-              value: "2",
-              text: "Child Maintenance Group"
+              value: "msp",
+              text: "Medical service provider (outsourced)"
             },
             {
-              value: "3",
-              text: "Retirement Services"
+              value: "cmg",
+              text: "Child maintenance group"
             },
             {
-              value: "4",
-              text: "Disability Services & Decision Making "
+              value: "cc",
+              text: "Corporate centre"
+            },
+            {
+              value: "dm",
+              text: "Debt management "
+            },
+            {
+              value: "pensions",
+              text: "Pensions"
+            },
+            {
+              value: "pip",
+              text: "Personal Independence Payments (PIP)"
+            },
+            {
+              value: "telephony",
+              text: "Telephony provider (outsourced)"
+            },
+            {
+              value: "cfcd",
+              text: "Counter Fraud, Compliance & Debt (CFCD)"
+            },
+            {
+              value: "other",
+              text: "Other"
             }
           ],
           hint: {
@@ -67,6 +94,6 @@
     </div>
   </div>
 	{% if not (checked("displaymode", "presentation") == "checked") %}
-		{% include "./notes/04abusiness__notes.njk" %}
+		{% include "./notes/04bbusiness__notes.njk" %}
 	{% endif %}
 {% endblock %}

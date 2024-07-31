@@ -1,26 +1,17 @@
-{% from "key-details-bar/macro.njk" import dwpKeyDetailsBar %}
-    
-{% set ninoHTML %}
-<span style='margin-right: .2em'>QQ</span><span style='margin-right: .2em'>12</span><span style='margin-right: .2em'>34</span><span style='margin-right: .2em'>56</span><span style='margin-right: .2em'>X</span>
-{% endset %}
-
-{{ dwpKeyDetailsBar({
-    primaryIdentifier: {
-        text: 'Customer name:',
-        value: 'Robert De Silva'
-    },
-
-    secondaryIdentifier: {
-        text: 'National Insurance number:',
-        value: ninoHTML
-
-    },
-    additionalData: [
-        {
-            text: "Date of birth:",
-            value: "4 June 1973"
-        }
-    ]
-}) }}
-
-
+<section class="dwp-key-details-bar" aria-label="Key details">
+    <!-- hard coded NINo formatting because heroku renders the njk code as text rather than creating HTML before displaying -->
+    <div class="dwp-key-details-bar__key-details">
+        <dl class="dwp-key-details-bar__top-block">
+            <dt class="govuk-visually-hidden">Customer name:</dt>
+            <dd class="dwp-key-details-bar__primary">Robert De Silva</dd>
+            <dt class="govuk-visually-hidden">National Insurance number:</dt>
+            <dd class="dwp-key-details-bar__secondary">
+                <span style="margin-right: .2em">QQ</span><span style="margin-right: .2em">12</span><span style="margin-right: .2em">34</span><span style="margin-right: .2em">56</span><span style="margin-right: .2em">X</span>
+            </dd>  
+        </dl>
+        <dl class="dwp-key-details-bar__bottom-block">
+            <dt>Date of birth:</dt>
+            <dd>4 June 1972</dd>
+        </dl>
+    </div>
+</section>

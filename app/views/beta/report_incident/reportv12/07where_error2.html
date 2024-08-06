@@ -13,7 +13,7 @@
       html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
     }) }}
   </section>
-  {% include "templates/v2/header_searchlight.njk" %}
+  {% include "./templates/key_details_robert_blue.njk" %}
   <section aria-label="Back" role="region">
     {{ govukBackLink({
     text: "Back",
@@ -46,7 +46,7 @@
         }
       }) }}
       {% endset -%}
-      <form class="form" action="08discrimination" method="post">
+      <form class="form" action="07a_location" method="post">
         {{ govukRadios({
           idPrefix: "location",
           name: "location",

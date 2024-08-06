@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block pageTitle %}
-  Tell us where the incident happened - Keep Customer Interactions Safe
+Where were you when the incident happened? - Keep Customer Interactions Safe
 {% endblock %}
 {% block beforeContent %}
   <section aria-label="Phase banner" role="region">
@@ -11,7 +11,7 @@
       html: 'This is a new service – your <a class="govuk-link" href="10add_error">feedback</a> will help us to improve it.'
     }) }}
   </section>
-  {% include "templates/v2/header_searchlight.njk" %}
+  {% include "./templates/key_details_robert_blue.njk" %}
   <section aria-label="Back" role="region">
     {{ govukBackLink({
       text: "Back",
@@ -53,18 +53,17 @@
           display: none;
         }
       </style>
-      {% include "./templates/govuk-caption-m-whitney.njk" %}
 
       <h1 class="govuk-label-wrapper">
-        <label class="govuk-label govuk-label--xl" for="last-location">
-          Tell us where the incident happened
+        <label class="govuk-label govuk-label--l" for="last-location">
+          Where were you when the incident happened?
         </label>
         </h1>
         <div id="location-hint" class="govuk-hint">
           <p class="govuk-hint">For example, 'Newcastle East Jobcentre' or 'Loxley House, Nottingham'</p>
-          <p class="govuk-hint">If the location you need is not available, select 'Location not available'</p>
+          <p class="govuk-hint">If the location you need is not available, select 'No results found'</p>
         </div>
-        <form action="09location.html" method="get">
+        <form action="08discrimination.html" method="get">
             <div class="autocomplete-wrapper">
               <select name="last-location" id="last-location">
               <option value="territory:AE-AJ">Select a location</option>
@@ -82,17 +81,11 @@
               <option value="territory:AE-AJ">Aberdeenshire Council 3</option>
               <option value="territory:AE-AJ">Aberdeenshire Council 4</option>
               <option value="territory:AE-AJ">CDW Aberdeen</option>
-              <option value="territory:NF">Not found</option>
             </select>
           </div>
           <div class="govuk-button-group">
             {{ govukButton({
               text: "Continue",
-              href: "10agentsource"
-            }) }}
-            {{ govukButton({
-              text: "Location not available",
-              classes: "govuk-button--secondary",
               href: "10agentsource"
             }) }}
           </div>
@@ -121,6 +114,6 @@
   </script>
 
 	{% if not (checked("displaymode", "presentation") == "checked") %}
-		{% include "./notes/09location__notes.njk" %}
+		{% include "./notes/07a_location__notes.njk" %}
 	{% endif %}
 {% endblock %}

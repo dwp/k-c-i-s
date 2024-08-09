@@ -1,6 +1,10 @@
 {% extends "layout.html" %}
+
+{% set myPageTitle = "Where did the incident happen?" %}
+
+
 {% block pageTitle %}
-  Error: Tell us where the incident happened - Keep Customer Interactions Safe
+  Error: {{myPageTitle}} - Keep Customer Interactions Safe
 {% endblock %}
 {% block beforeContent %}
   <section aria-label="Phase banner" role="region">
@@ -37,7 +41,7 @@
             name: "location",
             spellcheck: false,
             label: {
-              text: "Tell us where the incident happened",
+              text: myPageTitle,
               classes: "govuk-label--l",
               isPageHeading: true
             },

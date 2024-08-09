@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block pageTitle %}
-Where were you when the incident happened? - Keep Customer Interactions Safe
+  Error: Where were you when the incident happened? - Keep Customer Interactions Safe
 {% endblock %}
 {% block beforeContent %}
   <section aria-label="Phase banner" role="region">
@@ -72,9 +72,12 @@ Where were you when the incident happened? - Keep Customer Interactions Safe
           <div id="location-hint" class="govuk-hint">
             <p class="govuk-hint">For example, 'Newcastle East Jobcentre' or 'Loxley House, Nottingham'</p>
             <p class="govuk-hint">If the location you need is not available, select 'No results found'</p>
+            <p id="event-name-error" class="govuk-error-message">
+              <span class="govuk-visually-hidden">Error:</span> Tell us where you were when the incident happened
+            </p>
           </div>
               <div class="autocomplete-wrapper">
-                <select name="last-location" id="last-location">
+                <select name="last-location" id="last-location"  class="govuk-input govuk-input--error" style="border-bottom-color: rgb(212, 53, 28) !important">
                   <option value="territory:AE-AJ"></option>
                   <option value="territory:AE-AJ">Aberdare Jobcentre</option>
                   <option value="territory:AE-AJ">Aberdeen (DCA/TTS) </option>
@@ -102,6 +105,9 @@ Where were you when the incident happened? - Keep Customer Interactions Safe
       </form>
     </div>
   </div>
+
+
+
   <script type="text/javascript" src="/public/countryautocomplete/accessible-autocomplete.min.js"></script>
   <script type="text/javascript">
     var selectEl = document.querySelector('#last-location')
@@ -121,9 +127,22 @@ Where were you when the incident happened? - Keep Customer Interactions Safe
       var params = new URLSearchParams(document.location.search.split('?')[1])
       document.querySelector('.submitted__last-location').innerHTML = params.get('last-location')
     }
-  </script>
 
+
+  </script>
+  <style>
+    /* style and script override to show text field in red when erroring */
+    .textfieldred {
+      border-color: rgb(212, 53, 28) !important;
+      border-width: 2px !important;
+    }
+  </style>
+  <script>
+    var d = document.querySelector('#last-location');
+    d.className += " textfieldred";
+  </script>
 	{% if not (checked("displaymode", "presentation") == "checked") %}
 		{% include "./notes/07a_location__notes.njk" %}
 	{% endif %}
+
 {% endblock %}

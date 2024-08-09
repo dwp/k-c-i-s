@@ -1,6 +1,10 @@
 {% extends "layout.html" %}
+
+{% set myPageTitle = "At which site did the incident happen?" %}
+
+
 {% block pageTitle %}
-Where were you when the incident happened? - Keep Customer Interactions Safe
+  {{myPageTitle}} - Keep Customer Interactions Safe
 {% endblock %}
 {% block beforeContent %}
   <section aria-label="Phase banner" role="region">
@@ -56,7 +60,7 @@ Where were you when the incident happened? - Keep Customer Interactions Safe
 
       <h1 class="govuk-label-wrapper">
         <label class="govuk-label govuk-label--l" for="last-location">
-          Where were you when the incident happened?
+          {{myPageTitle}}
         </label>
         </h1>
         <div id="location-hint" class="govuk-hint">

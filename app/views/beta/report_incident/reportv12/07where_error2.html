@@ -1,7 +1,10 @@
 {% extends "layout.html" %}
 
+{% set myPageTitle = "Where did the incident happen?" %}
+
+
 {% block pageTitle %}
-  Error: Where were you during the incident? - Keep Customer Interactions Safe
+  Error: {{myPageTitle}} - Keep Customer Interactions Safe
 {% endblock %}
 
 {% block beforeContent %}
@@ -52,7 +55,7 @@
           name: "location",
           fieldset: {
             legend: {
-              text: "Where were you during the incident?",
+              text: myPageTitle,
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }

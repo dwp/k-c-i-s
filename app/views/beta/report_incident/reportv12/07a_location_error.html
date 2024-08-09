@@ -1,6 +1,10 @@
 {% extends "layout.html" %}
+
+{% set myPageTitle = "At which site did the incident happen?" %}
+
+
 {% block pageTitle %}
-  Error: Where were you when the incident happened? - Keep Customer Interactions Safe
+  Error: {{myPageTitle}} - Keep Customer Interactions Safe
 {% endblock %}
 {% block beforeContent %}
   <section aria-label="Phase banner" role="region">
@@ -58,7 +62,7 @@
           titleText: "There is a problem",
           errorList: [
             {
-              text: "Tell us where you were when the incident happened",
+              text: "Tell us at which site the incident happened",
               href: "#location"
             }
           ]
@@ -66,15 +70,14 @@
         <div class="govuk-form-group govuk-form-group--error">
           <h1 class="govuk-label-wrapper">
             <label class="govuk-label govuk-label--l" for="last-location">
-              Where were you when the incident happened?
+              {{myPageTitle}}
             </label>
           </h1>
           <div id="location-hint" class="govuk-hint">
             <p class="govuk-hint">For example, 'Newcastle East Jobcentre' or 'Loxley House, Nottingham'</p>
             <p class="govuk-hint">If the location you need is not available, select 'No results found'</p>
             <p id="event-name-error" class="govuk-error-message">
-              <span class="govuk-visually-hidden">Error:</span> Tell us where you were when the incident happened
-            </p>
+              <span class="govuk-visually-hidden">Error:</span> Tell us at which site the incident happened
           </div>
               <div class="autocomplete-wrapper">
                 <select name="last-location" id="last-location"  class="govuk-input govuk-input--error" style="border-bottom-color: rgb(212, 53, 28) !important">

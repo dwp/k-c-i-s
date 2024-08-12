@@ -1,0 +1,20 @@
+{% from "key-details-bar/macro.njk" import dwpKeyDetailsBar %}
+
+{{ dwpKeyDetailsBar({
+    primaryIdentifier: {
+        text: 'Customer name:',
+        value: data['c3name']
+    },
+
+    secondaryIdentifier: {
+        text: 'National Insurance number:',
+        value: data['c3nino'] 
+    },
+    additionalData: [
+        {
+            text: "Date of birth:",
+            value: data['c3dob']
+        }
+    ]
+}) }}
+

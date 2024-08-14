@@ -19,6 +19,9 @@
     <p class="govuk-body"><a href="v1/c4">v1 - C4: Medium history {{ data['c4name'] }}</a> </p>
     <p class="govuk-body"><a href="v1/c5">v1 - C5: Complex history {{ data['c5name'] }}</a> </p>
 
+    <h2 class="govuk-heading-l">Set defaults</h2>
+    <h3 class="govuk-heading-m">Customers</h3>
+
     <form action="/beta/_data/" class="form" method="post">
 
       <div class="govuk-grid-row">
@@ -27,7 +30,7 @@
             id: "c1name",
             name: "c1name",
             spellcheck: false,
-            value: "Celia Hartman",
+            value: "Celia Customer",
             label: {
               text: "c1name"
             }
@@ -70,7 +73,7 @@
             id: "c2name",
             name: "c2name",
             spellcheck: false,
-            value: "Jan David",
+            value: "Cedric Customer2",
             label: {
               text: "c2name"
             }
@@ -113,7 +116,7 @@
             id: "c3name",
             name: "c3name",
             spellcheck: false,
-            value: "Belinda Carpenter",
+            value: "Cory Customer3",
             label: {
               text: "c3name"
             }
@@ -157,7 +160,7 @@
             id: "c4name",
             name: "c4name",
             spellcheck: false,
-            value: "Sofia Simmons",
+            value: "Carlo Customer4",
             label: {
               text: "c4name"
             }
@@ -201,7 +204,7 @@
             id: "c5name",
             name: "c5name",
             spellcheck: false,
-            value: "Lazaro Graves",
+            value: "Cindy Customer5",
             label: {
               text: "c5name"
             }
@@ -239,13 +242,14 @@
         </div>
       </div>
 
+      <h3 class="govuk-heading-m">Reporters</h3>
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-one-third">
           {{ govukInput({
             id: "r1name",
             name: "r1name",
             spellcheck: false,
-            value: "Rowena Howell",
+            value: "William Workcoach",
             label: {
               text: "r1name"
             }
@@ -257,7 +261,7 @@
             id: "r1email",
             name: "r1email",
             spellcheck: false,
-            value: "rowena.howell@dwp.gov.uk",
+            value: "william.workcoach@dwp.gov.uk",
             label: {
               text: "r1email"
             }
@@ -269,13 +273,15 @@
           
         </div>
       </div>
+
+      <h3 class="govuk-heading-m">Business support</h3>
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-one-third">
           {{ govukInput({
             id: "b1name",
             name: "b1name",
             spellcheck: false,
-            value: "Mustafa Oakes",
+            value: "Bryan Business-support",
             label: {
               text: "b1name"
             }
@@ -287,7 +293,7 @@
             id: "b1email",
             name: "b1email",
             spellcheck: false,
-            value: "mustafa.oakes@dwp.gov.uk",
+            value: "bryan.business-support@dwp.gov.uk",
             label: {
               text: "b1email"
             }
@@ -299,13 +305,15 @@
           
         </div>
       </div>
+
+      <h3 class="govuk-heading-m">Decision makers</h3>
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-one-third">
           {{ govukInput({
             id: "d1name",
             name: "d1name",
             spellcheck: false,
-            value: "Tricia Lowe",
+            value: "Darren Decision",
             label: {
               text: "d1name"
             }
@@ -317,7 +325,7 @@
             id: "d1email",
             name: "d1email",
             spellcheck: false,
-            value: "tricia.lowe@dwp.gov.uk",
+            value: "darren.decision@dwp.gov.uk",
             label: {
               text: "d1email"
             }

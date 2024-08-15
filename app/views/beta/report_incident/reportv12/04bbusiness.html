@@ -1,7 +1,9 @@
 {% extends "layout.html" %}
 
+{% set myPageTitle = "Which service do you mainly work for?" %}
+
 {% block pageTitle %}
-  What is your business line? - Keep Customer Interactions Safe
+  {{myPageTitle}} - Keep Customer Interactions Safe
 {% endblock %}
 
 {% block beforeContent %}
@@ -31,7 +33,7 @@
           name: "business",
           fieldset: {
             legend: {
-              text: "What is your business line?",
+              text: myPageTitle,
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }
@@ -51,10 +53,6 @@
             {
               value: "cmg",
               text: "Child maintenance group"
-            },
-            {
-              value: "cc",
-              text: "Corporate centre"
             },
             {
               value: "dm",
@@ -78,7 +76,10 @@
             },
             {
               value: "other",
-              text: "Other"
+              text: "Other",
+              hint: {
+                text: "For example: Corporate centre"
+              }            
             }
           ],
           hint: {

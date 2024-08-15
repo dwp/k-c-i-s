@@ -1,7 +1,6 @@
 {% extends "layout.html" %}
 
-{% set myPageTitle = "At which site did the incident happen?" %}
-
+{% set myPageTitle = "Which office are you based at?" %}
 
 {% block pageTitle %}
   {{myPageTitle}} - Keep Customer Interactions Safe
@@ -65,9 +64,10 @@
         </h1>
         <div id="location-hint" class="govuk-hint">
           <p class="govuk-hint">For example, 'Newcastle East Jobcentre' or 'Loxley House, Nottingham'</p>
+          <p class="govuk-hint">If you are reporting on behalf of a colleague, select the office they are based at.</p>
           <p class="govuk-hint">If the location you need is not available, select 'No results found'</p>
         </div>
-        <form action="08discrimination.html" method="get">
+        <form action="07where" method="get">
             <div class="autocomplete-wrapper">
               <select name="last-location" id="last-location">
               <option value="territory:AE-AJ"></option>
@@ -89,8 +89,7 @@
           </div>
           <div class="govuk-button-group">
             {{ govukButton({
-              text: "Continue",
-              href: "10agentsource"
+              text: "Continue"
             }) }}
           </div>
         </form>

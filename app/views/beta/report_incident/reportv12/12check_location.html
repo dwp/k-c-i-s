@@ -1,0 +1,336 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Check your answers - Keep Customer Interactions Safe
+{% endblock %}
+
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+        text: "beta"
+      },
+      html: 'This is a new service – your <a class="govuk-link" href="11g_upload_error">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "templates/v2/header_searchlight.njk" %}
+  {% set idArray = [
+    {
+        attribute: 'id',
+        value: 'spurious'
+    }] %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()",
+      attributes: [
+    {
+        id: 'id'
+    }]
+    }) }}
+  </section>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+      Check your answers
+    </h1>
+  </div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+      <h2 class="govuk-heading-m">
+        Overview
+      </h2>
+      <div class="govuk-grid-column-full govuk-summary-list__row">
+    </div>
+  </div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full govuk-!-padding-bottom-9">
+    {{ govukSummaryList({
+      rows: [
+        {
+          key: {
+            text: "Reporter", 
+            classes: "govuk-!-width-one-third"
+          },
+          value: {
+            html: "<span class='govuk-visually-hidden'>Reporter: </span><span class='govuk-body-s' style='color:#505a5f'>Whitney Earl on behalf of </span>Mike&nbsp;Black"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "Reporter"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Manager who should review this report"
+          },
+          value: {
+            html: "Sartaq Matcha <span class='govuk-body-s' style='color:#505a5f'>(sartaq.matcha@dwp.gov.uk)</span>"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "Manager who should review this report"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "The service you work for"
+          },
+          value: {
+            text: "Working Age"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "The service you work for"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Interaction type"
+          },
+          value: {
+            text: "In person"
+          }
+        },
+        {
+          key: {
+            text: "Incident date"
+          },
+          value: {
+            html: "13 June 2022"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "Incident date"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Incident time"
+          },
+          value: {
+            html: "3:30pm"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "Incident time"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "The office you are based at"
+          },
+          value: {
+            text: "Aberdeen JCP"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "The office you are based at"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Your location during the incident"
+          },
+          value: {
+            html: "Car Park"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "Your location during the incident"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Discrimination type"
+          },
+          value: {
+            html: "<p class='govuk-body'>I feel the customer's behaviour was motivated by the following types of discrimination:</p><ul class='govuk-list govuk-list--bullet'><li>Age</li><li>Being married or in a civil partnership</li></ul>"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "Discrimination type"
+              }
+            ]
+          }
+        }
+      ]
+    }) }}
+  </div>
+</div>
+  <div class="govuk-grid-row  govuk-!-padding-bottom-9">
+    <div class="govuk-grid-column-full">
+        <div class="govuk-summary-list govuk-!-margin-0">
+          <div class="govuk-summary-list__row">
+            <h2 class="govuk-heading-m govuk-summary-list__key">
+              Incident description
+            </h2>
+            <div class="govuk-summary-list__actions">
+              <a class="govuk-link" href="">Change
+                <span class="govuk-visually-hidden"> Incident description</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "1. Why was the customer in contact with us?",
+              classes: "govuk-!-width-one-third"
+            },
+            value: {
+              text: "I called John for a routine welfare check"
+            }
+          },
+          {
+            key: {
+              text: "2. How did the incident start? Was there a specific trigger?"
+            },
+            value: {
+              text: "I asked John to come into the office next week, and he raised his voice and shouted 'I’m not coming to the job centre.'"
+            }
+          },
+          {
+            key: {
+              text: "3. What were the issues with the customer’s behaviour?"
+            },
+            value: {
+              text: "John said 'I'm not answering your questions'"
+            }
+          },
+          {
+            key: {
+              text: "4. Tell us what happened next. How did you try to resolve the situation, and how did the customer react?"
+            },
+            value: {
+              text: "I said, 'Stop swearing at me. I am trying to help you.' But the customer continued to shout and said, 'You're not helping me at all.'"
+            }
+          },
+          {
+            key: {
+              text: "5. Did any of your colleagues see or hear what happened?"
+            },
+            value: {
+              text: "Yes"
+            }
+          },
+          {
+            key: {
+              text: "6. How did your interaction with the customer end?"
+            },
+            value: {
+              text: "I terminated the call"
+            }
+          },
+          {
+            key: {
+              text: "7. How did you feel during the incident?"
+            },
+            value: {
+              text: "I was very upset"
+            }
+          }
+        ]
+      }) }}
+    </div>
+  </div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+      <h2 class="govuk-heading-m">
+        Files added
+      </h2>
+      <div class="govuk-grid-column-full govuk-summary-list__row">
+    </div>
+  </div>
+</div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds govuk-!-padding-bottom-9">
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+                html: "<span class='govuk-visually-hidden'>File name:</span> emailtome.txt",
+                classes: " govuk-!-font-weight-regular "
+            }
+          },
+          {
+            key: {
+                html: "<span class='govuk-visually-hidden'>File name:</span> screen_shot.png",
+                classes: " govuk-!-font-weight-regular "
+            }
+          },
+          {
+            key: {
+                html: "<span class='govuk-visually-hidden'>File name:</span> letter_l.pdf",
+                classes: " govuk-!-font-weight-regular "
+            }
+          }
+        ]
+      }) }}
+    </div>
+  </div>
+  <form class="form" action="13confirm" method="post">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-m">Are you ready to submit your report?</h2>
+        <p class="govuk-body">If you need to change anything in your report, select Change next to each answer or use the back link near the top of this page.</p>
+        <p class="govuk-body">When you click Submit, we will send your report to the appropriate manager to review.</p>
+        <p class="govuk-body govuk-!-font-weight-bold">You will not be able to change anything in your report after you click Submit.</p>
+      </div>
+    </div>
+    <div>
+      {{ govukButton(
+        {
+          text: "Submit"
+        }
+      ) }}
+    </div>
+  </form>
+	{% if not (checked("displaymode", "presentation") == "checked") %}
+		{% include "./notes/12check__notes.njk" %}
+	{% endif %}
+{% endblock %}

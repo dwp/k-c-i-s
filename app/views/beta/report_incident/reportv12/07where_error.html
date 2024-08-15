@@ -46,7 +46,7 @@
         }
       }) }}
       {% endset -%}
-      <form class="form" action="07a_location" method="post">
+      <form class="form" action="08discrimination" method="post">
           {{ govukRadios({
             idPrefix: "location",
             name: "location",
@@ -58,7 +58,7 @@
               }
             },
             hint: {
-              text: "Select one option."
+              text: "If you are reporting on behalf of a colleague, record their answer"
             },
             errorMessage: {
               text: "Tell us where you were when it happened"

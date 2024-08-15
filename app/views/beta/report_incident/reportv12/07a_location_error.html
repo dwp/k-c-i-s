@@ -1,7 +1,6 @@
 {% extends "layout.html" %}
 
-{% set myPageTitle = "At which site did the incident happen?" %}
-
+{% set myPageTitle = "Which office are you based at?" %}
 
 {% block pageTitle %}
   Error: {{myPageTitle}} - Keep Customer Interactions Safe
@@ -26,7 +25,7 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form action="08discrimination.html" method="get">
+      <form action="07where" method="get">
         <link rel="stylesheet" href="/public/countryautocomplete/accessible-autocomplete.min.css">
         <style>
           /* Example page specific styling. */
@@ -62,7 +61,7 @@
           titleText: "There is a problem",
           errorList: [
             {
-              text: "Tell us at which site the incident happened",
+              text: "Tell us the office you are based at",
               href: "#location"
             }
           ]
@@ -75,39 +74,39 @@
           </h1>
           <div id="location-hint" class="govuk-hint">
             <p class="govuk-hint">For example, 'Newcastle East Jobcentre' or 'Loxley House, Nottingham'</p>
+            <p class="govuk-hint">If you are reporting on behalf of a colleague, select the office they are based at.</p>
             <p class="govuk-hint">If the location you need is not available, select 'No results found'</p>
             <p id="event-name-error" class="govuk-error-message">
-              <span class="govuk-visually-hidden">Error:</span> Tell us at which site the incident happened
+              <span class="govuk-visually-hidden">Error:</span> Tell us the office you are based at
           </div>
-              <div class="autocomplete-wrapper">
-                <select name="last-location" id="last-location"  class="govuk-input govuk-input--error" style="border-bottom-color: rgb(212, 53, 28) !important">
-                  <option value="territory:AE-AJ"></option>
-                  <option value="territory:AE-AJ">Aberdare Jobcentre</option>
-                  <option value="territory:AE-AJ">Aberdeen (DCA/TTS) </option>
-                  <option value="territory:AE-AJ">Aberdeen Benefit  Centre</option>
-                  <option value="territory:AE-AJ">Aberdeen Chapel Street </option>
-                  <option value="territory:AE-AJ">Aberdeen City Campus Youth Hub</option>
-                  <option value="territory:AE-AJ">Aberdeen City Council</option>
-                  <option value="territory:AE-AJ">Aberdeen City Wharf Jobcentre Plus</option>
-                  <option value="territory:AE-AJ">Aberdeen Ebury House</option>
-                  <option value="territory:AE-AJ">Aberdeen Health Services Directorate</option>
-                  <option value="territory:AE-AJ">Aberdeen PIP AC</option>
-                  <option value="territory:AE-AJ">Aberdeenshire Council 1</option>
-                  <option value="territory:AE-AJ">Aberdeenshire Council 3</option>
-                  <option value="territory:AE-AJ">Aberdeenshire Council 4</option>
-                  <option value="territory:AE-AJ">CDW Aberdeen</option>
-                </select>
-              </div>
-        </div>
-        <div class="govuk-button-group">
-          {{ govukButton({
-            text: "Continue",
-            href: "10agentsource"
-          }) }}
-        </div>
-      </form>
+          <div class="autocomplete-wrapper">
+              <select name="last-location" id="last-location"  class="govuk-input govuk-input--error" style="border-bottom-color: rgb(212, 53, 28) !important">
+                <option value="territory:AE-AJ"></option>
+                <option value="territory:AE-AJ">Aberdare Jobcentre</option>
+                <option value="territory:AE-AJ">Aberdeen (DCA/TTS) </option>
+                <option value="territory:AE-AJ">Aberdeen Benefit  Centre</option>
+                <option value="territory:AE-AJ">Aberdeen Chapel Street </option>
+                <option value="territory:AE-AJ">Aberdeen City Campus Youth Hub</option>
+                <option value="territory:AE-AJ">Aberdeen City Council</option>
+                <option value="territory:AE-AJ">Aberdeen City Wharf Jobcentre Plus</option>
+                <option value="territory:AE-AJ">Aberdeen Ebury House</option>
+                <option value="territory:AE-AJ">Aberdeen Health Services Directorate</option>
+                <option value="territory:AE-AJ">Aberdeen PIP AC</option>
+                <option value="territory:AE-AJ">Aberdeenshire Council 1</option>
+                <option value="territory:AE-AJ">Aberdeenshire Council 3</option>
+                <option value="territory:AE-AJ">Aberdeenshire Council 4</option>
+                <option value="territory:AE-AJ">CDW Aberdeen</option>
+              </select>
+            </div>
+          </div>
+          <div class="govuk-button-group">
+            {{ govukButton({
+              text: "Continue"
+            }) }}
+          </div>
+        </form>
+      </div>
     </div>
-  </div>
 
 
 

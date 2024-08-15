@@ -1,9 +1,10 @@
 {% extends "layout.html" %}
 
-{% block pageTitle %}
-  Error: What is your business area? - Keep Customer Interactions Safe
-{% endblock %}
+{% set myPageTitle = "Which service do you mainly work for?" %}
 
+{% block pageTitle %}
+  Error: {{myPageTitle}} - Keep Customer Interactions Safe
+{% endblock %}
 {% block beforeContent %}
   <section aria-label="Phase banner" role="region">
     {{ govukPhaseBanner({
@@ -29,7 +30,7 @@
         titleText: "There is a problem",
         errorList: [
           {
-          text: "Tell us your business area",
+          text: "Tell us which service you work on",
           href: "#business"
           }
         ]
@@ -40,12 +41,19 @@
           name: "business",
           fieldset: {
             legend: {
-              text: "What is your business area?",
+              text: myPageTitle
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }
           },
           items: [
+            {
+              value: "workingage",
+              text: "Working Age",
+              hint: {
+                text: "For example: Job centres, work coaches, service centre agents"
+              }
+            },
             {
               value: "msp",
               text: "Medical service provider (outsourced)"
@@ -53,10 +61,6 @@
             {
               value: "cmg",
               text: "Child maintenance group"
-            },
-            {
-              value: "cc",
-              text: "Corporate centre"
             },
             {
               value: "dm",
@@ -80,7 +84,10 @@
             },
             {
               value: "other",
-              text: "Other"
+              text: "Other",
+              hint: {
+                text: "For example: Corporate centre"
+              }            
             }
           ],
           hint: {

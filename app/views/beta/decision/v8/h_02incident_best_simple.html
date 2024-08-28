@@ -57,18 +57,18 @@
               },
               {
                 key: {
-                  text: "Incident location type"
+                  text: "Reporter is based at"
                 },
                 value: {
-                  html: "The office you're based at"
+                  html: "Southernchester JCP"
                 }
               },
               {
                 key: {
-                  text: "Incident location"
+                  text: "Where the incident happened"
                 },
                 value: {
-                  html: "Southernchester JCP"
+                  html: "The office you're based at"
                 }
               },
               {
@@ -77,6 +77,14 @@
                 },
                 value: {
                   html: "<span aria-hidden='true'>INC-</span>000-456-234"
+                }
+              },
+              {
+                key: {
+                  html: "Assigned to"
+                },
+                value: {
+                  html: '<p class="govuk-body">Submitted:</p><p class="govuk-body">Business Support unassigned</p>'
                 }
               }
             ]
@@ -124,8 +132,10 @@
             captionClasses: "govuk-table__caption--l",
             head: [
               {
-                text: "File name",
-                classes: 'govuk-!-width-one-half'
+                text: "File name"
+              },
+              {
+                text: "Attached by"
               },
               {
                 text: "Action"
@@ -137,12 +147,18 @@
                   html: "<span class='govuk-visually-hidden'>File name: </span>emailtome.doc"
                 },
                 {
+                  html: "Whitney Earl<br>12 February 2024 at 11:03am"
+                },
+                {
                   html: "<a href='/public/images/screen_shot.png' role='button' draggable='false' class='govuk-button govuk-button--secondary ' data-module='govuk-button' download>Download file<span class='govuk-visually-hidden'>emailtome.doc</span></a>"
                 }
               ],
               [
                 {
                   html: "<span class='govuk-visually-hidden'>File name: </span>screen_shot.png"
+                },
+                {
+                  html: "Sartaq Matcha<br>13 February 2024 at 11:15am"
                 },
                 {
                   html: "<a href='/public/images/screen_shot.png' role='button' draggable='false' class='govuk-button govuk-button--secondary ' data-module='govuk-button' download>Download file<span class='govuk-visually-hidden'>screen_shot.png</span></a>"
@@ -153,12 +169,25 @@
                   html: "<span class='govuk-visually-hidden'>File name: </span>letter_l.pdf"
                 },
                 {
+                  html: "Sartaq Matcha<br>14 February 2024 at 1:33pm"
+                },
+                {
+                  html: "<a href='/public/images/screen_shot.png' role='button' draggable='false' class='govuk-button govuk-button--secondary ' data-module='govuk-button' download>Download file<span class='govuk-visually-hidden'>letter_l.pdf</span></a>"
+                }
+              ],
+              [
+                {
+                  html: "<span class='govuk-visually-hidden'>File name: </span>letter_l.pdf"
+                },
+                {
+                  html: "Unknown"
+                },
+                {
                   html: "<a href='/public/images/screen_shot.png' role='button' draggable='false' class='govuk-button govuk-button--secondary ' data-module='govuk-button' download>Download file<span class='govuk-visually-hidden'>letter_l.pdf</span></a>"
                 }
               ]
             ]
-          }) }}
-        </div>
+          }) }}        </div>
       </div>
     </div>
   </section>

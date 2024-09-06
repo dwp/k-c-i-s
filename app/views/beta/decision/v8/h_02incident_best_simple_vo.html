@@ -52,7 +52,7 @@
                   text: "Business line"
                 },
                 value: {
-                  text: "Personal Independence Payments (PIP)"
+                  text: "Business line not recorded"
                 }
               },
               {
@@ -225,13 +225,7 @@
         <div class="govuk-!-padding-bottom-9">
           <h2 class="govuk-heading-l" id="manager_section">Reviewing manager comments and recommendations</h2>
           <p class="govuk-body">The relevant manager has not yet submitted a report.</p>
-          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" aria-hidden="true">
-          <h3 class="govuk-heading-s">Contact manager</h3>
-          {{ govukButton({
-            html: 'Resend email request<span class="govuk-visually-hidden"> to manager Sarah Sencha</span>',
-            href: "#manager_section",
-            classes: "govuk-button--secondary"
-          }) }}
+
         </div>
       </div>
     </div>
@@ -305,7 +299,6 @@
               }
             ]
           }) }}
-          {% include "./templates/assign.njk" %}
         </div>
       </div>
     </div>

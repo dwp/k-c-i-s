@@ -63,26 +63,47 @@
         ],
         rows: [
         [
-          {
-            html: "<span class='govuk-visually-hidden'>Report number: </span>22222222"
-          },
-          {
-            html: "<span class='govuk-visually-hidden'>Date: </span>20 June 2024"
-          },
-          {
-            html: "<span class='govuk-visually-hidden'>Customer: </span>Robert De Silva"
-          },
-          {
-            html: "<span class='govuk-visually-hidden'>Original reporter: </span>Whitney Earl"
-          },
-          {
-            html: "<span class='govuk-visually-hidden'>Status: </span> Submitted"
-          },
-          {
-            html: "<span class='govuk-visually-hidden'>Assigned: </span> Unassigned"
-          }
-        ],
-        [
+        {
+          html: "<span class='govuk-visually-hidden'>Report number: </span>11111111"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Date: </span>20 June 2024"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Customer: </span>Robert De Silva"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Original reporter: </span>Whitney Earl"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Status: </span> Submitted"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Assigned: </span> Unassigned"
+        }
+      ],
+      [
+      {
+        html: "<span class='govuk-visually-hidden'>Report number: </span>22222222"
+      },
+      {
+        html: "<span class='govuk-visually-hidden'>Date: </span>20 June 2024"
+      },
+      {
+        html: "<span class='govuk-visually-hidden'>Customer: </span>Robert De Silva"
+      },
+      {
+        html: "<span class='govuk-visually-hidden'>Original reporter: </span>Whitney Earl"
+      },
+      {
+        html: "<span class='govuk-visually-hidden'>Status: </span> Preparing"
+      },
+      {
+        html: "<span class='govuk-visually-hidden'>Assigned: </span> ted@dwp.gov.uk"
+      }
+    ],
+
+      [
           {
             html: "<span class='govuk-visually-hidden'>Report number: </span>12345678"
           },
@@ -107,18 +128,9 @@
     </div>
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        {{ govukInput({
-          label: {
-            text: "Email address"
-          },
-          hint: {
-            text: "Assign all the reports to yourself by using your email address"
-          },          
-          id: "email",
-          name: "email"
-        }) }}
+
         {{ govukButton({
-          text: "Gather and assign reports"
+          text: "Gather and assign reports to me"
         }) }}&nbsp;
         {{ govukButton({
           text: "Back to your reports",

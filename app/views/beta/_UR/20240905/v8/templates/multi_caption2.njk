@@ -1,0 +1,10 @@
+<span class="govuk-caption-m">
+    {% if data['20240429_inc2_actioned'] == "yes" %}
+        <strong class='govuk-tag govuk-tag--green'>Prepared</strong>
+    {% elif data['20240429_inc2_status'] == "Decision pending" %}
+        <strong class='govuk-tag'>{{data['20240429_inc2_status']}}</strong>
+    {% endif %}<br>
+    <strong style='color:#000'>{{data['20240429_inc2_interaction_type']}} incident</strong><br>
+    <span style='color:#000'>{{ "today" | govukDate }}{{data['20240429_inc2_time']}}</span><br>
+    <span class="govuk-body-s" style='color:#505a5f'>Reported by {{data['20240429_inc2_reporter']}}, {{ data['20240429_inc2_date_reported']}}{{ data['20240429_inc2_time_reported']}}</span>
+</span>

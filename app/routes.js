@@ -44,7 +44,7 @@ require("./views/beta/incident_manager_journey/routes/v6")(router);
 require("./views/beta/_UR/20240129/routes/2401")(router);
 require("./views/beta/_UR/20240422/routes/2404")(router);
 require("./views/beta/_UR/20240429/routes/240429")(router);
-require("./views/beta/_UR/20240520/routes/240429")(router);
+require("./views/beta/_UR/20240905/routes/240429")(router);
 
 
 

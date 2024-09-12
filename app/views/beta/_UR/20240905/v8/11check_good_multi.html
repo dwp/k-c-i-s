@@ -1,8 +1,8 @@
-{% extends "layout.html" %}
+{% extends "layout_20240905_ur.html" %}
 {% block pageTitle %}
   Check your answers - Keep Customer Interactions Safe
 {% endblock %}
-{% block beforeContent %}  
+{% block beforeContent %}
   <section aria-label="Phase banner" role="region">
     {{ govukPhaseBanner({
       tag: {
@@ -20,23 +20,38 @@
   </section>
 {% endblock %}
 {% block content %}
-{% include "./templates/govuk-caption-m-multiple.njk" %}
+{% include "./templates/multi_caption.njk" %}
 <h1 class="govuk-heading-xl">Check your answers</h1>
   <form action="12confirmation_multi">
     <input type="hidden" id="20240429_inc1_status" name="20240429_inc1_status" value="" >
     <input type="hidden" id="20240429_inc2_status" name="20240429_inc2_status" value="" >
+    {% set actionListHTML %}
+      <ul class="govuk-list govuk-list--bullet">
+          {% include "./templates/action_list_manager.njk" %}
+      </ul>
+    {% endset %}
+    {% set actionListDMHTML %}
+      <ul class="govuk-list govuk-list--bullet">
+        {% include "./templates/action_list_dm.njk" %}
+      </ul>
+    {% endset %}
+    {% set actionListHTML2 %}
+      <ul class="govuk-list govuk-list--bullet">
+          {% include "./templates/action_list_manager2.njk" %}
+      </ul>
+    {% endset %}
+    {% set actionListDMHTML2 %}
+      <ul class="govuk-list govuk-list--bullet">
+        {% include "./templates/action_list_dm2.njk" %}
+      </ul>
+    {% endset %}
+
+    
+    {% set measureListHTML %}
+      {% include "./templates/measures_list.njk" %}
+    {% endset %}
 
     <div class="govuk-!-margin-bottom-9">
-      {% set actionListHTML2 %}
-      <ul class="govuk-list govuk-list--bullet">
-        <li>Send a letter</li>
-      </ul>
-      {% endset %}
-      {% set actionListHTML %}
-      <ul class="govuk-list govuk-list--bullet">
-        <li>None</li>
-      </ul>
-      {% endset %}
       {{ govukSummaryList({
         rows: [
           {
@@ -94,16 +109,11 @@
       }) }}
     </div>
 
-    <h2 class="govuk-heading-l">Incident </h2>
+    {% include "./templates/multi_caption2.njk" %}
+    <p class="govuk-body-s" style="color:#505a5f">Manager: {{data["20240429_inc2_manager"]}}</p>
+      <div class="govuk-!-margin-bottom-9 govuk-!-margin-top-4">
 
-    <p>
-      <span class='govuk-visually-hidden'>Report date: </span>{{data['20240429_inc2_date']}} {{data['20240429_inc2_time']}} 
-      <span class='govuk-body-s' style='color:#505a5f'>(Reported: {{data['20240429_inc2_date']}} {{data['20240429_inc2_time_reported']}})</span>
-      <br>{{data['20240429_inc2_reporter']}}:{{data['20240429_inc2_interaction_type']}}
-    </p>
-
-      <div class="govuk-!-margin-bottom-9">
-
+  
       {% set typechangeHTML %}03type2.html?n={{ data['Timenow'] }}{% endset %}
         
       
@@ -146,10 +156,27 @@
           },
           {
             key: {
-              text: "Actions"
+              text: "Manager actions"
             },
             value: {
               html: actionListHTML2
+            },
+            actions: {
+              items: [
+                {
+                  href: "05actions2",
+                  text: "Change",
+                  visuallyHiddenText: "Actions"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Decision maker actions"
+            },
+            value: {
+              html: actionListDMHTML2
             },
             actions: {
               items: [
@@ -182,15 +209,10 @@
       }) }}
     </div>
 
-    <h2 class="govuk-heading-l">Incident </h2>
-    <p>
-      <span class='govuk-visually-hidden'>Report date: </span>{{data['20240429_inc1_date']}} {{data['20240429_inc1_time']}} 
-      <span class='govuk-body-s' style='color:#505a5f'>(Reported: {{data['20240429_inc1_date']}} {{data['20240429_inc1_time_reported']}})</span>
-      <br>{{data['20240429_inc1_reporter']}}:{{data['20240429_inc1_interaction_type']}}
-    </p>
+    {% include "./templates/multi_caption1.njk" %}
+    <p class="govuk-body-s" style="color:#505a5f">Manager: {{data["20240429_inc1_manager"]}}</p>
 
-    <div class="govuk-!-margin-bottom-9">
-
+    <div class="govuk-!-margin-bottom-9 govuk-!-margin-top-4">
 
       {{ govukSummaryList({
         rows: [
@@ -230,10 +252,27 @@
           },
           {
             key: {
-              text: "Actions"
+              text: "Manager actions"
             },
             value: {
               html: actionListHTML
+            },
+            actions: {
+              items: [
+                {
+                  href: "05actions",
+                  text: "Change",
+                  visuallyHiddenText: "Actions"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Decision maker actions"
+            },
+            value: {
+              html: actionListDMHTML
             },
             actions: {
               items: [
@@ -276,8 +315,7 @@
         <div class="govuk-button-group">
           {{ govukButton(
               {
-                text: "Add actions and measures. Close decision",
-                href: "19confirmation_multi"
+                text: "Add actions and measures. Close decision"
               }
             )
           }}
@@ -285,7 +323,5 @@
       </div>
     </div>
   </form>
-  {% if not (checked("displaymode", "presentation") == "checked") %}
-		{% include "./notes/18check__notes.njk" %}
-	{% endif %}
+
 {% endblock %}

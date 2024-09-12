@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "layout_20240905_ur.html" %}
 {% block pageTitle %}
   Which report do you to prepare? - Keep Customer Interactions Safe
 {% endblock %}
@@ -22,33 +22,39 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      {% set inc1HTML %}
-      <h2 class='govuk-heading-s govuk-!-margin-bottom-0'>
-        <strong class='govuk-tag'>Decision pending</strong><br>
-        Telephone incident
-      </h2>
-      <p>
-        <span class='govuk-visually-hidden'>Report date: </span>24 June 2024 at 3:00pm<br>
-        <span class='govuk-body-s' style='color:#505a5f'>Reported by Ted Lady, 24 June at 3:43pm</span>
-      </p>
-      {% endset %}
       {% set inc2HTML %}
-      <h2 class='govuk-heading-s govuk-!-margin-bottom-0'>
-        <strong class='govuk-tag govuk-tag--green'>Prepared</strong><br>
-        Telephone incident 
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-0">
+        {% if data['20240429_inc2_actioned'] == "yes" %}
+          <strong class='govuk-tag--green govuk-tag'>Prepared</strong>
+        {% elif data['20240429_inc2_status'] == "Decision pending" %}
+          <strong class='govuk-tag'>{{data['20240429_inc2_status']}}</strong>
+        {% endif %}
+        <br>
+        {{data['20240429_inc2_interaction_type']}} incident
       </h2>
       <p>
-        <span class='govuk-visually-hidden'>Report date: </span>24 June 2024 at 3:00pm<br>
-        <span class='govuk-body-s' style='color:#505a5f'>Reported by Whitney Earl, 24 June at 4:07pm</span>
+        <span class='govuk-visually-hidden'>Report date: </span>{{data['20240429_inc2_date']}} {{data['20240429_inc2_time']}} 
+        <span class='govuk-body-s' style='color:#505a5f'></span><br>
+        <span class='govuk-body-s' style='color:#505a5f'>Reported by {{data['20240429_inc2_reporter']}}, {{data['20240429_inc2_date']}} {{data['20240429_inc2_time_reported']}}</span>
       </p>
       {% endset %}
-      {% set inc3HTML %}
-        <h2 class="govuk-heading-s govuk-!-margin-bottom-0"> <strong class="govuk-tag">Decision pending</strong><br>
-          Concern</h2>
-          <p class="govuk-!-margin-bottom-0">23 June 2024 at 1:27pm</p>
-        <p class="govuk-caption-m govuk-body-s" style='color:#505a5f'>Reported by Teleperformance</a></p>
+      {% set inc1HTML %}
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-0">
+        {% if data['20240429_inc1_actioned'] == "yes" %}
+          <strong class='govuk-tag--green govuk-tag'>Prepared</strong>
+        {% elif data['20240429_inc1_status'] == "Decision pending" %}
+          <strong class='govuk-tag'>{{data['20240429_inc1_status']}}</strong>
+        {% endif %}
+        <br>
+        {{data['20240429_inc1_interaction_type']}} incident
+      </h2>
+      <p>
+        <span class='govuk-visually-hidden'>Report date: </span>{{data['20240429_inc1_date']}} {{data['20240429_inc1_time']}} 
+        <span class='govuk-body-s' style='color:#505a5f'></span><br>
+        <span class='govuk-body-s' style='color:#505a5f'>Reported by {{data['20240429_inc1_reporter']}}, {{data['20240429_inc1_date']}} {{data['20240429_inc1_time_reported']}}</span>
+      </p>
       {% endset %}
-      <form class="form" method="post" action="06fast">
+      <form class="form" method="post" action="20actionroute">
         {% include "./templates/govuk-caption-m-multiple.njk" %}
         {{ govukRadios({
           idPrefix: "20240429_current_report",
@@ -68,10 +74,6 @@
             {
               value: "incident1",
               html: inc1HTML
-            },
-            {
-              value: "incident3",
-              html: inc3HTML
             }
           ],
           hint: {
@@ -86,12 +88,5 @@
       </form>
     </div>
   </div>
-  {% if not (checked("displaymode", "presentation") == "checked") %}
-		{% include "./notes/05choosereport__notes.njk" %}
-	{% endif %}
 
-
-  {% if (checked("displaymode", "multi") == "checked") %}
-  
-	{% endif %}
 {% endblock %}

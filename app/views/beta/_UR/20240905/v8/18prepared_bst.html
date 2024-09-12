@@ -1,0 +1,53 @@
+{% extends "layout_20240905_ur.html" %}
+{% block pageTitle %}
+  Hand over to a colleague - Keep Customer Interactions Safe
+{% endblock %}
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+      text: "beta"
+    },
+      html: 'This is a new service – your <a class="govuk-link" href="10actionerror">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "templates/v7/key_details_red.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "18note_bst"
+    }) }}
+  </section>
+{% endblock %}
+{% block content %}
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+      {% include "templates/v7/govuk-caption-m.njk" %}
+      {{ govukInput({
+        id: "contact-by-email",
+        name: "contact-by-email",
+        type: "email",
+        autocomplete: "email",
+        spellcheck: false,
+        hint: {
+          text: "To hand this report over to a specific colleague, enter their email address.
+          If you leave this blank, it will be automatically passed on to the next available person."
+        },
+        label: {
+          text: "Hand over to a colleague",
+          isPageHeading: true,
+          classes: "govuk-label--xl"
+        }
+      }) }}
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Hand over and close",
+          href: "01landingpage1_blank"
+        }) }}
+      </div>
+    </div>
+  </div>
+  {% if not (checked("displaymode", "presentation") == "checked") %}
+		{% include "./notes/18prepared_bst__notes.njk" %}
+	{% endif %}
+{% endblock %}

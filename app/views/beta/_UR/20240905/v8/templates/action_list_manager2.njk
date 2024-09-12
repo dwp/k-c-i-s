@@ -1,0 +1,17 @@
+<!-- Does the action list contain manager actions --> 
+{% if (data["2401_actions2"]) %}
+  {% if ((("Send a letter" in data["2401_actions2"]) and (data["who-sends2"] == "manager")) or ("Issue a verbal warning" in data["2401_actions2"]) or ("Interview by a manager" in data["2401_actions2"])) %} 
+    <!-- Loop through and display appropriately --> 
+    {% for item in data["2401_actions2"] %}
+        {% if (item == 'Send a letter') and (data["who-sends2"] == "manager") %}
+            <li>{{ item }}<br>{{data["2401_letter_detail2"]}}</li>
+        {% elif item == 'Issue a verbal warning' or item == 'Interview by a manager' %}
+          <li>{{ item }}</li>
+        {% endif %}
+    {% endfor %}  
+  {% else %}
+    <li>None</li>
+  {% endif %}
+{% else %}
+    <li>None</li>
+{% endif %}

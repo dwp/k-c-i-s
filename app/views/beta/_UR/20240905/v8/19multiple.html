@@ -1,0 +1,167 @@
+{% extends "layout_20240905_ur.html" %}
+
+{% block pageTitle %}
+  Gather reports - Keep Customer Interactions Safe
+{% endblock %}
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+        text: "beta"
+      },
+      html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "./templates/key_details_robert_blue.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "01landingpage1_multiple"
+    }) }}
+  </section>
+{% endblock %}
+{% block content %}
+{% set html %}
+<p class="govuk-body">The reports have been reassigned.</p>
+{% endset %}
+{% if data['reassigned'] %}
+{{ govukNotificationBanner({
+  html: html,
+  type: "success"
+  }) }}
+      {% endif %}
+
+
+
+<h1 class="govuk-heading-l">
+   Gather reports
+  </h1>
+  <form action="19multiple">
+    <div class="govuk-!-padding-bottom-7">
+      <p class="govuk-body">The following "live" reports must be assigned to the same decision maker. </p>
+
+      <input type="hidden" id="20240429_date" name="reassigned" value="y">
+
+      {% set assignedEmail %}
+        {% if data['reassigned'] %}
+          {{data['20240422_youremail']}}
+        {% else %}
+          Unassigned
+        {% endif %}
+      {% endset %}
+      
+      {% set button1Class %}
+        {% if data['reassigned'] %}
+         govuk-button--secondary
+        {% else %}
+          
+        {% endif %}
+      {% endset %}
+
+      {% set button2Class %}
+        {% if data['reassigned'] %}
+         
+        {% else %}
+        govuk-button--secondary
+        {% endif %}
+      {% endset %}
+
+      {% set inc2Status %}
+      {% if data['reassigned'] %}
+      <span class='govuk-visually-hidden'>Status: </span> Decision pending
+      {% else %}
+      <span class='govuk-visually-hidden'>Status: </span> Submitted
+      {% endif %}
+      {% endset %}
+    
+      {{ govukTable({
+        head: [
+          {
+            html: "Number"
+          },
+          {
+            html: "Date"
+          },
+          {
+            text: "Customer"
+          },
+          {
+            text: "Original reporter"
+          },
+          {
+            text: "Status"
+          },
+          {
+            text: "Assigned"
+          }
+        ],
+        rows: [
+        [
+          {
+            html: "<span class='govuk-visually-hidden'>Report number: </span>22222222"
+          },
+          {
+            html: data['20240429_inc2_date']
+          },
+          {
+            html: "<span class='govuk-visually-hidden'>Customer: </span>Robert De Silva"
+          },
+          {
+            html: "<span class='govuk-visually-hidden'>Original reporter: </span>Whitney Earl"
+          },
+          {
+            html: inc2Status
+          },
+          {
+            html: assignedEmail
+          }
+        ],
+        [
+          {
+            html: "<span class='govuk-visually-hidden'>Report number: </span>12345678"
+          },
+          {
+            html: data['20240429_inc1_date']
+          },
+          {
+            html: "<span class='govuk-visually-hidden'>Customer: </span>Robert De Silva"
+          },
+          {
+            html: "<span class='govuk-visually-hidden'>Original reporter: </span>Bob Black"
+          },
+          {
+            html: "<span class='govuk-visually-hidden'>Status: </span> Decision pending"
+          },
+          {
+            html: data['20240422_youremail']
+          }
+        ]
+      ]
+    }) }}
+    </div>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        {{ govukInput({
+          label: {
+            text: "Email address"
+          },
+          hint: {
+            text: "Assign all the reports to yourself by using your email address"
+          },          
+          id: "event-name",
+          name: "eventName"
+        }) }}
+        {{ govukButton({
+          text: "Gather and assign reports",
+          classes: button1Class
+        }) }}&nbsp;
+        {{ govukButton({
+          text: "Back to your reports",
+          classes: button2Class,
+          href: "01landingpage1_multiple"
+        }) }}
+      </div>
+    </div>
+  </form>
+
+{% endblock %}

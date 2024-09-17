@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% set myPageTitle = "Office location accessibility" %}
+
+{% block pageTitle %}
+  {{myPageTitle}} - Keep Customer Interactions Safe
+{% endblock %}
+{% block content %}
+    <h1 class="govuk-heading-xl">{{myPageTitle}} </h1>
+    <p class="govuk-body">16 September 2024</p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li><a href="/beta/_UR/20240916/combobox">Original (combobox)</a></li>
+      <li><a href="/beta/_UR/20240916/textfield">Updated (Text field)</a></li>
+    </ul>
+{% endblock %}

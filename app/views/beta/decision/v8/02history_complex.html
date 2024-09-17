@@ -23,13 +23,14 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-			<h1 class="govuk-heading-xl">Customer history</h1>
-		</div>
+		<h1 class="govuk-heading-xl">Customer history</h1>
+	</div>
 	</div>
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 			<p>This page shows all incidents and safety concerns reported about this customer's behaviour, and any actions taken and measures applied as a result. </p>
 			<p>They are in date and time order with the most recent at the top. </p>
+			<p>The <strong class="govuk-tag">Current</strong> incident will no longer appear in Your reports once you have recorded new actions or measures.</p>
       <div class="govuk-button-group">
 				{{ govukButton({
 					text: "Record new actions or measures",
@@ -111,12 +112,12 @@
 						<p class="govuk-caption-m"><a href="h_05action"><span class="govuk-visually-hidden">Action request. </span>Send a letter, Issue a verbal warning, Request a banning order</a></p>
 					</li>
 					<li class="dwp-timeline__events--entry">
-						<h2 class="govuk-heading-s govuk-!-margin-bottom-1">Incident </h2>
+						<h2 class="govuk-heading-s govuk-!-margin-bottom-1">Incident <strong class="govuk-tag">Decision pending</strong></h2>
 						<p class="govuk-!-margin-bottom-1 govuk-hint">1 March 2023</p>
 						<p class="govuk-caption-m"><a href="h_02incident_best_simple"><span class="govuk-visually-hidden">Incident. </span>Whitney Earl: Telephone</a></p>
 					</li>
 					<li class="dwp-timeline__events--entry">
-						<h2 class="govuk-heading-s govuk-!-margin-bottom-1">Concern </h2>
+						<h2 class="govuk-heading-s govuk-!-margin-bottom-1">Concern <strong class="govuk-tag">Current</strong></h2>
 						<p class="govuk-!-margin-bottom-1 govuk-hint">8 August 2022</p>
 						<p class="govuk-caption-m"><a href="h_03concern_best"><span class="govuk-visually-hidden">Concern. </span>Centre for Health and Disability Assessments (CHDA)</a></p>
 					</li>

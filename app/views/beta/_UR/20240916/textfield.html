@@ -68,7 +68,7 @@
           <p class="govuk-hint">Type in 2 or more characters for results.</p>
           <p class="govuk-hint">If the location you need is not available, select 'No results found.'</p>
         </div>
-        <form action="07where" method="get">
+        <form action="index" method="get">
             <div class="autocomplete-wrapper">
               <select name="last-location" id="last-location">
               <option value="territory:AE-AJ"></option>
@@ -2407,25 +2407,48 @@
     </div>
   </div>
   <script type="text/javascript" src="/public/countryautocomplete/accessible-autocomplete.min.js"></script>
-  <script type="text/javascript">
-    var selectEl = document.querySelector('#last-location')
-    accessibleAutocomplete.enhanceSelectElement({
-      autoselect: true,
-      confirmOnBlur: true,
-      defaultValue: "",
-      minLength: 2,
-      selectElement: selectEl
-    })
-
-    document.getElementById('last-location').removeAttribute('role');
-
-    var queryStringParameters = window.location.search
-    var previouslySubmitted = queryStringParameters.length > 0
-    if (previouslySubmitted) {
-      var submittedEl = document.querySelector('.submitted')
-      submittedEl.classList.remove('submitted--hidden')
-      var params = new URLSearchParams(document.location.search.split('?')[1])
-      document.querySelector('.submitted__last-location').innerHTML = params.get('last-location')
+<script type="text/javascript">
+  var selectEl = document.querySelector('#last-location')
+  accessibleAutocomplete.enhanceSelectElement({
+    autoselect: true,
+    confirmOnBlur: true,
+    defaultValue: "",
+    minLength: 2,
+    selectElement: selectEl,
+    source: function (query, populateResults) {
+      const filteredOptions = getOptions().filter(o => o.text.toLowerCase().includes(query.toLowerCase()));
+      const filteredOptionsArray = getFilteredOptionsArray(filteredOptions);
+      populateWithFilteredOptions(filteredOptionsArray, populateResults);
     }
-  </script>
+  })
+
+  const getOptions = function () {
+    return Array.from(selectEl.options);
+  }
+
+  const getFilteredOptionsArray = function (results) {
+    const filteredResults = [];
+    results.forEach(value => {
+      filteredResults.push(value.text);
+    })
+    return filteredResults;
+  }
+
+  const populateWithFilteredOptions = function (filteredOptionsArray, populateResults) {
+    if (filteredOptionsArray.length === 0) {
+      populateResults(['No results found']);
+    } else {
+      populateResults(filteredOptionsArray);
+    }
+  }
+
+  var queryStringParameters = window.location.search
+  var previouslySubmitted = queryStringParameters.length > 0
+  if (previouslySubmitted) {
+    var submittedEl = document.querySelector('.submitted')
+    submittedEl.classList.remove('submitted--hidden')
+    var params = new URLSearchParams(document.location.search.split('?')[1])
+    document.querySelector('.submitted__last-location').innerHTML = params.get('last-location')
+  }
+</script>
 {% endblock %}

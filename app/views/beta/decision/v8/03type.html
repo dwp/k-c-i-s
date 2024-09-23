@@ -22,7 +22,7 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      {% include "./templates/govuk-caption-m-mike.njk" %}
+      {% include "./templates/govuk-caption-m-mike-full.njk" %}
         {{ govukRadios({
         idPrefix: "incident-type",
         name: "incident-type",
@@ -72,7 +72,7 @@
 
         {{ govukButton({
           text: "Continue",
-          href: "05actions"
+          href: "04trigger"
         }) }}
       </div>
     </div>

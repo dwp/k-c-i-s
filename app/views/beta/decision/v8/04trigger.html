@@ -20,102 +20,73 @@
   </section>
 {% endblock %}
 {% block content %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      {% include "./templates/govuk-caption-m-mike.njk" %}
-      <h1 class="govuk-heading-xl">What was the main cause of this incident?</h1>
-        {{ govukRadios({
-        idPrefix: "incident-type",
-        name: "incident-type",
-        fieldset: {
-          legend: {
-            text: "Issues caused by DWP, or that customer believes were caused by DWP ",
-            classes: "govuk-fieldset__legend--m"
-          }
-        },
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {% include "./templates/govuk-caption-m-mike-full.njk" %}
+      {{ govukRadios({
+      idPrefix: "incident-type",
+      name: "incident-type",
+      fieldset: {
+        legend: {
+          text: "What was the main cause of this incident?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--xl"
+        }
+      },
+      items: [
+      {
+        value: "payment",
+        text: "An issue with payment",
+        hint: {
+          text: "For example, the customer believes they're entitled to more money"
+        }
+      },
 
-          items: [
-             {
-               value: "payment",
-               text: "An issue with payment",
-               hint: {
-                 text: "For example, the customer believes they're entitled to more money"
-               }
-             },
+   {
+     value: "service",
+     text: "An issue with the service DWP provides",
+     hint: {
+       text: "For example, the customer complained about long waiting times"
+     }
+   },
 
-          {
-            value: "service",
-            text: "An issue with the service DWP provides",
-            hint: {
-              text: "For example, the customer complained about long waiting times"
-            }
-          },
+   {
+     value: "dwperror",
+     text: "An error in DWP process or an error made by staff"
+   },
 
-          {
-            value: "dwperror",
-            text: "An error in DWP process or an error made by staff"
-          }
-        ]
+   {
+     value: "policy",
+     text: "Customer did not accept rules of entry or rules of conduct"
+
+   },
+
+   {
+     value: "intoxication",
+     text: "Customer appeared to be under the influence of alcohol or drugs"
+   },
+   {
+     value: "health",
+     text: "Customer appeared to have a physical or mental health condition"
+   },
+   {
+     value: "target",
+     text: "Customer targeted a specific member of staff"
+   },
+   {
+     value: "Other",
+     text: "Other"
+   }
+ ]
+    }) }}
+    <div class="govuk-button-group">
+      {{ govukButton({
+        text: "Continue",
+        href: "05actions"
       }) }}
-
-
-        {{ govukRadios({
-        idPrefix: "incident-type",
-        name: "incident-type",
-        fieldset: {
-          legend: {
-            text: "Issues caused by customer",
-            classes: "govuk-fieldset__legend--m"
-          }
-        },
-
-          items: [
-
-          {
-            value: "conduct",
-            text: "Did not accept rules of entry or rules of conduct"
-          },
-          {
-            value: "intoxication",
-            text: "Customer appeared to be under the influence of alcohol or drugs"
-          },
-          {
-            value: "health",
-            text: "Customer appeared to have a physical or mental health condition"
-          },
-          {
-            value: "target",
-            text: "Customer targeted a specific member of staff"
-          }
-        ]
-      }) }}
-
-        {{ govukRadios({
-        idPrefix: "incident-type",
-        name: "incident-type",
-        fieldset: {
-          legend: {
-            text: "Other",
-            classes: "govuk-fieldset__legend--m"
-          }
-        },
-
-          items: [
-          {
-            value: "Other",
-            text: "Other"
-          }
-        ]
-      }) }}
-
-      <div class="govuk-button-group">
-        {{ govukButton({
-          text: "Continue",
-          href: "05actions"
-        }) }}
-      </div>
     </div>
   </div>
+</div>
   {% if not (checked("displaymode", "presentation") == "checked") %}
 		{% include "./notes/04trigger__notes.njk" %}
 	{% endif %}

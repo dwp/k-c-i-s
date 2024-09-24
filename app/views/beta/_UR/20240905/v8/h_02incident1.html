@@ -345,10 +345,16 @@
     </div>
   </section>
   <div class="govuk-button-group">
-    {{ govukButton({
+    <form action="03type" class="form" method="post">
+      {{ govukButton({
       text: "Back to customer history",
       href: "02history_complex_multiple"
-    }) }}
+      }) }}&nbsp;
+      {{ govukButton({
+        text: "Prepare actions",
+        classes: "govuk-button--secondary ds_link"
+      }) }}
+    </form>		
   </div>
 
 

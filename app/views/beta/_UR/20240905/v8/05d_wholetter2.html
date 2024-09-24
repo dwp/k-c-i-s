@@ -22,7 +22,42 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form action="09prepare_single_man2" class="form" method="post">
+       <!-- Set the buttons to return to Check your answers page it cam from else carry on with flow-->
+       {% if data['Referrer'] %}
+        {% if data['Referrer'].includes('11check_good_multi') %}
+        <form class="form" action="11check_good_multi?t={{data['Timenow']}}" method="post">
+          {% set buttonHTML %}
+          <button class="govuk-button" data-module="govuk-button">
+            Save changes
+          </button>
+          {{ govukButton({
+            text: "Cancel",
+            href: "11check_good_multi",
+            classes: "govuk-button--secondary"
+          }) }}
+          {% endset %}
+      {% elif data['Referrer'].includes('11check_good2') %}
+        <form class="form" action="11check_good2?t={{data['Timenow']}}" method="post">
+          {% set buttonHTML %}
+            <button class="govuk-button" data-module="govuk-button">
+              Save changes
+            </button>
+            {{ govukButton({
+              text: "Cancel",
+              href: "11check_good2",
+              classes: "govuk-button--secondary"
+            }) }}          
+          {% endset %}          
+      {% else %}
+        <form class="form" action="09prepare_single_man2" method="post">
+          {% set buttonHTML %}
+          <button class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>
+          {% endset %}          
+        {% endif %}
+      {% endif %}
+
         {% include "./templates/multi_caption2.njk" %}
         {{ govukRadios({
           idPrefix: "who-sends2",
@@ -36,22 +71,19 @@
           },
           items: [
             {
-              value: "manager",
+              value: "Manager",
               text: "Manager",
-              checked: data['who-sends2'] == "manager"
+              checked: data['who-sends2'] == "Manager"
             },
             {
-              value: "decisionmaker",
+              value: "Decision maker",
               text: "Decision maker",
-              checked: data['who-sends2'] == "decisionmaker"
+              checked: data['who-sends2'] == "Decision maker"
             }
           ]
         }) }}
-        <div>
-          {{ govukButton({
-            text: "Continue"
-          }) }}
-        </div>
+        <div class="govuk-button-group">
+          {{ buttonHTML|safe }}
       </form>
     </div>
   </div>

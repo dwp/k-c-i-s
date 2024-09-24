@@ -1,13 +1,19 @@
-<!-- Does the action list contain DM actions --> 
-{% if ((("Send a letter" in data["2401_actions"]) and (data["who-sends"] == "decisionmaker")) or ("Request solicitor to send a letter" in data["2401_actions"]) or ("Request a banning order" in data["2401_actions"])) %} 
-  <!-- Loop through and display appropriately --> 
-  {% for item in data["2401_actions"] %}
-      {% if (item == 'Send a letter') and (data["who-sends"] == "decisionmaker") %}
-          <li>{{ item }}<br>{{data["2401_letter_detail"]}}</li>
-      {% elif item == 'Request solicitor to send a letter' or item == 'Request a banning order' %}
-        <li>{{ item }}</li>
-      {% endif %}
-  {% endfor %}  
-{% else %}
-  <li>None</li>
-{% endif %}
+<ul class="govuk-list govuk-list--bullet">
+  {% if (data["2401_actions"]) %}
+    <!-- Does the action list contain DM actions -->
+    {% if ((("Send a letter" in data["2401_actions"]) and (data["who-sends"] == "Decision maker")) or ("Request solicitor to send a letter" in data["2401_actions"]) or ("Request a banning order" in data["2401_actions"])) %}
+      <!-- Loop through and display appropriately -->
+      {% for item in data["2401_actions"] %}
+          {% if (item == 'Send a letter') and (data["who-sends"] == "Decision maker") %}
+              <li>{{ item }}<br>{{data["2401_letter_detail"]}}</li>
+          {% elif item == 'Request solicitor to send a letter' or item == 'Request a banning order' %}
+            <li>{{ item }}</li>
+          {% endif %}
+      {% endfor %}
+    {% else %}
+      <li>None</li>
+    {% endif %}
+  {% else %}
+      <li>None</li>
+  {% endif %}
+</ul>

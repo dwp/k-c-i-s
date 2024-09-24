@@ -28,7 +28,7 @@
         <div class="govuk-!-padding-bottom-9">
           <h2 class="govuk-heading-l" id="h2-overview"><span class="govuk-warning-text__assistive">Incident </span>Overview</h2>
           {% set assignHTML %}
-            {{data['20240422_youremail']}}<br>Decision pending {% if data['20240429_inc2_actioned'] == "yes" %} (actioned){% endif %}
+            {% if data['20240429_inc2_actioned'] == "yes" %} Prepared{% else %}Decision pending{% endif %}: <br>{{data['20240422_youremail']}}
           {% endset %}
           {{ govukSummaryList({
             rows: [
@@ -60,18 +60,26 @@
               },
               {
                 key: {
-                  text: "Incident location type"
+                  text: "Business line"
                 },
                 value: {
-                  html: data['20240429_inc2_location_type']
+                  html: data['20240429_inc2_busline']
                 }
               },
               {
                 key: {
-                  text: "Incident location"
+                  text: "Reporter is based at"
                 },
                 value: {
                   html: data['20240429_inc2_location']
+                }
+              },
+              {
+                key: {
+                  text: "Where the incident happened"
+                },
+                value: {
+                  html: data['20240429_inc2_location_type']
                 }
               },
               {
@@ -293,7 +301,7 @@
               },
               {
                 key: {
-                  text: "Line manager"
+                  text: "Manager"
                 },
                 value: {
                   html: data['20240429_inc2_manager']
@@ -301,7 +309,7 @@
               },
               {
                 key: {
-                  text: "Line manager's email address"
+                  text: "Manager's email address"
                 },
                 value: {
                   html: data['20240429_inc2_managers_email']

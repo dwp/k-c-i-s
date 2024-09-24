@@ -25,7 +25,40 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
+       <!-- Set the buttons to return to Check your answers page it cam from else carry on with flow-->
+       {% if data['Referrer'].includes('11check_good_multi') %}
+       <form class="form" action="11check_good_multi?t={{data['Timenow']}}" method="post">
+         {% set buttonHTML %}
+         <button class="govuk-button" data-module="govuk-button">
+           Save changes
+         </button>
+         {{ govukButton({
+           text: "Cancel",
+           href: "11check_good_multi",
+           classes: "govuk-button--secondary"
+         }) }}
+         {% endset %}
+     {% elif data['Referrer'].includes('11check_good2') %}
+       <form class="form" action="11check_good2?t={{data['Timenow']}}" method="post">
+         {% set buttonHTML %}
+           <button class="govuk-button" data-module="govuk-button">
+             Save changes
+           </button>
+           {{ govukButton({
+             text: "Cancel",
+             href: "11check_good2",
+             classes: "govuk-button--secondary"
+           }) }}          
+         {% endset %}          
+     {% else %}
+       <form class="form" action="11check_good2" method="post">
+         {% set buttonHTML %}
+         <button class="govuk-button" data-module="govuk-button">
+           Continue
+         </button>
+         {% endset %}          
+     {% endif %}
+     
       <div class="govuk-!-padding-bottom-4">
         {% include "./templates/multi_caption2.njk" %}
         <h1 class="govuk-heading-xl">Finalise actions</h1>
@@ -56,14 +89,6 @@
       Only {{data['20240429_inc2_manager']}} can see what you enter here.
       {% endset %}
 
-      {% if data['Referrer'].includes('11check_good_multi') %}
-        <form class="form" action="11check_good_multi" method="post">
-      {% elif data['Referrer'].includes('11check_good2') %}
-        <form class="form" action="11check_good2" method="post">
-      {% else %}
-        <form class="form" action="11check_good2" method="post">
-      {% endif %}
-
         <section aria-label="notes" role="region">
           {{ govukTextarea({
             name: "2401_note2",
@@ -80,11 +105,8 @@
           }) }}
         </section>
         <div class="govuk-button-group">
-          {{ govukButton({
-            text: "Continue"
-          }) }}
-        </div>
-      </form>
+            {{ buttonHTML|safe }}
+        </form>
     </div>
   </div>
 

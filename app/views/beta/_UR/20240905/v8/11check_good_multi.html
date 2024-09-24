@@ -22,91 +22,60 @@
 {% block content %}
 {% include "./templates/multi_caption.njk" %}
 <h1 class="govuk-heading-xl">Check your answers</h1>
-  <form action="12confirmation_multi">
-    <input type="hidden" id="20240429_inc1_status" name="20240429_inc1_status" value="" >
-    <input type="hidden" id="20240429_inc2_status" name="20240429_inc2_status" value="" >
-    {% set actionListHTML %}
-      <ul class="govuk-list govuk-list--bullet">
-          {% include "./templates/action_list_manager.njk" %}
-      </ul>
-    {% endset %}
-    {% set actionListDMHTML %}
-      <ul class="govuk-list govuk-list--bullet">
-        {% include "./templates/action_list_dm.njk" %}
-      </ul>
-    {% endset %}
-    {% set actionListHTML2 %}
-      <ul class="govuk-list govuk-list--bullet">
-          {% include "./templates/action_list_manager2.njk" %}
-      </ul>
-    {% endset %}
-    {% set actionListDMHTML2 %}
-      <ul class="govuk-list govuk-list--bullet">
-        {% include "./templates/action_list_dm2.njk" %}
-      </ul>
-    {% endset %}
-
-    
-    {% set measureListHTML %}
-      {% include "./templates/measures_list.njk" %}
-    {% endset %}
 
     <div class="govuk-!-margin-bottom-9">
-      {{ govukSummaryList({
-        rows: [
-          {
-            key: {
-              text: "Measures"
-            },
-            value: {
-              html: measureListHTML
-            },
-            actions: {
-              items: [
-                {
-                  href: "06measure#",
-                  text: "Change",
-                  visuallyHiddenText: "Measures"
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Reason for applying measures"
-            },
-            value: {
-              html: data ["2401_measureaccount"]
-            },
-            actions: {
-              items: [
-                {
-                  href: "07measureaccount",
-                  text: "Change",
-                  visuallyHiddenText: "Reason for applying measures"
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Measures review date"
-            },
-            value: {
-              html: data ["2401_incident_date_review"]
-            },
-            actions: {
-              items: [
-                {
-                  href: "08reviewdate",
-                  text: "Change",
-                  visuallyHiddenText: "Measures review date"
-                }
-              ]
-            }
-          }
-        ]
-      }) }}
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Measures
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% include "./templates/measures_list.njk" %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <form action="06measure" class="form" method="post">
+              {{ govukButton({
+                text: "Change",
+                classes: "govuk-button--secondary ds_link"
+              }) }}
+            </form>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Reason for applying measures
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data ["2401_measureaccount"]}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <form action="07measureaccount" class="form" method="post">
+              {{ govukButton({
+                text: "Change",
+                classes: "govuk-button--secondary ds_link"
+              }) }}
+            </form>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Measures review date
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data ["2401_review_date"]}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <form action="08reviewdate" class="form" method="post">
+              {{ govukButton({
+                text: "Change",
+                classes: "govuk-button--secondary ds_link"
+              }) }}
+            </form>
+          </dd>
+        </div>
+      </dl>
     </div>
 
     {% include "./templates/multi_caption2.njk" %}
@@ -117,96 +86,110 @@
       {% set typechangeHTML %}03type2.html?n={{ data['Timenow'] }}{% endset %}
         
       
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Incident type
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data["2404_incident2_type"]}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <form action="03type2" class="form" method="post">
+              {{ govukButton({
+                text: "Change",
+                classes: "govuk-button--secondary ds_link"
+              }) }}
+            </form>
+          </dd>
+        </div>
 
-      {{ govukSummaryList({
-        rows: [
-          {
-            key: {
-              text: "Incident type"
-            },
-            value: {
-              html: data["2404_incident2_type"]
-            },
-            actions: {
-              items: [
-                {
-                  href: typechangeHTML,
-                  text: "Change",
-                  visuallyHiddenText: "Incident type"
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Incident cause"
-            },
-            value: {
-              html: data["2404_incident2_trigger"]
-            },
-            actions: {
-              items: [
-                {
-                  href: "04trigger2",
-                  text: "Change",
-                  visuallyHiddenText: "Incident cause"
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Manager actions"
-            },
-            value: {
-              html: actionListHTML2
-            },
-            actions: {
-              items: [
-                {
-                  href: "05actions2",
-                  text: "Change",
-                  visuallyHiddenText: "Actions"
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Decision maker actions"
-            },
-            value: {
-              html: actionListDMHTML2
-            },
-            actions: {
-              items: [
-                {
-                  href: "05actions2",
-                  text: "Change",
-                  visuallyHiddenText: "Actions"
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Note for manager"
-            },
-            value: {
-              html: data["2401_note2"]
-            },
-            actions: {
-              items: [
-                {
-                  href: "09prepare_single_man2",
-                  text: "Change",
-                  visuallyHiddenText: "Note for manager"
-                }
-              ]
-            }
-          }
-        ]
-      }) }}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Incident cause
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data["2404_incident2_trigger"]}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <form action="04trigger2" class="form" method="post">
+              {{ govukButton({
+                text: "Change",
+                classes: "govuk-button--secondary ds_link"
+              }) }}
+            </form>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Manager actions
+          </dt>
+          <dd class="govuk-summary-list__value">
+              {% include "./templates/action_list_manager2.njk" %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <form action="05actions2" class="form" method="post">
+              {{ govukButton({
+                text: "Change",
+                classes: "govuk-button--secondary ds_link"
+              }) }}
+            </form>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Decision maker actions
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% include "./templates/action_list_dm2.njk" %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <form action="05actions2" class="form" method="post">
+              {{ govukButton({
+                text: "Change",
+                classes: "govuk-button--secondary ds_link"
+              }) }}
+            </form>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Letter to be sent by
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data['who-sends2']}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <form action="05d_wholetter2" class="form" method="post">
+              {{ govukButton({
+                text: "Change",
+                classes: "govuk-button--secondary ds_link"
+              }) }}
+            </form>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Note for manager
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data["2401_note2"]}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <form action="09prepare_single_man2" class="form" method="post">
+              {{ govukButton({
+                text: "Change",
+                classes: "govuk-button--secondary ds_link"
+              }) }}
+            </form>
+          </dd>
+        </div>
+
+      </dl>
     </div>
 
     {% include "./templates/multi_caption1.njk" %}
@@ -214,95 +197,141 @@
 
     <div class="govuk-!-margin-bottom-9 govuk-!-margin-top-4">
 
-      {{ govukSummaryList({
-        rows: [
-          {
-            key: {
-              text: "Incident type"
-            },
-            value: {
-              html: data["2404_incident_type"]
-            },
-            actions: {
-              items: [
-                {
-                  href: "03type",
-                  text: "Change",
-                  visuallyHiddenText: "Incident type"
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Incident cause"
-            },
-            value: {
-              html: data["2404_incident_trigger"]
-            },
-            actions: {
-              items: [
-                {
-                  href: "04trigger",
-                  text: "Change",
-                  visuallyHiddenText: "Incident cause"
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Manager actions"
-            },
-            value: {
-              html: actionListHTML
-            },
-            actions: {
-              items: [
-                {
-                  href: "05actions",
-                  text: "Change",
-                  visuallyHiddenText: "Actions"
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Decision maker actions"
-            },
-            value: {
-              html: actionListDMHTML
-            },
-            actions: {
-              items: [
-                {
-                  href: "05actions",
-                  text: "Change",
-                  visuallyHiddenText: "Actions"
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Note for manager"
-            },
-            value: {
-              html: data["2401_note"]
-            },
-            actions: {
-              items: [
-                {
-                  href: "09prepare_single_man",
-                  text: "Change",
-                  visuallyHiddenText: "Note for manager"
-                }
-              ]
-            }
+      <style>
+        .ds_link {
+              background:#fff;
+              border: 0;
+              display: inline;
+              font-size: inherit;
+              font-weight: inherit;
+              line-height: initial;
+              margin: 0;
+              min-height: 0;
+              min-width: 0;
+              padding: 0;
+              text-align: left;
           }
-        ]
-      }) }}
+          a, .ds_link {
+              color: #0065bd;
+              text-decoration: underline;
+              outline: 0px solid rgba(0, 0, 0, 0);
+              text-underline-offset: 1px;
+              transition: color .2s, background-color .2s, outline-color .2s;
+              box-shadow: 0 0px 0 #fff;
+          }
+          
+          .ds_link:hover {
+            background:#fff;
+            box-shadow: 0 1px 0 #000;
+            text-decoration: underline;
+            text-underline-offset: 1px;
+          }
+        
+      </style>
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Incident type
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data["2404_incident_type"]}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <form action="03type" class="form" method="post">
+              {{ govukButton({
+                text: "Change",
+                classes: "govuk-button--secondary ds_link"
+              }) }}
+            </form>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Incident cause
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data["2404_incident_trigger"]}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <form action="04trigger" class="form" method="post">
+              {{ govukButton({
+                text: "Change",
+                classes: "govuk-button--secondary ds_link"
+              }) }}
+            </form>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Manager actions
+          </dt>
+          <dd class="govuk-summary-list__value">
+              {% include "./templates/action_list_manager.njk" %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <form action="05actions" class="form" method="post">
+              {{ govukButton({
+                text: "Change",
+                classes: "govuk-button--secondary ds_link"
+              }) }}
+            </form>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Decision maker actions
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% include "./templates/action_list_dm.njk" %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <form action="05actions" class="form" method="post">
+              {{ govukButton({
+                text: "Change",
+                classes: "govuk-button--secondary ds_link"
+              }) }}
+            </form>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Letter to be sent by
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data['who-sends']}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <form action="05d_wholetter" class="form" method="post">
+              {{ govukButton({
+                text: "Change",
+                classes: "govuk-button--secondary ds_link"
+              }) }}
+            </form>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Note for manager
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data["2401_note"]}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <form action="09prepare_single_man" class="form" method="post">
+              {{ govukButton({
+                text: "Change",
+                classes: "govuk-button--secondary ds_link"
+              }) }}
+            </form>
+          </dd>
+        </div>
+
+      </dl>
     </div>    
     
     <div class="govuk-grid-row">
@@ -312,16 +341,20 @@
     <p class="govuk-body">If you need to change anything in your report, select Change next to each answer or use the back link near the top of this page.</p>
         <p class="govuk-body">When you click 'Record actions and measures', we will send your decision to the reporter and their manager.</p>
         <p class="govuk-body govuk-!-font-weight-bold">You will not be able to change anything about your decision after you click the button.</p>
-        <div class="govuk-button-group">
-          {{ govukButton(
-              {
-                text: "Add actions and measures. Close decision"
-              }
-            )
-          }}
-        </div>
+        <form action="12confirmation_multi">
+          <input type="hidden" id="20240429_inc1_status" name="20240429_inc1_status" value="" >
+          <input type="hidden" id="20240429_inc2_status" name="20240429_inc2_status" value="" >
+      
+          <div class="govuk-button-group">
+            {{ govukButton(
+                {
+                  text: "Complete report preparation"
+                }
+              )
+            }}
+          </div>
+      </form>
       </div>
     </div>
-  </form>
 
 {% endblock %}

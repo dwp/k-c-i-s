@@ -22,20 +22,30 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
+       <!-- Set the buttons to return to Check your answers page it cam from else carry on with flow-->
       {% if data['Referrer'].includes('11check_good_multi') %}
         <form class="form" action="11check_good_multi?t={{data['Timenow']}}" method="post">
           {% set buttonHTML %}
           <button class="govuk-button" data-module="govuk-button">
-            Back to Check your answers
+            Save changes
           </button>
+          {{ govukButton({
+            text: "Cancel",
+            href: "11check_good_multi",
+            classes: "govuk-button--secondary"
+          }) }}
           {% endset %}
       {% elif data['Referrer'].includes('11check_good2') %}
         <form class="form" action="11check_good2?t={{data['Timenow']}}" method="post">
           {% set buttonHTML %}
-          <button class="govuk-button" data-module="govuk-button">
-            Back to Check your answers - actions
-          </button>
+            <button class="govuk-button" data-module="govuk-button">
+              Save changes
+            </button>
+            {{ govukButton({
+              text: "Cancel",
+              href: "11check_good2",
+              classes: "govuk-button--secondary"
+            }) }}          
           {% endset %}          
       {% else %}
         <form class="form" action="04trigger2" method="post">

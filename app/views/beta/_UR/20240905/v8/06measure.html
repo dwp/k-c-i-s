@@ -25,6 +25,29 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+      <!-- Set the buttons to return to Check your answers page it cam from else carry on with flow-->
+      {% if data['Referrer'] %}
+        {% if data['Referrer'].includes('11check_good_multi') %}
+          <form class="form" action="11check_good_multi?t={{data['Timenow']}}" method="post">
+          {% set buttonHTML %}
+          <button class="govuk-button" data-module="govuk-button">
+            Save changes
+          </button>
+          {{ govukButton({
+            text: "Cancel",
+            href: "11check_good_multi",
+            classes: "govuk-button--secondary"
+          }) }}
+          {% endset %}         
+        {% else %}
+          <form class="form" action="07measureaccount" method="post">
+          {% set buttonHTML %}
+          <button class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>
+          {% endset %}          
+        {% endif %}       
+      {% endif %}       
       <style>
         h1 {
             margin-block-start: 0em;
@@ -184,10 +207,7 @@
           ]
         }) }}
         <div class="govuk-button-group">
-          {{ govukButton({
-            text: "Continue"
-          }) }}
-        </div>
+          {{ buttonHTML|safe }}
       </form>
     </div>
   </div>

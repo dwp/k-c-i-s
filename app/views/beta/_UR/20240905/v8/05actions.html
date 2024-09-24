@@ -22,9 +22,50 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+
+      <!-- Set the buttons to return to Check your answers page it cam from else carry on with flow-->
+
       {% include "./templates/multi_caption1.njk" %}
-      <form class="form" action="05letter" method="post">
-    {% set letterHtml %}
+      {% if data['Referrer'] %}
+        {% if data['Referrer'].includes('11check_good_multi') %}
+          <form class="form" action="11check_good_multi?t={{data['Timenow']}}" method="post">
+            {% set buttonHTML %}
+            <button class="govuk-button" data-module="govuk-button">
+              Save changes
+            </button>
+            {{ govukButton({
+              text: "Cancel",
+              href: "11check_good_multi",
+              classes: "govuk-button--secondary"
+            }) }}
+            {% endset %}
+        {% elif data['Referrer'].includes('11check_good') %}
+          <form class="form" action="11check_good?t={{data['Timenow']}}" method="post">
+            {% set buttonHTML %}
+              <button class="govuk-button" data-module="govuk-button">
+                Save changes
+              </button>
+              {{ govukButton({
+                text: "Cancel",
+                href: "11check_good",
+                classes: "govuk-button--secondary"
+              }) }}          
+            {% endset %}          
+        {% else %}
+          <form class="form" action="05letter" method="post">
+            {% set buttonHTML %}
+            <button class="govuk-button" data-module="govuk-button">
+              Continue
+            </button>
+            {% endset %}          
+        {% endif %}
+      {% endif %}
+
+
+
+
+
+      {% set letterHtml %}
           {{ govukTextarea({
             name: "2401_letter_detail",
             id: "2401_letter_detail",
@@ -38,6 +79,41 @@
             }
           }) }}
         {% endset %}
+        <!-- Set the checkbox true false to be null-tolerant -->
+
+        {% if data['2401_actions'] %}
+          {% if data['2401_actions'].includes("Send a letter") %}
+            {% set letterChecked = true %}
+          {% else %}
+            {% set letterChecked = false %}
+          {% endif %}
+
+          {% if data['2401_actions'].includes("Issue a verbal warning") %}
+            {% set warningChecked = true %}
+          {% else %}
+            {% set warningChecked = false %}
+          {% endif %}
+
+          {% if data['2401_actions'].includes("Interview by a manager") %}
+            {% set interviewChecked = true %}
+          {% else %}
+            {% set interviewChecked = false %}
+          {% endif %}
+
+          {% if data['2401_actions'].includes("Request solicitor to send a letter") %}
+            {% set solicitorChecked = true %}
+          {% else %}
+            {% set solicitorChecked = false %}
+          {% endif %}
+
+          {% if data['2401_actions'].includes("Request a banning order") %}
+            {% set banChecked = true %}
+          {% else %}
+            {% set banChecked = false %}
+          {% endif %}
+
+        {% endif %}
+
         {{ govukCheckboxes({
           idPrefix: "2401_actions",
           name: "2401_actions",
@@ -55,7 +131,7 @@
             {
               value: "Send a letter",
               text: "Send a letter",
-              checked: data['2401_actions'].includes("Send a letter"),
+              checked: letterChecked,
               conditional: {
                 html: letterHtml
               }
@@ -63,30 +139,28 @@
             {
               value: "Issue a verbal warning",
               text: "Issue a verbal warning",
-              checked: data['2401_actions'].includes("Issue a verbal warning")
+              checked: warningChecked
             },
             {
               value: "Interview by a manager",
               text: "Interview by a manager",
-              checked: data['2401_actions'].includes("Interview by a manager")
+              checked: interviewChecked
             },
             {
               value: "Request solicitor to send a letter",
               text: "Request solicitor to send a letter",
-              checked: data['2401_actions'].includes("Request solicitor to send a letter")
+              checked: solicitorChecked
             },
             {
               value: "Request a banning order",
               text: "Request a banning order",
-              checked: data['2401_actions'].includes("Request a banning order")
+              checked: banChecked
             }
           ]
         }) }}
+
         <div class="govuk-button-group">
-          {{ govukButton({
-            text: "Continue"
-          }) }}
-        </div>
+          {{ buttonHTML|safe }}
       </form>
     </div>
   </div>

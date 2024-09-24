@@ -22,15 +22,44 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      {% include "./templates/multi_caption2.njk" %}
+
+      <!-- Set the buttons to return to Check your answers page it cam from else carry on with flow-->
+
       {% if data['Referrer'].includes('11check_good_multi') %}
-        <form class="form" action="11check_good_multi" method="post">
+        <form class="form" action="11check_good_multi?t={{data['Timenow']}}" method="post">
+          {% set buttonHTML %}
+          <button class="govuk-button" data-module="govuk-button">
+            Save changes
+          </button>
+          {{ govukButton({
+            text: "Cancel",
+            href: "11check_good_multi",
+            classes: "govuk-button--secondary"
+          }) }}
+          {% endset %}
       {% elif data['Referrer'].includes('11check_good2') %}
-        <form class="form" action="11check_good2" method="post">
+        <form class="form" action="11check_good2?t={{data['Timenow']}}" method="post">
+          {% set buttonHTML %}
+            <button class="govuk-button" data-module="govuk-button">
+              Save changes
+            </button>
+            {{ govukButton({
+              text: "Cancel",
+              href: "11check_good2",
+              classes: "govuk-button--secondary"
+            }) }}          
+          {% endset %}          
       {% else %}
         <form class="form" action="05actions2" method="post">
+          {% set buttonHTML %}
+          <button class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>
+          {% endset %}          
       {% endif %}
-            
+
+      {% include "./templates/multi_caption2.njk" %}
+
           {{ govukRadios({
             idPrefix: "2404_incident2_trigger",
             name: "2404_incident2_trigger",
@@ -88,12 +117,8 @@
               }
             ]
           }) }}
-          
-                <div class="govuk-button-group">
-          {{ govukButton({
-            text: "Continue"
-          }) }}
-                </div>
+          <div class="govuk-button-group">
+            {{ buttonHTML|safe }}
         </form>
     </div>
   </div>

@@ -22,7 +22,29 @@
 {% block content %}
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <form class="form" action="08reviewdate" method="post">
+      <!-- Set the buttons to return to Check your answers page it cam from else carry on with flow-->
+      {% if data['Referrer'] %}
+        {% if data['Referrer'].includes('11check_good_multi') %}
+          <form class="form" action="11check_good_multi?t={{data['Timenow']}}" method="post">
+          {% set buttonHTML %}
+          <button class="govuk-button" data-module="govuk-button">
+            Save changes
+          </button>
+          {{ govukButton({
+            text: "Cancel",
+            href: "11check_good_multi",
+            classes: "govuk-button--secondary"
+          }) }}
+          {% endset %}         
+        {% else %}
+          <form class="form" action="08reviewdate" method="post">
+          {% set buttonHTML %}
+          <button class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>
+          {% endset %}          
+        {% endif %}       
+      {% endif %}    
           {% include "./templates/multi_caption.njk" %}
           {% set hintHTML %}
           {% include "./templates/measures_list.njk" %} 
@@ -48,11 +70,8 @@
             }
           }) }}
           <div class="govuk-button-group">
-            {{ govukButton({
-              text: "Continue"
-            }) }}
-          </div>
-  </form>
+            {{ buttonHTML|safe }}
+        </form>
     </div>
   </div>
 

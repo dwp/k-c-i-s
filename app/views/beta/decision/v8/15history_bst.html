@@ -21,24 +21,24 @@
   </section>
 {% endblock %}
 {% block content %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
 			<h1 class="govuk-heading-xl">Customer history</h1>
 		</div>
 	</div>
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-			<p>This page shows all incidents and safety concerns reported about this customer's behaviour, and any actions taken and measures applied as a result. </p>
-			<p>They are in date / time order with the most recent at the top. </p>
-      <br>
-      <p>Click the button when this report is ready to hand over to one of your colleagues. </p>
-      <div class="govuk-button-group">
-				{{ govukButton({
-					text: "Ready to hand over",
-					href: "16fast"
-				}) }}
+		<p>This page shows all incidents and safety concerns reported about this customer's behaviour, and any actions taken and measures applied as a result. </p>
+		<p>They are in date / time order with the most recent at the top. </p>
+		<p>The <strong class="govuk-tag">Current</strong> incident will no longer appear in Your reports once you have recorded new actions or measures.</p>
+		<p>Click the button when this report is ready to hand over to one of your colleagues. </p>
+		<div class="govuk-button-group">
+			{{ govukButton({
+				text: "Ready to hand over",
+				href: "16fast"
+			}) }}
 		</div>
-		</div>
+	</div>
 		<div class="govuk-grid-column-one-third">
 			<style>
 				@media (min-width: 40.0625em) {

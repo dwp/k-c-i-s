@@ -28,10 +28,16 @@
 	</div>
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-			<p>This page shows all incidents and safety concerns reported about this customer's behaviour, and any actions taken and measures applied as a result. </p>
+		{{ govukDetails({
+			summaryText: "Help with Customer history",
+			html: 
+			"<p>This page shows all incidents and safety concerns reported about this customer's behaviour, and any actions taken and measures applied as a result. </p>
 			<p>They are in date and time order with the most recent at the top. </p>
-			<p>The <strong class="govuk-tag">Current</strong> incident will no longer appear in Your reports once you have recorded new actions or measures.</p>
-      <div class="govuk-button-group">
+			<p>All reports that need a decision are now assigned to you. </p>
+			<p>Select each <strong class='govuk-tag'>Decision pending</strong> report in turn then Prepare actions and write your message to each reporter's manager. </p>
+			<p>When all reports have been <strong class='govuk-tag govuk-tag--green'>Prepared</strong> you can Add measures for the customer, close and publish the decision.</p>"
+		  }) }}
+		<div class="govuk-button-group">
 				{{ govukButton({
 					text: "Record new actions or measures",
 					href: "03type"

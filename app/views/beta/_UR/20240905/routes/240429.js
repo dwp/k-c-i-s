@@ -1,3 +1,5 @@
+console.log ('test outside')
+
 module.exports = function (router) {
 
 // Route by incident number
@@ -13,7 +15,7 @@ router.post('/beta/_UR/20240905/v8/20actionroute', (req, res) => {
     }
 })
 
-// Route send a letter to extra screens
+// Route send a letter to upload files question
 router.post('/beta/_UR/20240905/v8/05letter', (req, res) => {
   // Make a variable and give it the value from '2401_actions'
   var checkLetter = req.session.data['2401_actions']
@@ -21,7 +23,7 @@ router.post('/beta/_UR/20240905/v8/05letter', (req, res) => {
     // Check whether the variable matches a condition
     if ((checkLetter.includes("Send a letter"))) {
       // Send user to 
-      res.redirect('05b_add')
+      res.redirect('05d_wholetter')
     } else {
       res.redirect('09prepare_single_man')
     }
@@ -30,15 +32,17 @@ router.post('/beta/_UR/20240905/v8/05letter', (req, res) => {
   }
 })
 
+
 // Route send a letter to extra screens
 router.post('/beta/_UR/20240905/v8/05letter2', (req, res) => {
+  console.log ('test inside letter')
   // Make a variable and give it the value from '2401_actions2'
   var checkLetter = req.session.data['2401_actions2']
   if (typeof checkLetter !== 'undefined') {
     // Check whether the variable matches a condition
     if ((checkLetter.includes("Send a letter"))) {
       // Send user to 
-      res.redirect('05b_add2')
+      res.redirect('05d_wholetter2')
     } else {
       res.redirect('09prepare_single_man2')
     }
@@ -46,7 +50,27 @@ router.post('/beta/_UR/20240905/v8/05letter2', (req, res) => {
     res.redirect('09prepare_single_man2')
   }
 })
+console.log ('test')
 
+// Route around upload if upload add files = no 
+router.post('/beta/_UR/20240905/v8/5c_upload2', (req, res) => {
+  // Make a variable and give it the value we want to look at
+  var checkLetter = req.session.data['add-files2']
+  if (typeof checkLetter !== 'undefined') {
+    // Check whether the variable matches a condition
+    if ((checkLetter.includes("Yes"))) {
+      // Send user to upload file
+      res.redirect('05c_upload2')
+    } else {
+      // Send user to who sends letter
+      res.redirect('05d_wholetter2')
+    }
+    console.log ('not null')
+  } else {
+    res.redirect('05d_wholetter2');
+    console.log ('else')
+  }
+})
 
 
 }

@@ -28,6 +28,7 @@ Do you want to upload the letter to be sent? - Keep Customer Interactions Safe
         {{ govukRadios({
           idPrefix: "add-files",
           name: "add-files",
+          value: data['add-files'],
           fieldset: {
             legend: {
               text: "Do you want to upload the letter to be sent?",
@@ -37,11 +38,11 @@ Do you want to upload the letter to be sent? - Keep Customer Interactions Safe
           },
           items: [
             {
-              value: "yes",
+              value: "Yes",
               text: "Yes"
             },
             {
-              value: "no",
+              value: "No",
               text: "No"
             }
           ],

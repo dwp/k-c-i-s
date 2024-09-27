@@ -11,7 +11,12 @@
       html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
     }) }}
   </section>
-  {% include "templates/v7/key_details_red.njk" %}
+  <!-- if there are measures show red banner else show blue -->
+  {% if  (data["2401_applymeasures1"] | length == 0 and data["2401_applymeasures2"] | length == 0 and data["2401_applymeasures3"] | length == 0) %}
+    {% include "./templates/key_details_robert_blue.njk" %}
+  {% else %}
+    {% include "./templates/key_details_red.njk" %}
+  {% endif %}
   <section aria-label="Back" role="region">
     {{ govukBackLink({
       text: "Back",
@@ -21,21 +26,28 @@
 {% endblock %}
 {% block content %}
   <h1 class="govuk-heading-xl">Measures</h1>
+  {% set measuresKeyHTML %}
+    Measures 
+    {% if not (data["2401_applymeasures1"] | length == 0 and data["2401_applymeasures2"] | length == 0 and data["2401_applymeasures3"] | length == 0) %}<strong class="govuk-tag govuk-tag--red">active</strong>{% endif %}
+  {% endset %}
+  {% set measuresHTML %}
+    <ul class="govuk-list govuk-list--bullet">
+      {% include "./templates/measures_list.njk" %} 
+    </ul>
+  {% endset %}
+  {% set todayHTML %}
+    {{ "today" | govukDate }}
+  {% endset %}
+
+
   {{ govukSummaryList({
     rows: [
       {
         key: {
-          html: 'Measures <strong class="govuk-tag govuk-tag--red">Active</strong>'
+          html: measuresKeyHTML
         },
         value: {
-          html: '<ul class="govuk-list govuk-list--bullet">
-            <li>Interim ban from office (by DWP)<br>Banned from: Bromley JCP</li>
-            <li>Ban from office (by Government Legal Department)<br>Banned from: Droitwich JCP</li>
-            <li>Must be seen in a screened area</li>
-            <li>Court order (injunction or interdict) in place<br>Refer to GLD</li>
-            <li>No home visits</li>
-            <li>Must only interact with a named member of staff<br>Staff member: whitney@dwp.gov</li>
-          </ul>'
+          html: measuresHTML
         }
       },
       {
@@ -43,7 +55,7 @@
           text: "Date applied"
         },
         value: {
-          text: "30 May 2023"
+          text: todayHTML
         }
       },
       {
@@ -51,7 +63,7 @@
           text: "Applied by"
         },
         value: {
-          html: "Sarah Sencha"
+          html: data['20240422_yourname']
         }
       },
       {
@@ -59,14 +71,15 @@
           text: "Review date"
         },
         value: {
-          html: "30 May 2024"
+          html: data ["2401_review_date"]
         }
       }
     ]
   }) }}
   <div class="govuk-grid-row govuk-!-padding-bottom-3">
     <div class="govuk-grid-column-two-thirds">
-            <p class="govuk-!-padding-bottom-7">The customer must not have any face to face interaction as he has previously made a threat towards DWP and has thrown a weapon at staff. Bans requested and applied</p>      <div class="govuk-button-group">
+        <p class="govuk-!-padding-bottom-7">{{data ["2401_measureaccount"]}}</p>
+        <div class="govuk-button-group">
         {{ govukButton({
           text: "Back to customer history",
           href: "javascript:history.back()"
@@ -74,7 +87,5 @@
       </div>
     </div>
   </div>
-  {% if not (checked("displaymode", "presentation") == "checked") %}
-		{% include "./notes/h_04measures__notes.njk" %}
-	{% endif %}
+
 {% endblock %}

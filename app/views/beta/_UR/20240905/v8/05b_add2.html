@@ -1,6 +1,6 @@
 {% extends "layout_20240905_ur.html" %}
 {% block pageTitle %}
-Do you want to upload the letter to be sent? - Keep Customer Interactions Safe
+  Do you want to upload the letter to be sent? - Keep Customer Interactions Safe
 {% endblock %}
 {% block beforeContent %}
   <section aria-label="Phase banner" role="region">
@@ -22,12 +22,13 @@ Do you want to upload the letter to be sent? - Keep Customer Interactions Safe
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form action="05c_upload2" class="form" method="post">
+      <form class="form" action="05c_upload2" method="post">
 
         {% include "./templates/multi_caption2.njk" %}
         {{ govukRadios({
           idPrefix: "add-files2",
           name: "add-files2",
+          value: data['add-files2'],
           fieldset: {
             legend: {
               text: "Do you want to upload the letter to be sent?",
@@ -37,11 +38,11 @@ Do you want to upload the letter to be sent? - Keep Customer Interactions Safe
           },
           items: [
             {
-              value: "yes",
+              value: "Yes",
               text: "Yes"
             },
             {
-              value: "no",
+              value: "No",
               text: "No"
             }
           ],

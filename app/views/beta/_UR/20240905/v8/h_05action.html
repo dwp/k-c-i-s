@@ -11,7 +11,12 @@
       html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
     }) }}
   </section>
-  {% include "templates/v7/key_details_red.njk" %}
+  <!-- if there are measures show red banner else show blue -->
+  {% if  (data["2401_applymeasures1"] | length == 0 and data["2401_applymeasures2"] | length == 0 and data["2401_applymeasures3"] | length == 0) %}
+    {% include "./templates/key_details_robert_blue.njk" %}
+  {% else %}
+    {% include "./templates/key_details_red.njk" %}
+  {% endif %}
   <section aria-label="Back" role="region">
     {{ govukBackLink({
       text: "Back",
@@ -23,6 +28,29 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full govuk-!-padding-bottom-9">
           <h1 class="govuk-heading-xl">Action request</h1>
+          {% set yournameHTML %}
+            Action: {{data['20240422_yourname']}}
+          {% endset %}
+          {% set youractionsHTML %}
+            <ul class="govuk-list govuk-list--bullet">
+              {% include "./templates/action_list_dm_combined.njk" %}
+            </ul>
+          {% endset %}
+
+          {% set man1HTML %}
+            Action: {{data['20240429_inc1_manager']}}
+          {% endset %}
+          {% set man1ActionHTML %}
+              {% include "./templates/action_list_manager.njk" %}
+          {% endset %}
+
+          {% set man2HTML %}
+            Action: {{data['20240429_inc2_manager']}}
+          {% endset %}
+          {% set man2ActionHTML %}
+              {% include "./templates/action_list_manager2.njk" %}
+          {% endset %}
+
           {{ govukSummaryList({
             rows: [
               {
@@ -30,7 +58,7 @@
                   text: "Date requested"
                 },
                 value: {
-                  text: "1 March 2023"
+                  text: data['20240429_inc1_date']
                 }
               },
               {
@@ -38,77 +66,43 @@
                   text: "Requested by"
                 },
                 value: {
-                  text: "Sadiq Assam"
+                  text: data['20240422_yourname']
                 }
               },
               {
                 key: {
-                  text: "Action: Sarah Sencha"
+                  html: man1HTML
                 },
                 value: {
-                html: '<ul class="govuk-list govuk-list--bullet">
-                        <li>Send a letter  <br>Send interim ban letter to the customer
-                        </li>
-                        <ul class="govuk-list">
-                          <li>v3 20240323 interim ban.doc</li>
-                        </ul>
-                      </ul>
-                      '
+                html: man1ActionHTML
                 }
               },
               {
                 key: {
-                  text: "Action: Sarah Sencha"
+                  html: man2HTML
                 },
                 value: {
-                html: '<ul class="govuk-list govuk-list--bullet">
-                        <li>Issue a verbal warning</li>
-                      </ul>'
+                html: man2ActionHTML
                 }
               },
               {
                 key: {
-                  text: "Action: Sadiq Assam"
+                  html: yournameHTML
                 },
                 value: {
-                html: '<ul class="govuk-list govuk-list--bullet">
-                        <li>Request a banning order</li>
-                      </ul>'
+                html: youractionsHTML
                 }
               }
             ]
           }) }}
         </div>
       </div>
-      <section aria-label="Files attached to action" role="region">
-        <div class="govuk-grid-row">
-          <div class="govuk-grid-column-two-thirds govuk-!-padding-bottom-9">
-              <h2 class="govuk-heading-l" id="attached">Uploaded letter</h2>
-              {{ govukTable({
-                captionClasses: "govuk-table__caption--l",
-                head: [
-                  {
-                    text: "File name",
-                    classes: 'govuk-!-width-one-half'
-                  },
-                  {
-                    text: "Action"
-                  }
-                ],
-                rows: [
-                  [
-                    {
-                      html: "<span class='govuk-visually-hidden'>File name: </span>v3 20240323 interim ban.doc"
-                    },
-                    {
-                      html: "<a href='/public/images/screen_shot.png' role='button' draggable='false' class='govuk-button govuk-button--secondary ' data-module='govuk-button' download>Download file<span class='govuk-visually-hidden'>ESA50.pdf</span></a>"
-                    }
-                  ]
-                ]
-              }) }}
-          </div>
+      <section aria-label="Files attached to action request" role="region">
+        <div class="govuk-!-padding-bottom-9">
+            <h2 class="govuk-heading-m" id="attached">There are no files attached to this action request
+            </h2>
         </div>
-      </section>      
+    </section>  
       <div class="govuk-button-group">
         {{ govukButton({
           text: "Back to customer history",
@@ -116,7 +110,5 @@
         }) }}
       </div>
 
-  {% if not (checked("displaymode", "presentation") == "checked") %}
-		{% include "./notes/h_05action__notes.njk" %}
-	{% endif %}
+
 {% endblock %}

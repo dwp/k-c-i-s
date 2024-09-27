@@ -12,7 +12,12 @@
       html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
     }) }}
   </section>
-  {% include "./templates/key_details_robert_blue.njk" %}
+  <!-- if there are measures show red banner else show blue -->
+  	{% if  (data["2401_applymeasures1"] | length == 0 and data["2401_applymeasures2"] | length == 0 and data["2401_applymeasures3"] | length == 0) %}
+    	{% include "./templates/key_details_robert_blue.njk" %}
+	{% else %}
+    	{% include "./templates/key_details_red.njk" %}
+	{% endif %}
   <section aria-label="Back" role="region">
     {{ govukBackLink({
       text: "Back",
@@ -54,19 +59,20 @@
     	<div class="govuk-grid-column-two-thirds">
 			<ol class="dwp-timeline__events">
 				<li class="dwp-timeline__events--entry">
-					<h2 class="govuk-heading-s govuk-!-margin-bottom-0">Measures <strong class="govuk-tag govuk-tag--red">active</strong></h2>
-					<p class="govuk-!-margin-bottom-1 govuk-hint">10 August 2024</p>
-						<ul class="govuk-list govuk-list--bullet">
-							<li class="govuk-!-margin-bottom-0"><a href="#"><span class="govuk-visually-hidden">Measures</span>Must be seen in a screened environment</a><br></li>
-							<li class="govuk-!-margin-bottom-0"><a href="#"><span class="govuk-visually-hidden">Measures</span>No home visits</a></li>
-						</ul>
+					<!-- only show "Active" tag if measures does not = none -->
+					<h2 class="govuk-heading-s govuk-!-margin-bottom-0">Measure {% if not (data["2401_applymeasures1"] | length == 0 and data["2401_applymeasures2"] | length == 0 and data["2401_applymeasures3"] | length == 0) %}<strong class="govuk-tag govuk-tag--red">active</strong>{% endif %}</h2>
+					<p class="govuk-!-margin-bottom-1 govuk-hint">{{ "today" | govukDate }}</p>
+					<ul class="govuk-list govuk-list--bullet">
+						<a href="h_04measures">{% include "./templates/measures_list.njk" %} </a>
+					</ul>
+					{% set actionDetailsHTML %}
+					<ul class="govuk-list govuk-list--bullet">
+						<a href="h_05action">{% include "./templates/action_list_history.njk" %} </a>
+					</ul>
+					{% endset %}
 					{{ govukDetails({
 						summaryText: "Action request",
-						html: '
-						<ul class="govuk-list govuk-list--bullet">
-							<li class="govuk-!-margin-bottom-0"><a href="h_05action">Send a letter: First warning</li>
-							<li class="govuk-!-margin-bottom-0"><a href="h_05action">Issue a verbal warning</a></li>
-						</ul>'
+						html: actionDetailsHTML
 					}) }}
 				</li>	
 				<li class="dwp-timeline__events--entry">

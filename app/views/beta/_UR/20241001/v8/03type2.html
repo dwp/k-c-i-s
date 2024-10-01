@@ -1,0 +1,113 @@
+{% extends "layout_20241001_ur.html" %}
+{% block pageTitle %}
+  What was the most serious thing that happened during the incident? - Keep Customer Interactions Safe
+{% endblock %}
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+        text: "beta"
+      },
+      html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "./templates/key_details_robert_blue.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
+  </section>
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+       <!-- Set the buttons to return to Check your answers page it cam from else carry on with flow-->
+      {% if data['Referrer'].includes('11check_good_multi') %}
+        <form class="form" action="11check_good_multi?t={{data['Timenow']}}" method="post">
+          {% set buttonHTML %}
+          <button class="govuk-button" data-module="govuk-button">
+            Save changes
+          </button>
+          {{ govukButton({
+            text: "Cancel",
+            href: "11check_good_multi",
+            classes: "govuk-button--secondary"
+          }) }}
+          {% endset %}
+      {% elif data['Referrer'].includes('11check_good2') %}
+        <form class="form" action="11check_good2?t={{data['Timenow']}}" method="post">
+          {% set buttonHTML %}
+            <button class="govuk-button" data-module="govuk-button">
+              Save changes
+            </button>
+            {{ govukButton({
+              text: "Cancel",
+              href: "11check_good2",
+              classes: "govuk-button--secondary"
+            }) }}          
+          {% endset %}          
+      {% else %}
+        <form class="form" action="04trigger2" method="post">
+          {% set buttonHTML %}
+          <button class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>
+          {% endset %}          
+      {% endif %}
+
+        {% include "./templates/multi_caption2.njk" %}
+        {{ govukRadios({
+          idPrefix: "2404_incident2_type",
+          name: "2404_incident2_type",
+          value: data["2404_incident2_type"],
+          fieldset: {
+            legend: {
+              text: "What was the most serious thing that happened during the incident?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          items: [
+            {
+              value: "Physical assault",
+              text: "Physical assault"
+            },
+            {
+              value: "Attempted physical assault",
+              text: "Attempted physical assault"
+            },
+            {
+              value: "Attacked DWP equipment or property",
+              text: "Attacked DWP equipment or property"
+            },
+            {
+              value: "Suicide or self-harm",
+              text: "Suicide or self-harm"
+            },
+            {
+              value: "Verbal or written abuse",
+              text: "Verbal or written abuse"
+            },
+            {
+              value: "Threat",
+              text: "Threat"
+            },
+            {
+              value: "This report does not meet the definition of an incident",
+              text: "This report does not meet the definition of an incident"
+            },
+            {
+              value: "Other",
+              text: "Other"
+            }
+          ]
+        }) }}
+        <div class="govuk-button-group">
+          {{ buttonHTML|safe }}
+      </form>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

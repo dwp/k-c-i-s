@@ -1,0 +1,68 @@
+{% extends "layout_20241001_ur.html" %}
+{% block pageTitle %}
+  Measures - Keep Customer Interactions Safe
+{% endblock %}
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+        text: "beta"
+      },
+      html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "templates/v7/key_details.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
+  </section>
+{% endblock %}
+{% block content %}
+  <h1 class="govuk-heading-xl">Measures</h1>
+  {{ govukSummaryList({
+    rows: [
+      {
+        key: {
+          html: 'Measures (not active)'
+        },
+        value: {
+          html: '<ul class="govuk-list govuk-list--bullet">
+            <li>None</li>
+          </ul>'
+        }
+      },
+      {
+        key: {
+          text: "Date applied"
+        },
+        value: {
+          text: "1 March 2023"
+        }
+      },
+      {
+        key: {
+          text: "Applied by"
+        },
+        value: {
+          html: "Sadiq Assam"
+        }
+      }
+    ]
+  }) }}
+  <div class="govuk-grid-row govuk-!-padding-bottom-3">
+    <div class="govuk-grid-column-two-thirds">
+      <p class="govuk-!-padding-bottom-7">The measures are no longer valid and have been removed.</p>
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Back to customer history",
+          href: "02history_nomeasures"
+        }) }}
+      </div>
+    </div>
+  </div>
+  {% if not (checked("displaymode", "presentation") == "checked") %}
+		{% include "./notes/h_04measures__notes.njk" %}
+	{% endif %}
+{% endblock %}

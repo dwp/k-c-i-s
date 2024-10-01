@@ -1,0 +1,90 @@
+{% extends "layout_20241001_ur.html" %}
+{% block pageTitle %}
+  Who should send the letter? - Keep Customer Interactions Safe
+{% endblock %}
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+      text: "beta"
+    },
+      html: 'This is a new service – your <a class="govuk-link" href="10add_error">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "./templates/key_details_robert_blue.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
+  </section>
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+       <!-- Set the buttons to return to Check your answers page it cam from else carry on with flow-->
+       {% if data['Referrer'] %}
+        {% if data['Referrer'].includes('11check_good_multi') %}
+        <form class="form" action="11check_good_multi?t={{data['Timenow']}}" method="post">
+          {% set buttonHTML %}
+          <button class="govuk-button" data-module="govuk-button">
+            Save changes
+          </button>
+          {{ govukButton({
+            text: "Cancel",
+            href: "11check_good_multi",
+            classes: "govuk-button--secondary"
+          }) }}
+          {% endset %}
+      {% elif data['Referrer'].includes('11check_good') %}
+        <form class="form" action="11check_good?t={{data['Timenow']}}" method="post">
+          {% set buttonHTML %}
+            <button class="govuk-button" data-module="govuk-button">
+              Save changes
+            </button>
+            {{ govukButton({
+              text: "Cancel",
+              href: "11check_good",
+              classes: "govuk-button--secondary"
+            }) }}          
+          {% endset %}          
+      {% else %}
+        <form class="form" action="09prepare_single_man" method="post">
+          {% set buttonHTML %}
+          <button class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>
+          {% endset %}          
+        {% endif %}
+      {% endif %}
+
+      {% include "./templates/multi_caption1.njk" %}
+        {{ govukRadios({
+          idPrefix: "who-sends",
+          name: "who-sends",
+          fieldset: {
+            legend: {
+              text: "Who should send the letter?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          items: [
+            {
+              value: "Manager",
+              text: "Manager",
+              checked: data['who-sends'] == "Manager"
+            },
+            {
+              value: "Decision maker",
+              text: "Decision maker",
+              checked: data['who-sends'] == "Decision maker"
+            }
+          ]
+        }) }}
+        <div class="govuk-button-group">
+          {{ buttonHTML|safe }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

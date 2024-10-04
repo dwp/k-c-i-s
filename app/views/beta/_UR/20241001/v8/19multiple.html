@@ -25,6 +25,7 @@
 <p class="govuk-body">The reports have been reassigned.</p>
 {% endset %}
 {% set warningHTML %}
+<p class="govuk-body"><strong>Your decision has not been published.</strong></p>
 <p class="govuk-body">There is more than one live report for this customer. Assign all reports to yourself to continue.</p>
 {% endset %}
 {% if data['reassigned'] %}
@@ -49,6 +50,7 @@
       <p class="govuk-body">The following "live" reports must be assigned to the same decision maker. </p>
 
       <input type="hidden" id="20240429_date" name="reassigned" value="y">
+      <input type="hidden" id="2reports" name="2reports" value="yes">
 
       {% set assignedEmail %}
         {% if data['reassigned'] %}
@@ -68,18 +70,33 @@
 
       {% set button2Class %}
         {% if data['reassigned'] %}
-         
         {% else %}
         govuk-button--secondary
         {% endif %}
       {% endset %}
 
       {% set inc2Status %}
-      {% if data['reassigned'] %}
-      <span class='govuk-visually-hidden'>Status: </span> Decision pending
-      {% else %}
-      <span class='govuk-visually-hidden'>Status: </span> Submitted
-      {% endif %}
+        {% if data['reassigned'] %}
+          <span class='govuk-visually-hidden'>Status: </span> Decision pending
+        {% else %}
+          <span class='govuk-visually-hidden'>Status: </span> Submitted
+        {% endif %}
+      {% endset %}
+
+      {% set inc1numberHTML %}
+        <span class='govuk-visually-hidden'>Report number: </span>{{data['20240429_inc1_reference_prefix']}}{{data['20240429_inc1_reference_chars']}}
+      {% endset %}
+
+      {% set inc1reporterHTML %}
+        <span class='govuk-visually-hidden'>Original reporter: </span>{{data['20240429_inc1_reporter']}}
+      {% endset %}
+    
+      {% set inc2numberHTML %}
+        <span class='govuk-visually-hidden'>Report number: </span>{{data['20240429_inc2_reference_prefix']}}{{data['20240429_inc2_reference_chars']}}
+      {% endset %}
+
+      {% set inc2reporterHTML %}
+        <span class='govuk-visually-hidden'>Original reporter: </span>{{data['20240429_inc2_reporter']}}
       {% endset %}
     
       {{ govukTable({
@@ -106,7 +123,7 @@
         rows: [
         [
           {
-            html: "<span class='govuk-visually-hidden'>Report number: </span>22222222"
+            html: inc2numberHTML
           },
           {
             html: data['20240429_inc2_date']
@@ -115,7 +132,7 @@
             html: "<span class='govuk-visually-hidden'>Customer: </span>Robert De Silva"
           },
           {
-            html: "<span class='govuk-visually-hidden'>Original reporter: </span>Whitney Earl"
+            html: inc2reporterHTML
           },
           {
             html: inc2Status
@@ -126,7 +143,7 @@
         ],
         [
           {
-            html: "<span class='govuk-visually-hidden'>Report number: </span>12345678"
+            html: inc1numberHTML
           },
           {
             html: data['20240429_inc1_date']
@@ -135,7 +152,7 @@
             html: "<span class='govuk-visually-hidden'>Customer: </span>Robert De Silva"
           },
           {
-            html: "<span class='govuk-visually-hidden'>Original reporter: </span>Bob Black"
+            html: inc1reporterHTML
           },
           {
             html: "<span class='govuk-visually-hidden'>Status: </span> Decision pending"

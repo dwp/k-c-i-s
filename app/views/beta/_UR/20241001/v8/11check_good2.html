@@ -140,7 +140,16 @@
             Letter to be sent by
           </dt>
           <dd class="govuk-summary-list__value">
-            {{data['who-sends2']}}
+            <!-- only show this line if letter is to be sent-->
+            {% if (data['2401_actions2']) %}
+              {% if (data['2401_actions2'].includes("Send a letter")) %}
+                {{data['who-sends2']}}
+              {% else %}
+                Not applicable 
+              {% endif %}
+            {% else %}
+              Not applicable 
+            {% endif %}
           </dd>
           <dd class="govuk-summary-list__actions">
             <form action="05d_wholetter2" class="form" method="post">
@@ -178,6 +187,7 @@
         <p class="govuk-body">If you need to change anything, select Change next to each answer or use the back link near the top of this page.</p>
         <p class="govuk-body govuk-!-font-weight-bold">You can still change actions after you click the button to confirm actions.</p>
         <form action="12confirmation2" class="form" method="post">
+          <input type="hidden" id="20240429_inc2_status" name="20240429_inc2_status" value="Prepared" >
           <div class="govuk-button-group">
             {{ govukButton(
                 {

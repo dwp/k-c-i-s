@@ -1,0 +1,31 @@
+<dl class="govuk-summary-list">
+    <!-- Does the inc1 action list contain any action  -->
+    {% if ( not data["2401_actions"] == "") %}
+        <!-- Loop through and display appropriately -->
+        {% for item in data["2401_actions"] %}
+            <div class="govuk-summary-list__row">
+                {% if (item == 'Send a letter') and (data["who-sends"] == "Manager") %}
+                    <dt class="govuk-summary-list__key govuk-!-width-one-half">
+                        {{ item }}
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        Requested: <br>{{data["20240429_inc1_date"]}}
+                    </dd>
+                {% elif (item == 'Issue a verbal warning') or (item == 'Interview by a manager') %}
+                    <dt class="govuk-summary-list__key govuk-!-width-one-half">
+                        {{ item }}
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        Requested: <br>{{data["20240429_inc1_date"]}}
+                    </dd>
+                {% endif %}
+            </div>
+        {% endfor %}   
+    {% else %}
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+                None
+            </dt>        
+        </div>
+    {% endif %}
+</dl>

@@ -1,20 +1,30 @@
+<dl class="govuk-summary-list">
 <!-- Does the inc1 action list contain any action  -->
-{% if (data["2401_actions"]) or (data["2401_actions2"]) %}
+{% if ((data["2401_actions"] | length ) == 0) and ((data["2401_actions2"] | length ) == 0) %}
+    <ul class="govuk-list govuk-list--bullet">
+        <li>None</li>
+    </ul>
+{% else %}
       <!-- Loop through and display appropriately -->
     {% for item in data["2401_actions"] %}
-        {% if (item == 'Send a letter') and (data["who-sends"] == "Manager") %}
-            <li>{{ item }}<br>{{data["2401_letter_detail"]}}</li>
-        {% else %}
-            <li>{{ item }}</li>
-        {% endif %}
+    <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key govuk-!-width-one-half">
+            {{ item }}
+        </dt>
+        <dd class="govuk-summary-list__value">
+            <a href="h_05action">Requested:</a> <br>{{data["20240429_inc1_date"]}}
+        </dd>
+    </div>
     {% endfor %}
     {% for item in data["2401_actions2"] %}
-        {% if (item == 'Send a letter') and (data["who-sends"] == "Manager") %}
-            <li>{{ item }}<br>{{data["2401_letter_detail2"]}}</li>
-        {% else %}
-            <li>{{ item }}sdg</li>
-        {% endif %}
+    <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key govuk-!-width-one-half">
+            {{ item }}
+        </dt>
+        <dd class="govuk-summary-list__value">
+            <a href="h_05action">Requested:</a> <br>{{data["20240429_inc1_date"]}}
+        </dd>
+    </div>
     {% endfor %}    
-{% else %}
-      <li>None either</li>
 {% endif %}
+</dl>

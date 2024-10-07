@@ -103,7 +103,7 @@
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Manager actions
+            Action for {{data['20240429_inc2_manager']}} <br><span class="govuk-body">(Manager)</span>
           </dt>
           <dd class="govuk-summary-list__value">
               {% include "./templates/action_list_manager2.njk" %}
@@ -120,7 +120,7 @@
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Decision maker actions
+            Action for {{data['20240422_yourname']}} <br><span class="govuk-body">(Decision maker)</span>
           </dt>
           <dd class="govuk-summary-list__value">
             {% include "./templates/action_list_dm2.njk" %}
@@ -163,7 +163,7 @@
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Note for manager
+            Note for {{data['20240429_inc2_manager']}}<br><span class="govuk-body">(Manager)</span>
           </dt>
           <dd class="govuk-summary-list__value">
             {{data["2401_note2"]}}

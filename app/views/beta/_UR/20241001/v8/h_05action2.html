@@ -1,6 +1,6 @@
 {% extends "layout_20241001_ur.html" %}
 {% block pageTitle %}
-  Action - Keep Customer Interactions Safe
+  Action request - Keep Customer Interactions Safe
 {% endblock %}
 {% block beforeContent %}
   <section aria-label="Phase banner" role="region">
@@ -11,7 +11,12 @@
       html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
     }) }}
   </section>
-  {% include "templates/v7/key_details_red.njk" %}
+  <!-- if there are measures show red banner else show blue -->
+  {% if  (data["2401_applymeasures1"] | length == 0 and data["2401_applymeasures2"] | length == 0 and data["2401_applymeasures3"] | length == 0) %}
+  {% include "./templates/key_details_robert_blue.njk" %}
+{% else %}
+  {% include "./templates/key_details_red.njk" %}
+{% endif %}
   <section aria-label="Back" role="region">
     {{ govukBackLink({
       text: "Back",
@@ -20,65 +25,122 @@
   </section>
 {% endblock %}
 {% block content %}
-      <h1 class="govuk-heading-xl">Action</h1>
-      {{ govukSummaryList({
-        rows: [
-          {
-            key: {
-              text: "Date requested"
-            },
-            value: {
-              text: "1 March 2023"
-            }
-          },
-          {
-            key: {
-              text: "Requested by"
-            },
-            value: {
-              html: "Sadiq Assam"
-            }
-          },
-          {
-            key: {
-              text: "Action"
-            },
-            value: {
-            html: '<ul class="govuk-list govuk-list--bullet">
-                    <li>Request a banning order</li>
-                  </ul>'
-            }
-          },
-          {
-            key: {
-              text: "Assigned to"
-            },
-            value: {
-              text: "Sadiq Assam"
-            }
-          },
-          {
-            key: {
-              text: "Completed"
-            },
-            value: {
-              text: "1 March 2023"
-            }
-          },
-          {
-            key: {
-              text: "Comment"
-            },
-            value: {
-              text: "GLD agreed with the banning order, have applied and letter sent to customer"
-            }
-          }
-        ]
-      }) }}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full govuk-!-padding-bottom-9">
+          <h1 class="govuk-heading-xl">Action request</h1>
+          {% set yournameHTML %}
+             Action for {{data['20240422_yourname']}} <br><span class="govuk-body">(Decision maker)</span>
+          {% endset %}
+          {% set youractionsHTML %}
+            <ul class="govuk-list govuk-list--bullet">
+              {% include "./templates/action_list_dm_combined.njk" %}
+            </ul>
+          {% endset %}
+
+          {% set man1HTML %}
+            Action for {{data['20240429_inc1_manager']}} <br><span class="govuk-body">(Manager)</span>
+            {% endset %}
+          {% set man1ActionHTML %}
+              {% include "./templates/action_list_manager.njk" %}
+          {% endset %}
+
+          {% set man2HTML %}
+          Action for {{data['20240429_inc2_manager']}} <br><span class="govuk-body">(Manager)</span>
+          {% endset %}
+          {% set man2ActionHTML %}
+              {% include "./templates/action_list_manager2.njk" %}
+          {% endset %}
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Date requested
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{data['20240429_inc1_date']}}
+              </dd>
+
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Requested by
+              </dt>
+              <dd class="govuk-summary-list__value">
+               {{ data['20240422_yourname']}}
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Action for {{data['20240429_inc1_manager']}} <br><span class="govuk-body">(Manager)</span>
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key govuk-!-width-one-half">
+                      <h2 class="govuk-heading-s" style="margin-bottom: 0px">Interview by a manager</h2>
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      <h3 class="govuk-heading-s"  style="margin-bottom: 0px">Requested: </h3>
+                      <p>7 October 2024</p>
+                    </dd>
+                  </div>
+                </dl>
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Action for {{data['20240429_inc2_manager']}} <br><span class="govuk-body">(Manager)</span>
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key govuk-!-width-one-half">
+                        <h2 class="govuk-heading-s" style="margin-bottom: 0px">Send a letter</h2>
+                        <p class="govuk-body">First warning letter</p>
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        <h3 class="govuk-heading-s "  style="margin-bottom: 0px"><span class="govuk-tag govuk-tag--red">I didn't do it:</span> </h3>
+                        <p>8 October 2024</p>
+                        <h3 class="govuk-heading-s"  style="margin-bottom: 0px">Outcome: </h3>
+                        <p>Could not send letter because we have not printing facilities</p>
+                    </dd>
+                  </div>
+                </dl>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Action for {{data['20240422_yourname']}} <br><span class="govuk-body">(Decision maker)</span>
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key govuk-!-width-one-half">
+                      <h2 class="govuk-heading-s" style="margin-bottom: 0px">Request a banning order</h2>
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      <h3 class="govuk-heading-s"  style="margin-bottom: 0px">Completed: </h3>
+                      <p>9 October 2024</p>
+                      <h3 class="govuk-heading-s"  style="margin-bottom: 0px">Outcome: </h3>
+                      <p>Sent to GLD. Expected outcome 2 weeks</p>
+                    </dd>
+                  </div>
+                </dl>
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+      <section aria-label="Files attached to action request" role="region">
+        <div class="govuk-!-padding-bottom-9">
+            <h2 class="govuk-heading-m" id="attached">There are no files attached to this action request
+            </h2>
+        </div>
+    </section>  
       <div class="govuk-button-group">
         {{ govukButton({
           text: "Back to customer history",
-          href: "02history_complex"
+          href: "javascript:history.back()"
         }) }}
       </div>
 

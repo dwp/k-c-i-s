@@ -12,11 +12,7 @@
     }) }}
   </section>
   <!-- if there are measures show red banner else show blue -->
-  {% if  (data["2401_applymeasures1"] | length == 0 and data["2401_applymeasures2"] | length == 0 and data["2401_applymeasures3"] | length == 0) %}
-  {% include "./templates/key_details_robert_blue.njk" %}
-{% else %}
-  {% include "./templates/key_details_red.njk" %}
-{% endif %}
+
   <section aria-label="Back" role="region">
     {{ govukBackLink({
       text: "Back",
@@ -50,6 +46,7 @@
           {% set man2ActionHTML %}
               {% include "./templates/action_list_manager2.njk" %}
           {% endset %}
+
           <dl class="govuk-summary-list">
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
@@ -58,74 +55,62 @@
               <dd class="govuk-summary-list__value">
                 {{data['20240429_inc1_date']}}
               </dd>
-
+              <dd class="govuk-summary-list__value">
+              </dd>
             </div>
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
                 Requested by
               </dt>
               <dd class="govuk-summary-list__value">
-               {{ data['20240422_yourname']}}
+                Timothy Cooper
+              </dd>
+              <dd class="govuk-summary-list__value">
               </dd>
             </div>
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
-                Action for {{data['20240429_inc1_manager']}} <br><span class="govuk-body">(Manager)</span>
+                    Action for Sarah Sencha <br><span class="govuk-body">(Manager)</span>
               </dt>
               <dd class="govuk-summary-list__value">
-                <dl class="govuk-summary-list">
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key govuk-!-width-one-half">
-                      <h2 class="govuk-heading-s" style="margin-bottom: 0px">Interview by a manager</h2>
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                      <h3 class="govuk-heading-s"  style="margin-bottom: 0px">Requested: </h3>
-                      <p>7 October 2024</p>
-                    </dd>
-                  </div>
-                </dl>
+                <ul class="govuk-list govuk-list--bullet">
+                  <li>Issue a verbal warning</li>
+                </ul>
               </dd>
-            </div>
-
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                Action for {{data['20240429_inc2_manager']}} <br><span class="govuk-body">(Manager)</span>
-              </dt>
               <dd class="govuk-summary-list__value">
-                <dl class="govuk-summary-list">
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key govuk-!-width-one-half">
-                        <h2 class="govuk-heading-s" style="margin-bottom: 0px">Send a letter</h2>
-                        <p class="govuk-body">First warning letter</p>
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                        <h3 class="govuk-heading-s "  style="margin-bottom: 0px"><span class="govuk-tag govuk-tag--red">I didn't do it:</span> </h3>
-                        <p>8 October 2024</p>
-                        <h3 class="govuk-heading-s"  style="margin-bottom: 0px">Outcome: </h3>
-                        <p>Could not send letter because we have not printing facilities</p>
-                    </dd>
-                  </div>
-                </dl>
+                Not actioned
               </dd>
             </div>
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
-                Action for {{data['20240422_yourname']}} <br><span class="govuk-body">(Decision maker)</span>
+                  Action for Sartaq Matcha <br><span class="govuk-body">(Manager)</span>
               </dt>
               <dd class="govuk-summary-list__value">
-                <dl class="govuk-summary-list">
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key govuk-!-width-one-half">
-                      <h2 class="govuk-heading-s" style="margin-bottom: 0px">Request a banning order</h2>
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                      <h3 class="govuk-heading-s"  style="margin-bottom: 0px">Completed: </h3>
-                      <p>9 October 2024</p>
-                      <h3 class="govuk-heading-s"  style="margin-bottom: 0px">Outcome: </h3>
-                      <p>Sent to GLD. Expected outcome 2 weeks</p>
-                    </dd>
-                  </div>
-                </dl>
+                <ul class="govuk-list govuk-list--bullet">
+              <!-- Does the action list contain manager actions -->
+                  <li>Interview by a manager</li>
+                </ul>
+              </dd>
+              <dd class="govuk-summary-list__value">
+              <!-- Does the action list contain manager actions -->
+              <p>23 October 2024</p>
+              <p><strong>I didn't do it</strong></p>
+              <p>The customer would not come into the jobcentre so I couldnt do this</p>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                     Action for Timothy Cooper <br><span class="govuk-body">(Decision maker)</span>
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <ul class="govuk-list govuk-list--bullet">
+                  <li>Send a letter<br>Send interim ban letter to the customer</li>
+                </ul>
+              </dd>
+              <dd class="govuk-summary-list__value">
+                <p>{{data['20240429_inc1_date']}}</p>
+                <p>Sent. Expected arrival next week</p>
+  
               </dd>
             </div>
           </dl>

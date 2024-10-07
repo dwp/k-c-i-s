@@ -50,7 +50,6 @@ router.post('/beta/_UR/20241001/v8/05letter2', (req, res) => {
     res.redirect('09prepare_single_man2')
   }
 })
-console.log ('test')
 
 // Route around upload if upload add files = no 
 router.post('/beta/_UR/20241001/v8/5c_upload2', (req, res) => {
@@ -65,12 +64,24 @@ router.post('/beta/_UR/20241001/v8/5c_upload2', (req, res) => {
       // Send user to who sends letter
       res.redirect('05d_wholetter2')
     }
-    console.log ('not null')
   } else {
     res.redirect('05d_wholetter2');
-    console.log ('else')
   }
 })
 
+// Route around upload if upload add files = no 
+router.post('/beta/_UR/20241001/v8/20choosereport', (req, res) => {
+  // Make a variable and give it the value of whether we have 2 reports yet in the history
+  var twoReportsYet = req.session.data['2reports']
+  if ( twoReportsYet == 'yes') {
+    // if 2 reports, choose report
+    res.redirect('20choosereport');
+    console.log ('2 reports')
+  } else {
+    // if 1 report1, prepare report 1
+    res.redirect('03type');
+    console.log ('1 report')
+  }
+})
 
 }

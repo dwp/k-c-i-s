@@ -13,10 +13,10 @@
   </section>
   <!-- if there are measures show red banner else show blue -->
   {% if  (data["2401_applymeasures1"] | length == 0 and data["2401_applymeasures2"] | length == 0 and data["2401_applymeasures3"] | length == 0) %}
-    {% include "./templates/key_details_robert_blue.njk" %}
-  {% else %}
-    {% include "./templates/key_details_red.njk" %}
-  {% endif %}
+  {% include "./templates/key_details_robert_blue.njk" %}
+{% else %}
+  {% include "./templates/key_details_red.njk" %}
+{% endif %}
   <section aria-label="Back" role="region">
     {{ govukBackLink({
       text: "Back",
@@ -29,7 +29,7 @@
   <div class="govuk-grid-column-full govuk-!-padding-bottom-9">
           <h1 class="govuk-heading-xl">Action request</h1>
           {% set yournameHTML %}
-            Action: {{data['20240422_yourname']}}
+             Action for {{data['20240422_yourname']}} <br><span class="govuk-body">(Decision maker)</span>
           {% endset %}
           {% set youractionsHTML %}
             <ul class="govuk-list govuk-list--bullet">
@@ -38,63 +38,62 @@
           {% endset %}
 
           {% set man1HTML %}
-            Action: {{data['20240429_inc1_manager']}}
-          {% endset %}
+            Action for {{data['20240429_inc1_manager']}} <br><span class="govuk-body">(Manager)</span>
+            {% endset %}
           {% set man1ActionHTML %}
               {% include "./templates/action_list_manager.njk" %}
           {% endset %}
 
           {% set man2HTML %}
-            Action: {{data['20240429_inc2_manager']}}
+          Action for {{data['20240429_inc2_manager']}} <br><span class="govuk-body">(Manager)</span>
           {% endset %}
           {% set man2ActionHTML %}
               {% include "./templates/action_list_manager2.njk" %}
           {% endset %}
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Date requested
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{data['20240429_inc1_date']}}
+              </dd>
 
-          {{ govukSummaryList({
-            rows: [
-              {
-                key: {
-                  text: "Date requested"
-                },
-                value: {
-                  text: data['20240429_inc1_date']
-                }
-              },
-              {
-                key: {
-                  text: "Requested by"
-                },
-                value: {
-                  text: data['20240422_yourname']
-                }
-              },
-              {
-                key: {
-                  html: man1HTML
-                },
-                value: {
-                html: man1ActionHTML
-                }
-              },
-              {
-                key: {
-                  html: man2HTML
-                },
-                value: {
-                html: man2ActionHTML
-                }
-              },
-              {
-                key: {
-                  html: yournameHTML
-                },
-                value: {
-                html: youractionsHTML
-                }
-              }
-            ]
-          }) }}
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Requested by
+              </dt>
+              <dd class="govuk-summary-list__value">
+               {{ data['20240422_yourname']}}
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Action for {{data['20240429_inc1_manager']}} <br><span class="govuk-body">(Manager)</span>
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {% include "./templates/action_list_detail_man1.njk" %}
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Action for {{data['20240429_inc2_manager']}} <br><span class="govuk-body">(Manager)</span>
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {% include "./templates/action_list_detail_man2.njk" %}
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Action for {{data['20240422_yourname']}} <br><span class="govuk-body">(Decision maker)</span>
+              </dt>
+              <dd class="govuk-summary-list__value">
+                  {% include "./templates/action_list_detail_dm.njk" %}
+              </dd>
+            </div>
+          </dl>
         </div>
       </div>
       <section aria-label="Files attached to action request" role="region">

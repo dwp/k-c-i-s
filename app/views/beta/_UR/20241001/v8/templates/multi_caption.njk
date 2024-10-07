@@ -1,1 +1,6 @@
+{% if data['2reports'] == 'yes' %}
     <span class="govuk-caption-m"><strong class="govuk-tag">MULTIPLE REPORTS</strong></span>
+{% else %}
+    {% include "./multi_caption1.njk" %}
+{% endif %}
+

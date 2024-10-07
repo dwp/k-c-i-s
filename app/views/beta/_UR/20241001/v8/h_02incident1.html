@@ -347,14 +347,16 @@
   <div class="govuk-button-group">
     <form action="03type" class="form" method="post">
       {{ govukButton({
-      text: "Back to customer history",
-      href: "02history_complex_multiple"
+      text: "Back",
+      href: "javascript:history.back()"
       }) }}&nbsp;
-      {{ govukButton({
-        text: "Prepare actions",
-        classes: "govuk-button--secondary ds_link"
-      }) }}
-    </form>		
+      {% if data['Referrer'].includes('02history_complex_multiple') %}
+        {{ govukButton({
+          text: "Prepare actions",
+          classes: "govuk-button--secondary ds_link"
+        }) }}
+      {% endif %}
+      </form>		
   </div>
 
 

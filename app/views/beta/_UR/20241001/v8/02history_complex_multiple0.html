@@ -29,8 +29,8 @@
     	<div class="govuk-grid-column-two-thirds">
 			{% include "./templates/customerhistoryhelp.njk" %}
 
-
-			{% if (data['20240429_inc1_actioned'] == "yes") and (data['20240429_inc2_actioned'] == "yes") %}
+			<!-- if both reports are actioned, or there is only one report which has been actioned, default to "Add measures" as green button -->
+			{% if ((data['20240429_inc1_actioned'] == "yes") and (data['20240429_inc2_actioned'] == "yes")) or ((data['20240429_inc1_actioned'] == "yes") and (data['2reports'] == "no")) %}
 				{% set actionClass = "govuk-button--secondary" %}
 				{% set measureClass = "" %}
 				{% set measureHref = "06measure" %}
@@ -40,21 +40,22 @@
 				{% set measureHref = "06measure" %}
 			{% endif %}
 			<div class="govuk-button-group">
-				{{ govukButton({
-					text: "Prepare actions",
-					href: "20choosereport",
-					classes: actionClass
-				}) }}
-				{{ govukButton({
-					text: "Add measures",
-					href: measureHref,
-					classes: measureClass
-				}) }}
-				{{ govukButton({
-					text: "Add a note",
-					href: "#",
-					classes: "govuk-button--secondary"
-				}) }}
+				<form class="form" action="20choosereport" method="post">
+					{{ govukButton({
+						text: "Prepare actions",
+						classes: actionClass
+					}) }}
+					{{ govukButton({
+						text: "Add measures",
+						href: measureHref,
+						classes: measureClass
+					}) }}
+					{{ govukButton({
+						text: "Add a note",
+						href: "#",
+						classes: "govuk-button--secondary"
+					}) }}
+				</form>
 			</div>
 		</div>
 	</div>
@@ -92,24 +93,8 @@
 				<ol class="dwp-timeline__events">
 					<li class="dwp-timeline__events--entry">
 						<h2 class="govuk-heading-s govuk-!-margin-bottom-0">
-							{% if data['20240429_inc2_actioned'] == "yes" %}
-								<strong class='govuk-tag--green govuk-tag'>{{data['20240429_inc2_status']}}</strong>
-							{% elif data['20240429_inc2_status'] == "Decision pending" %}
-								<strong class='govuk-tag'>{{data['20240429_inc2_status']}}</strong>
-							{% endif %}
-							<br>
-							<a href="h_02incident2">{{data['20240429_inc2_interaction_type']}} incident</a>
-						</h2>
-						<p class="govuk-!-margin-bottom-0">{{ "today" | govukDate }}{{data['20240429_inc2_time']}}</p>
-						<p class="govuk-body-s govuk-!-margin-bottom-1" style='color:#505a5f'>Reported by {{data['20240429_inc2_reporter']}}, {{ data['20240429_inc2_date_reported']}}{{ data['20240429_inc2_time_reported']}}</p>
-						<p class="govuk-body-s govuk-!-margin-bottom-0" style='color:#505a5f'>
-							<a href="03type2">Prepare actions for this report</a>
-						</p>
-					</li>
-					<li class="dwp-timeline__events--entry">
-						<h2 class="govuk-heading-s govuk-!-margin-bottom-0">
 							{% if data['20240429_inc1_actioned'] == "yes" %}
-								<strong class='govuk-tag--green govuk-tag'>{{data['20240429_inc1_status']}}</strong>
+								<strong class='govuk-tag--green govuk-tag'>Prepared</strong>
 							{% elif data['20240429_inc1_status'] == "Decision pending" %}
 								<strong class='govuk-tag'>{{data['20240429_inc1_status']}}</strong>
 							{% endif %}

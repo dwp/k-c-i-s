@@ -1,6 +1,6 @@
 {% set actionsHTML %}
 {% if data['reassigned'] %}
-<a href='19multiple'>Gather reports</a> | <a href='02history_complex_multiple' aria-label='Review and apply measures for multiple incidents'>Open</a>
+<a href='#'>Reassign</a> | <a href='02history_complex_multiple' aria-label='Review and apply measures for multiple incidents'>Open</a>
 {% else %}
 <a href='19multiple'>Gather reports</a>
 {% endif %}
@@ -21,6 +21,9 @@
           text: "Original reporter"
         },
         {
+          text: "Witnesses"
+        },
+        {
           text: "Actions"
         }
       ],
@@ -34,6 +37,9 @@
           },
           {
             html: "<span class='govuk-visually-hidden'>Original reporter: </span>Multiple"
+          },
+          {
+            html: "<span class='govuk-visually-hidden'>Not applicable: </span>-"
           },
           {
             html: actionsHTML

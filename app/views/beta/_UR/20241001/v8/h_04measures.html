@@ -31,9 +31,7 @@
     {% if not (data["2401_applymeasures1"] | length == 0 and data["2401_applymeasures2"] | length == 0 and data["2401_applymeasures3"] | length == 0) %}<strong class="govuk-tag govuk-tag--red">active</strong>{% endif %}
   {% endset %}
   {% set measuresHTML %}
-    <ul class="govuk-list govuk-list--bullet">
       {% include "./templates/measures_list.njk" %} 
-    </ul>
   {% endset %}
   {% set todayHTML %}
     {{ "today" | govukDate }}

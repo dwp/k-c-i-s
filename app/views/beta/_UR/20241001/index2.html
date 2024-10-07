@@ -8,8 +8,8 @@
     <p class="govuk-body">1 October 2024</p>
 
 
-        
-    <form action="/beta/_UR/20241001/v8/01landingpage1_multiple0" class="form" method="post">
+    <!-- send to self -->
+    <form action="#" class="form" method="post">
         <p>Please enter the following information to tailor your profile. This information will not be stored or used outside this session.</p>
         <input type="hidden" id="20240429_inc1_date" name="20240429_inc1_date" value="{{ 'today' | govukDate }}">
         <input type="hidden" id="20240429_inc1_time" name="20240429_inc1_time" value=" at 8:15am">
@@ -23,7 +23,8 @@
         <input type="hidden" id="20240429_inc1_reference" name="20240429_inc1_reference" value="123456789"  >
         <input type="hidden" id="20240429_inc1_reference_prefix" name="20240429_inc1_reference_prefix" value="INC-" >
         <input type="hidden" id="20240429_inc1_reference_chars" name="20240429_inc1_reference_chars" value="123-456-789" >
-        <input type="hidden" id="20240429_inc1_status" name="20240429_inc1_status" value="Decision pending" >
+        <!-- set to prepared -->
+        <input type="hidden" id="20240429_inc1_status" name="20240429_inc1_status" value="Prepared" >
         <input type="hidden" id="20240429_inc1_assigned" name="20240429_inc1_assigned" value="{{ data['20240422_youremail']}}{{ data['20240422_inc1_status']}}" >
         <input type="hidden" id="20240429_inc1_details" name="20240429_inc1_details" value="I contacted the customer as he wished to make a complaint regarding his recent appointment in the Job Centre. Customer felt that he had not been treated fairly as he was English and we are in Wales. Customer would not let me speak to explain the reason for the appointment and why the Work Coach had asked him to supply additional information.
 
@@ -42,9 +43,11 @@
         <input type="hidden" id="2401_actions" name="2401_actions" value=""  >
         <input type="hidden" id="2401_inc1_newmanager_email" name="2401_inc1_newmanager_email" value=""  >
         <input type="hidden" id="20240429_inc1_busline" name="20240429_inc1_busline" value="Working Age">
-        <input type="hidden" id="20240429_inc1_actioned" name="20240429_inc1_actioned" value="no">
-        <input type="hidden" id="who-sends" name="who-sends" value="">
-        
+
+        <!-- set to already actioned -->
+        <input type="hidden" id="20240429_inc1_actioned" name="20240429_inc1_actioned" value="yes">
+        <!-- set to manager -->
+        <input type="hidden" id="who-sends" name="who-sends" value="Manager">
 
         <input type="hidden" id="20240429_inc2_date" name="20240429_inc2_date" value="{{ 'today' | govukDate }}">
         <input type="hidden" id="20240429_inc2_time" name="20240429_inc2_time" value=" at 9:33am">
@@ -58,7 +61,8 @@
         <input type="hidden" id="20240429_inc2_reference" name="20240429_inc2_reference" value="222222222"  >
         <input type="hidden" id="20240429_inc2_reference_prefix" name="20240429_inc2_reference_prefix" value="INC-" >
         <input type="hidden" id="20240429_inc2_reference_chars" name="20240429_inc2_reference_chars" value="222-222-222" >
-        <input type="hidden" id="20240429_inc2_status" name="20240429_inc2_status" value="Decision pending" >
+        <!-- set to prepared -->
+        <input type="hidden" id="20240429_inc2_status" name="20240429_inc2_status" value="Prepared" >
         <input type="hidden" id="20240429_inc2_assigned" name="20240429_inc2_assigned" value="{{ data['20240422_youremail']}}{{ data['20240422_inc2_status']}}" >
         <input type="hidden" id="20240429_inc2_details" name="20240429_inc2_details" value="Customer contacted us because he was upset with our last contact. He said we were picking on him because he was Welsh. That it is racist. I tried to calm him down He said he reckoned he’d be better off if he was an illegal boat person. Or a druggie. Then he told me to f*** off and ended the call. "  >
         <input type="hidden" id="20240429_inc2_discrimination" name="20240429_inc2_discrimination" value="None"  >
@@ -75,10 +79,20 @@
         <input type="hidden" id="2401_actions2" name="2401_actions2" value=""  >
         <input type="hidden" id="2401_inc2_newmanager_email" name="2401_inc2_newmanager_email" value=""  >
         <input type="hidden" id="20240429_inc2_busline" name="20240429_inc2_busline" value="Working Age">
-        <input type="hidden" id="20240429_inc2_actioned" name="20240429_inc2_actioned" value="no">
-        <input type="hidden" id="who-sends2" name="who-sends2" value="">
-        
-        <input type="hidden" id="2reports" name="2reports" value="no">
+        <!-- set to already actioned -->
+        <input type="hidden" id="20240429_inc2_actioned" name="20240429_inc2_actioned" value="yes">
+        <!-- set to manager -->
+        <input type="hidden" id="who-sends2" name="who-sends2" value="Manager">
+        <!-- set to 2 reports -->
+        <input type="hidden" id="2reports" name="2reports" value="yes">
+        <!-- gather has happened -->
+        <input type="hidden" id="reassigned" name="reassigned" value="y">
+        <p><a href="/beta/_UR/20241001/v8/01landingpage1_multiple0">Your reports</a></p>
+        <p><a href="/beta/_UR/20241001/v8/11check_good">Check your answers incident1</a></p>
+        <p><a href="/beta/_UR/20241001/v8/11check_good2">Check your answers incident2</a></p>
+        <p><a href="/beta/_UR/20241001/v8/11check_good_multi">Check your answers multi</a></p>
+        <p><a href="/beta/_UR/20241001/v8/02history_complex_multiple2">Customer history once completed </a></p>
+
         {{ govukInput({
           id: "20240422_yourname",
           name: "20240422_yourname",

@@ -59,7 +59,41 @@
 						<a href="h_04measures">{% include "./templates/measures_list.njk" %} </a>
 					</ul>
 					{% set actionDetailsHTML %}
-						{% include "./templates/action_list_history.njk" %} 
+					<dl class="govuk-summary-list">
+						<!-- Does the inc1 action list contain any action  -->
+						
+							  <!-- Loop through and display appropriately -->
+							
+							
+							<div class="govuk-summary-list__row">
+								<dt class="govuk-summary-list__key govuk-!-width-one-half">
+									Send a letter
+								</dt>
+								<dd class="govuk-summary-list__value">
+									<a href="h_05action">Requested:</a> <br>7 October 2024
+								</dd>
+							</div>
+							
+							<div class="govuk-summary-list__row">
+								<dt class="govuk-summary-list__key govuk-!-width-one-half">
+									<span class="govuk-tag govuk-tag--red">Issue a verbal warning</span>
+								</dt>
+								<dd class="govuk-summary-list__value">
+									<a href="h_05action">I didn't do it:</a> <br>8 October 2024
+								</dd>
+							</div>
+							
+							<div class="govuk-summary-list__row">
+								<dt class="govuk-summary-list__key govuk-!-width-one-half">
+									Request solicitor to send a letter
+								</dt>
+								<dd class="govuk-summary-list__value">
+									<a href="h_05action">Completed:</a> <br>9 October 2024
+								</dd>
+							</div>
+								
+						
+						</dl>
 					{% endset %}
 					{{ govukDetails({
 						summaryText: "Action request",

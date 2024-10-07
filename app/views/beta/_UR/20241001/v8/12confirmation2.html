@@ -42,10 +42,15 @@
       </p>
     </div>
   </div>
+  {% if data['2reports'] == "no" %}
+    {% set buttonUrlHTML = "02history_complex_multiple0" %}
+  {% else %}
+    {% set buttonUrlHTML = "02history_complex_multiple" %}
+  {% endif %}
   {{ govukButton({
     text: "Return to customer history",
     classes: "govuk-button--primary",
-    href: "02history_complex_multiple"
+    href: buttonUrlHTML
   }) }}
 
 {% endblock %}

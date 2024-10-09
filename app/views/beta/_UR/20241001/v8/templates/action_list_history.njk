@@ -9,20 +9,20 @@
     {% for item in data["2401_actions"] %}
     <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key govuk-!-width-one-half">
-            {{ item }}
+            <a href="h_05action">{{ item }}</a>
         </dt>
         <dd class="govuk-summary-list__value">
-            <a href="h_05action">Requested:</a> <br>{{data["20240429_inc1_date"]}}
+            <span class="govuk-tag">Requested:</span> <br>{{data["20240429_inc1_date"]}}
         </dd>
     </div>
     {% endfor %}
     {% for item in data["2401_actions2"] %}
     <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key govuk-!-width-one-half">
-            {{ item }}
+            <a href="h_05action">{{ item }}</a>
         </dt>
         <dd class="govuk-summary-list__value">
-            <a href="h_05action">Requested:</a> <br>{{data["20240429_inc1_date"]}}
+            <span class="govuk-tag">Requested:</span> <br>{{data["20240429_inc1_date"]}}
         </dd>
     </div>
     {% endfor %}    

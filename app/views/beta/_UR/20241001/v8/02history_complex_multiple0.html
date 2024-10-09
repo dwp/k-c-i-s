@@ -27,6 +27,7 @@
 	</div>
   	<div class="govuk-grid-row">
     	<div class="govuk-grid-column-two-thirds">
+			{% include "./templates/formlinkstyle.njk" %}
 			{% include "./templates/customerhistoryhelp.njk" %}
 
 			<!-- if both reports are actioned, or there is only one report which has been actioned, default to "Add measures" as green button -->
@@ -60,36 +61,7 @@
 		</div>
 	</div>
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-		<style>
-			.ds_link {
-				  background:#fff;
-				  border: 0;
-				  display: inline;
-				  font-weight: inherit;
-				  line-height: initial;
-				  margin: 0;
-				  min-height: 0;
-				  min-width: 0;
-				  padding: 0;
-				  text-align: left;
-			  }
-			  a, .ds_link {
-				  color: #0065bd;
-				  text-decoration: underline;
-				  outline: 0px solid rgba(0, 0, 0, 0);
-				  text-underline-offset: 1px;
-				  transition: color .2s, background-color .2s, outline-color .2s;
-				  box-shadow: 0 0px 0 #fff;
-			  }
-			  
-			  .ds_link:hover {
-				background:#fff;
-				text-decoration: underline;
-				text-underline-offset: 1px;
-			  }
-			
-		  </style>		
+    <div class="govuk-grid-column-two-thirds">	
 				<ol class="dwp-timeline__events">
 					<li class="dwp-timeline__events--entry">
 						<h2 class="govuk-heading-s govuk-!-margin-bottom-0">
@@ -99,14 +71,23 @@
 								<strong class='govuk-tag'>{{data['20240429_inc1_status']}}</strong>
 							{% endif %}
 							<br>
-							<a href="h_02incident1">{{data['20240429_inc2_interaction_type']}} incident</a>
+							{% include "./templates/formlinkstyle.njk" %}
+							{% set inc1Text %}
+								{{data['20240429_inc1_interaction_type']}} incident
+							{% endset %}
+							<form action="h_02incident1" class="form" method="post">
+								{{ govukButton({
+								  text: inc1Text,
+								  classes: "govuk-button--secondary ds_link"
+								}) }}
+							</form>
 						</h2>
-
-							<p class="govuk-!-margin-bottom-0">{{ "today" | govukDate }}{{data['20240429_inc1_time']}}</p>
-							<p class="govuk-body-s govuk-!-margin-bottom-1" style='color:#505a5f'>Reported by {{data['20240429_inc1_reporter']}}, {{ data['20240429_inc1_date_reported']}}{{ data['20240429_inc1_time_reported']}}</p>
-							<p class="govuk-body-s govuk-!-margin-bottom-0" style='color:#505a5f'>
-								<a href="03type">Prepare actions for this report</a>
-							</p>						</li>
+						<p class="govuk-!-margin-bottom-0">{{ "today" | govukDate }}{{data['20240429_inc1_time']}}</p>
+						<p class="govuk-body-s govuk-!-margin-bottom-1" style='color:#505a5f'>Reported by {{data['20240429_inc1_reporter']}}, {{ data['20240429_inc1_date_reported']}}{{ data['20240429_inc1_time_reported']}}</p>
+						<p class="govuk-body-s govuk-!-margin-bottom-0" style='color:#505a5f'>
+							<a href="03type">Prepare actions for this report</a>
+						</p>
+					</li>
 				</ol>
 		</div>
 	</div>

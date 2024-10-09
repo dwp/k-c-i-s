@@ -67,28 +67,28 @@
 							
 							<div class="govuk-summary-list__row">
 								<dt class="govuk-summary-list__key govuk-!-width-one-half">
-									Send a letter
+									<a href="h_05action2">Interview by a manager</a>
 								</dt>
 								<dd class="govuk-summary-list__value">
-									<a href="h_05action">Requested:</a> <br>7 October 2024
+									<span class="govuk-tag">Requested:</span><br>7 October 2024
 								</dd>
 							</div>
 							
 							<div class="govuk-summary-list__row">
 								<dt class="govuk-summary-list__key govuk-!-width-one-half">
-									<span class="govuk-tag govuk-tag--red">Issue a verbal warning</span>
+									<a href="h_05action2">Send a letter</a>
 								</dt>
 								<dd class="govuk-summary-list__value">
-									<a href="h_05action">I didn't do it:</a> <br>8 October 2024
+									<span class="govuk-tag govuk-tag--red">I didn't do it:</span> <br>8 October 2024
 								</dd>
 							</div>
 							
 							<div class="govuk-summary-list__row">
 								<dt class="govuk-summary-list__key govuk-!-width-one-half">
-									Request solicitor to send a letter
+									<a href="h_05action2">Request a banning order</a>
 								</dt>
 								<dd class="govuk-summary-list__value">
-									<a href="h_05action">Completed:</a> <br>9 October 2024
+									Completed:</a> <br>9 October 2024
 								</dd>
 							</div>
 								
@@ -102,7 +102,6 @@
 				</li>	
 				<li class="dwp-timeline__events--entry">
 					<h2 class="govuk-heading-s govuk-!-margin-bottom-0">
-
 						<a href="h_02incident2">{{data['20240429_inc2_interaction_type']}} incident</a>
 					</h2>
 					<p class="govuk-!-margin-bottom-0">{{ "today" | govukDate }}{{data['20240429_inc2_time']}}</p>
@@ -110,13 +109,11 @@
 				</li>
 				<li class="dwp-timeline__events--entry">
 					<h2 class="govuk-heading-s govuk-!-margin-bottom-0">
-
 						<a href="h_02incident1">{{data['20240429_inc2_interaction_type']}} incident</a>
 					</h2>
-
-						<p class="govuk-!-margin-bottom-0">{{ "today" | govukDate }}{{data['20240429_inc1_time']}}</p>
-						<p class="govuk-body-s" style='color:#505a5f'>Reported by {{data['20240429_inc1_reporter']}}, {{ data['20240429_inc1_date_reported']}}{{ data['20240429_inc1_time_reported']}}</p>
-					</li>
+					<p class="govuk-!-margin-bottom-0">{{ "today" | govukDate }}{{data['20240429_inc1_time']}}</p>
+					<p class="govuk-body-s" style='color:#505a5f'>Reported by {{data['20240429_inc1_reporter']}}, {{ data['20240429_inc1_date_reported']}}{{ data['20240429_inc1_time_reported']}}</p>
+				</li>
 			</ol>
 		</div>
 	</div>

@@ -101,7 +101,7 @@
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Action for {{data['20240429_inc1_manager']}} <br><span class="govuk-body">(Manager)</span>
+            Actions for {{data['20240429_inc1_manager']}} <br><span class="govuk-body">(Manager)</span>
           </dt>
           <dd class="govuk-summary-list__value">
               {% include "./templates/action_list_manager.njk" %}
@@ -118,7 +118,7 @@
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Action for {{data['20240422_yourname']}} <br><span class="govuk-body">(Decision maker)</span>
+            Actions for {{data['20240422_yourname']}} <br><span class="govuk-body">(Decision maker)</span>
           </dt>
           <dd class="govuk-summary-list__value">
             {% include "./templates/action_list_dm.njk" %}
@@ -182,8 +182,11 @@
       <div class="govuk-grid-column-two-thirds">
         <h2 class="govuk-heading-m">Have you finished preparing this report?</h2>
     
-        <p class="govuk-body">If you need to change anything, select Change next to each answer or use the back link near the top of this page.</p>
-        <p class="govuk-body govuk-!-font-weight-bold">You can still change actions after you click the button to confirm actions.</p>
+        <p class="govuk-body">If you need to change anything, select 'Change' next to each answer or use the back link near the top of this page.</p>
+        <p>Select 'Complete report preparation' to complete the preparation of this report only. <strong>This will not publish your decision.</strong></p>
+        <h2 class="govuk-heading-m">What happens next?</h2>
+        <p>'Complete report preparation' for all live reports then add measures, publish and close your report. </p>
+
         <form action="12confirmation" class="form" method="post">
           <input type="hidden" id="20240429_inc1_status" name="20240429_inc1_status" value="Prepared" >
           <div class="govuk-button-group">

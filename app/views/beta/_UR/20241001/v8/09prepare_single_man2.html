@@ -70,11 +70,11 @@
       <section aria-label="actions" role="region">
         <div class="govuk-!-padding-bottom-9">
           <h2 class="govuk-heading-l">Action request</h2>
-          <h3 class="govuk-heading-m">Manager actions for {{data['20240429_inc2_manager']}} </h3>
+          <h3 class="govuk-heading-m">Actions for {{data['20240429_inc2_manager']}} <br><span class="govuk-body">(Manager)</span></h3>
           <ul class="govuk-list govuk-list--bullet">
             {% include "./templates/action_list_manager2.njk" %} 
           </ul>
-          <h3 class="govuk-heading-m">Decision maker actions</h3>
+          <h3 class="govuk-heading-m">Actions for {{data['20240422_yourname']}} <br><span class="govuk-body">(Decision maker)</span></h3>
           <ul class="govuk-list govuk-list--bullet">
             {% include "./templates/action_list_dm2.njk" %} 
           </ul>
@@ -86,7 +86,7 @@
       <h2 class='govuk-heading-l'>Comments for manager </h2>
       {% endset %}
       {% set notehintHTML %}
-      Only {{data['20240429_inc2_manager']}} can see what you enter here.
+      Only {{data['20240429_inc2_manager']}} will see what you enter here.
       {% endset %}
 
         <section aria-label="notes" role="region">

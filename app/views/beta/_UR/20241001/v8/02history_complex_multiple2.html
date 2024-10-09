@@ -68,21 +68,34 @@
 				</li>	
 				<li class="dwp-timeline__events--entry">
 					<h2 class="govuk-heading-s govuk-!-margin-bottom-0">
-
-						<a href="h_02incident2">{{data['20240429_inc2_interaction_type']}} incident</a>
+						{% set inc2Text %}
+							{{data['20240429_inc2_interaction_type']}} incident
+						{% endset %}
+						<form action="h_02incident1" class="form" method="post">
+							{{ govukButton({
+							text: inc2Text,
+							classes: "govuk-button--secondary ds_link"
+							}) }}
+						</form>
 					</h2>
 					<p class="govuk-!-margin-bottom-0">{{ "today" | govukDate }}{{data['20240429_inc2_time']}}</p>
 					<p class="govuk-body-s" style='color:#505a5f'>Reported by {{data['20240429_inc2_reporter']}}, {{ data['20240429_inc2_date_reported']}}{{ data['20240429_inc2_time_reported']}}</p>
 				</li>
 				<li class="dwp-timeline__events--entry">
 					<h2 class="govuk-heading-s govuk-!-margin-bottom-0">
-
-						<a href="h_02incident1">{{data['20240429_inc2_interaction_type']}} incident</a>
+						{% set inc1Text %}
+							{{data['20240429_inc1_interaction_type']}} incident
+						{% endset %}
+						<form action="h_02incident1" class="form" method="post">
+							{{ govukButton({
+							text: inc1Text,
+							classes: "govuk-button--secondary ds_link"
+							}) }}
+						</form>
 					</h2>
-
-						<p class="govuk-!-margin-bottom-0">{{ "today" | govukDate }}{{data['20240429_inc1_time']}}</p>
-						<p class="govuk-body-s" style='color:#505a5f'>Reported by {{data['20240429_inc1_reporter']}}, {{ data['20240429_inc1_date_reported']}}{{ data['20240429_inc1_time_reported']}}</p>
-					</li>
+					<p class="govuk-!-margin-bottom-0">{{ "today" | govukDate }}{{data['20240429_inc1_time']}}</p>
+					<p class="govuk-body-s" style='color:#505a5f'>Reported by {{data['20240429_inc1_reporter']}}, {{ data['20240429_inc1_date_reported']}}{{ data['20240429_inc1_time_reported']}}</p>
+				</li>
 			</ol>
 		</div>
 	</div>

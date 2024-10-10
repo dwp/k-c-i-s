@@ -9,3 +9,12 @@ $font-stack: Helvetica, Arial, sans-serif;
 // Add extra styles here
 
 @import "node_modules/@ministryofjustice/frontend/moj/all";
+
+// overrride for grey text in caption
+.kcis-caption-reportedby {
+    color: $govuk-secondary-text-colour;
+}
+// overrride for black text in caption
+.kcis-caption-incidenttype {
+    color: $govuk-text-colour;
+}

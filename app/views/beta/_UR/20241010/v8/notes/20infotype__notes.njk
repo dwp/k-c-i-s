@@ -1,0 +1,35 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<hr>
+<br>
+<h3 class="govuk-heading-s govuk-!-font-weight-regular">NOT PART OF DESIGN: Demo only</h3>
+<h4 class="govuk-heading-s">Versions</h3>
+{% include "../../_versions/17infotype__versions.njk" %}
+
+<h4 class="govuk-heading-s">States</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li><a href="20infotype">Info type</a></li>
+		<li><a href="20infotype_error">Error: Info type</a></li>
+	</ul>
+<h4 class="govuk-heading-s">v8 Design notes</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li>This page will only be needed as we add other information types and will require button content change on history</li>
+		<li>Remove context caption - the only context is the customer</li>
+	</ul>
+<h4 class="govuk-heading-s">Hypotheses</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li><a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132775346323/Agents+Safeguarding+-+User+Role+Model#business_support">Business support user canvas</a></li>
+	</ul>
+	
+{% set journeyNotesHTMLDecision_v8 %}
+	{% include "beta/decision/notes/v8__notes.njk" %}
+{% endset %}
+{{ govukDetails({
+	summaryText: "v8 Journey level design notes",
+	html: journeyNotesHTMLDecision_v8
+}) }}	
+
+

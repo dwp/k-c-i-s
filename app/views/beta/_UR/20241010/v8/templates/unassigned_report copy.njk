@@ -1,0 +1,80 @@
+<style>
+    .grey {
+        background-color: #f3f2f1;
+        padding-top: 20px;
+    }
+    .greytext {
+        color: #505a5f
+    }
+</style>
+{{ govukTable({
+caption: "Unassigned / total  reports ",
+captionClasses: "",
+firstCellIsHeader: true,
+rows: [
+    [
+    {
+        html: "",
+        classes: "govuk-body-s govuk-!-font-weight-regular"
+    },
+    {
+        text: "Incidents",
+        format: "numeric",
+        classes: "govuk-body-s"
+    },
+    {
+        text: "Concerns",
+        format: "numeric",
+        classes: "govuk-body-s"
+    }
+    ],
+    [
+    {
+        html: "Business support",
+        classes: "govuk-body-s govuk-!-font-weight-regular"
+    },
+    {
+        html: '4 <span class="greytext">/ 30</span>',
+        format: "numeric",
+        classes: "govuk-body-s"
+    },
+    {
+        html: '0 <span class="greytext">/ 0</span>',
+        format: "numeric",
+        classes: "govuk-body-s"
+    }
+    ],
+    [
+    {
+        text: "Decision makers",
+        classes: "govuk-body-s govuk-!-font-weight-regular"
+    },
+    {
+        html: '15 <span class="greytext">/ 19</span>',
+        format: "numeric",
+        classes: "govuk-body-s"
+    },
+    {
+        html: '25 <span class="greytext">/ 27</span>',
+        format: "numeric",
+        classes: "govuk-body-s"
+    }
+    ],
+    [
+    {
+        text: "Total",
+        classes: "govuk-body-s "
+    },
+    {
+        html: '39 <span class="greytext">/ 49</span>',
+        format: "numeric",
+        classes: "govuk-body-s"
+    },
+    {
+        html: '25 <span class="greytext">/ 27</span>',
+        format: "numeric",
+        classes: "govuk-body-s"
+    }
+    ]
+]
+}) }}

@@ -1,0 +1,49 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<hr>
+<br>
+<h3 class="govuk-heading-s govuk-!-font-weight-regular">NOT PART OF DESIGN: Demo only</h3>
+<h4 class="govuk-heading-s">Versions</h3>
+{% include "../../_versions/02history__versions.njk" %}
+
+<h4 class="govuk-heading-s">States</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li><a href="02history_complex">History</a> - Decision maker </li>
+		<li><a href="02history_nomeasures">History</a> - Decision maker - measures = None</li>
+		<li><a href="02history_complex_vo">History</a> - Visiting officer</li>
+		<li><a href="02history_complex_multiple">History</a> - Multiple</li>
+	</ul>
+	<p>Related page from decision maker journey</p>
+	<ul class="govuk-list govuk-list--bullet">
+		<li><a href="15history_bst">History</a> - Business support </li>
+	</ul>
+<h4 class="govuk-heading-s">v8 Design notes</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li>Story - To be confirmed to concatenate all action requests on timeline and <a href="h_05action">action request details</a></li>
+		<li>The date a Concern is recorded on KCIS is the date used to order this view. It is the only date that we can be sure is relevant/provided.</li>
+		<li>Hidden text needs amending for better explanation of links. Story <a href="https://dwpdigital.atlassian.net/browse/CITI-22227">Case Reviewer: Customer History Hidden Text</a></li>
+		<li>Sort order should be action requests then measures so that measures appears at the top of the timeline (Fixed in thi story: <a href="https://dwpdigital.atlassian.net/browse/CITI-22818">Case Reviewer: History Sort Order</a>)</li>
+		<li>Story - <a href="https://dwpdigital.atlassian.net/browse/CITI-23001">Interactor: View Customer History Before Visit</a></li>
+	</ul>
+<h4 class="govuk-heading-s">Hypotheses and insights</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li>Insight: <a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/133179082061/Decision+makers+can+navigate+customer+history+timeline">Decision makers can navigate customer history timeline</a></li>
+		<li>Insight (to be enacted): <a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/133180227671/Decision+makers+want+details+of+historical+actions">Decision makers want details of historical actions</a>		</li>
+		<li><a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132775346323/Agents+Safeguarding+-+User+Role+Model#decision_maker">Decision maker user canvas</a></li>
+		<ul class="govuk-list govuk-list--bullet">
+			<li>Need: Work on multiple cases</li>
+			<li>Pain: Inefficient processes and missing SLAs</li>
+			<li>Pain: The number of reviews needing doing</li>
+		</ul>
+	</ul>
+{% set journeyNotesHTMLDecision_v8 %}
+	{% include "beta/decision/notes/v8__notes.njk" %}
+{% endset %}
+{{ govukDetails({
+	summaryText: "v8 Journey level design notes",
+	html: journeyNotesHTMLDecision_v8
+}) }}	
+

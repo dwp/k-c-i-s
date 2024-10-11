@@ -1,0 +1,36 @@
+{% set versions = [ 
+  "../v6/09prepare_single_man",
+  "../v7/09prepare_single_man",
+  "../v8/09prepare_single_man",
+  "../v9/13prepare_single_man"
+] %}
+
+
+
+{{ govukPagination({
+
+  items: [
+    {
+      number: 6,
+      href: versions[0]
+    },
+    {
+      number: 7,
+      href: versions[1]
+    },
+    {
+      number: 8,
+      href: versions[2]
+    },
+    {
+      number: 9,
+      href: versions[3]
+    }
+  ]
+}) }}
+
+
+{% block pageScripts %}
+  <script src="/public/javascripts/versions_1-0.js"></script>
+{% endblock %}
+

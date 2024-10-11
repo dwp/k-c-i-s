@@ -1,0 +1,80 @@
+<style>
+    .grey {
+        background-color: #f3f2f1;
+        padding-top: 20px;
+    }
+    .greytext {
+        color: #505a5f
+    }
+</style>
+{{ govukTable({
+caption: "Reports in progress",
+captionClasses: "",
+firstCellIsHeader: true,
+rows: [
+    [
+    {
+        html: '<span class="govuk-visually-hidden">Blank cell</span>',
+        classes: "govuk-body-s govuk-!-font-weight-regular"
+    },
+    {
+        text: "Assigned",
+        format: "numeric",
+        classes: "govuk-body-s"
+    },
+    {
+        text: "Unassigned",
+        format: "numeric",
+        classes: "govuk-body-s"
+    }
+    ],
+    [
+    {
+        html: "Incidents - BS",
+        classes: "govuk-body-s govuk-!-font-weight-regular"
+    },
+    {
+        html: 'Unavailable',
+        format: "numeric",
+        classes: "govuk-body-s"
+    },
+    {
+        html: 'Unavailable',
+        format: "numeric",
+        classes: "govuk-body-s"
+    }
+    ],
+    [
+    {
+        text: "Incidents - DM",
+        classes: "govuk-body-s govuk-!-font-weight-regular"
+    },
+    {
+        html: 'Unavailable',
+        format: "numeric",
+        classes: "govuk-body-s"
+    },
+    {
+        html: 'Unavailable',
+        format: "numeric",
+        classes: "govuk-body-s"
+    }
+    ],
+    [
+    {
+        text: "Concerns - DM",
+        classes: "govuk-body-s govuk-!-font-weight-regular"
+    },
+    {
+        html: 'Unavailable',
+        format: "numeric",
+        classes: "govuk-body-s"
+    },
+    {
+        html: 'Unavailable',
+        format: "numeric",
+        classes: "govuk-body-s"
+    }
+    ]
+]
+}) }}

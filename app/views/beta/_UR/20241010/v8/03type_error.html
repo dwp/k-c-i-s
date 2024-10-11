@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block pageTitle %}
-  What was the most serious thing that happened during the incident? - Keep Customer Interactions Safe
+  Error: What was the most serious thing that happened during the incident? - Keep Customer Interactions Safe
 {% endblock %}
 {% block beforeContent %}
   <section aria-label="Phase banner" role="region">
@@ -15,14 +15,23 @@
   <section aria-label="Back" role="region">
     {{ govukBackLink({
       text: "Back",
-      href: "09multipleincident"
+      href: "02history_nomeasures"
     }) }}
   </section>
 {% endblock %}
 {% block content %}
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">asdfas
-      {% include "./templates/govuk-caption-m-whitney_walk.njk" %} 
+    <div class="govuk-grid-column-two-thirds">
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: [
+          {
+            text: "Tell us the most serious thing that happened",
+            href: "#incident-type"
+          }
+        ]
+      }) }}
+      {% include "./templates/govuk-caption-m-mike-full.njk" %}
         {{ govukRadios({
         idPrefix: "incident-type",
         name: "incident-type",
@@ -66,7 +75,10 @@
             value: "other",
             text: "Other"
           }
-        ]
+        ],
+          errorMessage: {
+            text: "Tell us the most serious thing that happened"
+          }
       }) }}
       <div class="govuk-button-group">
 

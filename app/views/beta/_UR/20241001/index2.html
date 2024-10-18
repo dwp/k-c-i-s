@@ -68,7 +68,7 @@
         <input type="hidden" id="20240429_inc2_discrimination" name="20240429_inc2_discrimination" value="None"  >
         <input type="hidden" id="20240429_inc2_witnesses" name="20240429_inc2_witnesses" value="There are currently no witnesses to this incident."  >
         <input type="hidden" id="20240429_inc2_police" name="20240429_inc2_police" value="The relevant manager has not yet submitted a report."  >
-        <input type="hidden" id="20240429_inc2_manager_report" name="20240429_inc2_manager_report" value="The relevant manager has not yet submitted a report."  >
+        <input type="hidden" id="20240429_inc2_manager_report" name="20240429_inc2_manager_report" value="This report is for the same customer, but is a separate incident."  >
         <input type="hidden" id="20240429_inc2_business_support_comments" name="20240429_inc2_business_support_comments" value="Business support have not yet commented. "  >
         <input type="hidden" id="20240429_inc2_reporter" name="20240429_inc2_reporter" value="Ted Lady"  >
         <input type="hidden" id="20240429_inc2_reporters_email" name="20240429_inc2_reporters_email" value="ted@dwp.gov.uk"  >
@@ -87,12 +87,17 @@
         <input type="hidden" id="2reports" name="2reports" value="yes">
         <!-- gather has happened -->
         <input type="hidden" id="reassigned" name="reassigned" value="y">
+        <!-- default value for measures justification -->
+        <input type="hidden" id="2401_measureaccount" name="2401_measureaccount" value="The customer has involuntary physical movements and so should be seen in a screened environment with carer">
+          
         <p><a href="/beta/_UR/20241001/v8/01landingpage1_multiple0">Your reports</a></p>
         <p><a href="/beta/_UR/20241001/v8/11check_good">Check your answers incident1</a></p>
         <p><a href="/beta/_UR/20241001/v8/11check_good2">Check your answers incident2</a></p>
         <p><a href="/beta/_UR/20241001/v8/11check_good_multi">Check your answers multi</a></p>
         <p><a href="/beta/_UR/20241001/v8/02history_complex_multiple2">Customer history once completed </a></p>
         <p><a href="/beta/_UR/20241001/v8/02history_complex_multiple3">Customer history showing future states</a></p>
+        <p><a href="/beta/_UR/20241001/v8/02history_complex_multiple4">Customer history showing future states - with expanded actions</a></p>
+        <p><a href="/beta/_UR/20241001/v8/02history_complex_multiple5">Customer history showing future states - with expanded actions and notes</a></p>
         {{ govukInput({
           id: "20240422_yourname",
           name: "20240422_yourname",

@@ -163,14 +163,37 @@
       <div class="govuk-grid-column-two-thirds">
         <div class="govuk-!-padding-bottom-9">
           <h2 class="govuk-heading-l" id="manager_section">Reviewing manager comments and recommendations</h2>
+          <h3 class="govuk-heading-s govuk-!-margin-bottom-1"> {{data['20240429_inc2_manager']}} <span class="kcis-caption-reportedby govuk-body-s">(Manager)</span></h3>
+          <p class="govuk-caption-m">{{data['20240429_inc1_date']}} at 9:42am</p>
           <p class="govuk-body">{{data['20240429_inc2_manager_report']}}</p>
+          <div class="dwp-timeline">
+            <ol class="dwp-timeline__events">
+              <li class="dwp-timeline__events--entry">
+                  <h3 class="govuk-heading-s govuk-!-margin-bottom-1">Note from <span class="kcis-caption-reportedby govuk-body-s">from {{data['20240422_yourname']}} (Office only)</span></h3>
+                  <p class="govuk-caption-m">{{data['20240429_inc2_date']}} at 9:50am</p>
+                  <p class="govuk-body">Agree. Separate incidents</p>
+              </li>
+            </ol>
+          </div>
           <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" aria-hidden="true">
-          <h3 class="govuk-heading-s">Contact manager</h3>
           {{ govukButton({
-            html: 'Resend email request<span class="govuk-visually-hidden"> to manager ' + data['20240429_inc2_manager'] + '</span>',
+            html: 'Add note',
             href: "#manager_section",
             classes: "govuk-button--secondary"
           }) }}
+          <h3 class="govuk-heading-s">Contact manager</h3>
+          <div class="govuk-button-group">
+            {{ govukButton({
+              html: 'Resend email request<span class="govuk-visually-hidden"> to manager ' + data['20240429_inc2_manager'] + '</span>',
+              href: "#manager_section",
+              classes: "govuk-button--secondary"
+            }) }}
+            {{ govukButton({
+              html: 'Request information<span class="govuk-visually-hidden"> from manager ' + data['20240429_inc2_manager'] + '</span>',
+              href: "h_09infomessage",
+              classes: "govuk-button--secondary"
+            }) }}
+          </div>
         </div>
       </div>
     </div>

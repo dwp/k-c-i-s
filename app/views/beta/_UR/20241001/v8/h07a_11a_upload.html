@@ -11,7 +11,12 @@
       html: 'This is a new service – your <a class="govuk-link" href="11g_upload_error">feedback</a> will help us to improve it.'
     }) }}
   </section>
-  {% include "templates/v7/key_details_red.njk" %}
+  <!-- if there are measures show red banner else show blue -->
+  {% if  (data["2401_applymeasures1"] | length == 0 and data["2401_applymeasures2"] | length == 0 and data["2401_applymeasures3"] | length == 0) %}
+    {% include "./templates/key_details_robert_blue.njk" %}
+  {% else %}
+    {% include "./templates/key_details_red.njk" %}
+  {% endif %}
   <section aria-label="Back" role="region">
     {{ govukBackLink({
       text: "Back",
@@ -23,7 +28,7 @@
   {% include "templates/incident_refactorv10/file_upload_styling.html" %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-l">Add files</h1>
+      <h1 class="govuk-heading-xl">Add files</h1>
       {{ govukDetails({
         summaryText: "Files must be smaller than 1MB",
         html: "<p class='govuk-body'>If each file is smaller than 1MB, add files one at a time. </p>

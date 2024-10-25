@@ -18,3 +18,8 @@ $font-stack: Helvetica, Arial, sans-serif;
 .kcis-caption-incidenttype {
     color: $govuk-text-colour;
 }
+
+// override for normal line spacing
+.kcis-defaultsize {
+    line-height: 1.3157894737 !important;
+}

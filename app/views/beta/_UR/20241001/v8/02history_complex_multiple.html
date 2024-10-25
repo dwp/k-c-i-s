@@ -64,12 +64,13 @@
 		<ol class="dwp-timeline__events">
 					<li class="dwp-timeline__events--entry">
 						<h2 class="govuk-heading-s govuk-!-margin-bottom-0">
-							{% if data['20240429_inc2_actioned'] == "yes" %}
-								<strong class='govuk-tag--green govuk-tag'>{{data['20240429_inc2_status']}}</strong>
+							{% if data['20240429_inc2_status'] == "Prepared" %}
+								<strong class='govuk-tag--green govuk-tag'>{{data['20240429_inc2_status']}}</strong><br>
+
 							{% elif data['20240429_inc2_status'] == "Decision pending" %}
-								<strong class='govuk-tag'>{{data['20240429_inc2_status']}}</strong>
+								<strong class='govuk-tag'>{{data['20240429_inc2_status']}}</strong><br>
+
 							{% endif %}
-							<br>
 							{% set inc2Text %}
 								{{data['20240429_inc2_interaction_type']}} incident
 							{% endset %}

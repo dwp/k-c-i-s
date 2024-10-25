@@ -11,7 +11,12 @@
       html: 'This is a new service – your <a class="govuk-link" href="10add_error">feedback</a> will help us to improve it.'
     }) }}
   </section>
-  {% include "templates/v7/key_details_red.njk" %}
+  <!-- if there are measures show red banner else show blue -->
+  {% if  (data["2401_applymeasures1"] | length == 0 and data["2401_applymeasures2"] | length == 0 and data["2401_applymeasures3"] | length == 0) %}
+    {% include "./templates/key_details_robert_blue.njk" %}
+  {% else %}
+    {% include "./templates/key_details_red.njk" %}
+  {% endif %}
   <section aria-label="Back" role="region">
     {{ govukBackLink({
       text: "Back",
@@ -29,7 +34,7 @@
           legend: {
             text: "Do you want to add files to your note?",
             isPageHeading: true,
-            classes: "govuk-fieldset__legend--l"
+            classes: "govuk-fieldset__legend--xl"
           }
         },
         items: [
@@ -54,7 +59,5 @@
       </div>
     </div>
   </div>
-	{% if not (checked("displaymode", "presentation") == "checked") %}
-		{% include "./notes/h07a_add__notes.njk" %}
-	{% endif %}
+
 {% endblock %}

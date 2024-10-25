@@ -77,11 +77,17 @@
   <div class="govuk-grid-row govuk-!-padding-bottom-3">
     <div class="govuk-grid-column-two-thirds">
         <p class="govuk-!-padding-bottom-7">{{data ["2401_measureaccount"]}}</p>
+        {% include "./templates/measures_note.njk" %} 
         <div class="govuk-button-group">
         {{ govukButton({
           text: "Back to customer history",
           href: "javascript:history.back()"
         }) }}
+				{{ govukButton({
+					text: "Add a note to measures",
+					href: "h_06infomessage",
+					classes: "govuk-button--secondary"
+				}) }}        
       </div>
     </div>
   </div>

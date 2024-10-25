@@ -30,6 +30,7 @@
 		<div class="govuk-grid-column-two-thirds">
 			<h1 class="govuk-heading-xl">Customer history</h1>
 		</div>
+
 	</div>
   	<div class="govuk-grid-row">
     	<div class="govuk-grid-column-two-thirds">
@@ -47,21 +48,54 @@
 				}) }}
 			</div>
 		</div>
+		{% if not (data["2401_applymeasures1"] | length == 0 and data["2401_applymeasures2"] | length == 0 and data["2401_applymeasures3"] | length == 0) %}
+			<div class="govuk-grid-column-one-third">
+				<style>
+					@media (min-width: 40.0625em) {
+						hr {
+							margin:0px !important;
+						}
+					}
+				</style>
+				<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" aria-hidden="true">	
+				<dl class="govuk-summary-list">
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key govuk-!-width-one-half">
+							Measures review date
+						</dt>
+						<dd class="govuk-summary-list__value govuk-!-width-one-half">
+							{{data["2401_review_date"]}}
+						</dd>
+					</div>
+				</dl>
+			</div>
+		{% endif %}
 	</div>
   	<div class="govuk-grid-row">
     	<div class="govuk-grid-column-two-thirds">
 			<ol class="dwp-timeline__events">
 				<li class="dwp-timeline__events--entry">
 					<!-- only show "Active" tag if measures does not = none -->
-					<h2 class="govuk-heading-s govuk-!-margin-bottom-0">Measure {% if not (data["2401_applymeasures1"] | length == 0 and data["2401_applymeasures2"] | length == 0 and data["2401_applymeasures3"] | length == 0) %}<strong class="govuk-tag govuk-tag--red">active</strong>{% endif %}</h2>
-					<p class="govuk-!-margin-bottom-1 govuk-hint">{{ "today" | govukDate }}</p>
+					<h2 class="govuk-heading-m ">
+						<a href="21decision">Decision</a> {% if not (data["2401_applymeasures1"] | length == 0 and data["2401_applymeasures2"] | length == 0 and data["2401_applymeasures3"] | length == 0) %}
+						<strong class="govuk-tag govuk-tag--red">Active measures</strong>
+						{% endif %}<br>
+						<span class="govuk-body govuk-!-margin-bottom-1 kcis-caption-incidenttype kcis-defaultsize"><span class="govuk-visually-hidden">made</span>{{ "today" | duration(0, "days") | govukDate }} at 4.30pm</span>
+						<span class="kcis-caption-reportedby govuk-body-s kcis-defaultsize"> by {{data['20240422_yourname']}}</span>
+					</h2>
+					<h3 class="govuk-heading-s govuk-!-margin-bottom-0">Measures</h3>
 					<ul class="govuk-list govuk-list--bullet">
-						<a href="h_04measures">{% include "./templates/measures_list.njk" %} </a>
+						{% include "./templates/measures_list.njk" %} 
 					</ul>
+					<h4 class="govuk-heading-s govuk-!-margin-bottom-1">Summary</h4>
+
 					<p class="govuk-body">{{data ["2401_measureaccount"]}}</p>
-					<h3 class="govuk-heading-s govuk-!-margin-bottom-0">Note <span class="kcis-caption-reportedby govuk-body-s">from Sadiq Assam </span></h3>
-					<p class="govuk-body kcis-caption-reportedby">{{ "today" | govukDate }}</p>
-					<p class="govuk-body">We are awaiting the outcome of a new health assessment</p>
+
+					<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" aria-hidden="true">
+					<h3 class="govuk-body kcis-caption-incidenttype govuk-!-margin-bottom-1"><span class="govuk-visually-hidden">Update added</span> {{ "today" | duration(1, "days") | govukDate }} at 2:07pm<span class="kcis-caption-reportedby govuk-body-s"> by Sadiq Assam </span></h3>
+					<p class="govuk-body">Sent the letter as the manager couldn't</p>
+
+
 					{% set actionDetailsHTML %}
 					<dl class="govuk-summary-list">
 							<div class="govuk-summary-list__row">
@@ -69,7 +103,7 @@
 									<a href="h_05action2">Interview by a manager</a>
 								</dt>
 								<dd class="govuk-summary-list__value">
-									<span class="govuk-tag">Requested:</span><br>7 October 2024
+									<span class="govuk-tag">Requested:</span><br>{{ "today" | duration(0, "days") | govukDate }}
 								</dd>
 							</div>
 							<div class="govuk-summary-list__row">
@@ -77,7 +111,7 @@
 									<a href="h_05action2">Send a letter</a>
 								</dt>
 								<dd class="govuk-summary-list__value">
-									<span class="govuk-tag govuk-tag--red">I didn't do it:</span> <br>8 October 2024
+									<span class="govuk-tag govuk-tag--red">I didn't do it:</span> <br>{{ "today" | duration(1, "days") | govukDate }}
 								</dd>
 							</div>
 							<div class="govuk-summary-list__row">
@@ -85,13 +119,13 @@
 									<a href="h_05action2">Request a banning order</a>
 								</dt>
 								<dd class="govuk-summary-list__value">
-									Completed:</a> <br>9 October 2024
+									Completed:</a> <br>{{ "today" | duration(2, "days") | govukDate }}
 								</dd>
 							</div>
 						</dl>
 					{% endset %}
 					{{ govukDetails({
-						summaryText: "Action request",
+						summaryText: "Actions",
 						open: true,
 						html: actionDetailsHTML
 					}) }}
@@ -101,14 +135,14 @@
 						<a href="h_02incident2">{{data['20240429_inc2_interaction_type']}} incident</a>
 					</h2>
 					<p class="govuk-!-margin-bottom-0">{{ "today" | govukDate }}{{data['20240429_inc2_time']}}</p>
-					<p class="govuk-body-s" style='color:#505a5f'>Reported by {{data['20240429_inc2_reporter']}}, {{ data['20240429_inc2_date_reported']}}{{ data['20240429_inc2_time_reported']}}</p>
+					<p class="govuk-body-s kcis-caption-reportedby ">Reported by {{data['20240429_inc2_reporter']}}, {{ data['20240429_inc2_date_reported']}}{{ data['20240429_inc2_time_reported']}}</p>
 				</li>
 				<li class="dwp-timeline__events--entry">
 					<h2 class="govuk-heading-s govuk-!-margin-bottom-0">
 						<a href="h_02incident1">{{data['20240429_inc2_interaction_type']}} incident</a>
 					</h2>
 					<p class="govuk-!-margin-bottom-0">{{ "today" | govukDate }}{{data['20240429_inc1_time']}}</p>
-					<p class="govuk-body-s" style='color:#505a5f'>Reported by {{data['20240429_inc1_reporter']}}, {{ data['20240429_inc1_date_reported']}}{{ data['20240429_inc1_time_reported']}}</p>
+					<p class="govuk-body-s kcis-caption-reportedby ">Reported by {{data['20240429_inc1_reporter']}}, {{ data['20240429_inc1_date_reported']}}{{ data['20240429_inc1_time_reported']}}</p>
 				</li>
 			</ol>
 		</div>

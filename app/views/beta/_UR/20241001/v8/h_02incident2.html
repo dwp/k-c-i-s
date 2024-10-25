@@ -20,7 +20,7 @@
   </section>
 {% endblock %}
 {% block content %}
-  {% include "./templates/multi_caption2.njk" %}
+  {% include "./templates/multi_caption2_self.njk" %}
   <h1 class="govuk-heading-xl">Original incident report</h1>
   <section aria-label="Incident overview" role="region">
     <div class="govuk-grid-row">
@@ -28,7 +28,7 @@
         <div class="govuk-!-padding-bottom-9">
           <h2 class="govuk-heading-l" id="h2-overview"><span class="govuk-warning-text__assistive">Incident </span>Overview</h2>
           {% set assignHTML %}
-            {% if data['20240429_inc2_actioned'] == "yes" %} Prepared{% else %}Decision pending{% endif %}: <br>{{data['20240422_youremail']}}
+            {{data['20240429_inc2_actioned']}}: <br>{{data['20240422_youremail']}}
           {% endset %}
           {{ govukSummaryList({
             rows: [
@@ -177,7 +177,7 @@
           </div>
           <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" aria-hidden="true">
           {{ govukButton({
-            html: 'Add note',
+            html: 'Add a note to this report',
             href: "#manager_section",
             classes: "govuk-button--secondary"
           }) }}

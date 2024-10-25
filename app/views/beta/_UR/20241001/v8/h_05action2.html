@@ -1,6 +1,6 @@
 {% extends "layout_20241001_ur.html" %}
 {% block pageTitle %}
-  Action request - Keep Customer Interactions Safe
+  Actions - Keep Customer Interactions Safe
 {% endblock %}
 {% block beforeContent %}
   <section aria-label="Phase banner" role="region">
@@ -27,7 +27,7 @@
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full govuk-!-padding-bottom-9">
-          <h1 class="govuk-heading-xl">Action request</h1>
+          <h1 class="govuk-heading-xl">Actions</h1>
           {% set yournameHTML %}
              Action for {{data['20240422_yourname']}} <br><span class="govuk-body">(Decision maker)</span>
           {% endset %}
@@ -56,7 +56,7 @@
                 Date requested
               </dt>
               <dd class="govuk-summary-list__value">
-                {{data['20240429_inc1_date']}}
+                {{ "today" | duration(0, "days") | govukDate }}
               </dd>
 
             </div>
@@ -80,7 +80,7 @@
                     </dt>
                     <dd class="govuk-summary-list__value">
                       <h3 class="govuk-heading-s"  style="margin-bottom: 0px"><span class="govuk-tag">Requested:</span> </h3>
-                      <p>7 October 2024</p>
+                      <p>{{ "today" | duration(0, "days") | govukDate }}</p>
                     </dd>
                   </div>
                 </dl>
@@ -100,7 +100,7 @@
                     </dt>
                     <dd class="govuk-summary-list__value">
                         <h3 class="govuk-heading-s "  style="margin-bottom: 0px"><span class="govuk-tag govuk-tag--red">I didn't do it:</span> </h3>
-                        <p>8 October 2024</p>
+                        <p>{{ "today" | duration(1, "days") | govukDate }}</p>
                         <h3 class="govuk-heading-s"  style="margin-bottom: 0px">Outcome: </h3>
                         <p>Could not send letter because we have not printing facilities</p>
                     </dd>
@@ -120,7 +120,7 @@
                     </dt>
                     <dd class="govuk-summary-list__value">
                       <h3 class="govuk-heading-s"  style="margin-bottom: 0px">Completed: </h3>
-                      <p>9 October 2024</p>
+                      <p>{{ "today" | duration(2, "days") | govukDate }}</p>
                       <h3 class="govuk-heading-s"  style="margin-bottom: 0px">Outcome: </h3>
                       <p>Sent to GLD. Expected outcome 2 weeks</p>
                     </dd>
@@ -139,7 +139,7 @@
     </section>  
       <div class="govuk-button-group">
         {{ govukButton({
-          text: "Back to customer history",
+          text: "Back to Customer history",
           href: "javascript:history.back()"
         }) }}
       </div>

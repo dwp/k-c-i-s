@@ -1,6 +1,6 @@
 {% extends "layout_20241001_ur.html" %}
 {% block pageTitle %}
-  Check your answers - Keep Customer Interactions Safe
+  Decision - Keep Customer Interactions Safe
 {% endblock %}
 {% block beforeContent %}
   <section aria-label="Phase banner" role="region">
@@ -11,7 +11,12 @@
       html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
     }) }}
   </section>
-  {% include "./templates/key_details_robert_blue.njk" %}
+  <!-- if there are measures show red banner else show blue -->
+  {% if  (data["2401_applymeasures1"] | length == 0 and data["2401_applymeasures2"] | length == 0 and data["2401_applymeasures3"] | length == 0) %}
+    {% include "./templates/key_details_robert_blue.njk" %}
+  {% else %}
+    {% include "./templates/key_details_red.njk" %}
+  {% endif %}
   <section aria-label="Back" role="region">
     {{ govukBackLink({
       text: "Back",
@@ -24,7 +29,7 @@
   {% if data['2reports'] == 'yes' %}
     <a href="02history_complex_multiple">Go back to the customer history</a> 
   {% else %}
-    <a href="02history_complex_multiple0">Go back to the customer history</a> 
+    <a href="02history_complex_multiple5">Go back to the customer history</a> 
   {% endif %}
   to prepare more reports
 {% endset %}
@@ -43,24 +48,25 @@
 {% endif %}
 <br>
 
-{% include "./templates/multi_caption.njk" %}
-  <h1 class="govuk-heading-xl">Check your answers</h1>
+  <h1 class="govuk-heading-xl">Decision</h1>
+
   <div class="govuk-!-margin-bottom-9">
     <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Decision made 
+        </dt>
+        <dd class="govuk-summary-list__value">
+           {{ "today" | govukDate }} at 4.30pm by {{data['20240422_yourname']}}
+        </dd>
+      </div>
+
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
           Measures
         </dt>
         <dd class="govuk-summary-list__value">
           {% include "./templates/measures_list.njk" %}
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <form action="06measure" class="form" method="post">
-            {{ govukButton({
-              text: "Change",
-              classes: "govuk-button--secondary ds_link"
-            }) }}
-          </form>
         </dd>
       </div>
 
@@ -71,14 +77,6 @@
         <dd class="govuk-summary-list__value">
           {{data ["2401_measureaccount"]}}
         </dd>
-        <dd class="govuk-summary-list__actions">
-          <form action="07measureaccount" class="form" method="post">
-            {{ govukButton({
-              text: "Change",
-              classes: "govuk-button--secondary ds_link"
-            }) }}
-          </form>
-        </dd>
       </div>
 
       <div class="govuk-summary-list__row">
@@ -88,19 +86,12 @@
         <dd class="govuk-summary-list__value">
           {{data ["2401_review_date"]}}
         </dd>
-        <dd class="govuk-summary-list__actions">
-          <form action="08reviewdate" class="form" method="post">
-            {{ govukButton({
-              text: "Change",
-              classes: "govuk-button--secondary ds_link"
-            }) }}
-          </form>
-        </dd>
       </div>
     </dl>
   </div>
+  {% include "./templates/measures_note.njk" %} 
+
   <!-- if there are 2 reports then show the second one -->
-  {% if data['2reports'] == 'yes' %}
     {% include "./templates/multi_caption2.njk" %}
     <!-- if this report has not been actioned, show warning -->
     {% if not (data['20240429_inc2_actioned'] == "yes") %}
@@ -118,14 +109,6 @@
           <dd class="govuk-summary-list__value">
             {{data["2404_incident2_type"]}}
           </dd>
-          <dd class="govuk-summary-list__actions">
-            <form action="03type2" class="form" method="post">
-              {{ govukButton({
-                text: "Change",
-                classes: "govuk-button--secondary ds_link"
-              }) }}
-            </form>
-          </dd>
         </div>
 
         <div class="govuk-summary-list__row">
@@ -134,14 +117,6 @@
           </dt>
           <dd class="govuk-summary-list__value">
             {{data["2404_incident2_trigger"]}}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <form action="04trigger2" class="form" method="post">
-              {{ govukButton({
-                text: "Change",
-                classes: "govuk-button--secondary ds_link"
-              }) }}
-            </form>
           </dd>
         </div>
 
@@ -152,14 +127,6 @@
           <dd class="govuk-summary-list__value">
               {% include "./templates/action_list_manager2.njk" %}
           </dd>
-          <dd class="govuk-summary-list__actions">
-            <form action="05actions2" class="form" method="post">
-              {{ govukButton({
-                text: "Change",
-                classes: "govuk-button--secondary ds_link"
-              }) }}
-            </form>
-          </dd>
         </div>
 
         <div class="govuk-summary-list__row">
@@ -168,14 +135,6 @@
           </dt>
           <dd class="govuk-summary-list__value">
             {% include "./templates/action_list_dm2.njk" %}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <form action="05actions2" class="form" method="post">
-              {{ govukButton({
-                text: "Change",
-                classes: "govuk-button--secondary ds_link"
-              }) }}
-            </form>
           </dd>
         </div>
 
@@ -195,14 +154,6 @@
               Not applicable 
             {% endif %}
             </dd>
-          <dd class="govuk-summary-list__actions">
-            <form action="05d_wholetter2" class="form" method="post">
-              {{ govukButton({
-                text: "Change",
-                classes: "govuk-button--secondary ds_link"
-              }) }}
-            </form>
-          </dd>
         </div>
 
         <div class="govuk-summary-list__row">
@@ -212,29 +163,16 @@
           <dd class="govuk-summary-list__value">
             {{data["2401_note2"]}}
           </dd>
-          <dd class="govuk-summary-list__actions">
-            <form action="09prepare_single_man2" class="form" method="post">
-              {{ govukButton({
-                text: "Change",
-                classes: "govuk-button--secondary ds_link"
-              }) }}
-            </form>
-          </dd>
         </div>
 
       </dl>
     </div>
-  {% endif %}
   <!-- if there are 2 reports then show the caption for the first one (otherwise it'll be shown at the top)-->
   {% if data['2reports'] == 'yes' %}
     {% include "./templates/multi_caption1.njk" %}
   {% endif %}
 
-  {% if not (data['20240429_inc1_actioned'] == "yes") %}
-  <P class="govuk-body govuk-!-margin-top-5">
-    You must <a href="03type">prepare actions and make manager comments for this report</a> before you can publish decision
-  </p>	  
-  {% endif %}
+
   <style>
     .ds_link {
           background:#fff;
@@ -273,14 +211,6 @@
         <dd class="govuk-summary-list__value">
           {{data["2404_incident_type"]}}
         </dd>
-        <dd class="govuk-summary-list__actions">
-          <form action="03type" class="form" method="post">
-            {{ govukButton({
-              text: "Change",
-              classes: "govuk-button--secondary ds_link"
-            }) }}
-          </form>
-        </dd>
       </div>
 
       <div class="govuk-summary-list__row">
@@ -289,14 +219,6 @@
         </dt>
         <dd class="govuk-summary-list__value">
           {{data["2404_incident_trigger"]}}
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <form action="04trigger" class="form" method="post">
-            {{ govukButton({
-              text: "Change",
-              classes: "govuk-button--secondary ds_link"
-            }) }}
-          </form>
         </dd>
       </div>
 
@@ -307,14 +229,6 @@
         <dd class="govuk-summary-list__value">
             {% include "./templates/action_list_manager.njk" %}
         </dd>
-        <dd class="govuk-summary-list__actions">
-          <form action="05actions" class="form" method="post">
-            {{ govukButton({
-              text: "Change",
-              classes: "govuk-button--secondary ds_link"
-            }) }}
-          </form>
-        </dd>
       </div>
 
       <div class="govuk-summary-list__row">
@@ -323,14 +237,6 @@
         </dt>
         <dd class="govuk-summary-list__value">
           {% include "./templates/action_list_dm.njk" %}
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <form action="05actions" class="form" method="post">
-            {{ govukButton({
-              text: "Change",
-              classes: "govuk-button--secondary ds_link"
-            }) }}
-          </form>
         </dd>
       </div>
 
@@ -350,14 +256,6 @@
               Not applicable 
             {% endif %}
         </dd>
-        <dd class="govuk-summary-list__actions">
-          <form action="05d_wholetter" class="form" method="post">
-            {{ govukButton({
-              text: "Change",
-              classes: "govuk-button--secondary ds_link"
-            }) }}
-          </form>
-        </dd>
       </div>
 
       <div class="govuk-summary-list__row">
@@ -367,14 +265,6 @@
         <dd class="govuk-summary-list__value">
           {{data["2401_note"]}}
         </dd>
-        <dd class="govuk-summary-list__actions">
-          <form action="09prepare_single_man" class="form" method="post">
-            {{ govukButton({
-              text: "Change",
-              classes: "govuk-button--secondary ds_link"
-            }) }}
-          </form>
-        </dd>
       </div>
 
     </dl>
@@ -382,53 +272,20 @@
     
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-    <h2 class="govuk-heading-m">Are you ready to add these actions and measures to this customer's record?</h2>
-      <!-- if both reports have been actioned, show the completion -->
-      {% if ( (data['20240429_inc2_actioned'] == "yes")) and  ( (data['20240429_inc1_actioned'] == "yes"))%}
-      <p class="govuk-body">If you need to change anything in your report, select Change next to each answer or 
-        <a href="02history_complex_multiple">go back to the Customer history</a>.
-      </p>
-      <p class="govuk-body">When you click 'Record actions and measures', we will send your decision to the reporter and their manager.</p>
-      <p class="govuk-body govuk-!-font-weight-bold">You will not be able to change anything about your decision after you click the button.</p>
-      <!-- go on to confirmation -->
-      <form action="12confirmation_multi">
+
+      <form action="02history_complex_multiple5">
         <input type="hidden" id="20240429_inc1_status" name="20240429_inc1_status" value="Decision made" >
         <input type="hidden" id="20240429_inc2_status" name="20240429_inc2_status" value="Decision made" >
     
         <div class="govuk-button-group">
           {{ govukButton(
               {
-                text: "Publish actions and measures. Close decision"
+                text: "Back to Customer history"
               }
             )
           }}
         </div>
-      </form>
-    <!-- if there is only one report then pretend another has come in and go to gather-->
-    {% elif ( (data['2reports'] == "no")) and  ( (data['20240429_inc1_actioned'] == "yes"))%}
-    <p class="govuk-body">If you need to change anything in your report, select Change next to each answer or 
-      <a href="02history_complex_multiple0">go back to the Customer history</a>.
-    </p>
-    <p class="govuk-body">When you select 'Publish actions and measures. Close decision', we will send your decision to the reporter and their manager. Measures if selected will be made available to everyone preparing for a customer interaction. </p>
-      <p class="govuk-body govuk-!-font-weight-bold">You will not be able to change anything about your decision after you click the button.</p>
-      <!-- go to gather-->
-      <form action="19multiple">
-        <div class="govuk-button-group">
-          {{ govukButton(
-              {
-                text: "Publish actions and measures. Close decision"
-              }
-            )
-          }}
-        </div>
-      </form>    
-    <!-- if you have 2 reports and they are not yet prepared signpost back to prepare -->
-    {% else %}
-    <p class="govuk-body">If you need to change anything in your report, select Change next to each answer or 
-      <a href="02history_complex_multiple0">go back to the Customer history</a>.
-    </p>
-    <p class="govuk-body govuk-!-font-weight-bold">You can publish and close the decision when all reports have been <strong class='govuk-tag govuk-tag--green'>Prepared</strong> and the decision summary added.</p>
-    {% endif %}
+      </form>      
     </div>
   </div>
 

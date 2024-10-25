@@ -11,7 +11,12 @@
       html: 'This is a new service – your <a class="govuk-link" href="19infomessage_error">feedback</a> will help us to improve it.'
     }) }}
   </section>
-  {% include "templates/v7/key_details_red.njk" %}
+  <!-- if there are measures show red banner else show blue -->
+  {% if  (data["2401_applymeasures1"] | length == 0 and data["2401_applymeasures2"] | length == 0 and data["2401_applymeasures3"] | length == 0) %}
+    {% include "./templates/key_details_robert_blue.njk" %}
+  {% else %}
+    {% include "./templates/key_details_red.njk" %}
+  {% endif %}
   <section aria-label="Back" role="region">
     {{ govukBackLink({
       text: "Back",
@@ -40,6 +45,26 @@
             html: hintHTML
           }
         }) }}
+        {{ govukCheckboxes({
+          idPrefix: "2410_officeuse",
+          name: "2410_officeuse",
+          fieldset: {
+            legend: {
+              text: "Only show to Case reviewers ",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          hint: {
+            text: "Use for notes only relevant to Case reviewers. Do not use for measures and actions."
+          },
+          items: [ 
+            {
+              value: "Only show to Case reviewers",
+              text: "Only show to Case reviewers"
+            }
+          ]
+        }) }}        
         <div class="govuk-button-group">
           {{ govukButton({
             text: "Continue",
@@ -48,7 +73,5 @@
         </div>
     </div>
   </div>
-  {% if not (checked("displaymode", "presentation") == "checked") %}
-		{% include "./notes/h_06infomessage__notes.njk" %}
-	{% endif %}
+
 {% endblock %}

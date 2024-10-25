@@ -51,7 +51,7 @@
 
       <input type="hidden" id="reassigned" name="reassigned" value="y">
       <input type="hidden" id="2reports" name="2reports" value="yes">
-
+      <input type="hidden" id="20240429_inc2_status" name="20240429_inc2_status" value="Decision pending" >
       {% set assignedEmail %}
         {% if data['reassigned'] %}
           {{data['20240422_youremail']}}
@@ -76,11 +76,11 @@
       {% endset %}
 
       {% set inc2Status %}
-        {% if data['reassigned'] %}
-          <span class='govuk-visually-hidden'>Status: </span> Decision pending
-        {% else %}
-          <span class='govuk-visually-hidden'>Status: </span> Submitted
-        {% endif %}
+      <span class='govuk-visually-hidden'>Status: </span> {{data['20240429_inc2_status']}}
+      {% endset %}
+
+      {% set inc1Status %}
+          <span class='govuk-visually-hidden'>Status: </span> {{data['20240429_inc1_status']}}
       {% endset %}
 
       {% set inc1numberHTML %}
@@ -155,7 +155,7 @@
             html: inc1reporterHTML
           },
           {
-            html: "<span class='govuk-visually-hidden'>Status: </span> Decision pending"
+            html: inc1Status
           },
           {
             html: data['20240422_youremail']

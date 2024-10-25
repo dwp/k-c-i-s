@@ -47,6 +47,28 @@
 				}) }}
 			</div>
 		</div>
+		{% if not (data["2401_applymeasures1"] | length == 0 and data["2401_applymeasures2"] | length == 0 and data["2401_applymeasures3"] | length == 0) %}
+			<div class="govuk-grid-column-one-third">
+				<style>
+					@media (min-width: 40.0625em) {
+						hr {
+							margin:0px !important;
+						}
+					}
+				</style>
+				<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" aria-hidden="true">	
+				<dl class="govuk-summary-list">
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key govuk-!-width-one-half">
+							Measures review date
+						</dt>
+						<dd class="govuk-summary-list__value govuk-!-width-one-half">
+							{{data["2401_review_date"]}}
+						</dd>
+					</div>
+				</dl>
+			</div>
+		{% endif %}
 	</div>
   	<div class="govuk-grid-row">
     	<div class="govuk-grid-column-two-thirds">

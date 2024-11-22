@@ -91,14 +91,13 @@
   </div>
   {% include "./templates/measures_note.njk" %} 
 
-  <!-- if there are 2 reports then show the second one -->
-    {% include "./templates/multi_caption2.njk" %}
-    <!-- if this report has not been actioned, show warning -->
-    {% if not (data['20240429_inc2_actioned'] == "yes") %}
-      <P class="govuk-body govuk-!-margin-top-5">
-        You must <a href="03type2">prepare actions and make manager comments for this report</a> before you can publish decision
-      </p>	    
-    {% endif %}
+  <span class="govuk-caption-m">
+    <a href="h_02incident1">{{data['20240429_inc2_interaction_type']}} incident</a><br>
+    <span style='color:#000'>{{ "today" | govukDate }}{{data['20240429_inc2_time']}}</span><br>
+    <span class="govuk-body-s" style='color:#505a5f'>Reported by {{data['20240429_inc2_reporter']}}, {{ data['20240429_inc2_date_reported']}}{{ data['20240429_inc2_time_reported']}}</span><br>
+    <span class="govuk-body-s" style="color:#505a5f">Manager: {{data["20240429_inc2_manager"]}}</span>
+</span>
+
     <div class="govuk-!-margin-bottom-9 govuk-!-margin-top-4">
 
       <dl class="govuk-summary-list">
@@ -167,12 +166,14 @@
 
       </dl>
     </div>
-  <!-- if there are 2 reports then show the caption for the first one (otherwise it'll be shown at the top)-->
-  {% if data['2reports'] == 'yes' %}
-    {% include "./templates/multi_caption1.njk" %}
-  {% endif %}
-
-
+    <span class="govuk-caption-m">
+      <a href="h_02incident1">{{data['20240429_inc1_interaction_type']}} incident</a><br>
+      <span style='color:#000'>{{ "today" | govukDate }}{{data['20240429_inc1_time']}}</span><br>
+      <span class="govuk-body-s" style='color:#505a5f'>Reported by {{data['20240429_inc1_reporter']}}, {{ data['20240429_inc1_date_reported']}}{{ data['20240429_inc1_time_reported']}}</span><br>
+      <span class="govuk-body-s" style="color:#505a5f">Manager: {{data["20240429_inc1_manager"]}}</span>
+  </span>
+  
+  
   <style>
     .ds_link {
           background:#fff;
@@ -280,7 +281,8 @@
         <div class="govuk-button-group">
           {{ govukButton(
               {
-                text: "Back to Customer history"
+                text: "Back to Customer history",
+                href: "javascript:history.back()"
               }
             )
           }}

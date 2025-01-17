@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  You will be signed out soon - Keep Customer Interactions Safe
+{% endblock %}
+
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+        text: "beta"
+      },
+      html: 'This is a new service – your <a class="govuk-link" href="01comments_error">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+
+{% endblock %}
+
+{% block content %}
+<style>
+
+  .mybackground {
+    position:fixed;
+    padding:0;
+    margin:0;
+
+    top:0;
+    left:0;
+
+    width: 100%;
+    height: 100%;
+    background:rgba(0,0,0,0.5);
+  }
+    .myposition {
+    position:fixed;
+    padding:0;
+    margin:0;
+
+    top:10%;
+    left:0;
+
+    width: 100%;
+    height: 100%;
+  }
+</style>
+<div class="mybackground">
+  <div class="myposition">
+    <dialog class="govuk-timeout-warning dialog" data-module="govuk-timeout-warning" id="js-timeout-warning" data-minutes-idle-timeout="0.1" data-minutes-modal-visible="0.2" data-url-redirect="timeout-notsignedin" aria-live="polite" aria-labelledby="dialog-title" open="">
+      <h1 id="dialog-title" class="govuk-heading-l">
+        You will be signed out soon
+      </h1>
+      <div class="govuk-body">
+        <p>To keep your work secure, we will sign you out in <strong>2 minutes</strong>. </p>
+        <p>We have saved your work.</p>
+      </div>
+{#       <button class="govuk-button dialog-button js-dialog-close" data-module="govuk-button">Continue report</button>
+ #}
+      <form class="form" action="00timeout_complete" method="post">
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+   </dialog>
+  </div>
+</div>
+
+	{% if not (checked("displaymode", "presentation") == "checked") %}
+		{% include "./notes/00timeout__notes.njk" %}
+	{% endif %}
+
+{% endblock %}

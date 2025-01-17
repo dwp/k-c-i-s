@@ -35,6 +35,7 @@ require("./views/beta/report_incident/routes/v9")(router);
 require("./views/beta/report_incident/routes/v10")(router);
 require("./views/beta/report_incident/routes/v11")(router);
 require("./views/beta/report_incident/routes/v12")(router);
+require("./views/beta/report_incident/routes/v13")(router);
 require("./views/beta/_UR/20230406/routes/v11")(router);
 require("./views/beta/incident_manager_journey/routes/v1")(router);
 require("./views/beta/incident_manager_journey/routes/v2")(router);

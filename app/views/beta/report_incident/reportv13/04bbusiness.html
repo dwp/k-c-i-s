@@ -1,0 +1,100 @@
+{% extends "layout.html" %}
+
+{% set myPageTitle = "Which service do you mainly work for?" %}
+
+{% block pageTitle %}
+  {{myPageTitle}} - Keep Customer Interactions Safe
+{% endblock %}
+
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+        text: "beta"
+      },
+      html: 'This is a new service – your <a class="govuk-link" href="02behalf_error">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "./templates/key_details_robert_blue.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
+  </section>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="04interaction" method="post">
+        {{ govukRadios({
+          idPrefix: "business",
+          name: "business",
+          fieldset: {
+            legend: {
+              text: myPageTitle,
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "workingage",
+              text: "Working Age",
+              hint: {
+                text: "For example: Job centres, work coaches, service centre agents"
+              }
+            },
+            {
+              value: "msp",
+              text: "Medical service provider (outsourced)"
+            },
+            {
+              value: "cmg",
+              text: "Child maintenance group"
+            },
+            {
+              value: "dm",
+              text: "Debt management "
+            },
+            {
+              value: "pensions",
+              text: "Pensions"
+            },
+            {
+              value: "pip",
+              text: "Personal Independence Payments (PIP)"
+            },
+            {
+              value: "telephony",
+              text: "Telephony provider (outsourced)"
+            },
+            {
+              value: "cfcd",
+              text: "Counter Fraud, Compliance & Debt (CFCD)"
+            },
+            {
+              value: "other",
+              text: "Other",
+              hint: {
+                text: "For example: Corporate centre"
+              }            
+            }
+          ],
+          hint: {
+            text: "Select one option."
+          }
+        }) }}
+        <div>
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+        </div>
+      </form>
+    </div>
+  </div>
+	{% if not (checked("displaymode", "presentation") == "checked") %}
+		{% include "./notes/04bbusiness__notes.njk" %}
+	{% endif %}
+{% endblock %}

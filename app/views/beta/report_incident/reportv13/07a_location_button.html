@@ -1,0 +1,127 @@
+{% extends "layout.html" %}
+
+{% set myPageTitle = "Which office are you based at?" %}
+
+{% block pageTitle %}
+  {{myPageTitle}} - Keep Customer Interactions Safe
+{% endblock %}
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+      text: "beta"
+    },
+      html: 'This is a new service – your <a class="govuk-link" href="10add_error">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "./templates/key_details_robert_blue.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
+  </section>
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <link rel="stylesheet" href="/public/countryautocomplete/accessible-autocomplete.min.css">
+      <style>
+        /* Example page specific styling. */
+        html {
+          font-family: -apple-system, BlinkMacSystemFont, 'avenir next', avenir, 'helvetica neue', helvetica, ubuntu, roboto, noto, 'segoe ui', arial, sans-serif;
+        }
+
+        label {
+          display: block;
+          margin-bottom: .5rem;
+        }
+
+        code {
+          padding-left: .5em;
+          padding-right: .5em;
+          background: #EFEFEF;
+          font-weight: normal;
+          font-family: monospace;
+          
+        }
+
+        .autocomplete-wrapper {
+          max-width: 20em;
+          margin-bottom: 4rem;
+          max-width: 100% ; 
+        }
+
+        .submitted--hidden {
+          display: none;
+        }
+      </style>
+
+      <h1 class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--l" for="last-location">
+          {{myPageTitle}}
+        </label>
+        </h1>
+        <div id="location-hint" class="govuk-hint">
+          <p class="govuk-hint">For example, 'Newcastle East Jobcentre' or 'Loxley House, Nottingham'</p>
+          <p class="govuk-hint">If you are reporting on behalf of a colleague, select the office they are based at.</p>
+          <p class="govuk-hint">Type in 2 or more characters for results.</p>
+          <p class="govuk-hint">If the location you need is not available, select 'Office not found'</p>
+        </div>
+        <form action="07where" method="get">
+            <div class="autocomplete-wrapper">
+              <select name="last-location" id="last-location">
+              <option value="territory:AE-AJ"></option>
+              <option value="territory:AE-AJ">Aberdare Jobcentre</option>
+              <option value="territory:AE-AJ">Aberdeen (DCA/TTS) </option>
+              <option value="territory:AE-AJ">Aberdeen Benefit  Centre</option>
+              <option value="territory:AE-AJ">Aberdeen Chapel Street </option>
+              <option value="territory:AE-AJ">Aberdeen City Campus Youth Hub</option>
+              <option value="territory:AE-AJ">Aberdeen City Council</option>
+              <option value="territory:AE-AJ">Aberdeen City Wharf Jobcentre Plus</option>
+              <option value="territory:AE-AJ">Aberdeen Ebury House</option>
+              <option value="territory:AE-AJ">Aberdeen Health Services Directorate</option>
+              <option value="territory:AE-AJ">Aberdeen PIP AC</option>
+              <option value="territory:AE-AJ">Aberdeenshire Council 1</option>
+              <option value="territory:AE-AJ">Aberdeenshire Council 3</option>
+              <option value="territory:AE-AJ">Aberdeenshire Council 4</option>
+              <option value="territory:AE-AJ">CDW Aberdeen</option>
+            </select>
+          </div>
+          <div class="govuk-button-group">
+            {{ govukButton({
+              text: "Continue"
+            }) }}
+            {{ govukButton({
+              classes: "govuk-button--secondary",
+              text: "Office not found"
+            }) }}
+          </div>
+        </form>
+    </div>
+  </div>
+  <script type="text/javascript" src="/public/countryautocomplete/accessible-autocomplete.min.js"></script>
+  <script type="text/javascript">
+    var selectEl = document.querySelector('#last-location')
+    accessibleAutocomplete.enhanceSelectElement({
+      autoselect: true,
+      confirmOnBlur: true,
+      defaultValue: "",
+      minLength: 2,
+      selectElement: selectEl
+    })
+
+    var queryStringParameters = window.location.search
+    var previouslySubmitted = queryStringParameters.length > 0
+    if (previouslySubmitted) {
+      var submittedEl = document.querySelector('.submitted')
+      submittedEl.classList.remove('submitted--hidden')
+      var params = new URLSearchParams(document.location.search.split('?')[1])
+      document.querySelector('.submitted__last-location').innerHTML = params.get('last-location')
+    }
+  </script>
+
+	{% if not (checked("displaymode", "presentation") == "checked") %}
+		{% include "./notes/07a_location__notes.njk" %}
+	{% endif %}
+{% endblock %}

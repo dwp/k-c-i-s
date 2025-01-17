@@ -21,15 +21,24 @@
   </section>
 {% endblock %}
 {% block content %}
-{% set html %}
+{% set successHTML %}
 <p class="govuk-body">The reports have been reassigned.</p>
 {% endset %}
+{% set warningHTML %}
+<p class="govuk-body"><strong>Your decision has not been published. The information you have entered has been saved. </strong></p>
+<p class="govuk-body">There is more than one live report for this customer. A decision must be made for all live reports at the same time. Assign all reports to yourself to continue.</p>
+{% endset %}
 {% if data['reassigned'] %}
-{{ govukNotificationBanner({
-  html: html,
-  type: "success"
+  {{ govukNotificationBanner({
+    html: successHTML,
+    type: "success"
   }) }}
- {% endif %}
+{% else %}
+  {{ govukNotificationBanner({
+    html: warningHTML,
+    type: "alert"
+  }) }}
+{% endif %}
 
 
 

@@ -36,12 +36,8 @@
   titleText: "There is a problem",
   errorList: [
     {
-      text: "Enter their email address, in the format name@example.com",
-      href: "#contact-by-email"
-    },
-    {
-      text: "Enter the email address of another decision maker",
-      href: "#contact-by-email"
+      text: "Gathering failed, go back to previous page.",
+      href: "01landingpage1_nmready"
     }
   ]
 }) }}
@@ -119,30 +115,15 @@
     </div>
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        {{ govukInput({
-          label: {
-            text: "Email address"
-          },
-          hint: {
-            text: "Assign all the reports to yourself by using your email address"
-          },          
-          id: "email",
-          name: "email",
-          errorMessage: {
-            text: "Enter the email address of another decision maker"
-          }
-        }) }}
-        {{ govukButton({
-          text: "Gather and assign reports"
-        }) }}&nbsp;
+
         {{ govukButton({
           text: "Back to your reports",
-          classes: "govuk-button--secondary",
           href: "01landingpage1_nmready"
         }) }}
       </div>
     </div>
   </form>
+  
   {% if not (checked("displaymode", "presentation") == "checked") %}
 		{% include "./notes/03gather__notes.njk" %}
 	{% endif %}

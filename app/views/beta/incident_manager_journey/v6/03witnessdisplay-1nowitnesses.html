@@ -20,7 +20,6 @@
   </section>
 {% endblock %}
 {% block content %}
-  <section aria-label="Incident witnesses" role="region">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds govuk-!-padding-bottom-7">
         {% include "./templates/govuk-caption-m-whitney.njk" %}
@@ -51,7 +50,6 @@
         </div>
       </fieldset>
     </div>
-  </section>
 	{% if not (checked("displaymode", "presentation") == "checked") %}
 		{% include "./notes/03witnessdisplay__notes.njk" %}
 	{% endif %}	

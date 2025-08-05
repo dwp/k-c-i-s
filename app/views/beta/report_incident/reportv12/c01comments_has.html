@@ -1,0 +1,113 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Tell us about the safety concern you want to report - Keep Customer Interactions Safe
+{% endblock %}
+
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+
+      tag: { text: "beta" },
+
+      html: 'This is a new service – your <a class="govuk-link" href="01comments">feedback</a> will help us to improve it.'
+
+    }) }}
+
+
+  </section>
+  {% include "./templates/key_details_robert_blue.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
+  </section>
+{% endblock %}
+
+{% block content %}
+  {% if errors and errors.length > 0 %}
+    {{ govukErrorSummary({
+      titleText: "There is a problem",
+      errorList: [
+      {
+        text: "Enter a description of the safety concern",
+        href: "#description"
+      },{
+        text: "Confirm you have reviewed all the required information",
+        href: "#checklist"
+      }
+    ]
+    }) }}
+  {% endif %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {% set html %}
+        <p class="govuk-notification-banner__heading">
+          Keep to the facts and be as specific as possible.
+        </p>
+        <p class="govuk-notification-banner__heading">
+          Do not include the names of any DWP staff in your answers.
+        </p>
+      {% endset %}
+
+      <form class="form" action="/beta/report_incident/reportv12/c01comments_has" method="post">
+        {{ govukNotificationBanner({ html: html }) }}
+
+        {{ govukCharacterCount({
+          id: "description",
+          name: "description",
+          rows: "12",
+          maxlength: 2000,
+          label: {
+            text: "Tell us about the safety concern you want to report",
+            classes: "govuk-label--l",
+            isPageHeading: true
+          },
+          errorMessage: errors | selectattr("href", "equalto", "#description") | first,
+          value: description
+        }) }}
+
+        {{ govukCheckboxes({
+          idPrefix: "checklist",
+          name: "checklist",
+          fieldset: {
+            legend: {
+              text: "Please confirm you have considered and included, where relevant:",
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          items: [
+            {
+              value: "Names and page numbers of all forms that identify this safety concern - for example: ESA50 form, p3-5.",
+              text: "Names and page numbers of all forms that identify this safety concern - for example: ESA50 form, p3-5."
+            },
+            {
+              value: "The date the safety concern was identified (this is likely to be the date on the forms).",
+              text: "The date the safety concern was identified (this is likely to be the date on the forms)."
+            },
+            {
+              value: "Where the original forms are stored, if you have this information.",
+              text: "Where the original forms are stored, if you have this information."
+            },
+            {
+              value: "The exact words used on the forms that point to a safety risk. Only include information that is relevant to this concern.",
+              text: "The exact words used on the forms that point to a safety risk. Only include information that is relevant to this concern."
+            }
+          ],
+          errorMessage: errors | selectattr("href", "equalto", "#checklist") | first,
+          checked: checklist
+        }) }}
+
+        <div class="govuk-button-group">
+          {{ govukButton({ text: "Continue" }) }}
+        </div>
+      </form>
+    </div>
+  </div>
+
+  {% if not (checked("displaymode","presentation") == "checked") %}
+    {% include "./notes/c01comments__notes.njk" %}
+  {% endif %}
+{% endblock %}

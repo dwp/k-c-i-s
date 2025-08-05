@@ -1,22 +1,62 @@
 module.exports = function (router) {
-  // Route incident or concern
-  router.post('/beta/report_incident/reportv12/02behalf', (req, res) => {
-    var reportType = req.session.data['report-type']
-    var isConcern = false; 
-    if (reportType){
-      if ( reportType == "concern" ){
-        isConcern = true;
-      }  
+
+    // GET route: Render the page with no errors on initial load
+    router.get('/beta/report_incident/reportv12/c00agentsource_has', function (req, res) {
+      res.render('beta/report_incident/reportv12/c00agentsource_has', {
+        errors: [],
+        description: '',
+        checklist: []
+      });
+    });
+
+  // GET route: Render the page with no errors on initial load
+  router.get('/beta/report_incident/reportv12/c01comments_has', function (req, res) {
+    var test=""
+    res.render('beta/report_incident/reportv12/c01comments_has', {
+      errors: [],
+      description: '',
+      checklist: []
+    });
+  });
+
+  // POST route: Validate the form submission
+  router.post('/beta/report_incident/reportv12/c01comments_has', function (req, res) {
+    const description = req.body.description;
+    let checklist = req.body.checklist;
+
+    // Normalise checkbox values to always be an array
+    if (checklist && !Array.isArray(checklist)) {
+      checklist = [checklist];
     }
 
-      // Check whether the variable matches a condition
-      if (isConcern) {
-        // Send user to next page
-        res.redirect('c00agentsource')
-      } else {
-        // Send user to ineligible page
-        res.redirect('02behalf')
-      }
-  })
-  
-  }
+    const errors = [];
+
+    if (!description || description.trim() === '') {
+      errors.push({
+        text: 'Enter a description of the safety concern',
+        href: '#description'
+      });
+    }
+
+    if (!checklist || checklist.length === 0) {
+      errors.push({
+        text: 'Confirm you have reviewed all the required information',
+        href: '#checklist'
+      });
+    }
+
+    if (errors.length > 0) {
+      res.render('beta/report_incident/reportv12/c01comments_has', {
+        errors,
+        description,
+        checklist: checklist || []
+      });
+    } else {
+      res.redirect('/beta/report_incident/reportv12/c02fileuploadcheck_has');
+    }
+  });
+
+  router.post('/beta/report_incident/reportv12/c00agentsource_has_answer', function (req, res) {
+    res.redirect('/beta/report_incident/reportv12/c01comments_has');
+  });
+};

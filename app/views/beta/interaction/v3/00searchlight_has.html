@@ -1,0 +1,40 @@
+
+
+
+
+
+{% block content %}
+<style>
+   #background {
+      background-size: contain;
+         background-repeat: no-repeat;
+         background-image: url('/public/images/common/restricted/v1/20230801_searchlight_cutdown_measures.jpg');
+         width: 1100px !important;
+         min-width: 100% !important;
+         min-height: 60% !important;
+   }
+   #clickable {
+      width: 10%;
+      Height: 10%;
+      z-index:100;
+      margin-left: auto; 
+      margin-right: 0;
+   }
+</style>
+<a href="01interaction">
+   <div id="background"><div id="clickable"></div></div>
+</a>
+<script>
+   window.onload = function() {
+
+   let myClickableDiv = document.getElementById('clickable');
+   let myBackgroundDiv = document.getElementById('background');
+      
+
+
+
+   };
+</script>
+
+
+{% endblock %}

@@ -1,0 +1,516 @@
+{% extends "layout_20241001_ur.html" %}
+{% block pageTitle %}
+  Check your answers - Keep Customer Interactions Safe
+{% endblock %}
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+      text: "beta"
+    },
+      html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "./templates/key_details_red.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
+  </section>
+{% endblock %}
+{% set incwarningHTML %}
+  One or more reports have not been prepared. 
+  {% if data['2reports'] == 'yes' %}
+    <a href="02history_complex_multiple">Go back to the customer history</a> 
+  {% else %}
+    <a href="02history_complex_multiple0">Go back to the customer history</a> 
+  {% endif %}
+  to prepare more reports
+{% endset %}
+{% block content %}
+<!-- If both incidents not actioned or it only one report and it is not actioned-->
+{% if  
+  (( (data['2reports'] == "no") and (data['20240429_inc1_actioned'] == "no") )) 
+  or
+  (( data['2reports'] == "yes") and  ( (data['20240429_inc1_actioned'] == "no") or (data['20240429_inc2_actioned'] == "no") ) )
+%}
+  <!-- warning -->
+  {{ govukNotificationBanner({
+    html: incwarningHTML,
+    type: "alert"
+  }) }}
+{% endif %}
+<br>
+
+{% include "./templates/multi_caption.njk" %} <br><br>
+  <h1 class="govuk-heading-xl">Check your answers</h1>
+  <div class="govuk-!-margin-bottom-9">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Measures
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% include "./templates/measures_list.njk" %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <form action="06measure" class="form" method="post">
+            {{ govukButton({
+              text: "Change",
+              classes: "govuk-button--secondary ds_link"
+            }) }}
+          </form>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Reason for applying measures
+        </dt>
+        <dd class="govuk-summary-list__value">
+          The customer has involuntary physical movements and so should be seen in a screened environment with the same staff member.
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <form action="07measureaccount" class="form" method="post">
+            {{ govukButton({
+              text: "Change",
+              classes: "govuk-button--secondary ds_link"
+            }) }}
+          </form>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Measures review date
+        </dt>
+        <dd class="govuk-summary-list__value">
+          12 months
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <form action="08reviewdate" class="form" method="post">
+            {{ govukButton({
+              text: "Change",
+              classes: "govuk-button--secondary ds_link"
+            }) }}
+          </form>
+        </dd>
+      </div>
+    </dl>
+  </div>
+
+    {% include "./templates/multi_caption3.njk" %}
+
+    <div class="govuk-!-margin-bottom-9 govuk-!-margin-top-4">
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Incident type
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Physical Assualt
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <form action="03type" class="form" method="post">
+              {{ govukButton({
+                text: "Change",
+                classes: "govuk-button--secondary ds_link"
+              }) }}
+            </form>
+          </dd>
+        </div>
+  
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Incident cause
+          </dt>
+          <dd class="govuk-summary-list__value">
+            An issue with payment
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <form action="04trigger" class="form" method="post">
+              {{ govukButton({
+                text: "Change",
+                classes: "govuk-button--secondary ds_link"
+              }) }}
+            </form>
+          </dd>
+        </div>
+  
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Actions for Sarah Sencha <br><span class="govuk-body">(Manager)</span>
+          </dt>
+          <dd class="govuk-summary-list__value">
+              <li>None</li>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <form action="05actions" class="form" method="post">
+              {{ govukButton({
+                text: "Change",
+                classes: "govuk-button--secondary ds_link"
+              }) }}
+            </form>
+          </dd>
+        </div>
+  
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Actions for David Cassidy <br><span class="govuk-body">(Decision maker)</span>
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <li>None</li>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <form action="05actions" class="form" method="post">
+              {{ govukButton({
+                text: "Change",
+                classes: "govuk-button--secondary ds_link"
+              }) }}
+            </form>
+          </dd>
+        </div>
+  
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Letter to be sent by
+          </dt>
+          <dd class="govuk-summary-list__value">
+              Manager
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <form action="05d_wholetter" class="form" method="post">
+              {{ govukButton({
+                text: "Change",
+                classes: "govuk-button--secondary ds_link"
+              }) }}
+            </form>
+          </dd>
+        </div>
+  
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Note for Sarah Sencha<br><span class="govuk-body">(Manager)</span>
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Please arrange additional training for the work coach involved.
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <form action="09prepare_single_man" class="form" method="post">
+              {{ govukButton({
+                text: "Change",
+                classes: "govuk-button--secondary ds_link"
+              }) }}
+            </form>
+          </dd>
+        </div>
+  
+      </dl>
+    </div>   
+
+    {% include "./templates/multi_caption2_green2.njk" %}
+
+  <style>
+    .ds_link {
+          background:#fff;
+          border: 0;
+          display: inline;
+          font-size: inherit;
+          font-weight: inherit;
+          line-height: initial;
+          margin: 0;
+          min-height: 0;
+          min-width: 0;
+          padding: 0;
+          text-align: left;
+      }
+      a, .ds_link {
+          color: #0065bd;
+          text-decoration: underline;
+          outline: 0px solid rgba(0, 0, 0, 0);
+          text-underline-offset: 1px;
+          transition: color .2s, background-color .2s, outline-color .2s;
+          box-shadow: 0 0px 0 #fff;
+      }
+      .ds_link:hover {
+        background:#fff;
+        box-shadow: 0 1px 0 #000;
+        text-decoration: underline;
+        text-underline-offset: 1px;
+      }
+  </style>
+  <div class="govuk-!-margin-bottom-9 govuk-!-margin-top-4">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Incident type
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Physical Assualt
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <form action="03type" class="form" method="post">
+            {{ govukButton({
+              text: "Change",
+              classes: "govuk-button--secondary ds_link"
+            }) }}
+          </form>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Incident cause
+        </dt>
+        <dd class="govuk-summary-list__value">
+          An issue with payment
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <form action="04trigger" class="form" method="post">
+            {{ govukButton({
+              text: "Change",
+              classes: "govuk-button--secondary ds_link"
+            }) }}
+          </form>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Actions for Sarah Sencha <br><span class="govuk-body">(Manager)</span>
+        </dt>
+        <dd class="govuk-summary-list__value">
+            <li>None</li>
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <form action="05actions" class="form" method="post">
+            {{ govukButton({
+              text: "Change",
+              classes: "govuk-button--secondary ds_link"
+            }) }}
+          </form>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Actions for David Cassidy <br><span class="govuk-body">(Decision maker)</span>
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <li>None</li>
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <form action="05actions" class="form" method="post">
+            {{ govukButton({
+              text: "Change",
+              classes: "govuk-button--secondary ds_link"
+            }) }}
+          </form>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Letter to be sent by
+        </dt>
+        <dd class="govuk-summary-list__value">
+            Manager
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <form action="05d_wholetter" class="form" method="post">
+            {{ govukButton({
+              text: "Change",
+              classes: "govuk-button--secondary ds_link"
+            }) }}
+          </form>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Note for Sarah Sencha<br><span class="govuk-body">(Manager)</span>
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Please arrange additional training for the work coach involved.
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <form action="09prepare_single_man" class="form" method="post">
+            {{ govukButton({
+              text: "Change",
+              classes: "govuk-button--secondary ds_link"
+            }) }}
+          </form>
+        </dd>
+      </div>
+
+    </dl>
+  </div>   
+
+
+    {% include "./templates/multi_caption2_green.njk" %}
+
+  <style>
+    .ds_link {
+          background:#fff;
+          border: 0;
+          display: inline;
+          font-size: inherit;
+          font-weight: inherit;
+          line-height: initial;
+          margin: 0;
+          min-height: 0;
+          min-width: 0;
+          padding: 0;
+          text-align: left;
+      }
+      a, .ds_link {
+          color: #0065bd;
+          text-decoration: underline;
+          outline: 0px solid rgba(0, 0, 0, 0);
+          text-underline-offset: 1px;
+          transition: color .2s, background-color .2s, outline-color .2s;
+          box-shadow: 0 0px 0 #fff;
+      }
+      .ds_link:hover {
+        background:#fff;
+        box-shadow: 0 1px 0 #000;
+        text-decoration: underline;
+        text-underline-offset: 1px;
+      }
+  </style>
+  <div class="govuk-!-margin-bottom-9 govuk-!-margin-top-4">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Incident type
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Physical Assualt
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <form action="03type" class="form" method="post">
+            {{ govukButton({
+              text: "Change",
+              classes: "govuk-button--secondary ds_link"
+            }) }}
+          </form>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Incident cause
+        </dt>
+        <dd class="govuk-summary-list__value">
+          An issue with payment
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <form action="04trigger" class="form" method="post">
+            {{ govukButton({
+              text: "Change",
+              classes: "govuk-button--secondary ds_link"
+            }) }}
+          </form>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Actions for Sarah Sencha <br><span class="govuk-body">(Manager)</span>
+        </dt>
+        <dd class="govuk-summary-list__value">
+            <li>Send a letter<br>&nbsp&nbsp&nbsp&nbsp First waning</li>
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <form action="05actions" class="form" method="post">
+            {{ govukButton({
+              text: "Change",
+              classes: "govuk-button--secondary ds_link"
+            }) }}
+          </form>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Actions for David Cassidy <br><span class="govuk-body">(Decision maker)</span>
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <li>None</li>
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <form action="05actions" class="form" method="post">
+            {{ govukButton({
+              text: "Change",
+              classes: "govuk-button--secondary ds_link"
+            }) }}
+          </form>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Letter to be sent by
+        </dt>
+        <dd class="govuk-summary-list__value">
+            Manager
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <form action="05d_wholetter" class="form" method="post">
+            {{ govukButton({
+              text: "Change",
+              classes: "govuk-button--secondary ds_link"
+            }) }}
+          </form>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Note for Sarah Sencha<br><span class="govuk-body">(Manager)</span>
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Please arrange additional training for the work coach involved.
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <form action="09prepare_single_man" class="form" method="post">
+            {{ govukButton({
+              text: "Change",
+              classes: "govuk-button--secondary ds_link"
+            }) }}
+          </form>
+        </dd>
+      </div>
+
+    </dl>
+  </div>    
+    
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+    <h2 class="govuk-heading-m">Are you ready to add these actions and measures to this customer's record?</h2>
+      <!-- if both reports have been actioned, show the completion -->
+   
+      <p class="govuk-body">If you need to change anything in your report, select Change next to each answer or 
+        <a href="02history_complex_multiple">go back to the Customer history</a>.
+      </p>
+      <p class="govuk-body">When you click 'Record actions and measures', we will send your decision to the reporter and their manager.</p>
+      <p class="govuk-body govuk-!-font-weight-bold">You will not be able to change anything about your decision after you click the button.</p>
+      <!-- go on to confirmation -->
+      <form action="12confirmation_multi">
+        <input type="hidden" id="20240429_inc1_status" name="20240429_inc1_status" value="Decision made" >
+        <input type="hidden" id="20240429_inc2_status" name="20240429_inc2_status" value="Decision made" >
+    
+        <div class="govuk-button-group">
+          {{ govukButton(
+              {
+                text: "Publish actions and measures. Close decision"
+              }
+            )
+          }}
+        </div>
+      </form>
+ 
+
+
+{% endblock %}

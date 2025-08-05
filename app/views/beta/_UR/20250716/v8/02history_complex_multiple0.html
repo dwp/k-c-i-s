@@ -1,0 +1,219 @@
+{% extends "layout_20241001_ur.html" %}
+{% block pageTitle %}
+  Customer history - Keep Customer Interactions Safe
+{% endblock %}
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+      text: "beta"
+    },
+      html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "./templates/key_details_red.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "01landingpage1_multiple"
+    }) }}
+  </section>
+{% endblock %}
+{% block content %}
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<h1 class="govuk-heading-xl">Customer history</h1>
+		</div>
+	</div>
+  	<div class="govuk-grid-row">
+    	<div class="govuk-grid-column-two-thirds">
+			{% include "./templates/formlinkstyle.njk" %}
+			{% include "./templates/customerhistoryhelp.njk" %}
+
+			<!-- if both reports are actioned, or there is only one report which has been actioned, default to "Add measures" as green button -->
+			{% if ((data['20240429_inc1_actioned'] == "yes") and (data['20240429_inc2_actioned'] == "yes")) or ((data['20240429_inc1_actioned'] == "yes") and (data['2reports'] == "no")) %}
+				{% set actionClass = "govuk-button--secondary" %}
+				{% set measureClass = "" %}
+				{% set measureHref = "06measure" %}
+			{% else %}
+				{% set actionClass = "" %}
+				{% set measureClass = "govuk-button--secondary" %}
+				{% set measureHref = "06measure" %}
+			{% endif %}
+			<div class="govuk-button-group">
+				<form class="form" action="20choosereport" method="post">
+					{{ govukButton({
+						text: "Prepare actions",
+						href: "03type",
+						classes: "govuk-button--primary"
+					}) }}
+					{{ govukButton({
+						text: "Add measures",
+						href: measureHref,
+						classes: "govuk-button--secondary"
+					}) }}
+					{{ govukButton({
+						text: "Add a note",
+						href: "#",
+						classes: "govuk-button--secondary"
+					}) }}
+				</form>
+			</div>
+		</div>
+		<div class="govuk-grid-column-one-third">
+			<style>
+				@media (min-width: 40.0625em) {
+					hr {
+						margin:0px !important;
+					}
+				}
+			</style>
+			<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" aria-hidden="true">
+			{{ govukSummaryList({
+				rows: [
+					{
+						key: {
+							text: "Measures review date",
+							classes: "govuk-!-width-one-half"
+						},
+						value: {
+							text: "14 July 2026",
+							classes: "govuk-!-width-one-half"
+						}
+					}
+				]
+			}) }}
+		</div>
+	</div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">	
+				<ol class="dwp-timeline__events">
+					<li class="dwp-timeline__events--entry">
+						<h2 class="govuk-heading-s govuk-!-margin-bottom-0">
+
+							{% set inc1Text %}
+								Telephone incident
+							{% endset %}<strong class='govuk-tag'>Decision pending</strong>
+							<form action="h_02incident1" class="form" method="post">
+								{{ govukButton({
+								  text: inc1Text,
+								  classes: "govuk-button--secondary ds_link"
+								}) }}
+							</form>
+						</h2>
+						<p class="govuk-!-margin-bottom-0">15 July 2025</p>
+						<p class="govuk-body-s govuk-!-margin-bottom-1" style='color:#505a5f'>Reported by Adam Smith, 15 July 2025 at 8:30am</p>
+						<p class="govuk-body-s govuk-!-margin-bottom-0" style='color:#505a5f'>
+							<a href="03type">Prepare actions for this report</a>
+						</p>
+					</li>
+					<br>
+					<li class="dwp-timeline__events--entry">
+						<h2 class="govuk-heading-s govuk-!-margin-bottom-0">
+
+							{% set inc1Text %}
+								Measures
+							{% endset %}<strong class='govuk-tag govuk-tag--red'>Active</strong>
+							<form action="h_04measures_active" class="form" method="post">
+								{{ govukButton({
+								  text: inc1Text,
+								  classes: "govuk-button--secondary ds_link"
+								}) }}
+							</form>
+						</h2>
+						<p class="govuk-!-margin-bottom-0">15 July 2025</p>
+						<p class="govuk-body-s govuk-!-margin-bottom-1" style='color:#505a5f'>Must be seen in a screened area, Must only interact with a named member of staff</p>
+					</li>
+					<br>
+					<li class="dwp-timeline__events--entry">
+						<h2 class="govuk-heading-s govuk-!-margin-bottom-0">
+
+							{% set inc1Text %}
+								Note
+							{% endset %}
+							<form action="h_08note" class="form" method="post">
+								{{ govukButton({
+								  text: inc1Text,
+								  classes: "govuk-button--secondary ds_link"
+								}) }}
+							</form>
+						</h2>
+						<p class="govuk-!-margin-bottom-0">16 July 2024</p>
+					</li>
+					<br>
+					<li class="dwp-timeline__events--entry">
+						<h2 class="govuk-heading-s govuk-!-margin-bottom-0">
+
+							{% set inc1Text %}
+								Measures (not active)
+							{% endset %}
+							<form action="h_04measures_notactive2" class="form" method="post">
+								{{ govukButton({
+								  text: inc1Text,
+								  classes: "govuk-button--secondary ds_link"
+								}) }}
+							</form>
+						</h2>
+						<p class="govuk-!-margin-bottom-0">16 July 2024</p>
+						<p class="govuk-body-s govuk-!-margin-bottom-1" style='color:#505a5f'>Must be seen in a screened area, Must only interact with a named member of staff</p>
+
+					</li>
+					<br>
+					<li class="dwp-timeline__events--entry">
+						<h2 class="govuk-heading-s govuk-!-margin-bottom-0">
+
+							{% set inc1Text %}
+								Action
+							{% endset %}
+							<form action="h_05action_single" class="form" method="post">
+								{{ govukButton({
+								  text: inc1Text,
+								  classes: "govuk-button--secondary ds_link"
+								}) }}
+							</form>
+						</h2>
+						<p class="govuk-!-margin-bottom-0">16 July 2024</p>
+						<p class="govuk-body-s govuk-!-margin-bottom-1" style='color:#505a5f'>Send a letter</p>
+
+					</li>
+					<br>
+					<li class="dwp-timeline__events--entry">
+						<h2 class="govuk-heading-s govuk-!-margin-bottom-0">
+
+							{% set inc1Text %}
+								Action Request
+							{% endset %}
+							<form action="h_05action" class="form" method="post">
+								{{ govukButton({
+								  text: inc1Text,
+								  classes: "govuk-button--secondary ds_link"
+								}) }}
+							</form>
+						</h2>
+						<p class="govuk-!-margin-bottom-0">16 July 2024</p>
+						<p class="govuk-body-s govuk-!-margin-bottom-1" style='color:#505a5f'>Send a letter</p>
+
+					</li>
+					<br>
+					<li class="dwp-timeline__events--entry">
+						<h2 class="govuk-heading-s govuk-!-margin-bottom-0">
+
+							{% set inc1Text %}
+							Centre for Health and Disability Assessments (CHDA) concern
+							{% endset %}
+							<form action="h_03concern_best_migrated" class="form" method="post">
+								{{ govukButton({
+								  text: inc1Text,
+								  classes: "govuk-button--secondary ds_link"
+								}) }}
+							</form>
+						</h2>
+						<p class="govuk-!-margin-bottom-0">16 July 2024</p>
+						<p class="govuk-body-s govuk-!-margin-bottom-1" style='color:#505a5f'>Reported by Adam Smith, 16 July 2024 at 8:30am</p>
+					</li>
+				</ol>
+		</div>
+	</div>
+
+
+{% endblock %}

@@ -1,0 +1,133 @@
+{% extends "layout_20241001_ur.html" %}
+{% block pageTitle %}
+  Action request - Keep Customer Interactions Safe
+{% endblock %}
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+        text: "beta"
+      },
+      html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  <!-- if there are measures show red banner else show blue -->
+
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
+  </section>
+{% endblock %}
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full govuk-!-padding-bottom-9">
+          <h1 class="govuk-heading-xl">Action request</h1>
+          {% set yournameHTML %}
+             Action for {{data['20240422_yourname']}} <br><span class="govuk-body">(Decision maker)</span>
+          {% endset %}
+          {% set youractionsHTML %}
+            <ul class="govuk-list govuk-list--bullet">
+              {% include "./templates/action_list_dm_combined.njk" %}
+            </ul>
+          {% endset %}
+
+          {% set man1HTML %}
+            Action for {{data['20240429_inc1_manager']}} <br><span class="govuk-body">(Manager)</span>
+            {% endset %}
+          {% set man1ActionHTML %}
+              {% include "./templates/action_list_manager.njk" %}
+          {% endset %}
+
+          {% set man2HTML %}
+          Action for {{data['20240429_inc2_manager']}} <br><span class="govuk-body">(Manager)</span>
+          {% endset %}
+          {% set man2ActionHTML %}
+              {% include "./templates/action_list_manager2.njk" %}
+          {% endset %}
+
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Date requested
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{data['20240429_inc1_date']}}
+              </dd>
+              <dd class="govuk-summary-list__value">
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Requested by
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Timothy Cooper
+              </dd>
+              <dd class="govuk-summary-list__value">
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                    Action for Sarah Sencha <br><span class="govuk-body">(Manager)</span>
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <ul class="govuk-list govuk-list--bullet">
+                  <li>Issue a verbal warning</li>
+                </ul>
+              </dd>
+              <dd class="govuk-summary-list__value">
+                Not actioned
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                  Action for Sartaq Matcha <br><span class="govuk-body">(Manager)</span>
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <ul class="govuk-list govuk-list--bullet">
+              <!-- Does the action list contain manager actions -->
+                  <li>Interview by a manager</li>
+                </ul>
+              </dd>
+              <dd class="govuk-summary-list__value">
+              <!-- Does the action list contain manager actions -->
+              <p>23 October 2024</p>
+              <p><strong>I didn't do it</strong></p>
+              <p>The customer would not come into the jobcentre so I couldnt do this</p>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                     Action for Timothy Cooper <br><span class="govuk-body">(Decision maker)</span>
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <ul class="govuk-list govuk-list--bullet">
+                  <li>Send a letter<br>Send interim ban letter to the customer</li>
+                </ul>
+              </dd>
+              <dd class="govuk-summary-list__value">
+                <p>{{data['20240429_inc1_date']}}</p>
+                <p>Sent. Expected arrival next week</p>
+  
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+      <section aria-label="Files attached to action request" role="region">
+        <div class="govuk-!-padding-bottom-9">
+            <h2 class="govuk-heading-m" id="attached">There are no files attached to this action request
+            </h2>
+        </div>
+    </section>  
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Back to customer history",
+          href: "javascript:history.back()"
+        }) }}
+      </div>
+
+
+{% endblock %}

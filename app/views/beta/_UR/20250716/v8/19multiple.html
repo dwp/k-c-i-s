@@ -1,0 +1,207 @@
+{% extends "layout_20241001_ur.html" %}
+
+{% block pageTitle %}
+  Gather reports - Keep Customer Interactions Safe
+{% endblock %}
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+        text: "beta"
+      },
+      html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "./templates/key_details_red.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
+  </section>
+{% endblock %}
+{% block content %}
+{% set successHTML %}
+<p class="govuk-body">The reports have been reassigned.</p>
+{% endset %}
+{% set warningHTML %}
+<p class="govuk-body"><strong>Your decision has not been published. The information you have entered has been saved. </strong></p>
+<p class="govuk-body">There is more than one live report for this customer. A decision must be made for all live reports at the same time. Assign all reports to yourself to continue.</p>
+{% endset %}
+{% if data['reassigned'] %}
+  {{ govukNotificationBanner({
+    html: successHTML,
+    type: "success"
+  }) }}
+{% else %}
+  {{ govukNotificationBanner({
+    html: warningHTML,
+    type: "alert"
+  }) }}
+{% endif %}
+
+
+
+<h1 class="govuk-heading-l">
+   Gather reports
+  </h1>
+  <form action="19multiple">
+    <div class="govuk-!-padding-bottom-7">
+      <p class="govuk-body">The following "live" reports must be assigned to the same decision maker. </p>
+
+      <input type="hidden" id="reassigned" name="reassigned" value="y">
+      <input type="hidden" id="2reports" name="2reports" value="yes">
+      <input type="hidden" id="20240429_inc2_status" name="20240429_inc2_status" value="Decision pending" >
+      {% set assignedEmail %}
+        {% if data['reassigned'] %}
+          {{data['20240422_youremail']}}
+        {% else %}
+          Unassigned
+        {% endif %}
+      {% endset %}
+      
+      {% set button1Class %}
+        {% if data['reassigned'] %}
+         govuk-button--secondary
+        {% else %}
+          
+        {% endif %}
+      {% endset %}
+
+      {% set button2Class %}
+        {% if data['reassigned'] %}
+        {% else %}
+        govuk-button--secondary
+        {% endif %}
+      {% endset %}
+
+      {% set inc2Status %}
+      <span class='govuk-visually-hidden'>Status: </span> {{data['20240429_inc2_status']}}
+      {% endset %}
+
+      {% set inc1Status %}
+          <span class='govuk-visually-hidden'>Status: </span> {{data['20240429_inc1_status']}}
+      {% endset %}
+
+      {% set inc1numberHTML %}
+        <span class='govuk-visually-hidden'>Report number: </span>{{data['20240429_inc1_reference_prefix']}}{{data['20240429_inc1_reference_chars']}}
+      {% endset %}
+
+      {% set inc1reporterHTML %}
+        <span class='govuk-visually-hidden'>Original reporter: </span>{{data['20240429_inc1_reporter']}}
+      {% endset %}
+    
+      {% set inc2numberHTML %}
+        <span class='govuk-visually-hidden'>Report number: </span>{{data['20240429_inc2_reference_prefix']}}{{data['20240429_inc2_reference_chars']}}
+      {% endset %}
+
+      {% set inc2reporterHTML %}
+        <span class='govuk-visually-hidden'>Original reporter: </span>{{data['20240429_inc2_reporter']}}
+      {% endset %}
+    
+      {{ govukTable({
+        head: [
+          {
+            html: "Number"
+          },
+          {
+            html: "Date"
+          },
+          {
+            text: "Customer"
+          },
+          {
+            text: "Original reporter"
+          },
+          {
+            text: "Status"
+          },
+          {
+            text: "Assigned"
+          }
+        ],
+        rows: [
+        [
+          {
+            html: "INC-222-222-222"
+          },
+          {
+            html: "15 July 2025"
+          },
+          {
+            html: "<span class='govuk-visually-hidden'>Customer: </span>Robert De Silva"
+          },
+          {
+            html: "Ted Lady"
+          },
+          {
+            html: "Decision Pending"
+          },
+          {
+            html: "David@gov.uk"
+          }
+        ],
+        [
+          {
+            html: "INC-123-456-712"
+          },
+          {
+            html: "15 July 2025"
+          },
+          {
+            html: "<span class='govuk-visually-hidden'>Customer: </span>Robert De Silva"
+          },
+          {
+            html: "Whitney Earl"
+          },
+          {
+            html: "Decision Pending"
+          },
+          {
+            html: "David@gov.uk"
+          }
+        ],
+        [
+        {
+          html: "INC-123-456-789"
+        },
+        {
+          html: "15 July 2025"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Customer: </span>Robert De Silva"
+        },
+        {
+          html: "Adam Smith"
+        },
+        {
+          html: "Prepared"
+        },
+        {
+          html: "David@gov.uk"
+        }
+      ]
+      ]
+    }) }}
+    </div>
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Gather and assign reports to me",
+            classes: button1Class
+          }) }}
+          {{ govukButton({
+            text: "Back to Your reports",
+            classes: "govuk-button--secondary",
+            href: "01landingpage1_multiple"
+          }) }}
+          {% if data['reassigned'] %}
+            {{ govukButton({
+              text: "View history",
+              classes: button2Class,
+              href: "02history_complex_multiple0_gathered"
+            }) }}
+          {% endif %}
+    </div>
+  </form>
+
+{% endblock %}

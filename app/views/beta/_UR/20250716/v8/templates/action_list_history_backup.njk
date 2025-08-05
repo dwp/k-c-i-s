@@ -1,0 +1,25 @@
+<!-- Does the inc1 action list contain any action  -->
+{% if (data["2401_actions"]) or (data["2401_actions2"]) %}
+      <!-- Loop through and display appropriately -->
+    {% for item in data["2401_actions"] %}
+
+        {% if (item == 'Send a letter') and (data["who-sends"] == "Manager") %}
+            <li>{{ item }}<br>{{data["2401_letter_detail"]}}</li>
+        {% else %}
+            <li>{{ item }}</li>
+        {% endif %}
+
+        <hr>
+    {% endfor %}
+    {% for item in data["2401_actions2"] %}
+        {% if (item == 'Send a letter') and (data["who-sends"] == "Manager") %}
+            <li>{{ item }}<br>{{data["2401_letter_detail2"]}}</li>
+        {% else %}
+            <li>{{ item }}</li>
+        {% endif %}
+        <hr>
+    {% endfor %}    
+{% else %}
+      <li>None</li>
+        <hr>
+{% endif %}

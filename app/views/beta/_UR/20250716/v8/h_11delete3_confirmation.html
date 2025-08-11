@@ -1,0 +1,40 @@
+{% extends "layout_20241001_ur.html" %}
+{% block pageTitle %}
+  We've deleted the item - Keep Customer Interactions Safe
+{% endblock %}
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+        text: "beta"
+      },
+      html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "./templates/key_details_red.njk" %}
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {% set html %}
+      <h3 class="govuk-notification-banner__heading">
+        This file has been deleted.
+      </h3>
+    {% endset %}
+    
+    {{ govukNotificationBanner({
+      html: html,
+      type: "success"
+    }) }} 
+    
+    </div>
+  </div>
+
+
+  {{ govukButton({
+    text: "Return to Customer history",
+    classes: "govuk-button--primary",
+    href: "02history_complex_multiple0"
+  }) }}
+
+{% endblock %}

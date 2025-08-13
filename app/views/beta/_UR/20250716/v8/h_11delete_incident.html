@@ -26,18 +26,19 @@ Are you sure you want to delete this concern report? - Keep Customer Interaction
         <fieldset class="govuk-fieldset" aria-describedby="delete-hint">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
             <h1 class="govuk-fieldset__heading">
-              Are you sure you want to delete this action request?
+              Are you sure you want to delete this telephone incident?
             </h1>
           </legend>
       
           <!-- Custom HTML inserted here -->
           <div class="govuk-inset-text">
           <h2 class="govuk-heading-s govuk-!-margin-bottom-0">
-            Action Request
+            <strong class='govuk-tag'>Decision pending</strong><br>
+            Telephone incident
           </h2>
-          <p class="govuk-!-margin-bottom-0">16 July 2024</p>
+          <p class="govuk-!-margin-bottom-0">15 July 2025</p>
           <p class="govuk-body-s govuk-!-margin-bottom-1" style="color:#505a5f">
-            Send a letter
+            Reported by Adam Smith, 15 July 2025 at 8:30am
           </p>
         </div>
           <!-- Radio buttons -->
@@ -61,12 +62,12 @@ Are you sure you want to delete this concern report? - Keep Customer Interaction
         <div class="govuk-button-group">
           {{ govukButton({
             text: "Delete this item",
-            href: "h_11delete_confirmation_actionrequest",
+            href: "h_11delete_confirmation_incident",
             classes: "govuk-button--warning"
           }) }}
           {{ govukButton({
             text: "Cancel",
-            href: "h_05action",
+            href: "h_02incident1",
             classes: "govuk-button--secondary"
           }) }}
         </div>

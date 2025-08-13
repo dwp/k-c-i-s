@@ -356,17 +356,21 @@
       </div>
     </div>
   </section>
+
   <div class="govuk-button-group">
-    <form action="03type" class="form" method="post">
-      {{ govukButton({
+    {{ govukButton({
       text: "Back",
-      href: "javascript:history.back()"
-      }) }}&nbsp;
-        {{ govukButton({
-          text: "Prepare actions",
-          classes: "govuk-button--secondary ds_link"
-        }) }}
-      </form>		
+      href: "02history_complex_multiple0"
+    }) }}
+    {{ govukButton({
+      text: "Prepare actions",
+      classes: "govuk-button--secondary ds_link"
+    }) }}
+    {{ govukButton({
+      text: "Delete this item",
+      href: "h_11delete_incident",
+      classes: "govuk-button govuk-button--warning"
+    }) }}
   </div>
 
 

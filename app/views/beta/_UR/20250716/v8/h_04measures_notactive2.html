@@ -74,17 +74,15 @@
     <div class="govuk-grid-column-two-thirds">
         <p class="govuk-!-padding-bottom-7">{{data ["2401_measureaccount"]}}</p>
         <div class="govuk-button-group">
-        {{ govukButton({
-          text: "Back to customer history",
-          href: "javascript:history.back()"
-        }) }}
-				{{ govukButton({
-					text: "Add a note to measures",
-					href: "h_06infomessage",
-					classes: "govuk-button--secondary"
-				}) }}        
-      </div>
-    </div>
-  </div>
+          {{ govukButton({
+            text: "Back to customer history",
+            href: "02history_complex_multiple0"
+          }) }}
+          {{ govukButton({
+            text: "Delete this item",
+            href: "h_11delete_measures_nonactive",
+            classes: "govuk-button govuk-button--warning"
+          }) }}
+        </div>
 
 {% endblock %}

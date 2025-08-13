@@ -62,12 +62,16 @@
     
     </div>
   </section>
-      <div class="govuk-button-group">
-        {{ govukButton({
-          text: "Back to customer history",
-          href: "javascript:history.back()"
-        }) }}
-      </div>
+  {{ govukButton({
+    text: "Back to customer history",
+    href: "02history_complex"
+  }) }}
+  {{ govukButton({
+    text: "Delete this item",
+    href: "h_11delete_note",
+    classes: "govuk-button govuk-button--warning"
+  }) }}
+</div>
 
 
 {% endblock %}

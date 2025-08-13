@@ -93,7 +93,8 @@
                       html: "<span class='govuk-visually-hidden'>File name: </span>warning letter.doc"
                     },
                     {
-                      html: "<a href='/public/images/screen_shot.png' role='button' draggable='false' class='govuk-button govuk-button--secondary ' data-module='govuk-button' download>Download file<span class='govuk-visually-hidden'>ESA50.pdf</span></a>"
+                      html: "<a href='/public/images/screen_shot.png' class='govuk-link'>Download file</a> <br> 
+                  <a href='h_11delete_file' class='govuk-link' style='color: #d4351c'>Delete file</a>"
                     }
                   ]
                 ]
@@ -104,7 +105,12 @@
       <div class="govuk-button-group">
         {{ govukButton({
           text: "Back to customer history",
-          href: "javascript:history.back()"
+          href: "02history_complex"
+        }) }}
+        {{ govukButton({
+          text: "Delete this item",
+          href: "h_11delete_actionrequest",
+          classes: "govuk-button govuk-button--warning"
         }) }}
       </div>
 

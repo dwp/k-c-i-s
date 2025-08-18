@@ -1,0 +1,91 @@
+{% extends "layout_20241001_ur.html" %}
+{% block pageTitle %}
+Are you sure you want to delete this concern report? - Keep Customer Interactions Safe
+{% endblock %}
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+        text: "beta"
+      },
+      html: 'This is a new service – your <a class="govuk-link" href="06when_error">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "./templates/key_details_red.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
+  </section>
+{% endblock %}
+{% block content %}
+<div class="govuk-error-summary" data-module="govuk-error-summary">
+  <div role="alert">
+    <h2 class="govuk-error-summary__title">
+      There is a problem
+    </h2>
+    <div class="govuk-error-summary__body">
+      <ul class="govuk-list govuk-error-summary__list">
+        <li>
+          <a href="#">Select yes if you want to delete the item</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="govuk-form-group govuk-form-group--error">
+  <fieldset class="govuk-fieldset" aria-describedby="whereDoYouLive-error">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">
+        Are you sure you want to delete this action request?
+      </h1>
+    </legend>
+    <p id="whereDoYouLive-error" class="govuk-error-message">
+      <span class="govuk-visually-hidden">Error:</span> Select whether you want to delete the item
+    </p>
+    <div class="govuk-inset-text">
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-0">
+        Action Request
+      </h2>
+      <p class="govuk-!-margin-bottom-0">16 July 2024</p>
+      <p class="govuk-body-s govuk-!-margin-bottom-1" style="color:#505a5f">
+        Send a letter
+      </p>
+    </div>
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive" type="radio" value="england">
+        <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
+          Yes
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="whereDoYouLive-2" name="whereDoYouLive" type="radio" value="scotland">
+        <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
+          No
+        </label>
+      </div>
+    </div>
+  </fieldset>
+</div>
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Delete this item",
+            href: "h_11delete_confirmation_actionrequest_fail",
+            classes: "govuk-button--warning"
+          }) }}
+          {{ govukButton({
+            text: "Cancel",
+            href: "h_05action",
+            classes: "govuk-button--secondary"
+          }) }}
+        </div>
+      </form>
+      </div>
+    </div>
+  </div>
+
+  
+
+{% endblock %}

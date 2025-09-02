@@ -130,10 +130,17 @@
     ]
   }) }}
   </div>                                
-  {{ govukButton({
-    text: "Back",
-    href: "03person"
-  }) }}
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Back",
+      href: "03person"
+    }) }}
+    {{ govukButton({
+      text: "Reassign all items",
+      href: "05email",
+      classes: "govuk-button--secondary ds_link"
+    }) }}
+  </div>
 
   {% if not (checked("displaymode", "presentation") == "checked") %}
     {% include "./notes/04list__notes.njk" %}

@@ -1,6 +1,6 @@
 {% extends "layout_20241001_ur.html" %}
 {% block pageTitle %}
-  We've deleted the item - Keep Customer Interactions Safe
+  The deletion has failed - Keep Customer Interactions Safe
 {% endblock %}
 {% block beforeContent %}
   <section aria-label="Phase banner" role="region">
@@ -14,6 +14,7 @@
   {% include "./templates/key_details_red.njk" %}
 {% endblock %}
 {% block content %}
+<h1 class="govuk-heading-xl">Deletion failed</h1>
 {{ govukErrorSummary({
   titleText: "There is a problem",
   errorList: [

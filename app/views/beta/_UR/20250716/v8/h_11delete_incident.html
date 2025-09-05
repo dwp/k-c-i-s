@@ -41,6 +41,22 @@ Are you sure you want to delete this concern report? - Keep Customer Interaction
             Reported by Adam Smith, 15 July 2025 at 8:30am
           </p>
         </div>
+          <!-- Radio buttons -->
+          {{ govukRadios({
+            idPrefix: "delete",
+            name: "delete",
+            value: data["delete"],
+            items: [
+              {
+                value: "Yes",
+                text: "Yes"
+              },
+              {
+                value: "No",
+                text: "No"
+              }
+            ]
+          }) }}
         </fieldset>
       </div>
         <div class="govuk-button-group">

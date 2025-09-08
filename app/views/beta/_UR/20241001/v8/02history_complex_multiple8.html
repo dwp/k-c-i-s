@@ -1,0 +1,176 @@
+
+{% extends "layout_20241001_ur.html" %}
+{% block pageTitle %}
+  Customer history - Keep Customer Interactions Safe
+{% endblock %}
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+      text: "beta"
+    },
+      html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  <!-- if there are measures show red banner else show blue -->
+  	{% if  (data["2401_applymeasures1"] | length == 0 and data["2401_applymeasures2"] | length == 0 and data["2401_applymeasures3"] | length == 0) %}
+    	{% include "./templates/key_details_robert_blue.njk" %}
+	{% else %}
+    	{% include "./templates/key_details_red.njk" %}
+	{% endif %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "01landingpage1_multiple"
+    }) }}
+  </section>
+{% endblock %}
+{% block content %}
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<h1 class="govuk-heading-xl">Customer history</h1>
+		</div>
+
+	</div>
+  	<div class="govuk-grid-row">
+    	<div class="govuk-grid-column-two-thirds">
+			{% include "./templates/customerhistoryhelp.njk" %}
+
+			<div class="govuk-button-group">
+				{{ govukButton({
+					text: "Make decision",
+					href: measureHref
+				}) }}
+				{{ govukButton({
+					text: "Add a note",
+					href: "#",
+					classes: "govuk-button--secondary"
+				}) }}
+			</div>
+		</div>
+		{% if not (data["2401_applymeasures1"] | length == 0 and data["2401_applymeasures2"] | length == 0 and data["2401_applymeasures3"] | length == 0) %}
+			<div class="govuk-grid-column-one-third">
+				<style>
+					@media (min-width: 40.0625em) {
+						hr {
+							margin:0px !important;
+						}
+					}
+				</style>
+				<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" aria-hidden="true">	
+				<dl class="govuk-summary-list">
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key govuk-!-width-one-half">
+							Measures review date
+						</dt>
+						<dd class="govuk-summary-list__value govuk-!-width-one-half">
+							{{data["2401_review_date"]}}
+						</dd>
+					</div>
+				</dl>
+			</div>
+		{% endif %}
+	</div>
+  	<div class="govuk-grid-row">
+    	<div class="govuk-grid-column-two-thirds">
+			<ol class="dwp-timeline__events">
+				<li class="dwp-timeline__events--entry">
+
+<details class="govuk-details govuk-!-margin-bottom-4">
+	<summary class="govuk-details__summary">
+	  <span class="govuk-details__summary-text">
+		<span class="govuk-heading-m govuk-!-display-inline govuk-!-margin-bottom-0" style="color: #1d70b8">
+		  Decision
+		</span>
+		<strong class="govuk-tag govuk-tag--red govuk-!-margin-left-2">
+		  Active measures
+		</strong>
+	  </span>
+	</summary>
+	<div class="govuk-details__text">
+	  <p class="govuk-!-margin-bottom-1 govuk-hint">INC-000-456-234</p>
+	  <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Measures</h3>
+	  <ul class="govuk-list govuk-list--bullet">
+		<li>Must be seen in a screened area</li>
+	  </ul>
+	</div>
+
+	<p class="govuk-body">{{data ["2401_measureaccount"]}}</p>
+					{% set notesHTML %}
+					{% include "./templates/measures_note2.njk" %} 
+					{% endset %}
+					
+					{{ govukDetails({
+						summaryText: "Notes",
+						html: notesHTML
+					}) }}
+
+					{% set actionDetailsHTML %}
+					<dl class="govuk-summary-list">
+							<div class="govuk-summary-list__row">
+								<dt class="govuk-summary-list__key govuk-!-width-one-half">
+									<a href="h_05action2">Interview by a manager</a>
+								</dt>
+								<dd class="govuk-summary-list__value">
+									<span class="govuk-tag">Requested:</span><br>7 October 2024
+								</dd>
+							</div>
+							<div class="govuk-summary-list__row">
+								<dt class="govuk-summary-list__key govuk-!-width-one-half">
+									<a href="h_05action2">Send a letter</a>
+								</dt>
+								<dd class="govuk-summary-list__value">
+									<span class="govuk-tag govuk-tag--red">I didn't do it:</span> <br>8 October 2024
+								</dd>
+							</div>
+							<div class="govuk-summary-list__row">
+								<dt class="govuk-summary-list__key govuk-!-width-one-half">
+									<a href="h_05action2">Request a banning order</a>
+								</dt>
+								<dd class="govuk-summary-list__value">
+									Completed:</a> <br>9 October 2024
+								</dd>
+							</div>
+						</dl>
+					{% endset %}
+					{{ govukDetails({
+						summaryText: "Actions",
+						html: actionDetailsHTML
+					}) }}
+
+					{% set incidentDetailsHTML %}
+					     <ul class="govuk-list govuk-list--bullet">
+							<li>
+							<h2 class="govuk-heading-s govuk-!-margin-bottom-0">
+								<a href="h_02incident2">Telephone incident</a>
+							</h2>
+							<p class="govuk-!-margin-bottom-0">15 July 2025</p>
+							<p class="govuk-body-s" style='color:#505a5f'>Reported by Adam Smith, 15 July 2025 at 8:30am</p>
+						</li>
+						<li class="dwp-timeline__events--entry">
+							<h2 class="govuk-heading-s govuk-!-margin-bottom-0">
+								<a href="h_02incident1">In person incident</a>
+							</h2>
+							<p class="govuk-!-margin-bottom-0">15 July 2025</p>
+							<p class="govuk-body-s" style='color:#505a5f'>Reported by Adam Smith, 15 July 2025 at 8:30am</p>
+						</li>		
+					{% endset %}
+					{{ govukDetails({
+						summaryText: "Closed reports",
+						html: incidentDetailsHTML
+					}) }}
+				</li>	
+  </details>
+
+
+				<li class="dwp-timeline__events--entry">
+					<h2 class="govuk-heading-s govuk-!-margin-bottom-0">
+						<a href="#">DWP concern</a>
+					</h2>
+					<p class="govuk-body-s" style='color:#505a5f'>Reported by {{data['20240429_inc1_reporter']}}, 1 March 2024 at 10:30am</p>
+				</li>	
+			</ol>
+		</div>
+	</div>
+
+{% endblock %}

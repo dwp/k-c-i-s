@@ -94,7 +94,7 @@
 	  <ul class="govuk-list govuk-list--bullet">
 		<li>Must be seen in a screened area</li>
 	  </ul>
-	</div>
+
 
 
 	<p class="govuk-body">{{data ["2401_measureaccount"]}}</p>
@@ -163,11 +163,70 @@
 						</li>		
 					{% endset %}
 					{{ govukDetails({
-						summaryText: "Closed reports",
+						summaryText: "Reports",
 						html: incidentDetailsHTML
 					}) }}
 				</li>	
   </details>
+
+  <li class="dwp-timeline__events--entry">
+
+	<details class="govuk-details govuk-!-margin-bottom-4">
+		<summary class="govuk-details__summary">
+		  <span class="govuk-details__summary-text">
+			<span class="govuk-heading-m govuk-!-display-inline govuk-!-margin-bottom-0" style="color: #1d70b8">
+			  Decision
+			</span>
+			<strong class="govuk-tag govuk-tag govuk-!-margin-left-2">
+				Decision Pending
+			  </strong>
+			</span>
+		  </span>
+		</summary>
+		<div class="govuk-details__text">
+		  <a href="21decision">Make decision</a>
+
+	
+	
+		<p class="govuk-body">{{data ["2401_measureaccount"]}}</p>
+						{% set notesHTML %}
+						{% include "./templates/measures_note2.njk" %} 
+						{% endset %}
+						
+						{{ govukDetails({
+							summaryText: "Notes",
+							html: notesHTML
+						}) }}
+	
+	
+						{% set incidentDetailsHTML %}
+							 <ul class="govuk-list govuk-list--bullet">
+								<li>
+								<h2 class="govuk-heading-s govuk-!-margin-bottom-0">
+									<a href="h_02incident2">Telephone incident</a><a class="govuk-!-margin-bottom-1 govuk-hint">
+										(INC-000-456-234)
+									</a>
+								</h2>
+								<p class="govuk-!-margin-bottom-0">15 July 2025</p>
+								<p class="govuk-body-s" style='color:#505a5f'>Reported by Adam Smith, 15 July 2025 at 8:30am</p>
+							</li>
+							<li class="dwp-timeline__events--entry">
+								<h2 class="govuk-heading-s govuk-!-margin-bottom-0">
+									<a href="h_02incident1">In person incident</a><a class="govuk-!-margin-bottom-1 govuk-hint">
+										(INC-000-456-235)
+									</a>
+								</h2>
+								<p class="govuk-!-margin-bottom-0">15 July 2025</p>
+								<p class="govuk-body-s" style='color:#505a5f'>Reported by Adam Smith, 15 July 2025 at 8:30am</p>
+							</li>		
+						{% endset %}
+						{{ govukDetails({
+							summaryText: "Reports",
+							html: incidentDetailsHTML
+						}) }}
+					</li>	
+	  </details>
+  
 
 
 				<li class="dwp-timeline__events--entry">

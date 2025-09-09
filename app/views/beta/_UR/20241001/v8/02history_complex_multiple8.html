@@ -48,7 +48,7 @@
 				}) }}
 			</div>
 		</div>
-		{% if not (data["2401_applymeasures1"] | length == 0 and data["2401_applymeasures2"] | length == 0 and data["2401_applymeasures3"] | length == 0) %}
+
 			<div class="govuk-grid-column-one-third">
 				<style>
 					@media (min-width: 40.0625em) {
@@ -64,12 +64,12 @@
 							Measures review date
 						</dt>
 						<dd class="govuk-summary-list__value govuk-!-width-one-half">
-							{{data["2401_review_date"]}}
+							14 July 2026
 						</dd>
 					</div>
 				</dl>
 			</div>
-		{% endif %}
+
 	</div>
   	<div class="govuk-grid-row">
     	<div class="govuk-grid-column-two-thirds">
@@ -90,7 +90,7 @@
 	</summary>
 	<div class="govuk-details__text">
 	  <a href="21decision">View decision details</a>
-	  <h3 class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-margin-top-4">Measures</h3>
+	  <h3 class="govuk-heading-s govuk-!-margin-bottom-2 govuk-!-margin-top-4">Measures</h3>
 	  <ul class="govuk-list govuk-list--bullet">
 		<li>Must be seen in a screened area</li>
 	  </ul>
@@ -228,14 +228,21 @@
 					</li>	
 	  </details>
   
-
+	  <li class="dwp-timeline__events--entry">
+		<h2 class="govuk-heading-s govuk-!-margin-bottom-0">
+			<a href="#">Note</a>
+		</h2>
+		<p class="govuk-body-s" style='color:#505a5f'>16 July 2024</p>
+	</li>
 
 				<li class="dwp-timeline__events--entry">
 					<h2 class="govuk-heading-s govuk-!-margin-bottom-0">
 						<a href="#">DWP concern</a>
 					</h2>
-					<p class="govuk-body-s" style='color:#505a5f'>Reported by {{data['20240429_inc1_reporter']}}, 1 March 2024 at 10:30am</p>
+					<p class="govuk-body-s" style='color:#505a5f'>Reported by Adam Smith, 1 March 2024 at 10:30am</p>
 				</li>	
+
+
 			</ol>
 		</div>
 	</div>

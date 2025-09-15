@@ -251,7 +251,7 @@
 
           <li class="dwp-timeline__events--entry">
             <h2 class="govuk-heading-s govuk-!-margin-bottom-0">
-                <a href="#">Note</a>
+                <a href="#">Note - Banning letter from Robert Da Silva</a>
             </h2>
             <p class="govuk-body-s" style='color:#505a5f'>16 July 2024</p>
         </li>
@@ -262,29 +262,71 @@
                 <summary class="govuk-details__summary">
                   <span class="govuk-details__summary-text">
                     <span class="govuk-heading-m govuk-!-display-inline govuk-!-margin-bottom-0" style="color: #1d70b8">
-                      Review
+                      Decision
                     </span>
                     </span>
                   </span>
                 </summary>
                 <div class="govuk-details__text">
-                    <p class="govuk-hint">15 July 2025 at 4.30pm by Adam Smith</p>
+					<p class=" govuk-heading-s govuk-!-margin-bottom-2">This decision is part of a review and does not include or require any reports.</p>
+					<p class=" govuk-hint">15 July 2025 at 4.30pm by Adam Smith</p>
+					<a href="21decision">View decision details</a>
+					<h3 class="govuk-heading-s govuk-!-margin-bottom-2 govuk-!-margin-top-4">Measures</h3>
+					<ul class="govuk-list govuk-list--bullet">
+					  <li>Must be seen in a screened area</li>
 
-            
-            
-            
-                <p class="govuk-body">{{data ["2401_measureaccount"]}}</p>
-                                {% set notesHTML %}
-                                {% include "./templates/measures_note2.njk" %} 
-                                {% include "./templates/measures_note3.njk" %} 
-                                {% endset %}
-                                
-                                {{ govukDetails({
-                                    summaryText: "Notes",
-                                    html: notesHTML
-                                }) }}
-            
-                            </li>   
+					  <p class="govuk-body">{{data ["2401_measureaccount"]}}</p>
+					  {% set notesHTML %}
+					  {% include "./templates/measures_note2.njk" %} 
+					  {% include "./templates/measures_note3.njk" %} 
+					  {% endset %}
+					  
+					  {{ govukDetails({
+						  summaryText: "Notes",
+						  html: notesHTML
+					  }) }}
+  
+					  {% set actionDetailsHTML %}
+					  <dl class="govuk-summary-list">
+							  <div class="govuk-summary-list__row">
+								  <dt class="govuk-summary-list__key govuk-!-width-one-half">
+									  <a href="h_05action2">Interview by a manager</a>
+								  </dt>
+								  <dd class="govuk-summary-list__value">
+									  <span class="govuk-tag">Requested:</span><br>7 October 2024
+								  </dd>
+							  </div>
+							  <div class="govuk-summary-list__row">
+								  <dt class="govuk-summary-list__key govuk-!-width-one-half">
+									  <a href="h_05action2">Send a letter</a>
+								  </dt>
+								  <dd class="govuk-summary-list__value">
+									  <span class="govuk-tag govuk-tag--red">I didn't do it:</span> <br>8 October 2024
+								  </dd>
+							  </div>
+							  <div class="govuk-summary-list__row">
+								  <dt class="govuk-summary-list__key govuk-!-width-one-half">
+									  <a href="h_05action2">Request a banning order</a>
+								  </dt>
+								  <dd class="govuk-summary-list__value">
+									  Completed:</a> <br>9 October 2024
+								  </dd>
+							  </div>
+						  </dl>
+					  {% endset %}
+					  {{ govukDetails({
+						  summaryText: "Actions",
+						  html: actionDetailsHTML
+					  }) }}
+  
+
+			
+	</details>
+
+
+							
+
+
               </details>
 
 

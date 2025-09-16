@@ -113,8 +113,7 @@
     
         <p class="govuk-body">{{data ["2401_measureaccount"]}}</p>
                         {% set notesHTML %}
-                        {% include "./templates/measures_note2.njk" %}
-                        {% include "./templates/measures_note3.njk" %} 
+                        {% include "./templates/measures_note2.njk" %} 
                         {% endset %}
                         
                         {{ govukDetails({
@@ -173,14 +172,17 @@
               <h3 class="govuk-heading-s govuk-!-margin-bottom-2 govuk-!-margin-top-4">Measures</h3>
               <ul class="govuk-list govuk-list--bullet">
                 <li>Must be seen in a screened area</li>
+				<li>Ban from office (by DWP)</li>
+				<li>Banned from: Newcastle East JCP</li>
               </ul>
         
         
         
             <p class="govuk-body">{{data ["2401_measureaccount"]}}</p>
                             {% set notesHTML %}
-                            {% include "./templates/measures_note4.njk" %} 
+                            
                             {% include "./templates/measures_note5.njk" %} 
+							{% include "./templates/measures_note4.njk" %} 
                             {% endset %}
                             
                             {{ govukDetails({
@@ -251,7 +253,7 @@
 
           <li class="dwp-timeline__events--entry">
             <h2 class="govuk-heading-s govuk-!-margin-bottom-0">
-                <a href="#">Note - Banning letter from Robert Da Silva</a>
+                <a href="#">Note - GLD request for more information</a>
             </h2>
             <p class="govuk-body-s" style='color:#505a5f'>13 July 2025</p>
         </li>
@@ -274,12 +276,12 @@
 					<h3 class="govuk-heading-s govuk-!-margin-bottom-2 govuk-!-margin-top-4">Measures</h3>
 					<ul class="govuk-list govuk-list--bullet">
 					  <li>Must be seen in a screened area</li>
+					  <li>No home visits</li>
 
 					  <p class="govuk-body">{{data ["2401_measureaccount"]}}</p>
 					  
 					  {% set notesHTML %}
 					  {% include "./templates/measures_note6.njk" %} 
-					  {% include "./templates/measures_note7.njk" %} 
 					  {% endset %}
 					  
 					  {{ govukDetails({

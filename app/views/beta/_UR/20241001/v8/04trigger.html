@@ -22,43 +22,8 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
-      <!-- Set the buttons to return to Check your answers page it cam from else carry on with flow-->
-
-      {% if data['Referrer'].includes('11check_good_multi') %}
-      <form class="form" action="11check_good_multi?t={{data['Timenow']}}" method="post">
-        {% set buttonHTML %}
-        <button class="govuk-button" data-module="govuk-button">
-          Save changes
-        </button>
-        {{ govukButton({
-          text: "Cancel",
-          href: "11check_good_multi",
-          classes: "govuk-button--secondary"
-        }) }}
-        {% endset %}
-      {% elif data['Referrer'].includes('11check_good') %}
-      <form class="form" action="11check_good?t={{data['Timenow']}}" method="post">
-        {% set buttonHTML %}
-        <button class="govuk-button" data-module="govuk-button">
-          Save changes
-        </button>
-        {{ govukButton({
-          text: "Cancel",
-          href: "11check_good",
-          classes: "govuk-button--secondary"
-        }) }}          
-        {% endset %}          
-      {% else %}
-      <form class="form" action="05actions" method="post">
-        {% set buttonHTML %}
-        <button class="govuk-button" data-module="govuk-button">
-          Continue
-        </button>
-        {% endset %}          
-      {% endif %}
       
-      {% include "./templates/multi_caption1.njk" %}
+      {% include "./templates/multi_caption3.njk" %}
         <form action="05actions" class="form" method="post">
           {{ govukRadios({
             idPrefix: "2404_incident_trigger",
@@ -119,7 +84,10 @@
           }) }}
           
           <div class="govuk-button-group">
-            {{ buttonHTML|safe }}
+            {{ govukButton({
+              text: "Continue",
+              href: "09prepare_single_man"
+            }) }}
         </form>
     </div>
   </div>

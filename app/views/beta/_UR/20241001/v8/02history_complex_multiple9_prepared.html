@@ -1,0 +1,150 @@
+
+{% extends "layout_20241001_ur.html" %}
+{% block pageTitle %}
+  Customer history - Keep Customer Interactions Safe
+{% endblock %}
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+      text: "beta"
+    },
+      html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  <!-- if there are measures show red banner else show blue -->
+    {% if  (data["2401_applymeasures1"] | length == 0 and data["2401_applymeasures2"] | length == 0 and data["2401_applymeasures3"] | length == 0) %}
+        {% include "./templates/key_details_robert_blue.njk" %}
+    {% else %}
+        {% include "./templates/key_details_red.njk" %}
+    {% endif %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "01landingpage1_multiple"
+    }) }}
+  </section>
+{% endblock %}
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-xl">Customer history</h1>
+        </div>
+
+    </div>
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h2 class="govuk-heading-l govuk-!-margin-bottom-2">Summary note</h2>
+			<p class=" govuk-hint">15 July 2025 at 4.30pm by Adam Smith</p>
+            <p class="govuk-body">The customer has repeatedly attended the DWP office displaying disruptive and confrontational behavior, often refusing to follow procedures and requiring staff intervention.</p>
+            {% include "./templates/customerhistoryhelp.njk" %}
+
+            <div class="govuk-button-group">
+                <form class="form" action="20choosereport" method="post">
+                    {{ govukButton({
+                        text: "Prepare actions",
+                        href: "03type",
+                        classes: "govuk-button--secondary"
+                    }) }}
+                    {{ govukButton({
+                        text: "Add measures",
+                        href: "06measure",
+                        classes: "govuk-button--primary"
+                    }) }}
+                    {{ govukButton({
+                        text: "Add a note",
+                        href: "#",
+                        classes: "govuk-button--secondary"
+                    }) }}
+                    {{ govukButton({
+                        text: "Edit summary",
+                        href: "#",
+                        classes: "govuk-button--secondary"
+                    }) }}
+                </form>
+            </div>
+        </div>
+
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <ol class="dwp-timeline__events">
+                
+
+  <li class="dwp-timeline__events--entry">
+
+    <details class="govuk-details govuk-!-margin-bottom-4"  open>
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            <span class="govuk-heading-m govuk-!-display-inline govuk-!-margin-bottom-0" style="color: #1d70b8">
+              Decision
+            </span>
+            <strong class="govuk-tag govuk-tag--green govuk-!-margin-left-2">
+                Prepared
+              </strong>
+            </span>
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+
+
+    
+    
+        <p class="govuk-body">{{data ["2401_measureaccount"]}}</p>
+                        {% set notesHTML %}
+                        {% include "./templates/measures_note2.njk" %} 
+                        {% endset %}
+                        
+                        {{ govukDetails({
+                            summaryText: "Notes",
+                            html: notesHTML
+                        }) }}
+    
+    
+                        {% set incidentDetailsHTML %}
+                             <ul class="govuk-list">
+                                <li>
+                                <h2 class="govuk-heading-s govuk-!-margin-bottom-0">
+                                    <strong class='govuk-tag govuk-tag--green'>prepared</strong><br>
+                                    <a href="h_02incident2">Centre for Health and Disability Assessments (CHDA) concern</a><a class="govuk-!-margin-bottom-1 govuk-hint">
+                                        (INC-000-456-234)
+                                    </a>
+                                </h2>
+                                <p class="govuk-!-margin-bottom-0">15 July 2025</p>
+                                <p class="govuk-body-s" style='color:#505a5f'>Reported by Steven Tran, 15 July 2025 at 9:30am</p>
+                            </li>
+                            <li class="dwp-timeline__events--entry">
+                                <h2 class="govuk-heading-s govuk-!-margin-bottom-0">
+                                    <strong class='govuk-tag govuk-tag--green'>Prepared</strong><br>
+                                    <a href="h_02incident1">Telephone incident</a><a class="govuk-!-margin-bottom-1 govuk-hint">
+                                        (INC-000-456-235)
+                                    </a>
+                                </h2>
+                                <p class="govuk-!-margin-bottom-0">15 July 2025</p>
+                                <p class="govuk-body-s" style='color:#505a5f'>Reported by Richard Cliff, 15 July 2025 at 8:30am</p>
+                            </li>       
+                        {% endset %}
+                        {{ govukDetails({
+                            summaryText: "Reports",
+                            html: incidentDetailsHTML
+                        }) }}
+                    </li>   
+      </details>
+
+
+  
+
+			
+
+
+
+							
+
+
+
+            </ol>
+        </div>
+    </div>
+
+{% endblock %}
+

@@ -58,7 +58,7 @@
         {% endif %}
       {% endif %}
 
-      {% include "./templates/multi_caption1.njk" %}
+      {% include "./templates/multi_caption4.njk" %}
         {{ govukRadios({
           idPrefix: "who-sends",
           name: "who-sends",
@@ -83,8 +83,13 @@
           ]
         }) }}
         <div class="govuk-button-group">
-          {{ buttonHTML|safe }}
-      </form>
-    </div>
+          <form class="form" action="20choosereport" method="post">
+              {{ govukButton({
+                  text: "Continue",
+                  href: "h_10upload",
+                  classes: "govuk-button--primary"
+              }) }}
+          </form>
+      </div>
   </div>
 {% endblock %}

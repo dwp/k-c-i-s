@@ -77,7 +77,7 @@
               ]
           }) }}
         {% endset -%}
-        {% include "./templates/multi_caption.njk" %}
+        {% include "./templates/multi_caption4.njk" %}
         {{ govukRadios({
           idPrefix: "2401_review_date",
           name: "2401_review_date",
@@ -120,9 +120,14 @@
           ]
         }) }}
         <div class="govuk-button-group">
-          {{ buttonHTML|safe }}
-      </form>
-    </div>
+          <form class="form" action="20choosereport" method="post">
+              {{ govukButton({
+                  text: "Continue",
+                  href: "05actions",
+                  classes: "govuk-button--primary"
+              }) }}
+          </form>
+      </div>
   </div>
 
 {% endblock %}

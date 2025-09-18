@@ -53,7 +53,7 @@
             margin-block-start: 0em;
         }
       </style>
-      {% include "./templates/multi_caption.njk" %}
+      {% include "./templates/multi_caption4.njk" %}
       <h1 class="govuk-fieldset__legend--xl">Which measures have you applied to make interactions with this customer safer?</h1>
       <p class="govuk-hint">Select all that apply, including any safety measures that already exist.</p>
       <form class="form" action="07measureaccount" method="post">
@@ -206,10 +206,16 @@
             }
           ]
         }) }}
-        <div class="govuk-button-group">
-          {{ buttonHTML|safe }}
+
+    <div class="govuk-button-group">
+      <form class="form" action="20choosereport" method="post">
+          {{ govukButton({
+              text: "Continue",
+              href: "08reviewdate",
+              classes: "govuk-button--primary"
+          }) }}
       </form>
-    </div>
+  </div>
   </div>
 
 {% endblock %}

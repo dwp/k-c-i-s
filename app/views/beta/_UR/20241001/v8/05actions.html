@@ -25,7 +25,7 @@
 
       <!-- Set the buttons to return to Check your answers page it cam from else carry on with flow-->
 
-      {% include "./templates/multi_caption1.njk" %}
+      {% include "./templates/multi_caption4.njk" %}
       {% if data['Referrer'] %}
         {% if data['Referrer'].includes('11check_good_multi') %}
           <form class="form" action="11check_good_multi?t={{data['Timenow']}}" method="post">
@@ -160,9 +160,14 @@
         }) }}
 
         <div class="govuk-button-group">
-          {{ buttonHTML|safe }}
-      </form>
-    </div>
+          <form class="form" action="20choosereport" method="post">
+              {{ govukButton({
+                  text: "Continue",
+                  href: "05d_wholetter",
+                  classes: "govuk-button--primary"
+              }) }}
+          </form>
+      </div>
   </div>
 
 {% endblock %}

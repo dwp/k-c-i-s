@@ -45,7 +45,7 @@
           {% endset %}          
         {% endif %}       
       {% endif %}    
-          {% include "./templates/multi_caption.njk" %}
+          {% include "./templates/multi_caption4.njk" %}
           {% set hintHTML %}
           {% include "./templates/measures_list.njk" %} 
 
@@ -70,9 +70,14 @@
             }
           }) }}
           <div class="govuk-button-group">
-            {{ buttonHTML|safe }}
-        </form>
-    </div>
+            <form class="form" action="20choosereport" method="post">
+                {{ govukButton({
+                    text: "Continue",
+                    href: "11check_good2",
+                    classes: "govuk-button--primary"
+                }) }}
+            </form>
+        </div>
   </div>
 
 {% endblock %}

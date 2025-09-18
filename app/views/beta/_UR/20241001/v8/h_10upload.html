@@ -23,7 +23,7 @@
   {% include "templates/incident_refactorv10/file_upload_styling.html" %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      {% include "./templates/govuk-caption-m-whitney.njk" %}
+      {% include "./templates/multi_caption4.njk" %}
 
       <h1 class="govuk-heading-xl">Add files</h1>
       {% include "./templates/mappa_warning.njk" %}
@@ -45,11 +45,14 @@
       </div>
     </div>
   </div>
-  <div>
-    {{ govukButton({
-      text: "Continue",
-      href: "h_02incident_best_simple_files#attached"
-    }) }}
-  </div>
+  <div class="govuk-button-group">
+    <form class="form" action="20choosereport" method="post">
+        {{ govukButton({
+            text: "Continue",
+            href: "07measureaccount",
+            classes: "govuk-button--primary"
+        }) }}
+    </form>
+</div>
 
 {% endblock %}

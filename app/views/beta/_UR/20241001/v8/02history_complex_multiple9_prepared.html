@@ -35,8 +35,7 @@
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
             <h2 class="govuk-heading-l govuk-!-margin-bottom-2">Summary note</h2>
-			<p class=" govuk-hint">15 July 2025 at 4.30pm by Adam Smith</p>
-            <p class="govuk-body">The customer has repeatedly attended the DWP office displaying disruptive and confrontational behavior, often refusing to follow procedures and requiring staff intervention.</p>
+            <p class="govuk-body">No summary note has been added.</p>
             {% include "./templates/customerhistoryhelp.njk" %}
 
             <div class="govuk-button-group">
@@ -90,15 +89,7 @@
 
     
     
-        <p class="govuk-body">{{data ["2401_measureaccount"]}}</p>
-                        {% set notesHTML %}
-                        {% include "./templates/measures_note2.njk" %} 
-                        {% endset %}
-                        
-                        {{ govukDetails({
-                            summaryText: "Notes",
-                            html: notesHTML
-                        }) }}
+
     
     
                         {% set incidentDetailsHTML %}

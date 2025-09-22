@@ -29,6 +29,10 @@
     	<div class="govuk-grid-column-two-thirds">
 			{% include "./templates/formlinkstyle.njk" %}
 			{% include "./templates/customerhistoryhelp.njk" %}
+			<p class="govuk-body">
+				The Record New Actions / Measures button has been deactivated because there’s no report to link your decision to.
+				If you have other reports to action, please return to the landing page.
+			</p>
 
 			<!-- if both reports are actioned, or there is only one report which has been actioned, default to "Add measures" as green button -->
 			{% if ((data['20240429_inc1_actioned'] == "yes") and (data['20240429_inc2_actioned'] == "yes")) or ((data['20240429_inc1_actioned'] == "yes") and (data['2reports'] == "no")) %}

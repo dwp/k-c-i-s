@@ -21,9 +21,14 @@
 {% endblock %}
 {% block content %}
   <h1 class="govuk-heading-l">
-    List and reassign reports
+    Assigned reports and completed decisions
   </h1>
-  <p class="govuk-body">Reports currently assigned to sarah@dwp.gov.uk</p>
+  <p class="govuk-body">Current numbers of reports under <strong>sarah@dwp.gov.uk</strong></p>
+  <p class="govuk-body govuk-!-padding-bottom-7">Incident: 2, Concern: 2</p>
+  <h2 class="govuk-heading-m">
+    Assigned reports
+  </h2>
+  <p class="govuk-body">You can reassign individual report using the action link or reassign all reports using the button below.</p>
   <div class="govuk-!-padding-bottom-7">
     {{ govukTable({    
       head: [
@@ -130,6 +135,118 @@
     ]
   }) }}
   </div>                                
+
+  <h2 class="govuk-heading-m">
+    Recently completed decisions
+  </h2>
+  <p class="govuk-body">This only shows the most recent 40 decisions for this individual.</p>
+  <div class="govuk-!-padding-bottom-7">
+    {{ govukTable({    
+      head: [
+        {
+          html: "Number"
+        },
+        {
+          html: "Date"
+        },
+        {
+          text: "Customer"
+        },
+        {
+          text: "Original reporter"
+        },
+        {
+          text: "Status"
+        },
+        {
+          text: "Action"
+        }
+      ],
+      rows: [
+      [
+        {
+          html: "<span class='govuk-visually-hidden'>Report number: </span>12345678"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Report date: </span>13 June 2022<br><span class='govuk-body-s' style='color:#505a5f'>  at 8:06am</span>"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Customer: </span>Robert De Silva"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Original reporter: </span>Whitney Earl"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Status: </span> Completed"
+        },
+        {
+          html: "<a href='05email'>View details</a>"
+        }
+      ],
+      [
+        {
+          html: "<span class='govuk-visually-hidden'>Report number: </span>87654321"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Report date: </span>12 June 2022<br><span class='govuk-body-s' style='color:#505a5f'>  at 6:00am</span>"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Customer: </span>Robert De Silva"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Original reporter: </span>Whitney Earl"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Status: </span> Completed"
+        },
+        {
+          html: "<a href='05email'>View details</a>"
+        }
+      ],
+      [
+        {
+          html: "<span class='govuk-visually-hidden'>Report number: </span>4444444"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Report date: </span>11 June 2022<br><span class='govuk-body-s' style='color:#505a5f'>  at 11:56am</span>"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Customer: </span>Robert De Silva"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Original reporter: </span>Whitney Earl"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Status: </span> Completed"
+        },
+        {
+          html: "<a href='05email'>View details</a>"
+        }
+      ],
+      [
+        {
+          html: "<span class='govuk-visually-hidden'>Report number: </span>5555555"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Report date: </span>10 June 2022<br><span class='govuk-body-s' style='color:#505a5f'>  at 9:35am</span>"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Customer: </span>Robert De Silva"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Original reporter: </span>Whitney Earl"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Status: </span> Completed"
+        },
+        {
+          html: "<a href='05email'>View details</a>"
+        }
+      ]
+    ]
+  }) }}
+  </div>                                
+
   <div class="govuk-button-group">
     {{ govukButton({
       text: "Back",

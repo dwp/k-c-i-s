@@ -30,7 +30,7 @@
 			{% include "./templates/formlinkstyle.njk" %}
 			{% include "./templates/customerhistoryhelp.njk" %}
 			<p class="govuk-body">
-				The Record New Actions / Measures button has been deactivated because there’s no report to link your decision to.
+				The Ready to Handover button has been deactivated because there’s no report to link your decision to.
 				If you have other reports to action, please return to the landing page.
 			</p>
 
@@ -47,7 +47,7 @@
 			<div class="govuk-button-group">
 				<form class="form" action="20choosereport" method="post">
 					{{ govukButton({
-						text: "Record new actions / measures",
+						text: "Ready to Handover",
 						disabled: true,
 						classes: "govuk-button--primary"
 					}) }}

@@ -2,7 +2,7 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: prototype.interface.keeping-customer-interactions-safe-prototype
-  title: Keeping-Customer-Interactions-Safe-Prototype
+  title: keeping-customer-interactions-safe-prototype
   description: |
     TODO: add description for keeping-customer-interactions-safe-prototype.
 

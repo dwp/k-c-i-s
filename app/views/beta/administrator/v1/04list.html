@@ -29,7 +29,7 @@
     Assigned reports
   </h2>
   <p class="govuk-body">You can reassign individual report using the action link or reassign all reports using the button below.</p>
-  <div class="govuk-!-padding-bottom-7">
+  <div class="govuk-!-padding-bottom-0">
     {{ govukTable({    
       head: [
         {
@@ -134,7 +134,14 @@
       ]
     ]
   }) }}
-  </div>                                
+  </div>         
+  <div class="govuk-button-group govuk-!-padding-bottom-7">
+    {{ govukButton({
+      text: "Reassign all items",
+      href: "05email",
+      classes: "govuk-button--secondary ds_link"
+    }) }}
+  </div>                       
 
   <h2 class="govuk-heading-m">
     Recently completed decisions
@@ -251,11 +258,6 @@
     {{ govukButton({
       text: "Back",
       href: "03person"
-    }) }}
-    {{ govukButton({
-      text: "Reassign all items",
-      href: "05email",
-      classes: "govuk-button--secondary ds_link"
     }) }}
   </div>
 

@@ -1,10 +1,11 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  List and reassign reports - Keep Customer Interactions Safe
+  Your reports - Keep Customer Interactions Safe
 {% endblock %}
 {% block beforeContent %}
   <section aria-label="Phase banner" role="region">
+    {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
     {{ govukPhaseBanner({
       tag: {
         text: "beta"
@@ -14,138 +15,123 @@
   </section>
   <section aria-label="Back" role="region">
     {{ govukBackLink({
-      text: "Back",
-      href: "03person"
+      text: "Back to Searchlight home",
+      href: "00searchlight"
     }) }}
   </section>
 {% endblock %}
 {% block content %}
-  <h1 class="govuk-heading-l">
-    Assigned reports
+<h1 class="govuk-heading-l">
+    Reviews
   </h1>
-  <p class="govuk-body">Current numbers of reports under <strong>sarah@dwp.gov.uk</strong></p>
-  <p class="govuk-body govuk-!-padding-bottom-7">Incident: 2, Concern: 2</p>
-  <h2 class="govuk-heading-m">
-    Reports in progress
-  </h2>
-  <p class="govuk-body">You can reassign individual report using the action link or reassign all reports using the button below.</p>
+  <p class="govuk-body">This shows the 20 oldest reviews</p>
+
+
   <div class="govuk-!-padding-bottom-0">
     {{ govukTable({    
       head: [
-              {
-          html: "Select"
+        {
+          html: "Customer"
         },
         {
-          html: "Number"
+          html: "Measures"
         },
         {
-          html: "Date"
+          text: "Due Date"
         },
         {
-          text: "Assigned time"
+          text: "Assigned to"
         },
         {
-          text: "Customer"
-        },
-        {
-          text: "Status"
+          text: "Action"
         }
       ],
       rows: [
       [
         {
-          html: "      <div class='govuk-checkboxes__item'>
-        <input class='govuk-checkboxes__input' id='waste-2' name='waste' type='checkbox' value='mines'>
-        <label class='govuk-label govuk-checkboxes__label' for='waste-2'>
-        </label>
-      </div>"
-        },
-        {
-          html: "<span class='govuk-visually-hidden'>Report number: </span>12345678"
-        },
-        {
-          html: "<span class='govuk-visually-hidden'>Report date: </span>13 June 2022<br><span class='govuk-body-s' style='color:#505a5f'>  at 8:06am</span>"
-        },
-        {
-          html: "<span class='govuk-visually-hidden'>Report date: </span>14 June 2022<br><span class='govuk-body-s' style='color:#505a5f'>  at 9:00am</span>"
-        },
-        {
           html: "<span class='govuk-visually-hidden'>Customer: </span>Robert De Silva"
         },
         {
-          html: "<span class='govuk-visually-hidden'>Status: </span> Preparing"
+          html: "<span class='govuk-visually-hidden'>Measures: </span>
+          <ul>
+            <li>Interim ban from office (by DWP)<br>Banned from: Bromley JCP</li>
+            <li>Ban from office (by Government Legal Department)<br>Banned from: Droitwich JCP</li>
+          </ul>"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Due date: </span>14 June 2022<br><span class='govuk-body-s' style='color:#505a5f'>  at 9:00am</span>"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Assigned to: </span>Adam Smith"
+        },
+        {
+          html: "<a href='05email'>Review</a><br><a href='05email'>Reassign</a>"
         }
       ],
       [
         {
-          html: "      <div class='govuk-checkboxes__item'>
-        <input class='govuk-checkboxes__input' id='waste-2' name='waste' type='checkbox' value='mines'>
-        <label class='govuk-label govuk-checkboxes__label' for='waste-2'>
-        </label>
-      </div>"
-        },
-        {
-          html: "<span class='govuk-visually-hidden'>Report number: </span>87654321"
-        },
-        {
-          html: "<span class='govuk-visually-hidden'>Report date: </span>12 June 2022<br><span class='govuk-body-s' style='color:#505a5f'>  at 6:00am</span>"
-        },
-        {
-          html: "<span class='govuk-visually-hidden'>Report date: </span>13 June 2022<br><span class='govuk-body-s' style='color:#505a5f'>  at 8:06am</span>"
-        },
-        {
           html: "<span class='govuk-visually-hidden'>Customer: </span>Robert De Silva"
         },
         {
-          html: "<span class='govuk-visually-hidden'>Status: </span> Preparing"
+          html: "<span class='govuk-visually-hidden'>Measures: </span>
+          <ul>
+            <li>Interim ban from office (by DWP)<br>Banned from: Bromley JCP</li>
+            <li>Ban from office (by Government Legal Department)<br>Banned from: Droitwich JCP</li>
+          </ul>"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Due date: </span>13 June 2022<br><span class='govuk-body-s' style='color:#505a5f'>  at 8:06am</span>"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Assigned to: </span>Adam Smith"
+        },
+        {
+          html: "<a href='05email'>Review</a><br><a href='05email'>Reassign</a>"
         }
       ],
       [
         {
-          html: "      <div class='govuk-checkboxes__item'>
-        <input class='govuk-checkboxes__input' id='waste-2' name='waste' type='checkbox' value='mines'>
-        <label class='govuk-label govuk-checkboxes__label' for='waste-2'>
-        </label>
-      </div>"
-        },
-        {
-          html: "<span class='govuk-visually-hidden'>Report number: </span>4444444"
-        },
-        {
-          html: "<span class='govuk-visually-hidden'>Report date: </span>11 June 2022<br><span class='govuk-body-s' style='color:#505a5f'>  at 11:56am</span>"
-        },
-        {
-          html: "<span class='govuk-visually-hidden'>Report date: </span>11 June 2022<br><span class='govuk-body-s' style='color:#505a5f'>  at 2:23pm</span>"
-        },
-        {
           html: "<span class='govuk-visually-hidden'>Customer: </span>Robert De Silva"
         },
         {
-          html: "<span class='govuk-visually-hidden'>Status: </span> Decision pending"
+          html: "<span class='govuk-visually-hidden'>Measures: </span>
+          <ul>
+            <li>Interim ban from office (by DWP)<br>Banned from: Bromley JCP</li>
+            <li>Ban from office (by Government Legal Department)<br>Banned from: Droitwich JCP</li>
+          </ul>"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Due date: </span>11 June 2022<br><span class='govuk-body-s' style='color:#505a5f'>  at 2:23pm</span>"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Assigned to: </span>Adam Smith"
+        },
+        {
+          html: "<a href='05email'>Review</a><br><a href='05email'>Reassign</a>"
         }
       ],
       [
         {
-          html: "      <div class='govuk-checkboxes__item'>
-        <input class='govuk-checkboxes__input' id='waste-2' name='waste' type='checkbox' value='mines'>
-        <label class='govuk-label govuk-checkboxes__label' for='waste-2'>
-        </label>
-      </div>"
-        },
-        {
-          html: "<span class='govuk-visually-hidden'>Report number: </span>5555555"
-        },
-        {
-          html: "<span class='govuk-visually-hidden'>Report date: </span>10 June 2022<br><span class='govuk-body-s' style='color:#505a5f'>  at 9:35am</span>"
-        },
-        {
-          html: "<span class='govuk-visually-hidden'>Report date: </span>11 June 2022<br><span class='govuk-body-s' style='color:#505a5f'>  at 8:56am</span>"
-        },
-        {
           html: "<span class='govuk-visually-hidden'>Customer: </span>Robert De Silva"
         },
         {
-          html: "<span class='govuk-visually-hidden'>Status: </span> Decision pending"
+          html: "<ul>
+            <li>Interim ban from office (by DWP)<br>Banned from: Bromley JCP</li>
+            <li>Ban from office (by Government Legal Department)<br>Banned from: Droitwich JCP</li>
+            <li>Must be seen in a screened area</li>
+            <li>Court order (injunction or interdict) in place<br>Refer to GLD</li>
+            <li>No home visits</li>
+            <li>Must only interact with a named member of staff<br>Staff member: whitney@dwp.gov</li>
+          </ul>"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Due date: </span>11 June 2022<br><span class='govuk-body-s' style='color:#505a5f'>  at 8:56am</span>"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Assigned to: </span>Adam Smith"
+        },
+        {
+          html: "<a href='05email'>Review</a><br><a href='05email'>Reassign</a>"
         }
       ]
     ]
@@ -153,12 +139,7 @@
   </div>         
   <div class="govuk-button-group govuk-!-padding-bottom-7">
     {{ govukButton({
-      text: "Reassign selected items",
-      href: "05email",
-      classes: "govuk-button"
-    }) }}
-        {{ govukButton({
-      text: "Reassign all",
+      text: "Reassign all items",
       href: "05email",
       classes: "govuk-button--secondary ds_link"
     }) }}
@@ -278,12 +259,26 @@
   <div class="govuk-button-group">
     {{ govukButton({
       text: "Back",
-      href: "03person",
-      classes: "govuk-button--secondary"
+      href: "03person"
     }) }}
   </div>
+  
+  
 
-  {% if not (checked("displaymode", "presentation") == "checked") %}
-    {% include "./notes/04list__notes.njk" %}
-	{% endif %}      
+	{% if not (checked("displaymode", "presentation") == "checked") %}
+		{% include "./notes/01landing__notes.njk" %}
+	{% endif %}
 {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+

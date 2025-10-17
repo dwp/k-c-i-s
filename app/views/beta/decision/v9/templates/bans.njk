@@ -8,54 +8,54 @@
     }
 </style>
 {{ govukTable({
-caption: "Unassigned / total  reports ",
+caption: "Reviews ",
 captionClasses: "",
 firstCellIsHeader: true,
 rows: [
     [
     {
         html: "",
+        classes: "govuk-body-s govuk-!-font-weight-regular govuk-!-width-one-half"
+    },
+    {
+        text: "Ban reviews",
+        format: "numeric",
+        classes: "govuk-body-s govuk-!-width-one-quarter"
+    },
+    {
+        text: "Other reviews",
+        format: "numeric",
+        classes: "govuk-body-s govuk-!-width-one-quarter"
+    }
+    ],
+    [
+    {
+        html: "Overdue",
         classes: "govuk-body-s govuk-!-font-weight-regular"
     },
     {
-        text: "Incidents",
+        html: '31',
         format: "numeric",
         classes: "govuk-body-s"
     },
     {
-        text: "Concerns",
+        html: '543',
         format: "numeric",
         classes: "govuk-body-s"
     }
     ],
     [
     {
-        html: "Business support",
+        text: "Due this week",
         classes: "govuk-body-s govuk-!-font-weight-regular"
     },
     {
-        html: '4 <span class="greytext">/ 30</span>',
+        html: '123',
         format: "numeric",
         classes: "govuk-body-s"
     },
     {
-        html: '0 <span class="greytext">/ 0</span>',
-        format: "numeric",
-        classes: "govuk-body-s"
-    }
-    ],
-    [
-    {
-        text: "Decision makers",
-        classes: "govuk-body-s govuk-!-font-weight-regular"
-    },
-    {
-        html: '15 <span class="greytext">/ 19</span>',
-        format: "numeric",
-        classes: "govuk-body-s"
-    },
-    {
-        html: '25 <span class="greytext">/ 27</span>',
+        html: '607',
         format: "numeric",
         classes: "govuk-body-s"
     }
@@ -66,12 +66,12 @@ rows: [
         classes: "govuk-body-s "
     },
     {
-        html: '39 <span class="greytext">/ 49</span>',
+        html: '154',
         format: "numeric",
         classes: "govuk-body-s"
     },
     {
-        html: '25 <span class="greytext">/ 27</span>',
+        html: '1150',
         format: "numeric",
         classes: "govuk-body-s"
     }

@@ -25,6 +25,13 @@
       <h1 class="govuk-heading-l">
         Who do you want to assign this report to?
       </h1>
+      <p class="govuk-body">Enter the email address of the person you want to assign the report to.
+Only assign reports to someone who can access and act on them in their current state:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>Decision pending reports should only be assigned to a decision maker.</li>
+  <li>Preparing reports should only be assigned to a business supporter.</li>
+</ul>
+<p class="govuk-!-padding-bottom-3">If a report is assigned to someone who isn’t the right type of user for its current state, it won’t appear on their dashboard.</p>
       {{ govukInput({
         label: {
           text: "Email address"

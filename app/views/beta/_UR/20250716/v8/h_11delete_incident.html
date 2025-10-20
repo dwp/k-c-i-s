@@ -31,18 +31,30 @@ Are you sure you want to delete this telephone incident? - Keep Customer Interac
           </legend>
       
           <!-- Custom HTML inserted here -->
-          <div class="govuk-inset-text">
+          <div class="govuk-inset-text govuk-!-margin-bottom-0">
           <h2 class="govuk-heading-s govuk-!-margin-bottom-0">
             <strong class='govuk-tag'>Decision pending</strong><br>
             Telephone incident
           </h2>
           <p class="govuk-!-margin-bottom-0">15 July 2025</p>
-          <p class="govuk-body-s govuk-!-margin-bottom-1" style="color:#505a5f">
+          <p class="govuk-body-s" style="color:#505a5f">
             Reported by Adam Smith, 15 July 2025 at 8:30am
           </p>
         </div>
         </fieldset>
       </div>
+
+            <div class="govuk-form-group govuk-!-padding-top-0">
+  <h2 class="govuk-label-wrapper">
+    <label class="govuk-label govuk-label--m" for="more-detail">
+      Why are you deleting this?
+    </label>
+  </h2>
+  <div id="more-detail-hint" class="govuk-hint">
+    You can tell us your reason for deleting this item.
+  </div>
+  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint"></textarea>
+</div>
       
         <div class="govuk-button-group">
           {{ govukButton({

@@ -1,0 +1,441 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Your reports - Keep Customer Interactions Safe
+{% endblock %}
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+    {{ govukPhaseBanner({
+      tag: {
+        text: "beta"
+      },
+      html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "26review"
+    }) }}
+  </section>
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds govuk-!-padding-bottom-0">
+      <h1 class="govuk-heading-l">Reviews</h1>
+  <p class="govuk-body govuk-!-padding-top-2"><strong>This table shows reviews by earliest due date.</strong><br>
+Use the links on the right to view, assign/unassign reviews.<br>
+To show or exclude bans, use the filter below.</p>
+<div class="govuk-form-group govuk-!-padding-top-4">
+  <label class="govuk-label" for="sort">
+    Filter by
+  </label>
+  <select class="govuk-select" id="sort" name="sort">
+    <option value="all" selected>Show all</option>
+    <option value="ban">Show bans only</option>
+    <option value="ban">Exclude bans</option>
+  </select>
+</div>
+
+    </div>
+		<div class="govuk-grid-column-one-third grey">
+      {% include "./templates/bans.njk" %}
+		</div>
+  </div>
+
+  <div class="govuk-!-padding-bottom-0">
+    {{ govukTable({    
+      head: [
+        {
+          html: "Customer"
+        },
+        {
+          html: "Measures"
+        },
+        {
+          text: "Due Date"
+        },
+        {
+          text: "Assignee"
+        },
+        {
+          text: "Action"
+        }
+      ],
+      rows: [
+      [
+        {
+          html: "<span class='govuk-visually-hidden'>Customer: </span>Anne Other"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Measures: </span>
+                 <ul class='govuk-list govuk-list--bullet'>
+                  <li>No home visits</li>
+                 <li>Interim ban from office (by DWP)<br>Banned from: Bromley JCP</li>
+                 <li>Ban from office (by Government Legal Department)<br>Banned from: Droitwich JCP</li>
+                 </ul>"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Due date: </span>14 June 2026"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Assigned to: </span>Adam Smith"
+        },
+        {
+          html: "<a href='04history_complex'>Review</a><br><a href=''>Unassign</a>"
+        }
+      ],
+      [
+        {
+          html: "<span class='govuk-visually-hidden'>Customer: </span>John Doe"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Measures: </span>
+                 <ul class='govuk-list govuk-list--bullet'>
+                 <li>Interim ban from office (by DWP)<br>Banned from: Bromley JCP</li>
+                 <li>Must only interact with a named member of staff<br>Staff member: whitney@dwp.gov</li>
+                 </ul>"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Due date: </span>13 June 2026"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Assigned to: </span>David Cassidy"
+        },
+        {
+          html: "<a href='04history_complex'>Review</a><br><a href=''>Assign</a>"
+        }
+      ],
+      [
+        {
+          html: "<span class='govuk-visually-hidden'>Customer: </span>Earl Grey"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Measures: </span>
+                 <ul class='govuk-list govuk-list--bullet'>
+                 <li>Interim ban from office (by DWP)<br>Banned from: Bromley JCP</li>
+                 <li>Ban from office (by Government Legal Department)<br>Banned from: Droitwich JCP</li>
+                 </ul>"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Due date: </span>11 June 2026"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Assigned to: </span>Adam Smith"
+        },
+        {
+          html: "<a href='04history_complex'>Review</a><br><a href=''>Unassign</a>"
+        }
+      ],
+      [
+        {
+          html: "<span class='govuk-visually-hidden'>Customer: </span>Robert De Silva"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Measures: </span>
+                 <ul class='govuk-list govuk-list--bullet'>
+                 <li>No home visits</li>
+                 <li>Must only interact with a named member of staff<br>Staff member: whitney@dwp.gov</li>
+                 </ul>"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Due date: </span>11 June 2026"
+        },
+        {
+          html: "<span class='govuk-visually-hidden'>Assigned to: </span>David Cassidy"
+        },
+        {
+          html: "<a href='04history_complex'>Review</a><br><a href=''>Assign</a>"
+        }
+      ]
+    ]
+  }) }}
+  </div>         
+
+       <p class="govuk-body">Showing 1 - 5 of 10 reviews</p>
+  <nav class="govuk-pagination" aria-label="Pagination">
+    <li class="govuk-pagination__item govuk-pagination__item--current">
+      <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 1" aria-current="page">
+        1
+      </a>
+    </li>
+    <li class="govuk-pagination__item">
+      <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 2">
+        2
+      </a>
+    </li>
+    <li class="govuk-pagination__item">
+      <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 3">
+        3
+      </a>
+    </li>
+  </ul>
+  <div class="govuk-pagination__next">
+    <a class="govuk-link govuk-pagination__link" href="#" rel="next">
+      <span class="govuk-pagination__link-title">
+        Next<span class="govuk-visually-hidden"> page</span>
+      </span>
+      <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+        <path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
+      </svg>
+    </a>
+  </div>
+</nav>
+
+<br>
+
+
+  <div class="govuk-tabs" data-module="govuk-tabs">
+  <h2 class="govuk-tabs__title">
+    Contents
+  </h2>
+  <ul class="govuk-tabs__list">
+    <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+      <a class="govuk-tabs__tab" href="#all">
+        All
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#bans-only">
+        Bans only
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#bans-excluded">
+        Bans excluded
+      </a>
+    </li>
+  </ul>
+  <div class="govuk-tabs__panel" id="all">
+    <h2 class="govuk-heading-l">All reviews</h2>
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Customer</th>
+          <th scope="col" class="govuk-table__header">Measures</th>
+          <th scope="col" class="govuk-table__header">Due Date</th>
+          <th scope="col" class="govuk-table__header">Assignee	</th>
+          <th scope="col" class="govuk-table__header">Actions</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Anne Other</td>
+          <td class="govuk-table__cell"><ul class='govuk-list govuk-list--bullet'>
+                  <li>No home visits</li>
+                 <li>Interim ban from office (by DWP)<br>Banned from: Bromley JCP</li>
+                 <li>Ban from office (by Government Legal Department)<br>Banned from: Droitwich JCP</li>
+                 </ul></td>
+          <td class="govuk-table__cell">14 June 2026</td>
+          <td class="govuk-table__cell">Adam Smith</td>
+          <td class="govuk-table__cell"><a href='04history_complex'>Review</a><br><a href=''>Unassign</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">John Doe</td>
+          <td class="govuk-table__cell"><ul class='govuk-list govuk-list--bullet'>
+                 <li>Interim ban from office (by DWP)<br>Banned from: Bromley JCP</li>
+                 <li>Must only interact with a named member of staff<br>Staff member: whitney@dwp.gov</li>
+                 </ul></td>
+          <td class="govuk-table__cell">13 June 2026</td>
+          <td class="govuk-table__cell">Unassigned</td>
+          <td class="govuk-table__cell"><a href=''>Assign</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Earl Grey</td>
+          <td class="govuk-table__cell"><ul class='govuk-list govuk-list--bullet'>
+                 <li>Interim ban from office (by DWP)<br>Banned from: Bromley JCP</li>
+                 <li>Ban from office (by Government Legal Department)<br>Banned from: Droitwich JCP</li>
+                 </ul></td>
+          <td class="govuk-table__cell">11 June 2026</td>
+          <td class="govuk-table__cell">Adam Smith</td>
+          <td class="govuk-table__cell"><a href='04history_complex'>Review</a><br><a href=''>Unassign</a></td>
+        </tr>
+                <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Robert De Silva</td>
+          <td class="govuk-table__cell"><ul class='govuk-list govuk-list--bullet'>
+                 <li>No home visits</li>
+                 <li>Must only interact with a named member of staff<br>Staff member: whitney@dwp.gov</li>
+                 </ul></td>
+          <td class="govuk-table__cell">11 June 2026</td>
+          <td class="govuk-table__cell">Unassigned</td>
+          <td class="govuk-table__cell"><a href=''>Assign</a></td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="govuk-body">Showing 1 - 5 of 10 reviews</p>
+    <nav class="govuk-pagination" aria-label="Pagination">
+    <li class="govuk-pagination__item govuk-pagination__item--current">
+      <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 1" aria-current="page">
+        1
+      </a>
+    </li>
+    <li class="govuk-pagination__item">
+      <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 2">
+        2
+      </a>
+    </li>
+    <li class="govuk-pagination__item">
+      <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 3">
+        3
+      </a>
+    </li>
+  </ul>
+  <div class="govuk-pagination__next">
+    <a class="govuk-link govuk-pagination__link" href="#" rel="next">
+      <span class="govuk-pagination__link-title">
+        Next<span class="govuk-visually-hidden"> page</span>
+      </span>
+      <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+        <path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
+      </svg>
+    </a>
+  </div>
+</nav>
+  </div>
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="bans-only">
+    <h2 class="govuk-heading-l">Bans only</h2>
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Customer</th>
+          <th scope="col" class="govuk-table__header">Measures</th>
+          <th scope="col" class="govuk-table__header">Due Date</th>
+          <th scope="col" class="govuk-table__header">Assignee	</th>
+          <th scope="col" class="govuk-table__header">Actions</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Anne Other</td>
+          <td class="govuk-table__cell"><ul class='govuk-list govuk-list--bullet'>
+                  <li>No home visits</li>
+                 <li>Interim ban from office (by DWP)<br>Banned from: Bromley JCP</li>
+                 <li>Ban from office (by Government Legal Department)<br>Banned from: Droitwich JCP</li>
+                 </ul></td>
+          <td class="govuk-table__cell">14 June 2026</td>
+          <td class="govuk-table__cell">Adam Smith</td>
+          <td class="govuk-table__cell"><a href='04history_complex'>Review</a><br><a href=''>Unassign</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">John Doe</td>
+          <td class="govuk-table__cell"><ul class='govuk-list govuk-list--bullet'>
+                 <li>Interim ban from office (by DWP)<br>Banned from: Bromley JCP</li>
+                 <li>Must only interact with a named member of staff<br>Staff member: whitney@dwp.gov</li>
+                 </ul></td>
+          <td class="govuk-table__cell">13 June 2026</td>
+          <td class="govuk-table__cell">David Cassidy</td>
+          <td class="govuk-table__cell"><a href='04history_complex'>Review</a><br><a href=''>Assign</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Earl Grey</td>
+          <td class="govuk-table__cell"><ul class='govuk-list govuk-list--bullet'>
+                 <li>Interim ban from office (by DWP)<br>Banned from: Bromley JCP</li>
+                 <li>Ban from office (by Government Legal Department)<br>Banned from: Droitwich JCP</li>
+                 </ul></td>
+          <td class="govuk-table__cell">11 June 2026</td>
+          <td class="govuk-table__cell">Adam Smith</td>
+          <td class="govuk-table__cell"><a href='04history_complex'>Review</a><br><a href=''>Unassign</a></td>
+        </tr>
+                <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Robert De Silva</td>
+          <td class="govuk-table__cell"><ul class='govuk-list govuk-list--bullet'>
+                 <li>No home visits</li>
+                 <li>Must only interact with a named member of staff<br>Staff member: whitney@dwp.gov</li>
+                 </ul></td>
+          <td class="govuk-table__cell">11 June 2026</td>
+          <td class="govuk-table__cell">David Cassidy</td>
+          <td class="govuk-table__cell"><a href='04history_complex'>Review</a><br><a href=''>Assign</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="bans-excluded">
+    <h2 class="govuk-heading-l">Bans excluded</h2>
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Customer</th>
+          <th scope="col" class="govuk-table__header">Measures</th>
+          <th scope="col" class="govuk-table__header">Due Date</th>
+          <th scope="col" class="govuk-table__header">Assignee	</th>
+          <th scope="col" class="govuk-table__header">Actions</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Anne Other</td>
+          <td class="govuk-table__cell"><ul class='govuk-list govuk-list--bullet'>
+                  <li>No home visits</li>
+                 <li>Interim ban from office (by DWP)<br>Banned from: Bromley JCP</li>
+                 <li>Ban from office (by Government Legal Department)<br>Banned from: Droitwich JCP</li>
+                 </ul></td>
+          <td class="govuk-table__cell">14 June 2026</td>
+          <td class="govuk-table__cell">Adam Smith</td>
+          <td class="govuk-table__cell"><a href='04history_complex'>Review</a><br><a href=''>Unassign</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">John Doe</td>
+          <td class="govuk-table__cell"><ul class='govuk-list govuk-list--bullet'>
+                 <li>Interim ban from office (by DWP)<br>Banned from: Bromley JCP</li>
+                 <li>Must only interact with a named member of staff<br>Staff member: whitney@dwp.gov</li>
+                 </ul></td>
+          <td class="govuk-table__cell">13 June 2026</td>
+          <td class="govuk-table__cell">David Cassidy</td>
+          <td class="govuk-table__cell"><a href='04history_complex'>Review</a><br><a href=''>Assign</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Earl Grey</td>
+          <td class="govuk-table__cell"><ul class='govuk-list govuk-list--bullet'>
+                 <li>Interim ban from office (by DWP)<br>Banned from: Bromley JCP</li>
+                 <li>Ban from office (by Government Legal Department)<br>Banned from: Droitwich JCP</li>
+                 </ul></td>
+          <td class="govuk-table__cell">11 June 2026</td>
+          <td class="govuk-table__cell">Adam Smith</td>
+          <td class="govuk-table__cell"><a href='04history_complex'>Review</a><br><a href=''>Unassign</a></td>
+        </tr>
+                <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Robert De Silva</td>
+          <td class="govuk-table__cell"><ul class='govuk-list govuk-list--bullet'>
+                 <li>No home visits</li>
+                 <li>Must only interact with a named member of staff<br>Staff member: whitney@dwp.gov</li>
+                 </ul></td>
+          <td class="govuk-table__cell">11 June 2026</td>
+          <td class="govuk-table__cell">David Cassidy</td>
+          <td class="govuk-table__cell"><a href='04history_complex'>Review</a><br><a href=''>Assign</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <br>
+
+  <div class="govuk-button-group govuk-!-padding-bottom-7">
+        {{ govukButton({
+      text: "Back",
+      href: "01landingpage1_nmready_gathered"
+    }) }}
+
+  </div>                       
+
+ 
+  
+  
+
+	{% if not (checked("displaymode", "presentation") == "checked") %}
+		{% include "./notes/01landing__notes.njk" %}
+	{% endif %}
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+

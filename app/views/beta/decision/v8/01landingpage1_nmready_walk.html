@@ -85,6 +85,18 @@
       ]
     }) }}
   </div>
+
+
+      {{ govukButton({
+        text: "NINO finder",
+        href: "",
+        classes: "govuk-button--secondary"
+      }) }}&nbsp;
+      {{ govukButton({
+        text: "Reassign report",
+        href: "",
+        classes: "govuk-button--secondary"
+      }) }}
   
 
 	{% if not (checked("displaymode", "presentation") == "checked") %}

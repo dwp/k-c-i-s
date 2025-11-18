@@ -27,6 +27,14 @@
         <p class="govuk-body govuk-!-margin-bottom-4" style="color: #505a5f">Add a note about this customer. <br> This note will be attached to the decision. <br>
                    If you'd like to add a general note, please use the button on the customer history page.</p> <br>
 
+                   <div class="govuk-warning-text">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text">
+    <span class="govuk-visually-hidden">Warning</span>
+    Do not include the names of any DWP staff in your note.
+  </strong>
+</div>
+
         <div class="govuk-form-group">
   <h1 class="govuk-label-wrapper">
     <label class="govuk-label govuk-label--l" for="event-name">
@@ -52,7 +60,7 @@
         <div class="govuk-button-group">
           {{ govukButton({
             text: "Continue",
-            href: "02history_complex_multiple8"
+            href: "h07a_add"
           }) }}
         </div>
     </div>

@@ -12,11 +12,9 @@
     }) }}
   </section>
   <!-- if there are measures show red banner else show blue -->
-  {% if  (data["2401_applymeasures1"] | length == 0 and data["2401_applymeasures2"] | length == 0 and data["2401_applymeasures3"] | length == 0) %}
-    {% include "./templates/key_details_robert_blue.njk" %}
-  {% else %}
+
     {% include "./templates/key_details_red.njk" %}
-  {% endif %}
+
 {% endblock %}
 {% block content %}
   <div class="govuk-grid-row">
@@ -40,7 +38,7 @@
   {{ govukButton({
     text: "Back to Customer history",
     classes: "govuk-button--primary",
-    href: "02history_complex_multiple2"
+    href: "02history_complex_multiple8"
   }) }}
 
 {% endblock %}

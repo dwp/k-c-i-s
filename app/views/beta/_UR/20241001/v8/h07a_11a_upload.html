@@ -12,11 +12,9 @@
     }) }}
   </section>
   <!-- if there are measures show red banner else show blue -->
-  {% if  (data["2401_applymeasures1"] | length == 0 and data["2401_applymeasures2"] | length == 0 and data["2401_applymeasures3"] | length == 0) %}
-    {% include "./templates/key_details_robert_blue.njk" %}
-  {% else %}
+
     {% include "./templates/key_details_red.njk" %}
-  {% endif %}
+
   <section aria-label="Back" role="region">
     {{ govukBackLink({
       text: "Back",

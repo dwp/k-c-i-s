@@ -1,0 +1,63 @@
+{% extends "layout_20241001_ur.html" %}
+{% block pageTitle %}
+  Should this be reported as a Fast Track incident? - Keep Customer Interactions Safe
+{% endblock %}
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+        text: "beta"
+      },
+      html: 'This is a new service – your <a class="govuk-link" href="06when_error">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "./templates/key_details_red.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "#"
+    }) }}
+  </section>
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-0">
+          <strong class='govuk-tag govuk-tag'>Decision pending</strong><br>
+          <a href="h_02incident1">Centre for Health and Disability Assessments (CHDA) concern</a>
+        </h2>
+        <p class="govuk-!-margin-bottom-0">15 July 2025</p>
+        <p class="govuk-body-s govuk-!-margin-bottom-0" style='color:#505a5f'>Reported by Richard Cliff, 15 July 2025 at 8:30am</p>
+        {{ govukRadios({
+        idPrefix: "fast-track",
+        name: "fast-track",
+        fieldset: {
+          legend: {
+            text: "Should this be reported as a Fast Track incident?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--xl"
+          }
+        },
+        items: [
+          {
+            value: "yes",
+            text: "Yes"
+          },
+          {
+            value: "no",
+            text: "No"
+          }
+        ]
+      }) }}
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Continue",
+          href: "03type"
+        }) }}
+      </div>
+    </div>
+  </div>
+  {% if not (checked("displaymode", "presentation") == "checked") %}
+		
+	{% endif %}
+{% endblock %}

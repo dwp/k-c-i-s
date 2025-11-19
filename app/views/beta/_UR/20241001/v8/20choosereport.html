@@ -11,7 +11,7 @@
       html: 'This is a new service – your <a class="govuk-link" href="10add_error">feedback</a> will help us to improve it.'
     }) }}
   </section>
-  {% include "./templates/key_details_robert_blue.njk" %}
+  {% include "./templates/key_details_red.njk" %}
   <section aria-label="Back" role="region">
     {{ govukBackLink({
       text: "Back",
@@ -23,39 +23,28 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       {% set inc2HTML %}
-        <h2 class="govuk-heading-s govuk-!-margin-bottom-0">
-          {% if data['20240429_inc2_actioned'] == "yes" %}
-            <strong class='govuk-tag--green govuk-tag'>Prepared</strong>
-          {% elif data['20240429_inc2_status'] == "Decision pending" %}
-            <strong class='govuk-tag'>{{data['20240429_inc2_status']}}</strong>
-          {% endif %}
-          <br>
-          {{data['20240429_inc2_interaction_type']}} incident
-        </h2>
-        <p>
-          <span class='govuk-visually-hidden'>Report date: </span>{{data['20240429_inc2_date']}} {{data['20240429_inc2_time']}} 
-          <span class='govuk-body-s' style='color:#505a5f'></span><br>
-          <span class='govuk-body-s' style='color:#505a5f'>Reported by {{data['20240429_inc2_reporter']}}, {{data['20240429_inc2_date']}} {{data['20240429_inc2_time_reported']}}</span>
-        </p>
+                                        <h2 class="govuk-heading-s govuk-!-margin-bottom-0">
+                                    <strong class='govuk-tag govuk-tag--green'>prepared</strong><br>
+                                    <a href="h_02incident2">Telephone incident</a><a class="govuk-!-margin-bottom-1 govuk-hint">
+                                        (INC-000-456-234)
+                                    </a>
+                                </h2>
+                                <p class="govuk-!-margin-bottom-0">15 July 2025</p>
+                                <p class="govuk-body-s" style='color:#505a5f'>Reported by Steven Tran, 15 July 2025 at 9:30am</p>
       {% endset %}
       {% set inc1HTML %}
         <h2 class="govuk-heading-s govuk-!-margin-bottom-0">
-          {% if data['20240429_inc1_actioned'] == "yes" %}
-            <strong class='govuk-tag--green govuk-tag'>Prepared</strong>
-          {% elif data['20240429_inc1_status'] == "Decision pending" %}
-            <strong class='govuk-tag'>{{data['20240429_inc1_status']}}</strong>
-          {% endif %}
-          <br>
-          {{data['20240429_inc1_interaction_type']}} incident
-        </h2>
-        <p>
-          <span class='govuk-visually-hidden'>Report date: </span>{{data['20240429_inc1_date']}} {{data['20240429_inc1_time']}} 
-          <span class='govuk-body-s' style='color:#505a5f'></span><br>
-          <span class='govuk-body-s' style='color:#505a5f'>Reported by {{data['20240429_inc1_reporter']}}, {{data['20240429_inc1_date']}} {{data['20240429_inc1_time_reported']}}</span>
-        </p>
+                                    <strong class='govuk-tag govuk-tag'>Decision pending</strong><br>
+                                    <a href="h_02incident1">Centre for Health and Disability Assessments (CHDA) concern</a><a class="govuk-!-margin-bottom-1 govuk-hint">
+                                        (INC-000-456-235)
+                                    </a>
+                                </h2>
+                                <p class="govuk-!-margin-bottom-0">15 July 2025</p>
+                                <p class="govuk-body-s" style='color:#505a5f'>Reported by Richard Cliff, 15 July 2025 at 8:30am</p>
       {% endset %}
       <form class="form" method="post" action="20actionroute">
-        {% include "./templates/multi_caption.njk" %}
+        {% include "./templates/govuk-caption-m-multiple.njk" %}<br>
+        <a href="02history_complex_multiple8" class>View Customer history</a>
         {{ govukRadios({
           idPrefix: "20240429_current_report",
           name: "20240429_current_report",
@@ -82,7 +71,8 @@
         }) }}
         <div>
           {{ govukButton({
-            text: "Continue"
+            text: "Continue",
+            href: "06fast"
           }) }}
         </div>
       </form>

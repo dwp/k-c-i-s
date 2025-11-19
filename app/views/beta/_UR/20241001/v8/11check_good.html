@@ -11,7 +11,7 @@
       html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
     }) }}
   </section>
-  {% include "./templates/key_details_robert_blue.njk" %}
+  {% include "./templates/key_details_red.njk" %}
   <section aria-label="Back" role="region">
     {{ govukBackLink({
       text: "Back",
@@ -20,7 +20,12 @@
   </section>
 {% endblock %}
 {% block content %}
-{% include "./templates/multi_caption3.njk" %}
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-0">
+          <strong class='govuk-tag govuk-tag'>Decision pending</strong><br>
+          <a href="h_02incident1">Centre for Health and Disability Assessments (CHDA) concern</a>
+        </h2>
+        <p class="govuk-!-margin-bottom-0">15 July 2025</p>
+        <p class="govuk-body-s govuk-!-margin-bottom-0" style='color:#505a5f'>Reported by Richard Cliff, 15 July 2025 at 8:30am</p>
 <h1 class="govuk-heading-xl">Check your answers</h1>
     <div class="govuk-!-margin-bottom-9">
       {% set actionListHTML %}
@@ -70,7 +75,7 @@
             Incident type
           </dt>
           <dd class="govuk-summary-list__value">
-            {{data["2404_incident_type"]}}
+            Physical assault
           </dd>
           <dd class="govuk-summary-list__actions">
             <form action="03type" class="form" method="post">
@@ -87,7 +92,7 @@
             Incident cause
           </dt>
           <dd class="govuk-summary-list__value">
-            {{data["2404_incident_trigger"]}}
+            An issue with payment
           </dd>
           <dd class="govuk-summary-list__actions">
             <form action="04trigger" class="form" method="post">
@@ -104,7 +109,7 @@
             Note for Sarah Sencha<br><span class="govuk-body">(Manager)</span>
           </dt>
           <dd class="govuk-summary-list__value">
-            {{data["2401_note"]}}
+            This customer is violent. Please do not engage with him in person.
           </dd>
           <dd class="govuk-summary-list__actions">
             <form action="09prepare_single_man" class="form" method="post">

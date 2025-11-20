@@ -13,7 +13,7 @@
       html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
     }) }}
   </section>
-  {% include "./templates/key_details_robert_blue.njk" %}
+  {% include "./templates/key_details_red.njk" %}
   <section aria-label="Back" role="region">
     {{ govukBackLink({
       text: "Back",
@@ -53,7 +53,8 @@
             margin-block-start: 0em;
         }
       </style>
-      {% include "./templates/multi_caption4.njk" %}
+              {% include "./templates/govuk-caption-m-multiple.njk" %}<br>
+        <a href="02history_complex_multiple8" class>View Customer history</a>
       <h1 class="govuk-fieldset__legend--xl">Which measures have you applied to make interactions with this customer safer?</h1>
       <p class="govuk-hint">Select all that apply, including any safety measures that already exist.</p>
       <form class="form" action="07measureaccount" method="post">

@@ -12,12 +12,9 @@
       html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
     }) }}
   </section>
-  <!-- if there are measures show red banner else show blue -->
-    {% if  (data["2401_applymeasures1"] | length == 0 and data["2401_applymeasures2"] | length == 0 and data["2401_applymeasures3"] | length == 0) %}
-        {% include "./templates/key_details_robert_blue.njk" %}
-    {% else %}
+
         {% include "./templates/key_details_red.njk" %}
-    {% endif %}
+
   <section aria-label="Back" role="region">
     {{ govukBackLink({
       text: "Back",
@@ -30,19 +27,19 @@
         <div class="govuk-grid-column-two-thirds">
             <h1 class="govuk-heading-xl">Customer history</h1>
         </div>
-
     </div>
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
             <h2 class="govuk-heading-l govuk-!-margin-bottom-2">Summary note</h2>
-            <p class="govuk-body">No summary note has been added.</p>
+			<p class=" govuk-hint">15 July 2025 at 4.30pm by Adam Smith</p>
+            <p class="govuk-body">The customer has repeatedly attended the DWP office displaying disruptive and confrontational behavior, often refusing to follow procedures and requiring staff intervention.</p>
             {% include "./templates/customerhistoryhelp.njk" %}
 
             <div class="govuk-button-group">
                 <form class="form" action="20choosereport" method="post">
                     {{ govukButton({
                         text: "Prepare actions",
-                        href: "03type",
+                        href: "20choosereport",
                         classes: "govuk-button--secondary"
                     }) }}
                     {{ govukButton({
@@ -52,19 +49,40 @@
                     }) }}
                     {{ govukButton({
                         text: "Add a note",
-                        href: "#",
+                        href: "17note_bst",
                         classes: "govuk-button--secondary"
                     }) }}
                     {{ govukButton({
                         text: "Edit summary",
-                        href: "#",
+                        href: "22summary",
                         classes: "govuk-button--secondary"
                     }) }}
                 </form>
             </div>
         </div>
 
+            <div class="govuk-grid-column-one-third">
+                <style>
+                    @media (min-width: 40.0625em) {
+                        hr {
+                            margin:0px !important;
+                        }
+                    }
+                </style>
+                <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" aria-hidden="true"> 
+                <dl class="govuk-summary-list">
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key govuk-!-width-one-half">
+                            Measures review date
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-width-one-half">
+                            14 July 2026
+                        </dd>
+                    </div>
+                </dl>
+            </div>
 
+    </div>
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
             <ol class="dwp-timeline__events">
@@ -89,15 +107,34 @@
 
     
     
-
+        <p class="govuk-body">{{data ["2401_measureaccount"]}}</p>
+                        {% set notesHTML %}
+                        <a href="17note_bst_specific">Add note to this decision</a> <br> <br>
+                        {% include "./templates/measures_note2.njk" %} 
+                        {% endset %}
+                        
+                        {{ govukDetails({
+                            summaryText: "Notes",
+                            html: notesHTML
+                        }) }}
     
     
                         {% set incidentDetailsHTML %}
                              <ul class="govuk-list">
+                                <li>
+                                <h2 class="govuk-heading-s govuk-!-margin-bottom-0">
+                                    <strong class='govuk-tag govuk-tag--green'>prepared</strong><br>
+                                    <a href="h_02incident2">Telephone incident</a><a class="govuk-!-margin-bottom-1 govuk-hint">
+                                        (INC-000-456-234)
+                                    </a>
+                                </h2>
+                                <p class="govuk-!-margin-bottom-0">15 July 2025</p>
+                                <p class="govuk-body-s" style='color:#505a5f'>Reported by Steven Tran, 15 July 2025 at 9:30am</p>
+                            </li>
                             <li class="dwp-timeline__events--entry">
                                 <h2 class="govuk-heading-s govuk-!-margin-bottom-0">
                                     <strong class='govuk-tag govuk-tag--green'>Prepared</strong><br>
-                                    <a href="h_02incident1">Telephone incident</a><a class="govuk-!-margin-bottom-1 govuk-hint">
+                                    <a href="h_02incident1">Centre for Health and Disability Assessments (CHDA) concern</a><a class="govuk-!-margin-bottom-1 govuk-hint">
                                         (INC-000-456-235)
                                     </a>
                                 </h2>
@@ -112,15 +149,186 @@
                     </li>   
       </details>
 
+    <li class="dwp-timeline__events--entry">
 
+        <details class="govuk-details govuk-!-margin-bottom-4">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                <span class="govuk-heading-m govuk-!-display-inline govuk-!-margin-bottom-0" style="color: #1d70b8">
+                  Decision
+                </span>
+                <strong class="govuk-tag govuk-tag--red govuk-!-margin-left-2">
+                    Active measures
+                  </strong>
+                </span>
+                <p class=" govuk-hint">14 July 2025</p>
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <a href="21decision">View decision details</a>
+              <h3 class="govuk-heading-s govuk-!-margin-bottom-2 govuk-!-margin-top-4">Measures</h3>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>Must be seen in a screened area</li>
+				<li>Ban from office (by DWP)</li>
+				<li>Banned from: Newcastle East JCP</li>
+              </ul>
+        
+        
+        
+            <p class="govuk-body">{{data ["2401_measureaccount"]}}</p>
+                            {% set notesHTML %}
+                            <a href="17note_bst_specific">Add note to this decision</a> <br> <br>
+                            {% include "./templates/measures_note5.njk" %} 
+							{% include "./templates/measures_note4.njk" %} 
+                            {% endset %}
+                            
+                            {{ govukDetails({
+                                summaryText: "Notes",
+                                html: notesHTML
+                            }) }}
+        
+                            {% set actionDetailsHTML %}
+                            <dl class="govuk-summary-list">
+                                    <div class="govuk-summary-list__row">
+                                        <dt class="govuk-summary-list__key govuk-!-width-one-half">
+                                            <a href="h_05action2">Interview by a manager</a>
+                                        </dt>
+                                        <dd class="govuk-summary-list__value">
+                                            <span class="govuk-tag">Requested:</span><br>14 July 2025
+                                        </dd>
+                                    </div>
+                                    <div class="govuk-summary-list__row">
+                                        <dt class="govuk-summary-list__key govuk-!-width-one-half">
+                                            <a href="h_05action2">Send a letter</a>
+                                        </dt>
+                                        <dd class="govuk-summary-list__value">
+                                            <span class="govuk-tag govuk-tag--red">I didn't do it:</span> <br>14 July 2025
+                                        </dd>
+                                    </div>
+                                    <div class="govuk-summary-list__row">
+                                        <dt class="govuk-summary-list__key govuk-!-width-one-half">
+                                            <a href="h_05action2">Request a banning order</a>
+                                        </dt>
+                                        <dd class="govuk-summary-list__value">
+                                            Completed:</a> <br>14 July 2025
+                                        </dd>
+                                    </div>
+                                </dl>
+                            {% endset %}
+                            {{ govukDetails({
+                                summaryText: "Actions",
+                                html: actionDetailsHTML
+                            }) }}
+        
+                            {% set incidentDetailsHTML %}
+                                 <ul class="govuk-list">
+                                    <li>
+                                    <h2 class="govuk-heading-s govuk-!-margin-bottom-0">
+                                        <a href="h_02incident2">Telephone incident</a><a class="govuk-!-margin-bottom-1 govuk-hint">
+                                            (INC-000-456-234)
+                                        </a>
+                                    </h2>
+                                    <p class="govuk-!-margin-bottom-0">15 July 2025</p>
+                                    <p class="govuk-body-s" style='color:#505a5f'>Reported by Whitney Earl on behalf of Jay Yu, 14 July 2025 at 8:30am</p>
+                                </li>
+                                <li class="dwp-timeline__events--entry">
+                                    <h2 class="govuk-heading-s govuk-!-margin-bottom-0">
+                                        <a href="h_02incident1">In person incident</a><a class="govuk-!-margin-bottom-1 govuk-hint">
+                                            (INC-000-456-235)
+                                        </a>
+                                    </h2>
+                                    <p class="govuk-!-margin-bottom-0">15 July 2025</p>
+                                    <p class="govuk-body-s" style='color:#505a5f'>Reported by Helen Whiteley, 14 July 2025 at 8:00am</p>
+                                </li>       
+                            {% endset %}
+                            {{ govukDetails({
+                                summaryText: "Reports",
+                                html: incidentDetailsHTML
+                            }) }}
+                        </li>   
+          </details>
+
+          <li class="dwp-timeline__events--entry">
+            <h2 class="govuk-heading-s govuk-!-margin-bottom-0">
+                <a href="#">Note - GLD request for more information</a>
+            </h2>
+            <p class="govuk-body-s" style='color:#505a5f'>13 July 2025</p>
+        </li>
+
+          <li class="dwp-timeline__events--entry">
+
+            <details class="govuk-details govuk-!-margin-bottom-4">
+                <summary class="govuk-details__summary">
+                  <span class="govuk-details__summary-text">
+                    <span class="govuk-heading-m govuk-!-display-inline govuk-!-margin-bottom-0" style="color: #1d70b8">
+                      Decision
+                    </span>
+                    </span>
+                    <p class=" govuk-hint">13 July 2025</p>
+                  </span>
+                </summary>
+                <div class="govuk-details__text">
+					<p class=" govuk-heading-s govuk-!-margin-bottom-2">This decision is part of a review and does not include or require any reports.</p>
+					<a href="21decision">View decision details</a>
+					<h3 class="govuk-heading-s govuk-!-margin-bottom-2 govuk-!-margin-top-4">Measures</h3>
+					<ul class="govuk-list govuk-list--bullet">
+					  <li>Must be seen in a screened area</li>
+					  <li>No home visits</li>
+
+					  <p class="govuk-body">{{data ["2401_measureaccount"]}}</p>
+					  
+					  {% set notesHTML %}
+                      <a href="17note_bst_specific">Add note to this decision</a> <br> <br>
+					  {% include "./templates/measures_note6.njk" %} 
+					  {% endset %}
+					  
+					  {{ govukDetails({
+						  summaryText: "Notes",
+						  html: notesHTML
+					  }) }}
+  
+					  {% set actionDetailsHTML %}
+					  <dl class="govuk-summary-list">
+							  <div class="govuk-summary-list__row">
+								  <dt class="govuk-summary-list__key govuk-!-width-one-half">
+									  <a href="h_05action2">Interview by a manager</a>
+								  </dt>
+								  <dd class="govuk-summary-list__value">
+									  <span class="govuk-tag">Requested:</span><br>13 July 2025
+								  </dd>
+							  </div>
+							  <div class="govuk-summary-list__row">
+								  <dt class="govuk-summary-list__key govuk-!-width-one-half">
+									  <a href="h_05action2">Send a letter</a>
+								  </dt>
+								  <dd class="govuk-summary-list__value">
+									  <span class="govuk-tag govuk-tag--red">I didn't do it:</span> <br>13 July 2025
+								  </dd>
+							  </div>
+							  <div class="govuk-summary-list__row">
+								  <dt class="govuk-summary-list__key govuk-!-width-one-half">
+									  <a href="h_05action2">Request a banning order</a>
+								  </dt>
+								  <dd class="govuk-summary-list__value">
+									  Completed:</a> <br>13 July 2025
+								  </dd>
+							  </div>
+						  </dl>
+					  {% endset %}
+					  {{ govukDetails({
+						  summaryText: "Actions",
+						  html: actionDetailsHTML
+					  }) }}
   
 
 			
-
+	</details>
 
 
 							
 
+
+              </details>
 
 
             </ol>

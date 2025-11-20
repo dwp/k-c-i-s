@@ -11,7 +11,7 @@
       html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
     }) }}
   </section>
-  {% include "./templates/key_details_robert_blue.njk" %}
+  {% include "./templates/key_details_red.njk" %}
   <section aria-label="Back" role="region">
     {{ govukBackLink({
       text: "Back",
@@ -25,7 +25,8 @@
 
       <!-- Set the buttons to return to Check your answers page it cam from else carry on with flow-->
 
-      {% include "./templates/multi_caption4.njk" %}
+              {% include "./templates/govuk-caption-m-multiple.njk" %}<br>
+        <a href="02history_complex_multiple8" class>View Customer history</a>
       {% if data['Referrer'] %}
         {% if data['Referrer'].includes('11check_good_multi') %}
           <form class="form" action="11check_good_multi?t={{data['Timenow']}}" method="post">

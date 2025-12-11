@@ -1,0 +1,13 @@
+<span class="govuk-caption-m">
+    <!-- if incident 1 been prepared or pending then render status -->
+    {% if data['20240429_inc1_actioned'] == "yes" %}
+        <strong class='govuk-tag govuk-tag--green'>{{data['20240429_inc1_status']}}</strong>
+    {% elif data['20240429_inc1_status'] == "Decision pending" %}
+        <strong class='govuk-tag'>{{data['20240429_inc1_status']}}</strong>
+    {% endif %}<br>
+    {{data['20240429_inc1_interaction_type']}} incident<br>
+    <span style='color:#000'>{{ "today" | govukDate }}{{data['20240429_inc1_time']}}</span><br>
+    <span class="govuk-body-s" style='color:#505a5f'>Reported by {{data['20240429_inc1_reporter']}}, {{ data['20240429_inc1_date_reported']}}{{ data['20240429_inc1_time_reported']}}</span><br>
+    <span class="govuk-body-s" style="color:#505a5f">Manager: {{data["20240429_inc1_manager"]}}</span>
+</span>
+

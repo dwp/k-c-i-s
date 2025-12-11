@@ -1,0 +1,59 @@
+{% extends "layout_20241001_ur.html" %}
+{% block pageTitle %}
+  We've recorded your actions and measures - Keep Customer Interactions Safe
+{% endblock %}
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+        text: "beta"
+      },
+      html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "./templates/key_details_robert_blue.njk" %}
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {% set html %}
+      <h3 class="govuk-notification-banner__heading">
+        This report is now <span class="govuk-tag govuk-tag--green">Prepared</span>
+      </h3>
+      <p class="govuk-body">Reference number: <span aria-hidden="true">{{data['20240429_inc2_reference_prefix']}}</span><span aria-hidden="false">{{data['20240429_inc2_reference_chars']}}</span>
+      </p>
+    {% endset %}
+    
+    {{ govukNotificationBanner({
+      html: html,
+      type: "success"
+    }) }}
+      {% include "./templates/multi_caption2.njk" %}
+      <br>
+      <br>
+
+      <h2 class="govuk-heading-m">What happens next?</h2>
+
+      <p class="govuk-body">You may have more reports to prepare for this customer. </p>
+
+
+      <p class="govuk-body">
+        Return to the Customer history and make sure all live reports are <span class="govuk-tag govuk-tag--green">Prepared</span>. Then apply safety measures, publish and close the decision.
+      </p>
+      <p class="govuk-body"><strong>You can continue to change your decision until it is published.</strong> </p>
+
+    </div>
+  </div>
+  {% if data['2reports'] == "no" %}
+    {% set buttonUrlHTML = "02history_complex_multiple0" %}
+  {% else %}
+    {% set buttonUrlHTML = "02history_complex_multiple" %}
+  {% endif %}
+
+  {{ govukButton({
+    text: "Return to Customer history",
+    classes: "govuk-button--primary",
+    href: buttonUrlHTML
+  }) }}
+
+{% endblock %}

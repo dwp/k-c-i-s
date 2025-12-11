@@ -1,0 +1,19 @@
+{{ govukDetails({
+  summaryText: "File must not have a DWP Use Only or HMG Use Only label",
+  html: "<p class='govuk-body'>You must only upload documents with an Official - Official, Official - Sensitive-Official - Sensitive or Non-visible sensitivity label. </p>
+        <p class='govuk-body'>Files uploaded with a different sensitivity label cannot be downloaded.</p>"
+}) }}
+{{ govukDetails({
+  summaryText: "Files must be smaller than 1MB",
+  html: "<p class='govuk-body'>If each file is smaller than 1MB, add files one at a time. </p>
+        <p class='govuk-body'>To add a file that is bigger than 1MB, select Continue on this screen and complete your report. You can email the files to the email address shown in the final screen, after you submit your report.</p>"
+}) }}
+{{ govukDetails({
+  summaryText: "File names must only use letters and numbers",
+  html: "<p class='govuk-body'>File names must only contain letters and numbers. They must not contain other characters. For example '_' or '-'.</p>"
+}) }}
+
+{{ govukWarningText({
+  text: "Do not upload MAPPA files",
+  iconFallbackText: "Warning"
+}) }}

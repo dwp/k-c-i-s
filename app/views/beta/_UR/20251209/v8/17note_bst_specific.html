@@ -1,0 +1,69 @@
+{% extends "layout_20241001_ur.html" %}
+{% block pageTitle %}
+  Add a note - Keep Customer Interactions Safe
+{% endblock %}
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+      text: "beta"
+    },
+      html: 'This is a new service – your <a class="govuk-link" href="10actionerror">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "templates/v7/key_details_red.njk" %}
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
+  </section>
+{% endblock %}
+{% block content %}
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+                <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Add a note</h1>
+        <p class="govuk-body govuk-!-margin-bottom-4" style="color: #505a5f">Add a note about this customer. <br> This note will be attached to the decision. <br>
+                   If you'd like to add a general note, please use the button on the customer history page.</p> <br>
+
+                   <div class="govuk-warning-text">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text">
+    <span class="govuk-visually-hidden">Warning</span>
+    Do not include the names of any DWP staff in your note.
+  </strong>
+</div>
+
+        <div class="govuk-form-group">
+  <h1 class="govuk-label-wrapper">
+    <label class="govuk-label govuk-label--l" for="event-name">
+      Title
+    </label>
+  </h1>
+  <input class="govuk-input" id="event-name" name="eventName" type="text">
+</div>
+
+        {{ govukCharacterCount({
+          name: "actionaccounts",
+          id: "actionaccounts",
+          maxlength: 3000,
+          label: {
+            text: "Note",
+            isPageHeading: true,
+            classes: "govuk-label--l"
+          },
+            hint: {
+            html: ""
+          }
+        }) }}
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Continue",
+            href: "h07a_add"
+          }) }}
+        </div>
+    </div>
+  </div>
+
+{% endblock %}

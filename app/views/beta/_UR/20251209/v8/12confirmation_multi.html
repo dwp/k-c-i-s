@@ -1,0 +1,61 @@
+{% extends "layout_20241001_ur.html" %}
+{% block pageTitle %}
+  We've recorded your actions and measures - Keep Customer Interactions Safe
+{% endblock %}
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+        text: "beta"
+      },
+      html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+  {% include "./templates/key_details_red.njk" %}
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {% include "./templates/multi_caption_confirmation.njk" %}
+      <br>
+      <br>
+
+      {% set refHTML %}
+      <div class="govuk-panel__body">Reference number:
+        <br>
+        <strong>
+          <span aria-hidden="true">{{data['20240429_inc2_reference_prefix']}}</span><span aria-hidden="false">{{data['20240429_inc2_reference_chars']}}</span><br>
+          <span aria-hidden="true">{{data['20240429_inc1_reference_prefix']}}</span><span aria-hidden="false">{{data['20240429_inc1_reference_chars']}}</span>
+        </strong>
+      </div>
+      {% endset %}
+      {{ govukPanel({
+        titleText: "We've published your decision ",
+        html: refHTML,
+        id: "panel",
+        name: "panel"
+      }) }}
+
+      <h2 class="govuk-heading-m">We'd like your feedback</h2>
+
+
+      <p class="govuk-body">
+        To help us improve this service, we’d like to know
+        <a href="#" class="govuk-link" rel="noreferrer noopener" target="_blank">what you think of it.</a> 
+        It will only take 2 minutes to give us feedback.
+      </p>
+
+    </div>
+  </div>
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Return to Your reports",
+      href: "01landingpage1_none"
+    }) }}
+    {{ govukButton({
+      text: "Check Customer history",
+      href: "02history_complex_multiple9_completed",
+      classes: "govuk-button--secondary"
+    }) }}    
+  </div>
+{% endblock %}

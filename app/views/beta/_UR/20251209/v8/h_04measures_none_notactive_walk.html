@@ -11,8 +11,7 @@
       html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
     }) }}
   </section>
-  <!-- if there are measures show red banner else show blue -->
- {% include "templates/v7/key_details_red.njk" %}
+  {% include "templates/v7/key_details.njk" %}
   <section aria-label="Back" role="region">
     {{ govukBackLink({
       text: "Back",
@@ -21,17 +20,16 @@
   </section>
 {% endblock %}
 {% block content %}
-   <h1 class="govuk-heading-xl">Measures</h1>
+  <h1 class="govuk-heading-xl">Measures</h1>
   {{ govukSummaryList({
     rows: [
       {
         key: {
-          html: 'Measures <strong class="govuk-tag govuk-tag--red">Active</strong>'
+          html: 'Measures (not active)'
         },
         value: {
           html: '<ul class="govuk-list govuk-list--bullet">
-            <li>Must be seen in a screened area</li>
-            <li>Must only interact with a named member of staff</li>
+            <li>None</li>
           </ul>'
         }
       },
@@ -40,7 +38,7 @@
           text: "Date applied"
         },
         value: {
-          text: "20 Nov 2025"
+          text: "30 May 2022"
         }
       },
       {
@@ -48,29 +46,23 @@
           text: "Applied by"
         },
         value: {
-          html: "David Cassidy"
-        }
-      },
-      {
-        key: {
-          text: "Review date"
-        },
-        value: {
-          html: "20 Nov 2026"
+          html: "Sarah Sencha"
         }
       }
     ]
   }) }}
   <div class="govuk-grid-row govuk-!-padding-bottom-3">
     <div class="govuk-grid-column-two-thirds">
-      <p class="govuk-!-padding-bottom-7">The customer must not have any face to face interaction as he has previously made a threat towards DWP and has thrown a weapon at staff. Bans requested and applied</p>
-        <div class="govuk-button-group">
+      <p class="govuk-!-padding-bottom-7">The measures are no longer valid and have been removed.</p>
+      <div class="govuk-button-group">
         {{ govukButton({
           text: "Back to customer history",
-          href: "02history_complex_multiple9_completed"
+          href: "javascript:history.back()"
         }) }}
       </div>
     </div>
   </div>
-
+  {% if not (checked("displaymode", "presentation") == "checked") %}
+		{% include "./notes/h_04measures__notes.njk" %}
+	{% endif %}
 {% endblock %}

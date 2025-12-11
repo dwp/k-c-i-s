@@ -40,12 +40,12 @@
                     {{ govukButton({
                         text: "Prepare actions",
                         href: "20choosereport",
-                        classes: "govuk-button--secondary"
+                        classes: "govuk-button--primary"
                     }) }}
                     {{ govukButton({
                         text: "Add measures",
                         href: "06measure",
-                        classes: "govuk-button--primary"
+                        classes: "govuk-button--secondary"
                     }) }}
                     {{ govukButton({
                         text: "Add a note",
@@ -96,8 +96,8 @@
             <span class="govuk-heading-m govuk-!-display-inline govuk-!-margin-bottom-0" style="color: #1d70b8">
               Decision
             </span>
-            <strong class="govuk-tag govuk-tag--green govuk-!-margin-left-2">
-                Prepared
+            <strong class="govuk-tag govuk-tag govuk-!-margin-left-2">
+                Decision Pending
               </strong>
             </span>
           </span>
@@ -133,7 +133,8 @@
                             </li>
                             <li class="dwp-timeline__events--entry">
                                 <h2 class="govuk-heading-s govuk-!-margin-bottom-0">
-                                    <strong class='govuk-tag govuk-tag--green'>Prepared</strong><br>
+                                    <strong class='govuk-tag govuk-tag'>Decision pending</strong>
+                                    <br>
                                     <a href="h_02incident1">Centre for Health and Disability Assessments (CHDA) concern</a><a class="govuk-!-margin-bottom-1 govuk-hint">
                                         (INC-000-456-235)
                                     </a>
@@ -144,6 +145,7 @@
                         {% endset %}
                         {{ govukDetails({
                             summaryText: "Reports",
+                            open: true,
                             html: incidentDetailsHTML
                         }) }}
                     </li>   

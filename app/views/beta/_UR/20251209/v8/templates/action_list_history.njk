@@ -1,0 +1,30 @@
+<dl class="govuk-summary-list">
+<!-- Does the inc1 action list contain any action  -->
+{% if ((data["2401_actions"] | length ) == 0) and ((data["2401_actions2"] | length ) == 0) %}
+    <ul class="govuk-list govuk-list--bullet">
+        <li>None</li>
+    </ul>
+{% else %}
+      <!-- Loop through and display appropriately -->
+    {% for item in data["2401_actions"] %}
+    <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key govuk-!-width-one-half">
+            <a href="h_05action">{{ item }}</a>
+        </dt>
+        <dd class="govuk-summary-list__value">
+            <span class="govuk-tag">Requested:</span> <br>{{data["20240429_inc1_date"]}}
+        </dd>
+    </div>
+    {% endfor %}
+    {% for item in data["2401_actions2"] %}
+    <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key govuk-!-width-one-half">
+            <a href="h_05action">{{ item }}</a>
+        </dt>
+        <dd class="govuk-summary-list__value">
+            <span class="govuk-tag">Requested:</span> <br>{{data["20240429_inc1_date"]}}
+        </dd>
+    </div>
+    {% endfor %}    
+{% endif %}
+</dl>

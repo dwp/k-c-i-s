@@ -14,7 +14,8 @@
     "govuk-country-and-territory-autocomplete": "^1.0.2",
     "govuk-frontend": "4.7.0",
     "govuk-prototype-kit": "^13.16.2",
-    "notifications-node-client": "^5.2.3"
+    "notifications-node-client": "^5.2.3",
+    "qs": "^6.14.1"
   },
   "engines": {
     "node": "20.9"

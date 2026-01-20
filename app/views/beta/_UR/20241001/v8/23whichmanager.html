@@ -50,13 +50,21 @@
         {{ govukRadios({
           idPrefix: "20240429_current_report",
           name: "20240429_current_report",
+          
           fieldset: {
-            legend: {
-              text: "Which manager should do the action?",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--xl"
-            }
-          },
+          legend: {
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--xl",
+          html: '
+        <h1 class="govuk-fieldset__heading">Which manager should do the action?</h1>
+        <ul class="govuk-list govuk-list--bullet govuk-!-margin-top-4"">
+          <li>Issue a verbal warning</li>
+          <li>Interview by a manager</li>
+        </ul>
+      '
+    }
+  },
+
           items: [
             {
               value: "incident2",
@@ -68,8 +76,7 @@
             }
           ],
           hint: {
-            text: "Select the manager who should carry out the action you chose earlier.
-You’re seeing this question because the action you selected — sending a letter, giving a verbal warning, or arranging a manager interview — must be completed by a manager."
+            text: "Select the manager who should carry out the action you chose earlier."
           }
         }) }}
         <div>

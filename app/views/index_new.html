@@ -28,9 +28,9 @@ Prototype index - Keep Customer Interactions Safe
 
 		<div class="govuk-!-padding-bottom-7 govuk-!-padding-top-7">
 			<h2 class="govuk-heading-l" id="interaction">Prepare for interaction</h2>
-			<h3 class="govuk-heading-s"><strong class="govuk-tag govuk-tag--blue">UCD - In progress</strong></h3>
+			<h3 class="govuk-heading-s"><strong class="govuk-tag govuk-tag--green">Final</strong></h3>
 			<ul class="govuk-list govuk-list--bullet">
-				<li><a href="/beta/interaction/v3/01interaction">Prepare for interaction v3</a><br><br>
+				<li><a href="/beta/interaction/v3/01interaction">Prepare for interaction</a><br><br>
 				{{ govukDetails({
 					summaryText: "Page index",
 					html: '
@@ -41,73 +41,8 @@ Prototype index - Keep Customer Interactions Safe
 				{% set journeyNotesHTMLinteract_v3 %}
 					{% include "./beta/interaction/notes/v3__notes.njk" %}
 				{% endset %}
-				{{ govukDetails({
-					summaryText: "v3 Interaction journey-level notes",
-					html: journeyNotesHTMLinteract_v3
-				}) }}
 				</li>
 			</ul>
-			<h3 class="govuk-heading-s"><strong class="govuk-tag govuk-tag--green">Development</strong></h3>
-			<ul class="govuk-list govuk-list--bullet">
-				<li><a href="/beta/interaction/v2/01interaction">Prepare for interaction v2</a><br><br>
-				{{ govukDetails({
-					summaryText: "Page index",
-					html: '
-								<ul class="govuk-list">
-									<li><a href="/beta/interaction/v2/01interaction">01interaction - Prepare for interaction</a></li>
-								</ul>'
-				}) }}
-				{% set journeyNotesHTMLinteract_v2 %}
-					{% include "./beta/interaction/notes/v2__notes.njk" %}
-				{% endset %}
-				{{ govukDetails({
-					summaryText: "v2 Interaction journey-level notes",
-					html: journeyNotesHTMLinteract_v2
-				}) }}
-				</li>
-			</ul>
-			<hr>
-
-			<h3 class="govuk-heading-s">Archive</h3>
-			{% set oldjourneysHTML %}
-				<ul class="govuk-list govuk-list--bullet">
-					<ul class="govuk-list govuk-list--bullet">
-						<li><a href="/beta/interaction/v1/01interaction">Prepare for interaction v1</a><br><br>
-						{{ govukDetails({
-							summaryText: "Page index",
-							html: '
-										<ul class="govuk-list">
-											<li><a href="/beta/interaction/v1/01interaction">01interaction - Prepare for interaction link to SPL</a></li>
-										</ul>'
-						}) }}
-						{% set journeyNotesHTMLinteract_v1 %}
-							{% include "./beta/interaction/notes/v1__notes.njk" %}
-						{% endset %}
-						{{ govukDetails({
-							summaryText: "v1 Interaction journey-level notes",
-							html: journeyNotesHTMLinteract_v1
-						}) }}
-						</li>
-					</ul>
-		
-				</ul>
-			{% endset %}
-			{{ govukDetails({
-			summaryText: "Old journeys",
-			html: oldjourneysHTML
-			}) }}
-
-
-			{% set oldpagesHTML %}
-				<ul class="govuk-list govuk-list--bullet">
-					<li>None</li>
-				</ul>
-			{% endset %}
-			{{ govukDetails({
-			summaryText: "Old pages",
-			html: oldpagesHTML
-			}) }}
-
 						<hr>
 		</div>
 
@@ -117,9 +52,9 @@ Prototype index - Keep Customer Interactions Safe
 		<div class="govuk-!-padding-bottom-7 govuk-!-padding-top-7">
 			<h2 class="govuk-heading-l" id="incident">Report incident or concern</h2>
 
-			<h3 class="govuk-heading-s"><strong class="govuk-tag govuk-tag--blue">UCD - In progress</strong></h3>
+			<h3 class="govuk-heading-s"><strong class="govuk-tag govuk-tag--green">Final</strong></h3>
 			<ul class="govuk-list govuk-list--bullet">
-				<li><a href="/beta/report_incident/reportv12/00searchlight">Report incident or concern v12</a><br><br>
+				<li><a href="/beta/report_incident/reportv12/00searchlight">Report incident or concern</a><br><br>
 				{{ govukDetails({
 					summaryText: "Page index",
 					html: '
@@ -166,193 +101,8 @@ Prototype index - Keep Customer Interactions Safe
 				{% set journeyNotesHTMLreport_v12%}
 					{% include "./beta/report_incident/notes/v12__notes.njk" %}
 				{% endset %}
-				{{ govukDetails({
-					summaryText: "v12 Report journey-level notes",
-					html: journeyNotesHTMLreport_v12
-				}) }}
 				</li>
 			</ul>
-			<h3 class="govuk-heading-s"><strong class="govuk-tag govuk-tag--green">Development</strong></h3>
-			<ul class="govuk-list govuk-list--bullet">
-				<li><a href="/beta/report_incident/reportv11/01report">Report incident or concern v11</a><br><br>
-				{{ govukDetails({
-					summaryText: "Page index",
-					html: '
-								<ul class="govuk-list">
-									<li><a href="/beta/report_incident/reportv11/01report">01report - establish report type</a></li>
-								</ul>
-								<p class="govuk-body">Incident</p>
-								<ul class="govuk-list">
-									<li><a href="/beta/report_incident/reportv11/02behalf">02behalf</a></li>
-									<li><a href="/beta/report_incident/reportv11/03acting_manager">03acting_manager</a></li>
-									<li><a href="/beta/report_incident/reportv11/04interaction">04interaction</a></li>
-									<li><a href="/beta/report_incident/reportv11/05when-date">05when-date</a></li>
-									<li><a href="/beta/report_incident/reportv11/06when-time">06when-time</a></li>
-									<li><a href="/beta/report_incident/reportv11/07where">07where</a></li>
-									<li><a href="/beta/report_incident/reportv11/08discrimination">08discrimination</a></li>
-									<li><a href="/beta/report_incident/reportv11/09describe">09describe</a></li>
-									<li><a href="/beta/report_incident/reportv11/10add">10add</a></li>
-									<li><a href="/beta/report_incident/reportv11/11a_upload">11a_upload</a></li>
-									<li><a href="/beta/report_incident/reportv11/12check">12check</a></li>
-									<li><a href="/beta/report_incident/reportv11/13confirm">13confirm</a></li>
-								</ul>
-								<p class="govuk-body">Concern</p>
-								<ul class="govuk-list">
-									<li><a href="/beta/report_incident/reportv11/concern11/00agentsource">00agentsource</a></li>
-									<li><a href="/beta/report_incident/reportv11/concern11/01comments">01comments</a></li>
-									<li><a href="/beta/report_incident/reportv11/concern11/02fileuploadcheck">02fileuploadcheck</a></li>
-									<li><a href="/beta/report_incident/reportv11/concern11/03check">03check</a></li>
-									<li><a href="/beta/report_incident/reportv11/concern11/04confirm">04confirm</a></li>
-								</ul>'
-				}) }}
-				{% set journeyNotesHTMLreport_v11%}
-					{% include "./beta/report_incident/notes/v11__notes.njk" %}
-				{% endset %}
-				{{ govukDetails({
-					summaryText: "v11 Report journey-level notes",
-					html: journeyNotesHTMLreport_v11
-				}) }}
-				</li>
-			</ul>
-			<hr>
-
-			<h3 class="govuk-heading-s">Archive</h3>
-			{% set oldjourneysHTML %}
-			<ul class="govuk-list govuk-list--bullet">
-								<li><a href="/beta/report_incident/reportv10/01report">Report incident or concern v10</a><br><br>
-				{{ govukDetails({
-					summaryText: "Page index",
-					html: '
-								<ul class="govuk-list">
-									<li><a href="/beta/report_incident/reportv10/01report">01report - establish report type</a></li>
-								</ul>
-								<p class="govuk-body">Incident</p>
-								<ul class="govuk-list">
-									<li><a href="/beta/report_incident/reportv10/02behalf">02behalf</a></li>
-									<li><a href="/beta/report_incident/reportv10/03line_manager">03line_manager</a></li>
-									<li><a href="/beta/report_incident/reportv10/04acting_manager">04acting_manager</a></li>
-									<li><a href="/beta/report_incident/reportv10/05interaction">05interaction</a></li>
-									<li><a href="/beta/report_incident/reportv10/06when">06when</a></li>
-									<li><a href="/beta/report_incident/reportv10/07where">07where</a></li>
-									<li><a href="/beta/report_incident/reportv10/08discrimination">08discrimination</a></li>
-									<li><a href="/beta/report_incident/reportv10/09describe">09describe</a></li>
-									<li><a href="/beta/report_incident/reportv10/10add">10add</a></li>
-									<li><a href="/beta/report_incident/reportv10/11a_upload">11a_upload</a></li>
-									<li><a href="/beta/report_incident/reportv10/12check">12check</a></li>
-									<li><a href="/beta/report_incident/reportv10/13confirm">13confirm</a></li>
-								</ul>
-								<p class="govuk-body">Concern</p>
-								<ul class="govuk-list">
-									<li><a href="/beta/report_incident/reportv10/concern/00agentsource">00agentsource</a></li>
-									<li><a href="/beta/report_incident/reportv10/concern/01comments">01comments</a></li>
-									<li><a href="/beta/report_incident/reportv10/concern/02fileuploadcheck">02fileuploadcheck</a></li>
-									<li><a href="/beta/report_incident/reportv10/concern/03check">03check</a></li>
-									<li><a href="/beta/report_incident/reportv10/concern/04confirm">04confirm</a></li>
-								</ul>'
-				}) }}
-				{% set journeyNotesHTMLreport_v10 %}
-					{% include "./beta/report_incident/notes/v10__notes.njk" %}
-				{% endset %}
-				{{ govukDetails({
-					summaryText: "v10 Report journey-level notes",
-					html: journeyNotesHTMLreport_v10
-				}) }}
-				</li>
-				<li><a href="/beta/report_incident/reportv9/00reporter">Report incident or concern v9</a></li>
-				{% set journeyNotesHTMLreport_v9 %}
-					{% include "./beta/report_incident/notes/v9__notes.njk" %}
-				{% endset %}
-				{{ govukDetails({
-					summaryText: "v9 Report journey-level notes",
-					html: journeyNotesHTMLreport_v9
-				}) }}
-				<li><a href="/beta/report_incident/reportv8/00report">Report incident or concern v8</a></li>
-				{% set journeyNotesHTMLreport_v8 %}
-					{% include "./beta/report_incident/notes/v8__notes.njk" %}
-				{% endset %}
-				{{ govukDetails({
-					summaryText: "v8 Report journey-level notes",
-					html: journeyNotesHTMLreport_v8
-				}) }}
-				<li><a href="/beta/report_incident/reportv7/00report">Report incident or concern v7</a></li>
-				{% set journeyNotesHTMLreport_v7 %}
-					{% include "./beta/report_incident/notes/v7__notes.njk" %}
-				{% endset %}
-				{{ govukDetails({
-					summaryText: "v7 Report journey-level notes",
-					html: journeyNotesHTMLreport_v7
-				}) }}
-				<li><a href="/beta/report_incident/reportv6/00report">Report incident or concern v6</a></li>
-				{% set journeyNotesHTMLreport_v6 %}
-					{% include "./beta/report_incident/notes/v6__notes.njk" %}
-				{% endset %}
-				{{ govukDetails({
-					summaryText: "v6 Report journey-level notes",
-					html: journeyNotesHTMLreport_v6
-				}) }}
-				<li><a href="/beta/report_incident/reportv5/00report">Report incident or concern v5</a></li>
-				{% set journeyNotesHTMLreport_v5 %}
-					{% include "./beta/report_incident/notes/v5__notes.njk" %}
-				{% endset %}
-				{{ govukDetails({
-					summaryText: "v5 Report journey-level notes",
-					html: journeyNotesHTMLreport_v5
-				}) }}
-				<li><a href="/beta/report_incident/reportv4/00report">Report incident or concern v4</a></li>
-				{% set journeyNotesHTMLreport_v4 %}
-					{% include "./beta/report_incident/notes/v4__notes.njk" %}
-				{% endset %}
-				{{ govukDetails({
-					summaryText: "v4 Report journey-level notes",
-					html: journeyNotesHTMLreport_v4
-				}) }}
-				<li><a href="/beta/report_incident/reportv3/00report">Report incident or concern v3</a></li>
-				{% set journeyNotesHTMLreport_v3 %}
-					{% include "./beta/report_incident/notes/v3__notes.njk" %}
-				{% endset %}
-				{{ govukDetails({
-					summaryText: "v3 Report journey-level notes",
-					html: journeyNotesHTMLreport_v3
-				}) }}
-				<li><a href="/beta/report_incident/reportv2/00report">Report incident or concern v2</a></li>
-				{% set journeyNotesHTMLreport_v2 %}
-					{% include "./beta/report_incident/notes/v2__notes.njk" %}
-				{% endset %}
-				{{ govukDetails({
-					summaryText: "v2 Report journey-level notes",
-					html: journeyNotesHTMLreport_v2
-				}) }}
-				<li><a href="/beta/report_incident/reportv1/00report">Report incident or concern v1</a></li>
-				{% set journeyNotesHTMLreport_v1 %}
-					{% include "./beta/report_incident/notes/v1__notes.njk" %}
-				{% endset %}
-				{{ govukDetails({
-					summaryText: "v1 Report journey-level notes",
-					html: journeyNotesHTMLreport_v1
-				}) }}
-			</ul>
-			{% endset %}
-			{{ govukDetails({
-			summaryText: "Old journeys",
-			html: oldjourneysHTML
-			}) }}
-			{% set oldpagesHTML %}
-			<ul class="govuk-list govuk-list--bullet">
-				<li><a href="/beta/emails/reporter/v1/01incident-confirmation">Reporter - incident confirmation email v1</a></li>
-				<li><a href="/beta/emails/reporter/v1/02concern-confirmation">Reporter - concern confirmation email v1</a></li>
-				<li><a href="/beta/breakdown/breakdown">Breakdown v1</a></li>
-				<li><a href="/beta/breakdown/breakdownv2">Breakdown v2</a></li>
-				<li><a href="/beta/breakdown/breakdownv3">Breakdown v3</a></li>
-				<li><a href="/beta/breakdown/breakdownv4">Breakdown v4</a></li>
-				<li><a href="/beta/breakdown/breakdownv5">Breakdown v5</a></li>
-				<li><a href="/beta/breakdown/breakdownv6">Breakdown v6</a></li>
-				<li><a href="/beta/breakdown/breakdownv7">Breakdown v7</a></li>
-			</ul>
-			{% endset %}
-			{{ govukDetails({
-			summaryText: "Old pages",
-			html: oldpagesHTML
-			}) }}
 			<hr>
 		</div>
 

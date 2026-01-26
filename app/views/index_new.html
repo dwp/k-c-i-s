@@ -109,9 +109,9 @@ Prototype index - Keep Customer Interactions Safe
 		<div class="govuk-!-padding-bottom-7 govuk-!-padding-top-7">
 			<h2 class="govuk-heading-l" id="manager">Manager report</h2>
 
-			<h3 class="govuk-heading-s"><strong class="govuk-tag govuk-tag--blue">UCD - In progress</strong></<h3></h3>
+			<h3 class="govuk-heading-s"><strong class="govuk-tag govuk-tag--green">Final</strong></<h3></h3>
 			<ul class="govuk-list govuk-list--bullet">
-				<li><a href="/beta/incident_manager_journey/v6/00searchlight">Manager journeys v6</a><br><br>
+				<li><a href="/beta/incident_manager_journey/v6/00searchlight">Manager journeys</a><br><br>
 				{{ govukDetails({
 					summaryText: "Page index",
 					html: '
@@ -156,191 +156,10 @@ Prototype index - Keep Customer Interactions Safe
 				{% set journeyNotesHTMLDecision %}
 					{% include "beta/incident_manager_journey/notes/v6__notes.njk" %}
 				{% endset %}
-				{{ govukDetails({
-					summaryText: "v6 Journey level design notes",
-					html: journeyNotesHTMLDecision
-				}) }}		</li>
+</li>
 			</ul>
-			<h3 class="govuk-heading-s"><strong class="govuk-tag govuk-tag--green">Development</strong></h3>
-			<ul class="govuk-list govuk-list--bullet">
-				<li><a href="/beta/incident_manager_journey/v5/00searchlight">Manager journeys v5</a><br><br>
-					{{ govukDetails({
-						summaryText: "Page index",
-						html: '
-									<ul class="govuk-list">
-										<li><a href="/beta/incident_manager_journey/v5/00searchlight">00 Searchlight menu</a></li>
-										<li><a href="/beta/incident_manager_journey/v5/01landingpage2_manager">01 home page</a></li>
-										<li><a href="/beta/incident_manager_journey/v5/02incident_simple">02 Incident</a></li>
-										<li><a href="/beta/incident_manager_journey/v5/03witnessdisplay-1nowitnesses">03 witness list</a></li>
-										<li><a href="/beta/incident_manager_journey/v5/wit01add_witness">WIT01 Add witness</a></li>
-										<li><a href="/beta/incident_manager_journey/v5/wit02comments">WIT02 Comment witness</a></li>
-										<li><a href="/beta/incident_manager_journey/v5/04add_witness">04 Add witness</a></li>
-										<li><a href="/beta/incident_manager_journey/v5/05confirm_witness_onbehalf">05 confirm witness on behalf</a></li>
-										<li><a href="/beta/incident_manager_journey/v5/06sent-1colleague">06 sent</a></li>
-										<li><a href="/beta/incident_manager_journey/v5/07witness_report_simple">07 witness report</a></li>
-										<li><a href="/beta/incident_manager_journey/v5/08deletewitness">08 delete witness</a></li>
-										<li><a href="/beta/incident_manager_journey/v5/09police">09 police</a></li>
-										<li><a href="/beta/incident_manager_journey/v5/10action">10 police action</a></li>
-										<li><a href="/beta/incident_manager_journey/v5/11comments">11 comments</a></li>
-										<li><a href="/beta/incident_manager_journey/v5/12check">12 check</a></li>
-										<li><a href="/beta/incident_manager_journey/v5/13confirmation">13 confirmation</a></li>
-									</ul>
-									<p class="govuk-body">Further information request</p>
-									<ul class="govuk-list">
-										<li><a href="/beta/incident_manager_journey/v5/01landingpage2_manager">01 home page</a></li>
-										<li><a href="/beta/incident_manager_journey/v5/i02moreinfo">i02 moreinfo</a></li>
-										<li><a href="/beta/incident_manager_journey/v5/i03incident_best_simple_info">i03 Original incident report</a></li>
-									</ul>
-									<p class="govuk-body">Deliver decision</p>
-									<ul class="govuk-list">
-										<li><a href="/beta/incident_manager_journey/v5/01landingpage2_manager">01 home page</a></li>
-										<li><a href="/beta/incident_manager_journey/v5/d02decision">d02 view decison</a></li>
-										<li><a href="/beta/incident_manager_journey/v5/d03incident_best_simple_info">d03 Original incident report</a></li>
-									</ul>
-									<p class="govuk-body">Take action</p>
-									<ul class="govuk-list">
-										<li><a href="/beta/incident_manager_journey/v5/01landingpage2_manager">01 home page</a></li>
-										<li><a href="/beta/incident_manager_journey/v5/a02action_letter">a02 record action (letter)</a></li>
-									</ul>'
-					}) }}
-					{% set journeyNotesHTMLDecision %}
-						{% include "beta/incident_manager_journey/notes/v5__notes.njk" %}
-					{% endset %}
-					{{ govukDetails({
-						summaryText: "v5 Journey level design notes",
-						html: journeyNotesHTMLDecision
-					}) }}		</li>
+			
 			</ul>
-			<hr>
-
-			<h3 class="govuk-heading-s">Archive</h3>
-			{% set oldjourneysHTML %}
-			<ul class="govuk-list govuk-list--bullet">
-				<li><a href="/beta/incident_manager_journey/v4/00searchlight">Manager journeys v4</a><br><br>
-					{{ govukDetails({
-						summaryText: "Page index",
-						html: '
-									<ul class="govuk-list">
-										<li><a href="/beta/incident_manager_journey/v4/00searchlight">00 Searchlight menu</a></li>
-										<li><a href="/beta/incident_manager_journey/v4/01landingpage2_manager">01 home page</a></li>
-										<li><a href="/beta/incident_manager_journey/v4/02incident_simple">02 Incident</a></li>
-										<li><a href="/beta/incident_manager_journey/v4/03witnessdisplay-1nowitnesses">03 witness list</a></li>
-										<li><a href="/beta/incident_manager_journey/v4/wit01add_witness">WIT01 Add witness</a></li>
-										<li><a href="/beta/incident_manager_journey/v4/wit02comments">WIT02 Comment witness</a></li>
-										<li><a href="/beta/incident_manager_journey/v4/04add_witness">04 Add witness</a></li>
-										<li><a href="/beta/incident_manager_journey/v4/05confirm_witness_onbehalf">05 confirm witness on behalf</a></li>
-										<li><a href="/beta/incident_manager_journey/v4/06sent-1colleague">06 sent</a></li>
-										<li><a href="/beta/incident_manager_journey/v4/07witness_report_simple">07 witness report</a></li>
-										<li><a href="/beta/incident_manager_journey/v4/08deletewitness">08 delete witness</a></li>
-										<li><a href="/beta/incident_manager_journey/v4/09police">09 police</a></li>
-										<li><a href="/beta/incident_manager_journey/v4/10action">10 police action</a></li>
-										<li><a href="/beta/incident_manager_journey/v4/11comments">11 comments</a></li>
-										<li><a href="/beta/incident_manager_journey/v4/12check">12 check</a></li>
-										<li><a href="/beta/incident_manager_journey/v4/13confirmation">13 confirmation</a></li>
-									</ul>
-									<p class="govuk-body">Further information request</p>
-									<ul class="govuk-list">
-										<li><a href="/beta/incident_manager_journey/v4/01landingpage2_manager">01 home page</a></li>
-										<li><a href="/beta/incident_manager_journey/v4/i02moreinfo">i02 moreinfo</a></li>
-										<li><a href="/beta/incident_manager_journey/v4/i03incident_best_simple_info">i03 Original incident report</a></li>
-									</ul>
-									<p class="govuk-body">Deliver decision</p>
-									<ul class="govuk-list">
-										<li><a href="/beta/incident_manager_journey/v4/01landingpage2_manager">01 home page</a></li>
-										<li><a href="/beta/incident_manager_journey/v4/d02decision">d02 view decison</a></li>
-										<li><a href="/beta/incident_manager_journey/v4/d03incident_best_simple_info">d03 Original incident report</a></li>
-									</ul>
-									<p class="govuk-body">Take action</p>
-									<ul class="govuk-list">
-										<li><a href="/beta/incident_manager_journey/v4/01landingpage2_manager">01 home page</a></li>
-										<li><a href="/beta/incident_manager_journey/v4/a02action_letter">a02 record action (letter)</a></li>
-									</ul>'
-					}) }}
-					{% set journeyNotesHTMLDecision %}
-						{% include "beta/incident_manager_journey/notes/v4__notes.njk" %}
-					{% endset %}
-					{{ govukDetails({
-						summaryText: "v4 Journey level design notes",
-						html: journeyNotesHTMLDecision
-					}) }}		</li>
-				<li><a href="/beta/incident_manager_journey/v3/02incident_simple">Incident manager report v3</a><br><br>
-				{{ govukDetails({
-					summaryText: "Page index",
-					html: '
-								<ul class="govuk-list">
-									<li><a href="/beta/incident_manager_journey/v3/02incident_simple">02 Incident</a></li>
-									<li><a href="/beta/incident_manager_journey/v3/03witnessdisplay-1nowitnesses">03 witness list</a></li>
-									<li><a href="/beta/incident_manager_journey/v3/04add_witness">04 Add witness</a></li>
-									<li><a href="/beta/incident_manager_journey/v3/05confirm_witness_onbehalf">05 confirm witness on behalf</a></li>
-									<li><a href="/beta/incident_manager_journey/v3/06sent-1colleague">06 sent</a></li>
-									<li><a href="/beta/incident_manager_journey/v3/07witness_report_simple">07 witness report</a></li>
-									<li><a href="/beta/incident_manager_journey/v3/08deletewitness">08 delete witness</a></li>
-									<li><a href="/beta/incident_manager_journey/v3/09police">09 police</a></li>
-									<li><a href="/beta/incident_manager_journey/v3/10action">10 police action</a></li>
-									<li><a href="/beta/incident_manager_journey/v3/11comments">11 comments</a></li>
-									<li><a href="/beta/incident_manager_journey/v3/12check">12 check</a></li>
-									<li><a href="/beta/incident_manager_journey/v3/13confirmation">13 confirmation</a></li>
-								</ul>'
-				}) }}
-				{% set journeyNotesHTMLDecision %}
-					{% include "beta/incident_manager_journey/notes/v3__notes.njk" %}
-				{% endset %}
-				{{ govukDetails({
-					summaryText: "v3 Journey level design notes",
-					html: journeyNotesHTMLDecision
-				}) }}
-				</li>
-				<li><a href="/beta/incident_manager_journey/v2/02incident">Manager report v2</a></li>
-					<ul class="govuk-list">
-									<li><a href="/beta/incident_manager_journey/v2/02incident">02 Incident</a></li>
-									<li><a href="/beta/incident_manager_journey/v2/03witnessdisplay">03 witness list</a></li>
-									<li><a href="/beta/incident_manager_journey/v2/04add_witness">04 Who witnessed</a></li>
-									<li><a href="/beta/incident_manager_journey/v2/05confirm_witness2">05 Who reports</a></li>
-									<li><a href="/beta/incident_manager_journey/v2/06sent">06 email sent</a></li>
-									<li><a href="/beta/incident_manager_journey/v2/07witness_report">07 witness report</a></li>
-									<li><a href="/beta/incident_manager_journey/v2/08deletewitness">08 delete witness</a></li>
-									<li><a href="/beta/incident_manager_journey/v2/09police">09 police</a></li>
-									<li><a href="/beta/incident_manager_journey/v2/10action">10 police action</a></li>
-									<li><a href="/beta/incident_manager_journey/v2/11comments">11 comments</a></li>
-									<li><a href="/beta/incident_manager_journey/v2/12check">12 check</a></li>
-									<li><a href="/beta/incident_manager_journey/v2/13confirmation">13 confirmation</a></li>
-					</ul>
-				<li><a href="/beta/incident_manager_journey/v1/00incident">Manager report v1</a>
-					<ul class="govuk-list">
-						<li><a href="/beta/incident_manager_journey/v1/00_start">00 Start</a></li>
-						<li><a href="/beta/incident_manager_journey/v1/00incident">00 Incident</a></li>
-						<li><a href="/beta/incident_manager_journey/v1/01witnessquestion">01 did anyone witness </a></li>
-						<li><a href="/beta/incident_manager_journey/v1/02add_witness">02 add witness </a></li>
-						<li><a href="/beta/incident_manager_journey/v1/03list_witness3_no_witnesses">03 witness list</a></li>
-						<li><a href="/beta/incident_manager_journey/v1/04witness_delete">04 delete witness</a></li>
-						<li><a href="/beta/incident_manager_journey/v1/05list_witness_confirm">05 check witness list</a></li>
-						<li><a href="/beta/incident_manager_journey/v1/06confirmation_witness">06 email sent confirmation</a></li>
-						<li><a href="/beta/incident_manager_journey/v1/07police">07 Police question</a></li>
-						<li><a href="/beta/incident_manager_journey/v1/08action">08 Police action</a></li>
-						<li><a href="/beta/incident_manager_journey/v1/09comments">09 Comments</a></li>
-						<li><a href="/beta/incident_manager_journey/v1/10check">10 Check</a></li>
-						<li><a href="/beta/incident_manager_journey/v1/11confirmation">11 Confirmation</a></li>
-					</ul>
-				</li>
-				<li><a href="/beta/incident_manager/01police">Manager</a></li>
-			</ul>
-			{% endset %}
-			{{ govukDetails({
-			summaryText: "Old journeys",
-			html: oldjourneysHTML
-			}) }}
-			{% set oldpagesHTML %}
-			<ul class="govuk-list govuk-list--bullet">
-				<li><a href="/beta/emails/incidentmanager/v1/01request.html">Incident manager email: initial request v1</a></li>
-				<li><a href="/beta/emails/incidentmanager/v1/02confirmation.html">Incident manager email: confirmation v1</a></li>
-				<li><a href="/beta/emails/linemanager/v1/01instruction.html">Line manager email: instructions v1</a></li>
-				<li><a href="/beta/incident_manager/01police">Incident manager</a></li>
-			</ul>
-			{% endset %}
-			{{ govukDetails({
-			summaryText: "Old pages",
-			html: oldpagesHTML
-			}) }}
 			<hr>
 		</div>
 

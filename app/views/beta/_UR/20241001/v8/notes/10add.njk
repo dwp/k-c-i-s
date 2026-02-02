@@ -1,0 +1,35 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<hr>
+<br>
+<h3 class="govuk-heading-s govuk-!-font-weight-regular">NOT PART OF DESIGN: Demo only</h3>
+<h4 class="govuk-heading-s">Versions</h3>
+{% include "../../_versions/14add__versions.njk" %}
+<h4 class="govuk-heading-s">States</h3>
+<ul class="govuk-list govuk-list--bullet">
+	<a href="10add">1. Add files?</a><br>
+	<a href="10add_error">2. Error: Select </a><br>
+</ul>
+<h4 class="govuk-heading-s">v9 Design notes</h3>
+	<ul class="govuk-list govuk-list--bullet">
+		<li>Caption contains status for Incident and Concern not Review</li>
+		<li>Note: May be some discrepancy on prod with H1 size. Should be xl</li>
+		<li>Page only to be shown if "send letter" action requested</li>
+		<li>Single and multiple incidents - see flow diagram</li>
+	</ul>
+<h4 class="govuk-heading-s">Hypotheses</h3>
+	<li><a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/132775346323/Agents+Safeguarding+-+User+Role+Model#decision_maker">Decision maker user canvas</a></li>
+
+	<ul class="govuk-list govuk-list--bullet">
+
+	</ul>
+{% set journeyNotesHTMLDecision_v9 %}
+	{% include "beta/decision/notes/v9__notes.njk" %}
+{% endset %}
+{{ govukDetails({
+	summaryText: "v9 Journey level design notes",
+	html: journeyNotesHTMLDecision_v9
+}) }}	

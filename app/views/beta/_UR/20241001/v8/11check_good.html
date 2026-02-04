@@ -121,23 +121,6 @@
           </dd>
         </div>
 
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Fast track incident</span>
-          </dt>
-          <dd class="govuk-summary-list__value">
-            No
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <form action="09prepare_single_man" class="form" method="post">
-              {{ govukButton({
-                text: "Change",
-                classes: "govuk-button--secondary ds_link"
-              }) }}
-            </form>
-          </dd>
-        </div>
-
       </dl>
     </div>
     <div class="govuk-grid-row">
@@ -163,18 +146,5 @@
       </form>
     </div>
     </div>
-      {% if not (checked("displaymode", "presentation") == "checked") %}
-<br>
-<br>
-<br>
-<br>
-<br>
-<hr>
-<br>
-<h3 class="govuk-heading-s govuk-!-font-weight-regular">NOT PART OF DESIGN: Demo only</h3>
-<h4 class="govuk-heading-s">States</h3>
-<ul class="govuk-list govuk-list--bullet">
-        <li><a href="01landingpage1_blank">Example 1</a></li>
-</ul>
-    {% endif %}
+
 {% endblock %}

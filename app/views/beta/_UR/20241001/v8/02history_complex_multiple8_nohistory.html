@@ -1,0 +1,65 @@
+
+{% extends "layout_20241001_ur.html" %}
+{% block pageTitle %}
+  Customer history - Keep Customer Interactions Safe
+{% endblock %}
+{% block beforeContent %}
+  <section aria-label="Phase banner" role="region">
+    {{ govukPhaseBanner({
+      tag: {
+      text: "beta"
+    },
+      html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+  </section>
+
+        {% include "./templates/key_details_robert_blue.njk" %}
+
+  <section aria-label="Back" role="region">
+    {{ govukBackLink({
+      text: "Back",
+      href: "01landingpage1_multiple"
+    }) }}
+  </section>
+{% endblock %}
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-xl">Customer history</h1>
+        </div>
+    </div>
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h2 class="govuk-heading-l govuk-!-margin-bottom-2">Summary note</h2>
+            <p class="govuk-body">No summary note has been added.</p>
+
+              <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+			<p>No history available.</p>
+		</div>
+	</div>
+
+  
+    {% if not (checked("displaymode", "presentation") == "checked") %}
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<hr>
+<br>
+<h3 class="govuk-heading-s govuk-!-font-weight-regular">NOT PART OF DESIGN: Demo only</h3>
+<h4 class="govuk-heading-s">States</h3>
+<ul class="govuk-list govuk-list--bullet">
+    <li><a href="02history_complex_multiple8">Complex</a></li>
+    <li><a href="02history_complex_multiple8_nohistory">No previous history</a></li>
+    <li><a href="02history_complex_multiple8_adhoc">Historical data (TBC)</a></li>
+    <li><a href="02history_complex_multiple8_adhoc">Ad hoc review</a></li>
+    <li><a href="02history_complex_multiple8_adhoc">ABusiness support view</a></li>
+    <li><a href="02history_complex_multiple8_adhoc">Decision is prepared but not made yet</a></li>
+</ul>
+    {% endif %}
+{% endblock %}
+

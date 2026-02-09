@@ -31,8 +31,7 @@
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
             <h2 class="govuk-heading-l govuk-!-margin-bottom-2">Summary note</h2>
-			<p class=" govuk-hint">15 July 2025 at 4.30pm by Adam Smith</p>
-            <p class="govuk-body">The customer has repeatedly attended the DWP office displaying disruptive and confrontational behavior, often refusing to follow procedures and requiring staff intervention.</p>
+            <p class="govuk-body">No summary note has been added.</p>
             {% include "./templates/customerhistoryhelp.njk" %}
 
             <div class="govuk-button-group">
@@ -88,83 +87,23 @@
             <ol class="dwp-timeline__events">
                 
 
-  <li class="dwp-timeline__events--entry">
+              <li class="dwp-timeline__events--entry">
+            <h2 class="govuk-heading-s govuk-!-margin-bottom-0">
+                <a href="#">Banning letter from GLD</a>
+            </h2>
+            <p class="govuk-body-s" style='color:#505a5f'>14 July 2025</p>
+        </li>
 
-    <details class="govuk-details govuk-!-margin-bottom-4"  open>
-        <summary class="govuk-details__summary">
-          <span class="govuk-details__summary-text">
-            <span class="govuk-heading-m govuk-!-display-inline govuk-!-margin-bottom-0" style="color: #1d70b8">
-              Decision
-            </span>
-            <strong class="govuk-tag govuk-tag govuk-!-margin-left-2">
-                Decision Pending
-              </strong>
-            </span>
-          </span>
-        </summary>
-        <div class="govuk-details__text">
-
-
-    
-    
-        <p class="govuk-body">{{data ["2401_measureaccount"]}}</p>
-                        {% set notesHTML %}
-                        <a href="17note_bst_specific">Add note to this decision</a> <br> <br>
-                        {% include "./templates/measures_note2.njk" %} 
-                        {% endset %}
-                        
-                        {{ govukDetails({
-                            summaryText: "Notes",
-                            html: notesHTML
-                        }) }}
-    
-    
-                        {% set incidentDetailsHTML %}
-                             <ul class="govuk-list">
-                                <li>
-                                <h2 class="govuk-heading-s govuk-!-margin-bottom-0">
-                                    <strong class='govuk-tag govuk-tag--green'>prepared</strong><br>
-                                    <a href="h_02incident2">Telephone incident</a><a class="govuk-!-margin-bottom-1 govuk-hint">
-                                        (INC-000-456-234)
-                                    </a>
-                                </h2>
-                                <p class="govuk-!-margin-bottom-0">15 July 2025</p>
-                                <p class="govuk-body-s" style='color:#505a5f'>Reported by Steven Tran, 15 July 2025 at 9:30am</p>
-                            </li>
-                             <li class="dwp-timeline__events--entry">
-                                <h2 class="govuk-heading-s govuk-!-margin-bottom-0">
-                                    <strong class='govuk-tag govuk-tag'>Decision pending</strong>
-                                    <br>
-                                    <a href="h_02incident1">In person incident</a><a class="govuk-!-margin-bottom-1 govuk-hint">
-                                        (INC-000-456-235)
-                                    </a>
-                                </h2>
-                                <p class="govuk-!-margin-bottom-0">15 July 2025</p>
-                                <p class="govuk-body-s" style='color:#505a5f'>Reported by Richard Cliff, 15 July 2025 at 8:30am</p>
-                            </li>      
-                            <li class="dwp-timeline__events--entry">
-                                <h2 class="govuk-heading-s govuk-!-margin-bottom-0">
-                                    <strong class='govuk-tag govuk-tag'>Decision pending</strong>
-                                    <br>
-                                    <a href="h_02incident1">Centre for Health and Disability Assessments (CHDA) concern</a><a class="govuk-!-margin-bottom-1 govuk-hint">
-                                        (INC-000-456-236)
-                                    </a>
-                                </h2>
-                                <p class="govuk-!-margin-bottom-0">15 July 2025</p>
-                                <p class="govuk-body-s" style='color:#505a5f'>Reported by Jason Cowlam, 15 July 2025 at 8:00am</p>
-                            </li>       
-                        {% endset %}
-                        {{ govukDetails({
-                            summaryText: "Reports",
-                            open: false,
-                            html: incidentDetailsHTML
-                        }) }}
-                    </li>   
-      </details>
+                  <li class="dwp-timeline__events--entry">
+            <h2 class="govuk-heading-s govuk-!-margin-bottom-0">
+                <a href="#">Ban shared with site</a>
+            </h2>
+            <p class="govuk-body-s" style='color:#505a5f'>14 July 2025</p>
+        </li>
 
     <li class="dwp-timeline__events--entry">
 
-        <details class="govuk-details govuk-!-margin-bottom-4">
+        <details class="govuk-details govuk-!-margin-bottom-4" open>
             <summary class="govuk-details__summary">
               <span class="govuk-details__summary-text">
                 <span class="govuk-heading-m govuk-!-display-inline govuk-!-margin-bottom-0" style="color: #1d70b8">
@@ -189,16 +128,6 @@
         
         
             <p class="govuk-body">{{data ["2401_measureaccount"]}}</p>
-                            {% set notesHTML %}
-                            <a href="17note_bst_specific">Add note to this decision</a> <br> <br>
-                            {% include "./templates/measures_note5.njk" %} 
-							{% include "./templates/measures_note4.njk" %} 
-                            {% endset %}
-                            
-                            {{ govukDetails({
-                                summaryText: "Notes",
-                                html: notesHTML
-                            }) }}
         
                             {% set actionDetailsHTML %}
                             <dl class="govuk-summary-list">
@@ -243,16 +172,7 @@
                                     </h2>
                                     <p class="govuk-!-margin-bottom-0">15 July 2025</p>
                                     <p class="govuk-body-s" style='color:#505a5f'>Reported by Whitney Earl on behalf of Jay Yu, 14 July 2025 at 8:30am</p>
-                                </li>
-                                <li class="dwp-timeline__events--entry">
-                                    <h2 class="govuk-heading-s govuk-!-margin-bottom-0">
-                                        <a href="h_02incident1">In person incident</a><a class="govuk-!-margin-bottom-1 govuk-hint">
-                                            (INC-000-456-235)
-                                        </a>
-                                    </h2>
-                                    <p class="govuk-!-margin-bottom-0">15 July 2025</p>
-                                    <p class="govuk-body-s" style='color:#505a5f'>Reported by Helen Whiteley, 14 July 2025 at 8:00am</p>
-                                </li>       
+                                </li>   
                             {% endset %}
                             {{ govukDetails({
                                 summaryText: "Reports",
@@ -264,6 +184,13 @@
           <li class="dwp-timeline__events--entry">
             <h2 class="govuk-heading-s govuk-!-margin-bottom-0">
                 <a href="#">Note - GLD request for more information</a>
+            </h2>
+            <p class="govuk-body-s" style='color:#505a5f'>13 July 2025</p>
+        </li>
+
+                  <li class="dwp-timeline__events--entry">
+            <h2 class="govuk-heading-s govuk-!-margin-bottom-0">
+                <a href="#">CIRF</a>
             </h2>
             <p class="govuk-body-s" style='color:#505a5f'>13 July 2025</p>
         </li>
@@ -289,16 +216,6 @@
 					  <li>No home visits</li>
 
 					  <p class="govuk-body">{{data ["2401_measureaccount"]}}</p>
-					  
-					  {% set notesHTML %}
-                      <a href="17note_bst_specific">Add note to this decision</a> <br> <br>
-					  {% include "./templates/measures_note6.njk" %} 
-					  {% endset %}
-					  
-					  {{ govukDetails({
-						  summaryText: "Notes",
-						  html: notesHTML
-					  }) }}
   
 					  {% set actionDetailsHTML %}
 					  <dl class="govuk-summary-list">
@@ -362,7 +279,7 @@
 <ul class="govuk-list govuk-list--bullet">
     <li><a href="02history_complex_multiple8">Complex</a></li>
     <li><a href="02history_complex_multiple8_nohistory">No previous history</a></li>
-    <li><a href="02history_complex_multiple8_migratedhistory">Historical data (TBC)</a></li>
+    <li><a href="02history_complex_multiple8_adhoc">Historical data (TBC)</a></li>
     <li><a href="02history_complex_multiple8_adhoc">Ad hoc review</a></li>
     <li><a href="02history_complex_multiple8_adhoc">ABusiness support view</a></li>
     <li><a href="02history_complex_multiple8_adhoc">Decision is prepared but not made yet</a></li>

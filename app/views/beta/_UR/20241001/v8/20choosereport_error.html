@@ -22,6 +22,15 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+            {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: [
+          {
+            text: "Choose which report you want to prepare",
+            href: "#20240429_current_report"
+          }
+        ]
+      }) }}      
       {% set inc2HTML %}
                                         <h2 class="govuk-heading-s govuk-!-margin-bottom-0">
                                     <strong class='govuk-tag govuk-tag--green'>prepared</strong><br>
@@ -66,6 +75,9 @@
           ],
           hint: {
             text: "Prepare actions and comments for the manager of each report. Once you have prepared all the live reports, you can add measures and complete decision."
+          },
+          errorMessage: {
+            text: "Choose which report you want to prepare"
           }
         }) }}
         <div>
@@ -89,7 +101,7 @@
 <h4 class="govuk-heading-s">States</h3>
 <ul class="govuk-list govuk-list--bullet">
         <li><a href="20choosereport">Default</a></li>
-        <li><a href="20choosereport_error">Error</a></li>
+        <li><a href="20choosereport">Error</a></li>
 </ul>
     {% endif %}
 {% endblock %}

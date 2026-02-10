@@ -258,6 +258,24 @@
           </dd>
         </div>
 
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            <span>Action for manager</span> <br>
+            <span>(Sarah Sencha)</span>
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Send a letter
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <form action="09prepare_single_man" class="form" method="post">
+              {{ govukButton({
+                text: "Change",
+                classes: "govuk-button--secondary ds_link"
+              }) }}
+            </form>
+          </dd>
+        </div>
+
       </dl>
     </div>
 
@@ -265,8 +283,8 @@
         <strong class='govuk-tag govuk-tag--green'>Prepared</strong> <br>
     <strong style='color:#000'> In person incident</strong><br>
     <span style='color:#000'>15 July 2025</span><br>
-    <span class="govuk-body-s" style='color:#505a5f'>Reported by Richard Cliff, 15 July 2025 at 8:30am</span>
-     <p class="govuk-body-s" style="color:#505a5f">Manager: Sarah Sencha</p>
+    <span class="govuk-body-s" style='color:#505a5f'>Reported by Richard Cliff on behave of Steven Tran, 15 July 2025 at 8:30am</span>
+     <p class="govuk-body-s" style="color:#505a5f">Manager: Earl Gray</p>
 </span>
       <div class="govuk-!-margin-bottom-9 govuk-!-margin-top-4">
 
@@ -343,6 +361,26 @@
           </dd>
         </div>
 
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            <span>Action for manager</span> <br>
+            <span>(Earl Gray)</span>
+          </dt>
+          <dd class="govuk-summary-list__value">
+            None
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <form action="09prepare_single_man" class="form" method="post">
+              {{ govukButton({
+                text: "Change",
+                classes: "govuk-button--secondary ds_link"
+              }) }}
+            </form>
+          </dd>
+        </div>
+
+
       </dl>
     </div>
 
@@ -378,7 +416,8 @@
 <h3 class="govuk-heading-s govuk-!-font-weight-regular">NOT PART OF DESIGN: Demo only</h3>
 <h4 class="govuk-heading-s">States</h3>
 <ul class="govuk-list govuk-list--bullet">
-        <li><a href="01landingpage1_blank">Example 1</a></li>
+        <li><a href="11check_good2">Defualt</a></li>
+        <li><a href="11check_good2">Not fully prepared</a></li>
 </ul>
     {% endif %}
 {% endblock %}

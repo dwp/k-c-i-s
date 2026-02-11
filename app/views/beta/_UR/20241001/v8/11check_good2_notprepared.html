@@ -280,7 +280,7 @@
     </div>
 
            <span class="govuk-caption-m">
-        <strong class='govuk-tag govuk-tag--green'>Prepared</strong> <br>
+        <strong class='govuk-tag govuk-tag'>decision pending</strong> <br>
     <strong style='color:#000'> In person incident</strong><br>
     <span style='color:#000'>15 July 2025</span><br>
     <span class="govuk-body-s" style='color:#505a5f'>Reported by Richard Cliff on behave of Steven Tran, 15 July 2025 at 8:30am</span>
@@ -389,12 +389,15 @@
   <h2 class="govuk-heading-m">Have you finished preparing this report?</h2>
     
         <p class="govuk-body">If you need to change anything, select 'Change' next to each answer or use the back link near the top of this page.</p>
+        <p>Select 'Complete report preparation' to complete the preparation of this report only. <strong>This will not publish your decision.</strong></p>
+        <h2 class="govuk-heading-m">What happens next?</h2>
+        <p>'Complete report preparation' for all live reports then add measures, publish and close your report. </p>
         <form action="12confirmation2" class="form" method="post">
           <input type="hidden" id="20240429_inc2_status" name="20240429_inc2_status" value="Prepared" >
           <div class="govuk-button-group">
             {{ govukButton({
-              text: "Publish actions and measures. Close decision",
-              href: "12confirmation_multi"
+              text: "Complete report preparation",
+              href: "20choosereport"
             }) }}
           </div>
           <input type="hidden" id="20240429_inc2_actioned" name="20240429_inc2_actioned" value="yes">
@@ -414,7 +417,7 @@
 <h4 class="govuk-heading-s">States</h3>
 <ul class="govuk-list govuk-list--bullet">
         <li><a href="11check_good2">Defualt</a></li>
-        <li><a href="11check_good2_notprepared">Not fully prepared</a></li>
+        <li><a href="11check_good2">Not fully prepared</a></li>
 </ul>
     {% endif %}
 {% endblock %}

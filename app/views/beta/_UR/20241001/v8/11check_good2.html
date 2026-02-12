@@ -121,7 +121,7 @@
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">
-      Actions for Sarah Sencha<br><span class="govuk-body">(Manager)</span>
+      Actions for manager</span>
     </dt>
     <dd class="govuk-summary-list__value">
         <li>Send a letter</li>
@@ -136,9 +136,26 @@
     </dd>
   </div>
 
+   <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Which manager to do the action</span>
+    </dt>
+    <dd class="govuk-summary-list__value">
+        Sarah Sencha
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <form action="23whichmanager" class="form" method="post">
+        {{ govukButton({
+          text: "Change",
+          classes: "govuk-button--secondary ds_link"
+        }) }}
+      </form>
+    </dd>
+  </div>
+
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">
-      Actions for David Cassidy<br><span class="govuk-body">(Decision maker)</span>
+      Actions for decision maker<br><span class="govuk-body">(David Cassidy)</span>
     </dt>
     <dd class="govuk-summary-list__value">
       <li>None</li>
@@ -258,24 +275,6 @@
           </dd>
         </div>
 
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            <span>Action for manager</span> <br>
-            <span>(Sarah Sencha)</span>
-          </dt>
-          <dd class="govuk-summary-list__value">
-            Send a letter
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <form action="09prepare_single_man" class="form" method="post">
-              {{ govukButton({
-                text: "Change",
-                classes: "govuk-button--secondary ds_link"
-              }) }}
-            </form>
-          </dd>
-        </div>
-
       </dl>
     </div>
 
@@ -362,33 +361,17 @@
         </div>
 
 
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            <span>Action for manager</span> <br>
-            <span>(Earl Gray)</span>
-          </dt>
-          <dd class="govuk-summary-list__value">
-            None
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <form action="09prepare_single_man" class="form" method="post">
-              {{ govukButton({
-                text: "Change",
-                classes: "govuk-button--secondary ds_link"
-              }) }}
-            </form>
-          </dd>
-        </div>
-
-
       </dl>
     </div>
 
 <div class="govuk-grid-row">
 <div class="govuk-grid-column-two-thirds">
-  <h2 class="govuk-heading-m">Have you finished preparing this report?</h2>
-    
-        <p class="govuk-body">If you need to change anything, select 'Change' next to each answer or use the back link near the top of this page.</p>
+  <h2 class="govuk-heading-m">Have you finished making your decision?</h2>
+        <p class="govuk-body">If you need to change anything, select 'Change' next to each answer or use the back link near the top of this page.
+You must finish processing all reports before you are able to publish your decision.</p>
+
+  <h2 class="govuk-heading-m">What happens next?</h2>
+        <p class="govuk-body">Complete report processing for all live reports then make your decision, publish and close your report. <strong> This will publish your decision.</strong></p>
         <form action="12confirmation2" class="form" method="post">
           <input type="hidden" id="20240429_inc2_status" name="20240429_inc2_status" value="Prepared" >
           <div class="govuk-button-group">

@@ -121,7 +121,7 @@
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">
-      Actions for Sarah Sencha<br><span class="govuk-body">(Manager)</span>
+      Actions for manager</span>
     </dt>
     <dd class="govuk-summary-list__value">
         <li>Send a letter</li>
@@ -136,9 +136,26 @@
     </dd>
   </div>
 
+   <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Which manager to do the action</span>
+    </dt>
+    <dd class="govuk-summary-list__value">
+        Sarah Sencha
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <form action="23whichmanager" class="form" method="post">
+        {{ govukButton({
+          text: "Change",
+          classes: "govuk-button--secondary ds_link"
+        }) }}
+      </form>
+    </dd>
+  </div>
+
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">
-      Actions for David Cassidy<br><span class="govuk-body">(Decision maker)</span>
+      Actions for decision maker<br><span class="govuk-body">(David Cassidy)</span>
     </dt>
     <dd class="govuk-summary-list__value">
       <li>None</li>
@@ -258,29 +275,11 @@
           </dd>
         </div>
 
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            <span>Action for manager</span> <br>
-            <span>(Sarah Sencha)</span>
-          </dt>
-          <dd class="govuk-summary-list__value">
-            Send a letter
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <form action="09prepare_single_man" class="form" method="post">
-              {{ govukButton({
-                text: "Change",
-                classes: "govuk-button--secondary ds_link"
-              }) }}
-            </form>
-          </dd>
-        </div>
-
       </dl>
     </div>
 
            <span class="govuk-caption-m">
-        <strong class='govuk-tag govuk-tag'>decision pending</strong> <br>
+        <strong class='govuk-tag govuk-tag'>Decision pending</strong> <br>
     <strong style='color:#000'> In person incident</strong><br>
     <span style='color:#000'>15 July 2025</span><br>
     <span class="govuk-body-s" style='color:#505a5f'>Reported by Richard Cliff on behave of Steven Tran, 15 July 2025 at 8:30am</span>
@@ -362,39 +361,25 @@
         </div>
 
 
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            <span>Action for manager</span> <br>
-            <span>(Earl Gray)</span>
-          </dt>
-          <dd class="govuk-summary-list__value">
-            None
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <form action="09prepare_single_man" class="form" method="post">
-              {{ govukButton({
-                text: "Change",
-                classes: "govuk-button--secondary ds_link"
-              }) }}
-            </form>
-          </dd>
-        </div>
-
-
       </dl>
     </div>
 
 <div class="govuk-grid-row">
 <div class="govuk-grid-column-two-thirds">
-  <h2 class="govuk-heading-m">Have you finished preparing this report?</h2>
+  <h2 class="govuk-heading-m">You haven not finished processiong all the reports.</h2>
     
-        <p class="govuk-body">If you need to change anything, select 'Change' next to each answer or use the back link near the top of this page.</p>
-        <p>Select 'Complete report preparation' to complete the preparation of this report only. <strong>This will not publish your decision.</strong></p>
-        <h2 class="govuk-heading-m">What happens next?</h2>
-        <p>'Complete report preparation' for all live reports then add measures, publish and close your report. </p>
+        <p class="govuk-body">You will need to finish processing all reports before you can publish the decision. If you need to change anything, select 'Change' next to each answer or use the back link near the top of this page.</p>
+        <h2 class="govuk-heading-m">What you need to do?</h2>
+        <p>Select 'Complete report preparation' to finish processiong all the reports. <strong>This will not publish your decision.</strong></p>
+        <p>Once all reports are prepared, you will be able to add measures, publish the decision, and close your report.</p>
         <form action="12confirmation2" class="form" method="post">
           <input type="hidden" id="20240429_inc2_status" name="20240429_inc2_status" value="Prepared" >
           <div class="govuk-button-group">
+            {{ govukButton({
+              text: "Publish actions and measures. Close decision",
+              href: "12confirmation_multi",
+              disabled: true
+            }) }}
             {{ govukButton({
               text: "Complete report preparation",
               href: "20choosereport"

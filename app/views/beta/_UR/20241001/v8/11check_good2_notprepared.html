@@ -77,7 +77,7 @@
       <li>Must only interact with a named member of staff <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Staff member: whitney@dwp.gov.uk</li>
     </dd>
     <dd class="govuk-summary-list__actions">
-      <form action="03type2" class="form" method="post">
+      <form action="06measure" class="form" method="post">
         {{ govukButton({
           text: "Change",
           classes: "govuk-button--secondary ds_link"
@@ -85,31 +85,16 @@
       </form>
     </dd>
   </div>
-  <div class="govuk-summary-list__row">
+
+    <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">
-      Reasons for applying measures
-    </dt>
-    <dd class="govuk-summary-list__value">
-      The customer has involuntary physical movements and so should be seen in a screened environment with the same staff member. 
-    </dd>
-    <dd class="govuk-summary-list__actions">
-      <form action="03type2" class="form" method="post">
-        {{ govukButton({
-          text: "Change",
-          classes: "govuk-button--secondary ds_link"
-        }) }}
-      </form>
-    </dd>
-  </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">
-      Measures review date
+      Review date
     </dt>
     <dd class="govuk-summary-list__value">
       12 months
     </dd>
     <dd class="govuk-summary-list__actions">
-      <form action="03type2" class="form" method="post">
+      <form action="08reviewdate" class="form" method="post">
         {{ govukButton({
           text: "Change",
           classes: "govuk-button--secondary ds_link"
@@ -117,17 +102,67 @@
       </form>
     </dd>
   </div>
-  
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">
-      Actions for manager</span>
+      Actions for Sarah Sencha<br><span class="govuk-body">(Manager)</span>
     </dt>
     <dd class="govuk-summary-list__value">
         <li>Send a letter</li>
     </dd>
     <dd class="govuk-summary-list__actions">
-      <form action="05actions2" class="form" method="post">
+      <form action="05actions" class="form" method="post">
+        {{ govukButton({
+          text: "Change",
+          classes: "govuk-button--secondary ds_link"
+        }) }}
+      </form>
+    </dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Actions for David Cassidy<br><span class="govuk-body">(Decision maker)</span>
+    </dt>
+    <dd class="govuk-summary-list__value">
+      <li>None</li>
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <form action="05actions" class="form" method="post">
+        {{ govukButton({
+          text: "Change",
+          classes: "govuk-button--secondary ds_link"
+        }) }}
+      </form>
+    </dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Who sends letter
+    </dt>
+    <dd class="govuk-summary-list__value">
+ Manager
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <form action="05d_wholetter" class="form" method="post">
+        {{ govukButton({
+          text: "Change",
+          classes: "govuk-button--secondary ds_link"
+        }) }}
+      </form>
+    </dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Chosen manager
+    </dt>
+    <dd class="govuk-summary-list__value">
+     Sarah Sencha
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <form action="05d_wholetter" class="form" method="post">
         {{ govukButton({
           text: "Change",
           classes: "govuk-button--secondary ds_link"
@@ -138,13 +173,13 @@
 
    <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">
-      Which manager to do the action</span>
+      Uploaded letter
     </dt>
     <dd class="govuk-summary-list__value">
-        Sarah Sencha
+     letter123
     </dd>
     <dd class="govuk-summary-list__actions">
-      <form action="23whichmanager" class="form" method="post">
+      <form action="h_10upload" class="form" method="post">
         {{ govukButton({
           text: "Change",
           classes: "govuk-button--secondary ds_link"
@@ -153,32 +188,16 @@
     </dd>
   </div>
 
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">
-      Actions for decision maker<br><span class="govuk-body">(David Cassidy)</span>
-    </dt>
-    <dd class="govuk-summary-list__value">
-      <li>None</li>
-    </dd>
-    <dd class="govuk-summary-list__actions">
-      <form action="05actions2" class="form" method="post">
-        {{ govukButton({
-          text: "Change",
-          classes: "govuk-button--secondary ds_link"
-        }) }}
-      </form>
-    </dd>
-  </div>
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">
-      Letter to be sent by
+      Reasons for measures
     </dt>
     <dd class="govuk-summary-list__value">
- Manager
+      The customer has involuntary physical movements and so should be seen in a screened environment with the same staff member. 
     </dd>
     <dd class="govuk-summary-list__actions">
-      <form action="05d_wholetter2" class="form" method="post">
+      <form action="07measureaccount" class="form" method="post">
         {{ govukButton({
           text: "Change",
           classes: "govuk-button--secondary ds_link"
@@ -207,6 +226,23 @@
         
       
       <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Fast track</span>
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Yes
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <form action="06fast" class="form" method="post">
+              {{ govukButton({
+                text: "Change",
+                classes: "govuk-button--secondary ds_link"
+              }) }}
+            </form>
+          </dd>
+        </div>
+
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Incident type
@@ -258,23 +294,6 @@
           </dd>
         </div>
 
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Fast track incident</span>
-          </dt>
-          <dd class="govuk-summary-list__value">
-            No
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <form action="09prepare_single_man" class="form" method="post">
-              {{ govukButton({
-                text: "Change",
-                classes: "govuk-button--secondary ds_link"
-              }) }}
-            </form>
-          </dd>
-        </div>
-
       </dl>
     </div>
 
@@ -294,10 +313,27 @@
       <dl class="govuk-summary-list">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
+            Fast track</span>
+          </dt>
+          <dd class="govuk-summary-list__value">
+            
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <form action="06fast" class="form" method="post">
+              {{ govukButton({
+                text: "Change",
+                classes: "govuk-button--secondary ds_link"
+              }) }}
+            </form>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
             Incident type
           </dt>
           <dd class="govuk-summary-list__value">
-              Physical assault
+              
           </dd>
           <dd class="govuk-summary-list__actions">
             <form action="03type2" class="form" method="post">
@@ -314,7 +350,7 @@
             Incident cause
           </dt>
           <dd class="govuk-summary-list__value">
-            An issue with payment
+            
           </dd>
           <dd class="govuk-summary-list__actions">
             <form action="04trigger2" class="form" method="post">
@@ -331,27 +367,10 @@
             Note for manager
           </dt>
           <dd class="govuk-summary-list__value">
-            This customer is violent. Please do not engage with him in person.
+            
           </dd>
           <dd class="govuk-summary-list__actions">
             <form action="09prepare_single_man2" class="form" method="post">
-              {{ govukButton({
-                text: "Change",
-                classes: "govuk-button--secondary ds_link"
-              }) }}
-            </form>
-          </dd>
-        </div>
-
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Fast track incident</span>
-          </dt>
-          <dd class="govuk-summary-list__value">
-            No
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <form action="09prepare_single_man" class="form" method="post">
               {{ govukButton({
                 text: "Change",
                 classes: "govuk-button--secondary ds_link"
@@ -382,7 +401,8 @@
             }) }}
             {{ govukButton({
               text: "Complete report preparation",
-              href: "20choosereport"
+              href: "20choosereport",
+              classes: "govuk-button--secondary"
             }) }}
           </div>
           <input type="hidden" id="20240429_inc2_actioned" name="20240429_inc2_actioned" value="yes">

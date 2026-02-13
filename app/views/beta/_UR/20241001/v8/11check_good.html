@@ -72,6 +72,23 @@
       <dl class="govuk-summary-list">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
+            Fast track incident</span>
+          </dt>
+          <dd class="govuk-summary-list__value">
+            No
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <form action="06fast" class="form" method="post">
+              {{ govukButton({
+                text: "Change",
+                classes: "govuk-button--secondary ds_link"
+              }) }}
+            </form>
+          </dd>
+        </div>
+        
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
             Incident type
           </dt>
           <dd class="govuk-summary-list__value">
@@ -110,23 +127,6 @@
           </dt>
           <dd class="govuk-summary-list__value">
             This customer is violent. Please do not engage with him in person.
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <form action="09prepare_single_man" class="form" method="post">
-              {{ govukButton({
-                text: "Change",
-                classes: "govuk-button--secondary ds_link"
-              }) }}
-            </form>
-          </dd>
-        </div>
-
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Fast track incident</span>
-          </dt>
-          <dd class="govuk-summary-list__value">
-            No
           </dd>
           <dd class="govuk-summary-list__actions">
             <form action="09prepare_single_man" class="form" method="post">

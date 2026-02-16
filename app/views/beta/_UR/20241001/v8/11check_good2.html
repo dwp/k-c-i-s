@@ -156,6 +156,23 @@
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">
+      Letter content
+    </dt>
+    <dd class="govuk-summary-list__value">
+     You are no longer permitted to access the centre, effective immediately, due to recent conduct that does not align with our centre policies.
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <form action="05d_wholetter" class="form" method="post">
+        {{ govukButton({
+          text: "Change",
+          classes: "govuk-button--secondary ds_link"
+        }) }}
+      </form>
+    </dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
       Chosen manager
     </dt>
     <dd class="govuk-summary-list__value">
@@ -386,10 +403,10 @@
 <div class="govuk-grid-row">
 <div class="govuk-grid-column-two-thirds">
   <h2 class="govuk-heading-m">Have you finished making your decision?</h2>
-        <p class="govuk-body">If you need to change anything, select ‘Change’ next to each answer or use the Back link near the top of this page.</p>
+        <p class="govuk-body">If you need to change anything, select 'Change' next to each answer or use the back link near the top of this page.</p>
 
   <h2 class="govuk-heading-m">What happens next?</h2>
-        <p class="govuk-body">If you have finished making your decision and are ready to publish it, click the button below to publish the actions and measures.<br><strong> This will publish your decision.</strong></p>
+        <p class="govuk-body">Complete report processing for all live reports then make your decision, publish and close your report. <br><br><strong>You will not be able to change anything about your decision after you click the button.</strong></p>
         <form action="12confirmation2" class="form" method="post">
           <input type="hidden" id="20240429_inc2_status" name="20240429_inc2_status" value="Prepared" >
           <div class="govuk-button-group">
@@ -417,6 +434,7 @@
         <li><a href="11check_good2">Defualt</a></li>
         <li><a href="11check_good2_notprepared">Not fully prepared</a></li>
         <li><a href="11check_good2_nomanageraction">No manager action</a></li>
+        <li><a href="11check_good2_single">Single report</a></li>
 </ul>
     {% endif %}
 {% endblock %}

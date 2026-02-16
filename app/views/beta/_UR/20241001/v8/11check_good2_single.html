@@ -102,12 +102,13 @@
       </form>
     </dd>
   </div>
+
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">
       Actions for Sarah Sencha<br><span class="govuk-body">(Manager)</span>
     </dt>
     <dd class="govuk-summary-list__value">
-        <li>None</li>
+        <li>Send a letter</li>
     </dd>
     <dd class="govuk-summary-list__actions">
       <form action="05actions" class="form" method="post">
@@ -124,7 +125,7 @@
       Actions for David Cassidy<br><span class="govuk-body">(Decision maker)</span>
     </dt>
     <dd class="govuk-summary-list__value">
-      <li>Send a letter</li>
+      <li>None</li>
     </dd>
     <dd class="govuk-summary-list__actions">
       <form action="05actions" class="form" method="post">
@@ -141,7 +142,24 @@
       Who sends letter
     </dt>
     <dd class="govuk-summary-list__value">
-     Decision maker
+ Manager
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <form action="05d_wholetter" class="form" method="post">
+        {{ govukButton({
+          text: "Change",
+          classes: "govuk-button--secondary ds_link"
+        }) }}
+      </form>
+    </dd>
+  </div>
+
+    <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Letter content
+    </dt>
+    <dd class="govuk-summary-list__value">
+     You are no longer permitted to access the centre, effective immediately, due to recent conduct that does not align with our centre policies.
     </dd>
     <dd class="govuk-summary-list__actions">
       <form action="05d_wholetter" class="form" method="post">
@@ -155,10 +173,10 @@
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">
-      Letter content
+      Chosen manager
     </dt>
     <dd class="govuk-summary-list__value">
-     You are no longer permitted to access the centre, effective immediately, due to recent conduct that does not align with our centre policies.
+     Sarah Sencha
     </dd>
     <dd class="govuk-summary-list__actions">
       <form action="05d_wholetter" class="form" method="post">
@@ -296,99 +314,13 @@
       </dl>
     </div>
 
-           <span class="govuk-caption-m">
-        <strong class='govuk-tag govuk-tag--green'>Prepared</strong> <br>
-    <strong style='color:#000'> In person incident</strong><br>
-    <span style='color:#000'>15 July 2025</span><br>
-    <span class="govuk-body-s" style='color:#505a5f'>Reported by Richard Cliff on behave of Steven Tran, 15 July 2025 at 8:30am</span>
-     <p class="govuk-body-s" style="color:#505a5f">Manager: Earl Gray</p>
-</span>
-      <div class="govuk-!-margin-bottom-9 govuk-!-margin-top-4">
-
-
-
-        
-      
-      <dl class="govuk-summary-list">
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Fast track</span>
-          </dt>
-          <dd class="govuk-summary-list__value">
-            No
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <form action="06fast" class="form" method="post">
-              {{ govukButton({
-                text: "Change",
-                classes: "govuk-button--secondary ds_link"
-              }) }}
-            </form>
-          </dd>
-        </div>
-
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Incident type
-          </dt>
-          <dd class="govuk-summary-list__value">
-              Physical assault
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <form action="03type2" class="form" method="post">
-              {{ govukButton({
-                text: "Change",
-                classes: "govuk-button--secondary ds_link"
-              }) }}
-            </form>
-          </dd>
-        </div>
-
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Incident cause
-          </dt>
-          <dd class="govuk-summary-list__value">
-            An issue with payment
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <form action="04trigger2" class="form" method="post">
-              {{ govukButton({
-                text: "Change",
-                classes: "govuk-button--secondary ds_link"
-              }) }}
-            </form>
-          </dd>
-        </div>
-
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Note for manager
-          </dt>
-          <dd class="govuk-summary-list__value">
-            This customer is violent. Please do not engage with him in person.
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <form action="09prepare_single_man2" class="form" method="post">
-              {{ govukButton({
-                text: "Change",
-                classes: "govuk-button--secondary ds_link"
-              }) }}
-            </form>
-          </dd>
-        </div>
-
-
-      </dl>
-    </div>
-
 <div class="govuk-grid-row">
 <div class="govuk-grid-column-two-thirds">
   <h2 class="govuk-heading-m">Have you finished making your decision?</h2>
-        <p class="govuk-body">If you need to change anything, select ‘Change’ next to each answer or use the Back link near the top of this page.</p>
+        <p class="govuk-body">If you need to change anything, select 'Change' next to each answer or use the back link near the top of this page.</p>
 
   <h2 class="govuk-heading-m">What happens next?</h2>
-        <p class="govuk-body">If you have finished making your decision and are ready to publish it, click the button below to publish the actions and measures.<br><strong> This will publish your decision.</strong></p>
+        <p class="govuk-body">Complete report processing for all live reports then make your decision, publish and close your report. <br><br><strong>You will not be able to change anything about your decision after you click the button.</strong></p>
         <form action="12confirmation2" class="form" method="post">
           <input type="hidden" id="20240429_inc2_status" name="20240429_inc2_status" value="Prepared" >
           <div class="govuk-button-group">

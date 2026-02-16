@@ -154,6 +154,23 @@
     </dd>
   </div>
 
+    <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Letter content
+    </dt>
+    <dd class="govuk-summary-list__value">
+     You are no longer permitted to access the centre, effective immediately, due to recent conduct that does not align with our centre policies.
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <form action="05d_wholetter" class="form" method="post">
+        {{ govukButton({
+          text: "Change",
+          classes: "govuk-button--secondary ds_link"
+        }) }}
+      </form>
+    </dd>
+  </div>
+
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">
       Chosen manager
@@ -316,7 +333,7 @@
             Fast track</span>
           </dt>
           <dd class="govuk-summary-list__value">
-            N/A
+            No information added yet
           </dd>
         </div>
 
@@ -325,7 +342,7 @@
             Incident type
           </dt>
           <dd class="govuk-summary-list__value">
-            N/A
+            No information added yet
           </dd>
         </div>
 
@@ -334,7 +351,7 @@
             Incident cause
           </dt>
           <dd class="govuk-summary-list__value">
-            N/A
+            No information added yet
           </dd>
         </div>
 
@@ -343,7 +360,7 @@
             Note for manager
           </dt>
           <dd class="govuk-summary-list__value">
-            N/A
+            No information added yet
           </dd>
         </div>
 
@@ -353,12 +370,12 @@
 
 <div class="govuk-grid-row">
 <div class="govuk-grid-column-two-thirds">
-  <h2 class="govuk-heading-m">You have not finished processiong all the reports.</h2>
+  <h2 class="govuk-heading-m">You still have at least one report to process.</h2>
     
-        <p class="govuk-body">You will need to finish processing all reports before you can publish the decision. If you need to change anything, select 'Change' next to each answer or use the back link near the top of this page.</p>
+        <p class="govuk-body">You must finish processing all reports before you can publish the decision. <br><br>If you need to change anything, select 'Change' next to each answer or use the back link near the top of this page.</p>
         <h2 class="govuk-heading-m">What you need to do?</h2>
-        <p>Select 'Complete report preparation' to finish processiong all the reports. <strong>This will not publish your decision.</strong></p>
-        <p>Once all reports are prepared, you will be able to add measures, publish the decision, and close your report.</p>
+        <p>Select 'Finish processing reports' to finish processing any remaining reports. <strong>This will not publish your decision.</strong></p>
+        <p>Once any reports are processed, you will be able to add measures, publish the decision, and close your report.</p>
         <form action="12confirmation2" class="form" method="post">
           <input type="hidden" id="20240429_inc2_status" name="20240429_inc2_status" value="Prepared" >
           <div class="govuk-button-group">
@@ -368,8 +385,8 @@
               disabled: true
             }) }}
             {{ govukButton({
-              text: "Complete report preparation",
-              href: "20choosereport",
+              text: "Finish processing reports",
+              href: "02history_complex_multiple8",
               classes: "govuk-button--secondary"
             }) }}
           </div>
@@ -390,8 +407,9 @@
 <h4 class="govuk-heading-s">States</h3>
 <ul class="govuk-list govuk-list--bullet">
         <li><a href="11check_good2">Defualt</a></li>
-        <li><a href="11check_good2">Not fully prepared</a></li>
+        <li><a href="11check_good2_notprepared">Not fully prepared</a></li>
         <li><a href="11check_good2_nomanageraction">No manager action</a></li>
+        <li><a href="11check_good2_single">Single report</a></li>
 </ul>
     {% endif %}
 {% endblock %}

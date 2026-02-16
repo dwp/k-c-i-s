@@ -16,19 +16,8 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      {% include "./templates/multi_caption_confirmation.njk" %}
-      <br>
-      <br>
 
-      {% set refHTML %}
-      <div class="govuk-panel__body">Reference number:
-        <br>
-        <strong>
-          <span aria-hidden="true">{{data['20240429_inc2_reference_prefix']}}</span><span aria-hidden="false">{{data['20240429_inc2_reference_chars']}}</span><br>
-          <span aria-hidden="true">{{data['20240429_inc1_reference_prefix']}}</span><span aria-hidden="false">{{data['20240429_inc1_reference_chars']}}</span>
-        </strong>
-      </div>
-      {% endset %}
+
       {{ govukPanel({
         titleText: "We've published your decision ",
         html: refHTML,
@@ -49,11 +38,11 @@
   </div>
   <div class="govuk-button-group">
     {{ govukButton({
-      text: "Return to Your reports",
-      href: "01landingpage1_none"
+      text: "Return to start",
+      href: "02history_complex_multiple9_completed"
     }) }}
     {{ govukButton({
-      text: "Check Customer history",
+      text: "Back to Searchlight home",
       href: "02history_complex_multiple9_completed",
       classes: "govuk-button--secondary"
     }) }}    

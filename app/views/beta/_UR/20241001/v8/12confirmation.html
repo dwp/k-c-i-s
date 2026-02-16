@@ -16,20 +16,9 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      {% set html %}
-      <h3 class="govuk-notification-banner__heading">
-        This report is now <span class="govuk-tag govuk-tag--green">Prepared</span>
-      </h3>
-      <p class="govuk-body">Reference number: <span aria-hidden="true">{{data['20240429_inc1_reference_prefix']}}</span><span aria-hidden="false">{{data['20240429_inc1_reference_chars']}}</span>
-      </p>
-    {% endset %}
-    
-    {{ govukNotificationBanner({
-      html: html,
-      type: "success"
-    }) }}
+
       <h2 class="govuk-heading-s govuk-!-margin-bottom-0">
-          <strong class='govuk-tag govuk-tag--green'>Prepared</strong><br>
+          <strong class='govuk-tag govuk-tag--green'>Processed</strong><br>
           <a href="h_02incident1">In person incident</a>
         </h2>
         <p class="govuk-!-margin-bottom-0">15 July 2025</p>
@@ -39,11 +28,11 @@
 
       <h2 class="govuk-heading-m">What happens next?</h2>
 
-      <p class="govuk-body">You may have more reports to prepare for this customer. </p>
+      <p class="govuk-body">You may have more reports to process for this customer.</p>
 
 
       <p class="govuk-body">
-        Return to the Customer history and make sure all live reports are <span class="govuk-tag govuk-tag--green">Prepared</span>. Then apply safety measures, publish and close the decision.
+        Return to the Customer history and make sure all live reports are <span class="govuk-tag govuk-tag--green">Processed</span>. Then make and publish your decision.
       </p>
       <p class="govuk-body"><strong>You can continue to change your decision until it is published.</strong> </p>
 

@@ -142,19 +142,19 @@
     </div>
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <h2 class="govuk-heading-m">Have you finished preparing this report?</h2>
+        <h2 class="govuk-heading-m">Have you finished processing this report?</h2>
     
-        <p class="govuk-body">If you need to change anything, select 'Change' next to each answer or use the back link near the top of this page.</p>
-        <p>Select 'Complete report preparation' to complete the preparation of this report only. <strong>This will not publish your decision.</strong></p>
+        <p class="govuk-body">If you need to change anything, select ‘Change’ next to each answer or use the back link near the top of this page. When you’re ready, select <strong>Finish processing report</strong>.</p> 
+        <p>This completes the processing for this report only. It does <strong>not</strong> publish your decision.</p>
         <h2 class="govuk-heading-m">What happens next?</h2>
-        <p>'Complete report preparation' for all live reports then add measures, publish and close your report. </p>
+        <p>After you finish processing this report, repeat the process for any other live reports. Once all live reports are processed, you can make and publish your decision.</p>
 
         <form action="12confirmation" class="form" method="post">
           <input type="hidden" id="20240429_inc1_status" name="20240429_inc1_status" value="Prepared" >
           <div class="govuk-button-group">
           {{ govukButton(
               {
-                text: "Complete report preparation"
+                text: "Finish processing report"
               }
             )
           }}

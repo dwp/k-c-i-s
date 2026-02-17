@@ -16,6 +16,16 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+      {% set html %}
+      <h3 class="govuk-notification-banner__heading">
+        This report is now <span class="govuk-tag govuk-tag--green">Processed</span>
+      </h3>
+    {% endset %}
+    
+    {{ govukNotificationBanner({
+      html: html,
+      type: "success"
+    }) }}
 
       <h2 class="govuk-heading-s govuk-!-margin-bottom-0">
           <strong class='govuk-tag govuk-tag--green'>Processed</strong><br>
@@ -45,7 +55,7 @@
   {% endif %}
 
   {{ govukButton({
-    text: "Return to Customer history",
+    text: "Return to customer history",
     classes: "govuk-button--primary",
     href: "02history_complex_multiple8_prepared"
   }) }}

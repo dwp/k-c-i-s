@@ -22,6 +22,15 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: [
+          {
+            text: "Tell us if this should be reported as a Fast Track incident",
+            href: "#fast-track"
+          }
+        ]
+      }) }}         
         <h2 class="govuk-heading-s govuk-!-margin-bottom-0">
           <strong class='govuk-tag govuk-tag'>Decision pending</strong><br>
           <a href="h_02incident1">In person incident</a>
@@ -47,7 +56,10 @@
             value: "no",
             text: "No"
           }
-        ]
+        ],
+        errorMessage: {
+          text: "Tell us if this should be reported as a Fast Track incident"
+        }
       }) }}
       <div class="govuk-button-group">
         {{ govukButton({

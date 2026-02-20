@@ -25,6 +25,15 @@
 {% block content %}
    <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+            {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: [
+          {
+            text: "Enter comments for the manager",
+            href: "#2401_note"
+          }
+        ]
+      }) }}
         <h2 class="govuk-heading-s govuk-!-margin-bottom-0">
           <strong class='govuk-tag govuk-tag'>Decision pending</strong><br>
           <a href="h_02incident1">In person incident</a>
@@ -48,8 +57,11 @@
             },
             hint: {
               text: notehintHTML
-            }
-          }) }}
+            },
+          errorMessage: {
+            text: "Enter comments for the manager"
+          }
+        }) }}
         </section>
         <div class="govuk-button-group">
           {{ govukButton({

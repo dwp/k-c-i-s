@@ -1,0 +1,86 @@
+{% extends "layout_EVS.html" %}
+
+{% block pageTitle %}
+  Data Explorer
+{% endblock %}
+{% block beforeContent %}
+
+{% endblock %}
+{% block content %}
+<style>
+  .grey {
+  background-color: #f3f2f1;
+  padding-top: 20px;
+  }
+</style>
+
+
+        <h1 class="govuk-heading-xl govuk-!-padding-bottom-0">Data Explorer</h1>
+              <p class="govuk govuk-!-padding-bottom-8">
+        Data explorere is the place where you can select and query data from different parts and indivuals. Select this one if you want to go through some data inspectionin details. 
+      </p>
+
+
+  
+
+
+  <div class="govuk-grid-row govuk-!-padding-bottom-2">
+    <div class="govuk-grid-column-two-thirds">
+      <h2 class="govuk-heading-l">Select a data set to query</h2>
+      <p class="govuk-hint govuk-!-padding-bottom-4">
+        Select the data set that you would like to look into down below.
+      </p>
+
+      <table class="govuk-table">
+  <caption class="govuk-table__caption govuk-table__caption--m">Query list</caption>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Name</th>
+      <th scope="col" class="govuk-table__header">Select</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">GUID search - Find records pertaining to an individual</th>
+      <td class="govuk-table__cell"><a class="govuk-link" href="#">Open</a></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Correlation iD search - bank payload finder</th>
+      <td class="govuk-table__cell"><a class="govuk-link" href="#">Open</a></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Beneficiary matching results - open search</th>
+      <td class="govuk-table__cell"><a class="govuk-link" href="#">Open</a></td>
+    </tr>
+        <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Payload and record-level failures explorer</th>
+      <td class="govuk-table__cell"><a class="govuk-link" href="#">Open</a></td>
+    </tr>
+        <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Generated event finder - Event ID</th>
+      <td class="govuk-table__cell"><a class="govuk-link" href="#">Open</a></td>
+    </tr>
+  </tbody>
+</table>
+
+
+      
+    </div>
+  </div>
+  </div>
+  
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+

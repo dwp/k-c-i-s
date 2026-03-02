@@ -1,0 +1,73 @@
+{% extends "layout_EVS.html" %}
+
+{% block pageTitle %}
+  Data Explorer
+{% endblock %}
+{% block beforeContent %}
+
+{% endblock %}
+{% block content %}
+<style>
+  .grey {
+  background-color: #f3f2f1;
+  padding-top: 20px;
+  }
+</style>
+<a href="guid_no" class="govuk-back-link">Back</a>
+
+
+        <h1 class="govuk-heading-xl govuk-!-padding-bottom-0">Guid search</h1>
+              <p class="govuk govuk-!-padding-bottom-8">
+        This is the service where you can query GUID result for specific perios and GUID.
+      </p>
+
+<div class="govuk-grid-row govuk-!-padding-bottom-2">
+ <div class="govuk-grid-column-two-thirds">
+  <table class="govuk-table">
+  <caption class="govuk-table__caption govuk-table__caption--m">Result</caption>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">GUID</th>
+      <th scope="col" class="govuk-table__header govuk-table__header--numeric">Date received</th>
+      <th scope="col" class="govuk-table__header govuk-table__header--numeric">Name</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">123456</th>
+      <td class="govuk-table__cell govuk-table__cell--numeric">100,798</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric">100,000</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">123456</th>
+      <td class="govuk-table__cell govuk-table__cell--numeric">50,765</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric">25,289</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">123456</th>
+      <td class="govuk-table__cell govuk-table__cell--numeric">799</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric">701</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+
+<a href="EVS" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+  Back to EVS landing
+</a>
+  
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+

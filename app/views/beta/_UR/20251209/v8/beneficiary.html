@@ -1,0 +1,121 @@
+{% extends "layout_EVS.html" %}
+
+{% block pageTitle %}
+  Data Explorer
+{% endblock %}
+{% block beforeContent %}
+
+{% endblock %}
+{% block content %}
+<style>
+  .grey {
+  background-color: #f3f2f1;
+  padding-top: 20px;
+  }
+</style>
+
+<a href="data_explorer" class="govuk-back-link">Back</a>
+
+        <h1 class="govuk-heading-xl govuk-!-padding-bottom-0">Beneficiary Matching</h1>
+              <p class="govuk govuk-!-padding-bottom-8">
+        This is the service where you can query Beneficiary Matching result for specific period and Beneficiary Matching.
+      </p>
+
+        <div class="govuk-grid-row govuk-!-padding-bottom-2">
+    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">
+        Which period would you like to query?
+      </h1>
+    </legend>
+    <div id="passport-issued-hint" class="govuk-hint">
+      For example, 27 3 2007
+    </div>
+      <p class="govuk">
+        <strong>From</strong>
+      </p>
+    <div class="govuk-date-input" id="passport-issued">
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+            Day
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric">
+        </div>
+      </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+            Month
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric">
+        </div>
+      </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+            Year
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric">
+        </div>
+      </div>
+
+            <p class="govuk govuk-!-padding-top-4">
+        <strong>To</strong>
+      </p>
+    <div class="govuk-date-input" id="passport-issued">
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+            Day
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric">
+        </div>
+      </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+            Month
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric">
+        </div>
+      </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+            Year
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric">
+        </div>
+      </div>
+
+    </div>
+  </fieldset>
+</div></div></div>
+
+
+<a href="beneficiary_result" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+  Search
+</a>
+      
+    </div>
+  </div>
+  </div>
+  
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+

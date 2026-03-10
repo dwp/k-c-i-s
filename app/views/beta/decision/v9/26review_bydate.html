@@ -35,6 +35,12 @@ To show or exclude bans, use the filter below.</p>
   </div>
 
   <br>
+
+  <p class="govuk-body"><strong>Applied filter:</strong>
+          <strong class="govuk-tag">
+          Filter by date
+        </strong>
+  </p>
   
       {{ govukButton({
         text: "Filter options",
@@ -64,10 +70,10 @@ To show or exclude bans, use the filter below.</p>
       rows: [
       [
         {
-          html: "Anne Other"
+          html: "<span class='govuk-visually-hidden'>Customer: </span>Anne Other"
         },
         {
-          html: "
+          html: "<span class='govuk-visually-hidden'>Measures: </span>
                  <ul class='govuk-list govuk-list--bullet'>
                   <li>No home visits</li>
                  <li>Interim ban from office (by DWP)<br>Banned from: Bromley JCP</li>
@@ -78,7 +84,7 @@ To show or exclude bans, use the filter below.</p>
           html: "<span class='govuk-visually-hidden'>Due date: </span>14 June 2026"
         },
         {
-          html: "Adam Smith"
+          html: "<span class='govuk-visually-hidden'>Assigned to: </span>Adam Smith"
         },
         {
           html: "<a href='04history_complex'>Review</a><br><a href=''>Unassign</a>"
@@ -86,10 +92,10 @@ To show or exclude bans, use the filter below.</p>
       ],
       [
         {
-          html: "John Doe"
+          html: "<span class='govuk-visually-hidden'>Customer: </span>John Doe"
         },
         {
-          html: "
+          html: "<span class='govuk-visually-hidden'>Measures: </span>
                  <ul class='govuk-list govuk-list--bullet'>
                  <li>Interim ban from office (by DWP)<br>Banned from: Bromley JCP</li>
                  <li>Must only interact with a named member of staff<br>Staff member: whitney@dwp.gov</li>
@@ -99,18 +105,18 @@ To show or exclude bans, use the filter below.</p>
           html: "<span class='govuk-visually-hidden'>Due date: </span>13 June 2026"
         },
         {
-          html: "David Cassidy"
+          html: "<span class='govuk-visually-hidden'>Assigned to: </span>David Cassidy"
         },
         {
-          html: "<a href=''>Assign</a>"
+          html: "<a href='04history_complex'>Review</a><br><a href=''>Assign</a>"
         }
       ],
       [
         {
-          html: "Earl Grey"
+          html: "<span class='govuk-visually-hidden'>Customer: </span>Earl Grey"
         },
         {
-          html: "
+          html: "<span class='govuk-visually-hidden'>Measures: </span>
                  <ul class='govuk-list govuk-list--bullet'>
                  <li>Interim ban from office (by DWP)<br>Banned from: Bromley JCP</li>
                  <li>Ban from office (by Government Legal Department)<br>Banned from: Droitwich JCP</li>
@@ -120,7 +126,7 @@ To show or exclude bans, use the filter below.</p>
           html: "<span class='govuk-visually-hidden'>Due date: </span>11 June 2026"
         },
         {
-          html: "Adam Smith"
+          html: "<span class='govuk-visually-hidden'>Assigned to: </span>Adam Smith"
         },
         {
           html: "<a href='04history_complex'>Review</a><br><a href=''>Unassign</a>"
@@ -128,10 +134,10 @@ To show or exclude bans, use the filter below.</p>
       ],
       [
         {
-          html: "Robert De Silva"
+          html: "<span class='govuk-visually-hidden'>Customer: </span>Robert De Silva"
         },
         {
-          html: "
+          html: "<span class='govuk-visually-hidden'>Measures: </span>
                  <ul class='govuk-list govuk-list--bullet'>
                  <li>No home visits</li>
                  <li>Must only interact with a named member of staff<br>Staff member: whitney@dwp.gov</li>
@@ -141,10 +147,10 @@ To show or exclude bans, use the filter below.</p>
           html: "<span class='govuk-visually-hidden'>Due date: </span>11 June 2026"
         },
         {
-          html: "Unassigned"
+          html: "<span class='govuk-visually-hidden'>Assigned to: </span>David Cassidy"
         },
         {
-          html: "<a href=''>Assign</a>"
+          html: "<a href='04history_complex'>Review</a><br><a href=''>Assign</a>"
         }
       ]
     ]

@@ -45,6 +45,23 @@
           {% endset %}          
         {% endif %}       
       {% endif %}          
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: [
+          {
+            text: "Tell us when these measures should be reviewed",
+            href: "#incident-date"
+          },
+          {
+            text: "Enter the review date",
+            href: "#incident-date"
+          },
+          {
+            text: "The review date must be in the future",
+            href: "#incident-date"
+          }
+        ]
+      }) }}
 
         {% set dateHtml %}
           {{ govukDateInput({
@@ -59,23 +76,23 @@
               text: "For example, 30 11 2021"
             },
             items: [
-              {
-                classes: "govuk-input--width-2",
-                name: "day",
-                value: data["day"]
-              },
-              {
-                classes: "govuk-input--width-2",
-                name: "month",
-                value: data["month"]
-              },
-              {
-                classes: "govuk-input--width-4",
-                name: "year",
-                value: data["year"]
-              }
-              ]
-          }) }}
+            {
+              classes: "govuk-input--width-2 govuk-input--error",
+              name: "day"
+            },
+            {
+              classes: "govuk-input--width-2 govuk-input--error",
+              name: "month"
+            },
+            {
+              classes: "govuk-input--width-4 govuk-input--error",
+              name: "year"
+            }
+          ],
+          errorMessage: {
+            text: "Tell us when these measures should be reviewed"
+          }
+        }) }}
         {% endset -%}
               {% include "./templates/govuk-caption-m-multiple.njk" %}<br>
         <a href="02history_complex_multiple8" class>View Customer history</a>
@@ -116,7 +133,8 @@
               text: "Other",
               conditional: {
                 html: dateHtml
-              }
+              },
+            checked: true
             }
           ]
         }) }}

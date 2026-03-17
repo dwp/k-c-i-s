@@ -1,6 +1,6 @@
 {% extends "layout_20241001_ur.html" %}
 {% block pageTitle %}
-  When should these measures be reviewed? - Keep Customer Interactions Safe
+  Error: When should these measures be reviewed? - Keep Customer Interactions Safe
 {% endblock %}
 {% block beforeContent %}
   <section aria-label="Phase banner" role="region">
@@ -44,7 +44,16 @@
           </button>
           {% endset %}          
         {% endif %}       
-      {% endif %}          
+      {% endif %}     
+            {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: [
+          {
+            text: "Tell us when these measures should be reviewed",
+            href: "#review"
+          }
+        ]
+      }) }}
 
         {% set dateHtml %}
           {{ govukDateInput({
@@ -118,7 +127,10 @@
                 html: dateHtml
               }
             }
-          ]
+          ],
+        errorMessage: {
+          text: "Tell us when these measures should be reviewed"
+        }
         }) }}
         <div class="govuk-button-group">
           <form class="form" action="20choosereport" method="post">

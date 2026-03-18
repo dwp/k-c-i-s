@@ -22,6 +22,15 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+                  {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: [
+          {
+            text: "Select which manager should do the action.",
+            href: "#add-files"
+          }
+        ]
+      }) }}
       {% set inc2HTML %}
                                         <h2 class="govuk-heading-s govuk-!-margin-bottom-0">
                                            <p class="govuk-heading-m govuk-!-margin-bottom-2">Sarah Sencha</p>
@@ -64,7 +73,9 @@
       '
     }
   },
-
+          errorMessage: {
+          text: "Select which manager should do the action."
+},
           items: [
             {
               value: "incident2",

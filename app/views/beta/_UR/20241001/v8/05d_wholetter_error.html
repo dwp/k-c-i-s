@@ -22,6 +22,15 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+            {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: [
+          {
+            text: "Select Manager if you want the manager to send the letter. Select Decision Maker if you will send it",
+            href: "#add-files"
+          }
+        ]
+      }) }}
        <!-- Set the buttons to return to Check your answers page it cam from else carry on with flow-->
        {% if data['Referrer'] %}
         {% if data['Referrer'].includes('11check_good_multi') %}
@@ -70,6 +79,9 @@
               classes: "govuk-fieldset__legend--xl"
             }
           },
+          errorMessage: {
+          text: "Select Manager if you want the manager to send the letter. Select Decision Maker if you will send it"
+        },
           items: [
             {
               value: "Manager",

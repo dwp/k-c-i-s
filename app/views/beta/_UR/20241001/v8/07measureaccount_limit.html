@@ -22,6 +22,15 @@
 {% block content %}
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: [
+            {
+              text: "You have reached the charater limit for the reasons",
+              href: "#actionaccounts"
+            }
+          ]
+        }) }}
       <!-- Set the buttons to return to Check your answers page it cam from else carry on with flow-->
       {% if data['Referrer'] %}
         {% if data['Referrer'].includes('11check_good_multi') %}
@@ -68,7 +77,10 @@
             },
               hint: {
               html: hintHTML
-            }
+            },
+          errorMessage: {
+            text: "You have reached the charater limit for the reasons"
+          }
           }) }}
           <div class="govuk-button-group">
             <form class="form" action="20choosereport" method="post">

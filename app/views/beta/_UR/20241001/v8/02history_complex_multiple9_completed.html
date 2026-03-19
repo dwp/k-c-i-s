@@ -341,6 +341,26 @@
             </ol>
         </div>
     </div>
+ {% if not (checked("displaymode", "presentation") == "checked") %}
 
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<hr>
+<br>
+<h3 class="govuk-heading-s govuk-!-font-weight-regular">NOT PART OF DESIGN: Demo only</h3>
+<h4 class="govuk-heading-s">States</h3>
+<ul class="govuk-list govuk-list--bullet">
+    <li><a href="02history_complex_multiple8">Default</a></li>
+    <li><a href="02history_complex_multiple8_nohistory">No previous history</a></li>
+    <li><a href="02history_complex_multiple8_migratedhistory">Migrated(TBC)</a></li>
+    <li><a href="02history_complex_multiple8_adhoc">Ad hoc review</a></li>
+    <li><a href="02history_complex_multiple8_bs">Business support view</a></li>
+    <li><a href="02history_complex_multiple8_prepared">Decision is prepared but not made yet</a></li>
+</ul>
+    {% endif %}
 {% endblock %}
 

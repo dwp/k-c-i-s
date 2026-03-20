@@ -15,7 +15,9 @@
     "govuk-frontend": "^4.7.0",
     "govuk-prototype-kit": "^13.16.2",
     "notifications-node-client": "^5.2.3",
-    "qs": "^6.14.1"
+    "qs": "^6.14.1",
+    "socket.io": "^4.8.3",
+    "socket.io-parser": "^4.2.6"
   },
   "engines": {
     "node": "20.9"

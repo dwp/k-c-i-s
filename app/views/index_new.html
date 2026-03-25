@@ -12,16 +12,14 @@ Prototype index - Keep Customer Interactions Safe
 	<div class="govuk-grid-column-two-thirds">
 
 		<h1 class="govuk-heading-xl">Final prototype index<span class="govuk-caption-m">Prototype kit {{releaseVersion}}</span></h1>
-		<p class="govuk-body"><a href="instructions">Prototype instructions</a></p>
 		<ul class="govuk-list govuk-list--bullet">
 			<li><a href="#interaction">Prepare for interaction</a></li>
 			<li><a href="#incident">Report incident or concern</a></li>
 			<li><a href="#manager">Manager report</a></li>
 			<li><a href="#witness">Witness report</a></li>
-			<li><a href="#common">Common reporting</a></li>
-			<li><a href="#decision">Make Decision </a></li>
+			<li><a href="#decision">Make decision </a></li>
+			<li><a href="#customer">Customer history</a></li>
 			<li><a href="#admin">Administration tools</a></li>
-			<li><a href="#email">Notification emails</a></li>
 		</ul>
 		<hr>
 
@@ -191,59 +189,6 @@ Prototype index - Keep Customer Interactions Safe
 		</div>
 
 
-
-		<div class="govuk-!-padding-bottom-7 govuk-!-padding-top-7">
-			<h2 class="govuk-heading-l" id="common">Common reporting</h3>
-			<p>Only pages that do not appear on the prototype as part of another journey will appear here.</p>
-			<p class="govuk-body-s">("Establish report type" and "Upload digital files" are in the Incident/Concern journey)</p>
-
-			<h3 class="govuk-heading-s"><strong class="govuk-tag govuk-tag--blue">UCD - In progress</strong></h4>
-			<ul class="govuk-list govuk-list--bullet">
-				<li><a href="/beta/common/error/v2/00error">Error page v2</a></li>
-				<li><a href="/beta/common/footer/v1/00footer">Accessibility statement footer v1</a></li>
-				<li><a href="/beta/common/cya/v1/00check_manager">Check your answers v1</a></li>
-				<li><a href="/beta/common/landing/v4/00searchlight">Reporter/manager/witness Landing page v4</a></li>
-				<li><a href="/beta/common/landing/v5/00searchlight">Reporter/manager/witness Landing page v5</a></li>
-				<li><a href="/beta/common/user_sat/v1/00usersat_contactlater">User satisfaction - contact later v1</a></li>
-				<li><a href="/beta/common/leaver/v1/00check">Leaver v1</a></li>
-				<li><a href="/beta/common/fragment/v1/00searchlight">Searchlight HTML fragment v1</a></li>
-				<li><a href="/beta/common/fragment/v1/01searchlight_pv">Searchlight PV copy v1</a></li>
-				<li><a href="/beta/common/searchlight_restricted/v1/00searchlight">Searchlight restricted view v1</a></li>
-				<li><a href="/beta/common/view_incident">View incident collection</a></li>
-				<li><a href="/beta/common/home_collection">Home page collection</a></li>
-			</ul>
-			<h3 class="govuk-heading-s"><strong class="govuk-tag govuk-tag--green">Development</strong></h4>
-			<ul class="govuk-list govuk-list--bullet">
-				<li><a href="/beta/common/landing/v2/00searchlight">Reporter/manager/witness Landing page v2</a></li>
-			</ul>
-			<hr>
-
-			<h3 class="govuk-heading-s">Archive</h3>
-			{% set oldjourneysHTML %}
-			<ul class="govuk-list govuk-list--bullet">
-				<li><a href="/beta/common/landing/v3/00searchlight">Reporter/manager/witness Landing page v3</a></li>
-				<li><a href="/beta/common/landing/v2/00searchlight">Reporter/manager/witness Landing page v2</a></li>
-				<li><a href="/beta/common/landing/v1/00searchlight">Reporter/manager/witness Landing page v1</a></li>
-			</ul>
-			{% endset %}
-			{{ govukDetails({
-			summaryText: "Old journeys",
-			html: oldjourneysHTML
-			}) }}
-			{% set oldpagesHTML %}
-			<ul class="govuk-list govuk-list--bullet">
-				<li><a href="/beta/common/landing/v1/00searchlight">Reporter/manager/witness Landing page v1</a></li>
-			</ul>
-			{% endset %}
-			{{ govukDetails({
-			summaryText: "Old pages",
-			html: oldpagesHTML
-			}) }}
-			<hr>
-		</div>
-
-
-
 		<div class="govuk-!-padding-bottom-7 govuk-!-padding-top-7">
 			<h2 class="govuk-heading-l" id="decision">Make Decision Journey</h3>
 
@@ -335,7 +280,7 @@ Prototype index - Keep Customer Interactions Safe
 
 
 		<div class="govuk-!-padding-bottom-7 govuk-!-padding-top-7">
-			<h2 class="govuk-heading-l" id="decision">Csutomer History</h3>
+			<h2 class="govuk-heading-l" id="customer">Csutomer History</h3>
 
 			<h3 class="govuk-heading-s"><strong class="govuk-tag govuk-tag--green">Final</strong></h4>
 			<ul class="govuk-list govuk-list--bullet">
@@ -428,7 +373,7 @@ Prototype index - Keep Customer Interactions Safe
 
 		<div class="govuk-!-padding-bottom-7 govuk-!-padding-top-7">
 			<h2 class="govuk-heading-l" id="admin">Administration tools</h2>
-			<h3 class="govuk-heading-s"><strong class="govuk-tag govuk-tag--blue">UCD - In progress</strong></h4>
+			<h3 class="govuk-heading-s"><strong class="govuk-tag govuk-tag--green">Final</strong></h4>
 			<ul class="govuk-list govuk-list--bullet">
 				<li><a href="/beta/administrator/v1/00home">Administration tools v1</a><br><br>
 				{{ govukDetails({
@@ -449,217 +394,6 @@ Prototype index - Keep Customer Interactions Safe
 		</div>
 
 
-
-		<div class="govuk-!-padding-bottom-7 govuk-!-padding-top-7">
-			<h2 class="govuk-heading-l" id="admin">Private Beta admin</h3>
-
-			<h3 class="govuk-heading-s"><strong class="govuk-tag govuk-tag--blue">UCD - In progress</strong></h4>
-			<ul class="govuk-list govuk-list--bullet">
-				<li><a href="/beta/private_admin/v6/00list.html">Private Beta Admin journey - v6</a></li>
-			</ul>
-			<p class='govuk-body'>Add in uploaded files page (awaiting story)</p>
-			<h3 class="govuk-heading-s"><strong class="govuk-tag govuk-tag--green">Development</strong></h4>
-			<ul class="govuk-list govuk-list--bullet">
-				<li><a href="/beta/private_admin/v5/00list.html">Private Beta Admin journey - v5</a></li>
-			</ul>
-			<hr>
-
-			<h3 class="govuk-heading-s">Archive</h3>
-			{% set oldjourneysHTML %}
-			<ul class="govuk-list govuk-list--bullet">
-				<li><a href="/beta/private_admin/v4/01list.html">Private Beta Admin journey - v4</a></li>
-			</ul>
-			{% endset %}
-			{{ govukDetails({
-			summaryText: "Old journeys",
-			html: oldjourneysHTML
-			}) }}
-			{% set oldpagesHTML %}
-			<ul class="govuk-list govuk-list--bullet">
-				<li><a href="#">Title</a></li>
-			</ul>
-			{% endset %}
-			{{ govukDetails({
-			summaryText: "Old pages",
-			html: oldpagesHTML
-			}) }}
-			<hr>
-		</div>
-
-
-
-
-
-
-		<div class="govuk-!-padding-bottom-7 govuk-!-padding-top-7">
-			<h2 class="govuk-heading-l" id="email">Notification emails</h3>
-			<p>Version control for emails</p>
-			<p>Each email has a <a href="https://dwpdigital.atlassian.net/wiki/spaces/CITI/pages/133269849267/Emails">letter code for reference</a></p>
-			<ul class="govuk-list govuk-list--bullet govuk-list--bullet govuk-list--spaced">
-				<h3 class="govuk-heading-m">Reporter</h3>
-				<ul class="govuk-list govuk-list--bullet  govuk-list--spaced">
-					<li>K - Concern - confirmation that you’ve submitted a report v2 (this currently has no letter prefix in Notify)<br>
-					<a href="/beta/emails/01_reporter/k2" class="govuk-body-s">Ref: d1502e65-dc3f-4606-84b6-0eba2745e492</a></li>
-					<li>L - Concern - confirmation that you’ve submitted a report v2 (on behalf of)<br>
-					<a href="/beta/emails/01_reporter/l2" class="govuk-body-s">Ref: e80f2fa0-867e-4b54-9868-8ca6f90446a7</a></li>
-					<li>M - Incident - confirmation that you’ve submitted a report v2 (this currently has no letter prefix in Notify)<br>
-					<a href="/beta/emails/01_reporter/m2" class="govuk-body-s">Ref: fcc4f6c6-13c6-48a6-99ab-b88b850d39ac</a></li>
-					<li>N - Incident - confirmation that you’ve submitted a report v2 (on behalf of)<br>
-					<a href="/beta/emails/01_reporter/n2" class="govuk-body-s">Ref: ec7d0c80-884d-438d-b62a-7140e62458d3</a></li>
-				</ul>
-
-				<h3>Witness</h3>
-				<ul class="govuk-list govuk-list--bullet  govuk-list--spaced">
-					<li>B - Initial request<br>
-					<a href="/beta/emails/02_witness/b1" class="govuk-body-s">Ref: 1bf49b33-29ad-489a-bfa8-0ac54de836bf</a></li>
-					<li>C - Initial request - (on behalf of)<br>
-					<a href="/beta/emails/02_witness/c1" class="govuk-body-s">Ref: b84b5785-9314-4b56-8a7a-ee456476eacf</a></li>
-					<li>E - Witness - confirmation that you’ve submitted a report<br>
-					<a href="/beta/emails/02_witness/e1" class="govuk-body-s">Ref: 754d2c9b-adfe-46bc-a451-881291eacecf</a></li>
-					<li>F - Witness - confirmation that you’ve submitted a report (on behalf of)<br>
-					<a href="/beta/emails/02_witness/f1" class="govuk-body-s">Ref: 3c1b1f77-fcbe-480f-bd13-c58afe700400</a></li>
-					<li>H - Reminder to complete a report<br>
-					<a href="/beta/emails/02_witness/h1" class="govuk-body-s">Ref: 2bd2cb59-fe83-4710-a953-44ba358bc24d</a></li>
-					<li>V - Reminder to complete a report (on behalf of)<br>
-					<a href="/beta/emails/02_witness/v1" class="govuk-body-s">Ref: 2f26da13-9495-4cf0-afe3-9799d448c253</a></li>
-					<li>J - Removed - as a witness from the incident (this currently has no letter prefix in Notify)<br>
-					<a href="/beta/emails/02_witness/j1" class="govuk-body-s">Ref: 01d415dd-9fe9-427d-bf83-f79109ea854b</a></li>
-				</ul>
-
-				<h3>Line manager <span class="govuk-!-font-weight-regular govuk-body-s">(where Incident Manager and Line Manager are NOT the same person)</span>
-</h3>
-
-				<ul class="govuk-list govuk-list--bullet  govuk-list--spaced">
-					<li>G - Instructions (about duty of care to team member) v2<br>
-					<a href="/beta/emails/03_linemanager/g2" class="govuk-body-s">Ref: fe904158-6af5-4635-9117-02f201af6a19</a></li>
-				</ul>
-
-				<h3>
-					Incident manager <span class="govuk-!-font-weight-regular govuk-body-s">(where Incident Manager and Line Manager are NOT the same person)</span>
-				</h3>
-				<ul class="govuk-list govuk-list--bullet  govuk-list--spaced">
-					<li>A - Request to review and add comments<br>
-					<a href="/beta/emails/04_incidentmanager/a1" class="govuk-body-s">Ref: 17e64ecf-7ca9-4553-adb6-3701d8057c12</a></li>
-					<li>D - Confirmation that you’ve submitted a review and comments<br>
-					<a href="/beta/emails/04_incidentmanager/d1" class="govuk-body-s">Ref: 9107b9fe-e307-45af-8a5f-541a8432d840</a></li>
-					<li>R - Reminder to review and add comments<br>
-					<a href="/beta/emails/04_incidentmanager/r1" class="govuk-body-s">Ref: d6f3260f-7415-49e8-adb8-3ffb4dc391fe</a></li>
-					<li>S - Request for more information about incident<br>
-					<a href="/beta/emails/04_incidentmanager/s1" class="govuk-body-s">Ref: 103811d6-241e-48bb-9418-1dda9d3cd2e5</a></li>
-					<li>T - View confirmation of decision plus take (possible) action v2<br>
-						<a href="/beta/emails/04_incidentmanager/t2" class="govuk-body-s">Ref: 8b283168-a010-499e-a5e4-f812cf5e3811</a></li>
-					<li>X - New appropriate manager assigned<br>
-						<a href="/beta/emails/04_incidentmanager/x1" class="govuk-body-s">Ref: 60e5ebb3-1b83-4ac9-bc77-4bee7f8ef395</a></li>
-				</ul>
-
-				<h3>
-					Incident manager <span class="govuk-!-font-weight-regular govuk-body-s">(where Incident Manager and Line Manager ARE the same person)</span>
-				</h3>
-				<ul class="govuk-list govuk-list--bullet  govuk-list--spaced">
-					<li>P - Line and incident manager (Instructions about duty of care to team member AND request to review and add comments) v2<br>
-					<a href="/beta/emails/04_incidentmanager/p2" class="govuk-body-s">Ref: 082696aa-bb8a-4ba7-a6ba-597464f64ee3</a></li>
-				</ul>
-				<h3>SIRM</h3>
-				<ul class="govuk-list govuk-list--bullet  govuk-list--spaced">
-					<li>W - SIRM (Somebody has updated some information)<br>
-					<a href="/beta/emails/05_sirm/w1" class="govuk-body-s">Ref: f948d241-a346-48d1-a843-4239190b462b</a></li>
-				</ul>				
-		</div>
-
-
-		<div class="govuk-!-padding-bottom-7 govuk-!-padding-top-7">
-			<h2 class="govuk-heading-l" id="gold">Gold data</h2>
-			<ul class="govuk-list govuk-list--bullet">
-				<li><a href="/beta/_data/">Gold data set</a> </li>
-			</ul>
-		</div>
-
-		<div class="govuk-!-padding-bottom-7 govuk-!-padding-top-7">
-			<h2 class="govuk-heading-l" id="research">User Research and Presentations</h3>
-
-			<ul class="govuk-list govuk-list--bullet">
-				<li><a href="/beta/_UR/20241001/index2">New prototype</a> </li>
-				<li><a href="/beta/_UR/20241001/index2">Customer History Iterations</a> </li>
-				<li><a href="/beta/_UR/20250716/v8/01landingpage1_multiple0">Presentation 16 July 2025</a> </li>
-				<li><a href="/beta/interaction/v3/00searchlight_has">HAAS Test - Prepare for interaction</a> </li>
-				<li><a href="/beta/report_incident/reportv12/00searchlight_has">HAAS Test - Report concern</a> </li>
-				<li><a href="/beta/_UR/20241001">Decision multiple - flow change - 1 October 2024</a> </li>
-				<li><a href="/beta/_UR/20240916">Office location accessibility - 16 Sep 2024</a> </li>
-				<li><a href="/beta/_UR/20240905">Decision multiple - updated timeline - 5 Sep 2024</a> </li>
-				<li><a href="/beta/_UR/20240806">VO Demo - sprint review</a> </li>
-				<li><a href="/beta/_UR/20240716">Accessible buttons/links in fusion 16 Jul 2024</a> </li>
-				<li><a href="/beta/_UR/20240520">Decision multiple 20 May 2024</a> </li>
-				<li><a href="/beta/_UR/20240429">Decision multiple 29 Apr 2024</a> </li>
-				<li><a href="/beta/_UR/20240422">Accessibility Reporting 22 Apr 2024</a> </li>
-				<li><a href="/beta/_UR/20240227">SPOC 27 Feb 2024</a> </li>
-				<li><a href="/beta/_UR/20240226">VO/Gateway 26 Feb 2024</a> </li>
-				<li><a href="/beta/_UR/20240219">VO/Gateway 19 Feb 2024</a> </li>
-				<li><a href="/beta/_UR/20240216">TU 16 Feb 2024</a> </li>
-				<li><a href="/beta/_UR/20240205">UR SISO (Business support) Feb 2024</a> </li>
-				<li><a href="/beta/_UR/20240129">UR SIRM (Decision Maker) Jan 2024</a> </li>
-				<li><a href="/beta/_UR/20240109">UR Jan 2024</a> interactor</li>
-				<li><a href="/beta/_UR/20231121">UR November 2023</a> interactor</li>
-				<li><a href="/beta/_UR/20231107">Demo Tuesday 7 November 2023</a> Demo 2 incidentd</li>
-				<li><a href="/beta/_UR/20230707">UR Friday 7 July 2023</a> Manager additional info</li>
-				<li><a href="/beta/_UR/20230406">UR Wednesday 19 April 2023</a> Reporter triage</li>
-				<li><a href="/beta/_UR/20230323">UR Thursday 23 March 2023</a> Reporter triage</li>
-				<li><a href="/beta/_UR/20230303">UR Friday 3 March 2023</a> Decision Maker</li>
-				<li><a href="/beta/_UR/20230302">UR Thursday 2 March 2023</a> Reviewing manager</li>
-				<li><a href="/beta/_UR/20230301">UR Wednesday 1 March 2023</a> Report Incident</li>
-				<li><a href="/beta/_UR/20230223">UR Thursday 23 February 2023</a> Make decision </li>
-				<li><a href="/beta/_UR/20230209">UR Thursday 9 February 2023</a> Make decision </li>
-				<li><a href="/beta/_UR/20221201">UR Thursday 1 December 2022</a> </li>
-				<li><a href="/beta/_UR/20221020">UR Thursday 20 October 2022</a> </li>
-				<li><a href="/beta/_UR/20221006">UR Thursday 6 October 2022</a> </li>
-				<li><a href="/beta/_UR/20220908">UR Thursday 8 September 2022</a> | <a href="/beta/_UR/20220908/journal/journal-abuse">Journal</a></li>
-				<li><a href="/beta/_UR/20220714">UR Thursday 14 July 2022</a></li>
-				<li><a href="index2.html">Presentation 02 Feb 2022</a></li>
-				<li><a href="index3.html">UR Tue 15 Feb 2022 / Wed 16 Feb 2022</a></li>
-				<li><a href="_old/index4.html">Content Design presentation 21 March 2022</a></li>
-			</ul>
-			<hr>
-
-		</div>
-
-		<form class="form" action="index" method="post">
-        {{ govukRadios({
-          idPrefix: "displaymode",
-          name: "displaymode",
-          fieldset: {
-            legend: {
-              html: "Which display mode do you want to use?",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--l"
-            }
-          },
-          items: [
-            {
-              value: "presentation",
-              text: "Presentation",
-              hint: {
-                text: "For presenting to staheolders - hides design notes. Typically happy path"
-              },
-              checked: checked("displaymode", "presentation")
-            },
-            {
-              value: "design",
-              text: "Design",
-              hint: {
-                text: "Showing design notes"
-              },
-              checked: checked("displaymode", "design")
-            }
-          ],
-          hint: {
-            html: currentMode
-          }
-        }) }}
-        <div>
-          {{ govukButton({
-            text: "Apply now"
-          }) }}
-        </div>
-      </form>
 	</div>
 </div>
 {% endblock %}
